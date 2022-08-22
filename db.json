@@ -824,5 +824,27 @@
       "rating": 10,
       "img": "https://i.ibb.co/86x42mr/all-time-honeycomb-mixed-fruits.png"
     }
+  ],
+
+  "brands": [
+    {
+      "id": 1,
+      "name": "sultan's dine"
+    },
+    {
+      "id": 2,
+      "name": "pran"
+    }
+  ],
+
+  "categories": [
+    {
+      "id": 1,
+      "name": "kacchi"
+    },
+    {
+      "id": 2,
+      "name": "burger"
+    }
   ]
 }
