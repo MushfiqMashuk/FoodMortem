@@ -1,3 +1,5 @@
+import React from "react";
+
 function SingleProduct({ products }) {
   console.log(products);
 
