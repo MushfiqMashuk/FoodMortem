@@ -1,11 +1,12 @@
+import { useRouter } from "next/router";
 import React from "react";
-import {useRouter} from "next/router";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 function SingleProduct({ products }) {
   const router = useRouter();
 
   if (router.isFallback) {
-    return <h1>Loading...</h1>;
+    return <LoadingSpinner />;
   }
 
   return <div>{`${products.brand} er ${products.name}`}</div>;
@@ -24,7 +25,7 @@ export async function getStaticPaths() {
   // }));
 
   return {
-    paths: [{ params: { productId: "1" } }],
+    paths: [],
     fallback: true,
   };
 }
