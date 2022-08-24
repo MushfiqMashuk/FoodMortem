@@ -1,7 +1,12 @@
 import React from "react";
+import {useRouter} from "next/router";
 
 function SingleProduct({ products }) {
-  console.log(products);
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <h1>Loading...</h1>;
+  }
 
   return <div>{`${products.brand} er ${products.name}`}</div>;
 }
@@ -9,9 +14,18 @@ function SingleProduct({ products }) {
 export default SingleProduct;
 
 export async function getStaticPaths() {
+  // const fetchedData = await fetch(
+  //   `http://localhost:4000/products`
+  // );
+  // const data = await fetchedData.json();
+
+  // const paths = data.map((product) => ({
+  //   params: { productId: `${product.id}` },
+  // }));
+
   return {
-    paths: [{ params: { productId: "1" } }, { params: { productId: "2" } }],
-    fallback: true
+    paths: [{ params: { productId: "1" } }],
+    fallback: true,
   };
 }
 
