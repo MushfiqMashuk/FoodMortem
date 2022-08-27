@@ -1,8 +1,22 @@
-import { Spinner } from "react-loading-io";
+import styles from "./loadingSpinner.module.scss";
 
-// Use Component
 const LoadingSpinner = () => {
-  return <div>Loading...</div>;
+  return (
+    <div className={styles.lds_spinner}>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  );
 };
 
 export default LoadingSpinner;
