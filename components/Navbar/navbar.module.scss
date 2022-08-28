@@ -3,6 +3,7 @@
   justify-content: space-around;
   align-items: center;
   background-color: gray;
+  min-height: 10vh;
 }
 
 .midsection {
@@ -12,5 +13,5 @@
 }
 
 .search_button {
- cursor: pointer;
+  cursor: pointer;
 }

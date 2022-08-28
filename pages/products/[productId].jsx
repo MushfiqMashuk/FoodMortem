@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import styles from "./singleProduct.module.scss";
 
 function SingleProduct({ products }) {
   const router = useRouter();
@@ -9,7 +10,11 @@ function SingleProduct({ products }) {
     return <LoadingSpinner />;
   }
 
-  return <div>{`${products.brand} er ${products.name}`}</div>;
+  return (
+    <div
+      className={styles.container}
+    >{`${products.brand} er ${products.name}`}</div>
+  );
 }
 
 export default SingleProduct;
