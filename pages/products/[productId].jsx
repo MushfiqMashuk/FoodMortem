@@ -19,7 +19,7 @@ function SingleProduct({ product }) {
       </div>
       <div className={styles.bucket_list}>
         <button className={styles.bucket_list_button}>
-          Add to bucket list
+          <span>Add to bucket list</span>
         </button>
       </div>
     </div>
