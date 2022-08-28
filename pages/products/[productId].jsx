@@ -3,7 +3,7 @@ import React from "react";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import styles from "./singleProduct.module.scss";
 
-function SingleProduct({ products }) {
+function SingleProduct({ product }) {
   const router = useRouter();
 
   if (router.isFallback) {
@@ -11,9 +11,18 @@ function SingleProduct({ products }) {
   }
 
   return (
-    <div
-      className={styles.container}
-    >{`${products.brand} er ${products.name}`}</div>
+    <div className={styles.top_section}>
+      <div className={styles.product_description}>
+        <div className={styles.product_name}>{product.name}</div>
+        <div className={styles.product_brand}>{product.brand}</div>
+        <div className={styles.product_category}>{product.category}</div>
+      </div>
+      <div className={styles.bucket_list}>
+        <button className={styles.bucket_list_button}>
+          Add to bucket list
+        </button>
+      </div>
+    </div>
   );
 }
 
@@ -43,9 +52,15 @@ export async function getStaticProps({ params }) {
   );
   const data = await fetchedData.json();
 
+  // if (!data.id) {
+  //   return {
+  //     notFound: true,
+  //   };
+  // }
+
   return {
     props: {
-      products: data,
+      product: data,
     },
     revalidate: 60,
   };

@@ -1,4 +1,35 @@
-// .container {
-//   background-color: antiquewhite;
-//   min-height: 65vh;
-// }
+@import "../../styles/Variables";
+
+.top_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .product_description {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .bucket_list {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bucket_list_button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: $bucket_list_button;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 28px;
+    padding: 5px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+}
