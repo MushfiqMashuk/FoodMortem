@@ -5,11 +5,11 @@ import LoadingSpinner from "../../components/LoadingSpinner";
 function SingleProduct({ products }) {
   const router = useRouter();
 
- 
+  if (router.isFallback) {
     return <LoadingSpinner />;
-  
+  }
 
-  //return <div>{`${products.brand} er ${products.name}`}</div>;
+  return <div>{`${products.brand} er ${products.name}`}</div>;
 }
 
 export default SingleProduct;
