@@ -1,7 +1,13 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <div>
-     This is Home page
+      Go to
+      <Link href="/products">
+        <a> Product </a>
+      </Link>
+      page
     </div>
-  )
+  );
 }

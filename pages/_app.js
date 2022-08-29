@@ -1,20 +1,28 @@
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
-//import Layout from "../components/Layout";
-import LoadingSpinner from "../components/LoadingSpinner";
+import { useRouter } from "next/router";
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
+import { useEffect } from "react";
+import Layout from "../components/Layout";
 import "../styles/globals.css";
 
-const DynamicLayout = dynamic(() => import("../components/Layout"), {
-  suspense: true,
-});
-
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  useEffect(() => {
+    router.events.on("routeChangeStart", () => {
+      NProgress.start();
+      console.log("Route change starts");
+    });
+
+    router.events.on("routeChangeComplete", () => {
+      NProgress.done();
+      console.log("Route change ends");
+    });
+  });
+
   return (
-    <Suspense fallback={<LoadingSpinner />}>
-      <DynamicLayout>
-        <Component {...pageProps} />
-      </DynamicLayout>
-    </Suspense>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
   );
 }
 

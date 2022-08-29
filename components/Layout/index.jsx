@@ -4,11 +4,11 @@ import styles from "./layout.module.scss";
 
 function Layout({ children }) {
   return (
-    <div>
+    <>
       <Navbar />
-      <div className={styles.body}>{children}</div>
+      <main className={styles.body}>{children}</main>
       <Footer />
-    </div>
+    </>
   );
 }
 
