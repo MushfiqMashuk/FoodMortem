@@ -19,40 +19,48 @@
   }
 
   .bucket_list_button {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 4px;
     background-color: $bucket_list_button;
     border: none;
     color: #ffffff;
     text-align: center;
-    font-size: 18px;
+    font-size: 17px;
     padding: 5px;
-    width: 200px;
+    width: 250px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
 
-    span {
+    .plus {
+      margin-right: 5px;
+      font-size: 20px;
+      padding: 0px;
+      
+    }
+
+    .button_title {
       cursor: pointer;
-      display: inline-block;
       position: relative;
-      transition: 0.5s;
+      transition: 0.3s;
 
       &:after {
         content: "🛒";
         position: absolute;
         opacity: 0;
-        top: -4px;
+        top: -1px;
         right: -20px;
         transition: 0.5s;
       }
     }
 
-    &:hover span {
-      padding-right: 30px;
+    &:hover .button_title {
+      padding-right: 10px;
       &:after {
         opacity: 1;
-        right: -5px;
+        right: -20px;
       }
     }
 

@@ -18,9 +18,10 @@ function SingleProduct({ product }) {
         <div className={styles.product_category}>{product.category}</div>
       </div>
       <div className={styles.bucket_list}>
-        <button className={styles.bucket_list_button}>
-          <span>Add to bucket list</span>
-        </button>
+        <div className={styles.bucket_list_button}>
+          <div className={styles.plus}>+</div>
+          <span className={styles.button_title}>Add to Bucketlist</span>
+        </div>
       </div>
     </div>
   );
