@@ -39,25 +39,25 @@
       transition: 0.5s;
 
       &:after {
-        content: "\00bb";
+        content: "🛒";
         position: absolute;
         opacity: 0;
-        top: 0;
+        top: -4px;
         right: -20px;
         transition: 0.5s;
       }
     }
 
     &:hover span {
-      padding-right: 25px;
+      padding-right: 30px;
       &:after {
         opacity: 1;
-        right: 0;
+        right: -5px;
       }
     }
 
     &:active {
-      transform: scale(0.9);
+      transform: scale(0.95);
     }
   }
 }
