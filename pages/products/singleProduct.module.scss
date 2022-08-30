@@ -34,11 +34,14 @@
     cursor: pointer;
     margin: 5px;
 
+    &:hover {
+      background-color: $bucket_list_button_hover;
+    }
+
     .plus {
       margin-right: 5px;
       font-size: 20px;
       padding: 0px;
-      
     }
 
     .button_title {

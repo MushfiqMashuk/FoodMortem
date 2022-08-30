@@ -1,28 +1,41 @@
 import { useRouter } from "next/router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
+import LoadingSpinner from "../components/LoadingSpinner";
 import "../styles/globals.css";
+NProgress.configure({
+  easing: "ease",
+  speed: 700,
+  showSpinner: false,
+});
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
+    setLoading(false);
     router.events.on("routeChangeStart", () => {
       NProgress.start();
-      console.log("Route change starts");
     });
 
     router.events.on("routeChangeComplete", () => {
       NProgress.done();
-      console.log("Route change ends");
     });
   });
 
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      {loading ? (
+        <LoadingSpinner />
+      ) : (
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      )}
+    </>
   );
 }
 

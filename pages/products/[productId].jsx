@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import styles from "./singleProduct.module.scss";
 
