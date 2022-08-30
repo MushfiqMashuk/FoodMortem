@@ -1,4 +1,5 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css);
+@import "./_Variables.scss";
 
 html,
 body {
@@ -6,6 +7,12 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+/* Top progress bar design */
+#nprogress .bar {
+  height: 3.5px;
+  background: $top_loader_color;
 }
 
 a {

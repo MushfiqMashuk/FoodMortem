@@ -4,10 +4,10 @@ import "nprogress/nprogress.css";
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import LoadingSpinner from "../components/LoadingSpinner";
-import "../styles/globals.css";
+import "../styles/globals.scss";
 NProgress.configure({
   easing: "ease",
-  speed: 700,
+  speed: 400,
   showSpinner: false,
 });
 
