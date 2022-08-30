@@ -1,3 +1,10 @@
+/**
+ * App Name: FoodMortem
+ * Author: Musfiq Ahmed Mashuk
+ * Starting Date: 11-08-2022
+ * License: MIT
+ */
+
 import { useRouter } from "next/router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
