@@ -10,17 +10,24 @@ function SingleProduct({ product }) {
   }
 
   return (
-    <div className={styles.top_section}>
-      <div className={styles.product_description}>
-        <div className={styles.product_name}>{product.name}</div>
-        <div className={styles.product_brand}>{product.brand}</div>
-        <div className={styles.product_category}>{product.category}</div>
-      </div>
-      <div className={styles.bucket_list}>
-        <div className={styles.bucket_list_button}>
-          <div className={styles.plus}>+</div>
-          <span className={styles.button_title}>Add to Bucketlist</span>
+    <div className={styles.header}>
+      <div className={styles.top_section}>
+        <div className={styles.product_name}>
+          <h1>{product.name}</h1>
         </div>
+        <div className={styles.bucket_list}>
+          <div className={styles.bucket_list_button}>
+            <div className={styles.plus}>+</div>
+            <span className={styles.button_title}>Add to Bucketlist</span>
+          </div>
+        </div>
+      </div>
+      <div className={styles.product_info}>
+        <div className={styles.product_description}>
+          <h3 className={styles.product_brand}>{product.brand}</h3>
+          <h3 className={styles.product_category}>{product.category}</h3>
+        </div>
+        <div className={styles.other_description}></div>
       </div>
     </div>
   );

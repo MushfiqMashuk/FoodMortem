@@ -1,4 +1,7 @@
+@import "../../styles/Variables.scss";
+
 .container {
-  background-color: antiquewhite;
+  background-color: $footer_background_color;
   min-height: 25vh;
+  color: white;
 }

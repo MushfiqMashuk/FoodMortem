@@ -1,4 +1,6 @@
+@import "../../styles/Variables.scss";
+
 .body {
-  background-color: antiquewhite;
+  background-color: $body_background_color;
   min-height: 65vh;
 }

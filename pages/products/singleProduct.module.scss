@@ -1,74 +1,110 @@
 @import "../../styles/Variables";
 
-.top_section {
+.header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
 
-  .product_description {
-    flex: 1;
+  .top_section {
     display: flex;
-    justify-content: center;
-  }
-
-  .bucket_list {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-  }
+    padding: 10px 10px 10px 20px;
 
-  .bucket_list_button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-    background-color: $bucket_list_button;
-    border: none;
-    color: #ffffff;
-    text-align: center;
-    font-size: 17px;
-    padding: 5px;
-    width: 250px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-
-    &:hover {
-      background-color: $bucket_list_button_hover;
+    .product_name {
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
     }
 
-    .plus {
-      margin-right: 5px;
-      font-size: 20px;
-      padding: 0px;
-    }
+    .bucket_list {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-    .button_title {
-      cursor: pointer;
-      position: relative;
-      transition: 0.3s;
+      .bucket_list_button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        background-color: $bucket_list_button;
+        border: none;
+        color: #ffffff;
+        text-align: center;
+        font-size: 17px;
+        padding: 5px;
+        width: 250px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
 
-      &:after {
-        content: "🛒";
-        position: absolute;
-        opacity: 0;
-        top: -1px;
-        right: -20px;
-        transition: 0.5s;
+        &:hover {
+          background-color: $bucket_list_button_hover;
+        }
+
+        .plus {
+          margin-right: 5px;
+          font-size: 20px;
+          padding: 0px;
+        }
+
+        .button_title {
+          cursor: pointer;
+          position: relative;
+          transition: 0.3s;
+
+          &:after {
+            content: "🛒";
+            position: absolute;
+            opacity: 0;
+            top: -1px;
+            right: -20px;
+            transition: 0.5s;
+          }
+        }
+
+        &:hover .button_title {
+          padding-right: 10px;
+          &:after {
+            opacity: 1;
+            right: -20px;
+          }
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
       }
     }
+  }
 
-    &:hover .button_title {
-      padding-right: 10px;
-      &:after {
-        opacity: 1;
-        right: -20px;
+  .product_info {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+
+    .product_description {
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .product_category {
+        padding: 0px 25px;
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+      .product_brand {
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
       }
     }
-
-    &:active {
-      transform: scale(0.95);
+    .other_description {
+      flex: 1;
+      display: flex;
     }
   }
 }
