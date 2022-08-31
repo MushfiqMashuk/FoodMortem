@@ -27,7 +27,7 @@
     },
     {
       "id": 4,
-      "name": "pizza",
+      "name": "domino's pizza",
       "brand": "domino's",
       "category": "pizza",
       "rating": 10,
@@ -52,7 +52,7 @@
     },
     {
       "id": 7,
-      "name": "cake",
+      "name": "all time cake",
       "subBrand": "all time",
       "brand": "pran",
       "category": "cake",

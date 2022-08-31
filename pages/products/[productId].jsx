@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import styles from "./singleProduct.module.scss";
+import No_Image from "../../public/no_image.png";
 
 function SingleProduct({ product }) {
   const router = useRouter();
@@ -10,12 +11,12 @@ function SingleProduct({ product }) {
 <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <linearGradient id="g">
-      <stop stop-color="#333" offset="20%" />
-      <stop stop-color="#222" offset="50%" />
-      <stop stop-color="#333" offset="70%" />
+      <stop stop-color="#dddddd" offset="20%" />
+      <stop stop-color="#f4f4f4" offset="50%" />
+      <stop stop-color="#dddddd" offset="70%" />
     </linearGradient>
   </defs>
-  <rect width="${w}" height="${h}" fill="#333" />
+  <rect width="${w}" height="${h}" fill="#dddddd" />
   <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
   <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
 </svg>`;
@@ -54,9 +55,9 @@ function SingleProduct({ product }) {
       <div className={styles.content}>
         <div className={styles.image_container}>
           <Image
-            src={product.img}
-            width={400}
-            height={400}
+            src={product.img ? product.img : No_Image}
+            layout="fill"
+            objectFit="cover"
             placeholder="blur"
             blurDataURL={`data:image/svg+xml;base64,${toBase64(
               shimmer(700, 475)
@@ -64,6 +65,42 @@ function SingleProduct({ product }) {
           />
         </div>
         <div className={styles.review_analytics}></div>
+      </div>
+      <div>
+        nice layout
+      </div>
+      <div>
+        nice layout
+      </div>
+      <div>
+        nice layout
+      </div>
+      <div>
+        nice layout
+      </div>
+      <div>
+        nice layout
+      </div>
+      <div>
+        nice layout
+      </div>
+      <div>
+        nice layout
+      </div>
+      <div>
+        nice layout
+      </div>
+      <div>
+        nice layout
+      </div>
+      <div>
+        nice layout
+      </div>
+      <div>
+        nice layout
+      </div>
+      <div>
+        nice layout
       </div>
     </>
   );
