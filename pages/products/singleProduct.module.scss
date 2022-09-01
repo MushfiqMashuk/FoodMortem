@@ -132,5 +132,8 @@
 
   .review_analytics {
     grid-area: ra;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
 }

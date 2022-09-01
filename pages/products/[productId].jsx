@@ -64,44 +64,33 @@ function SingleProduct({ product }) {
             )}`}
           />
         </div>
-        <div className={styles.review_analytics}></div>
+        <div className={styles.review_analytics}>
+          <h1>
+            Reviews <span className={styles.total_review}>(150)</span>
+          </h1>
+          <h3>
+            Positive Reviews <span className={styles.total_review}>(80)</span>
+          </h3>
+          <h3>
+            Moderate Reviews <span className={styles.total_review}>(40)</span>
+          </h3>
+          <h3>
+            Negative Reviews <span className={styles.total_review}>(30)</span>
+          </h3>
+        </div>
       </div>
-      <div>
-        nice layout
-      </div>
-      <div>
-        nice layout
-      </div>
-      <div>
-        nice layout
-      </div>
-      <div>
-        nice layout
-      </div>
-      <div>
-        nice layout
-      </div>
-      <div>
-        nice layout
-      </div>
-      <div>
-        nice layout
-      </div>
-      <div>
-        nice layout
-      </div>
-      <div>
-        nice layout
-      </div>
-      <div>
-        nice layout
-      </div>
-      <div>
-        nice layout
-      </div>
-      <div>
-        nice layout
-      </div>
+      <div>nice layout</div>
+      <div>nice layout</div>
+      <div>nice layout</div>
+      <div>nice layout</div>
+      <div>nice layout</div>
+      <div>nice layout</div>
+      <div>nice layout</div>
+      <div>nice layout</div>
+      <div>nice layout</div>
+      <div>nice layout</div>
+      <div>nice layout</div>
+      <div>nice layout</div>
     </>
   );
 }
