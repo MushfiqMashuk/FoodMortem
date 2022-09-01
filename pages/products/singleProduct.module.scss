@@ -121,10 +121,12 @@
     position: relative;
     grid-area: ic;
     margin-left: $image_container_margin_left;
-    box-shadow: 5px 5px 15px #e1e0e0;
-
+    box-shadow: $img_container_box_shadow;
+    transition: 0.3s ease-in-out;
+    border-radius: 10px;
+    border: $img_container_border;
     &:hover {
-      box-shadow: -2px -5px 30px #e1e0e0;
+      box-shadow: $img_container_box_shadow_hover;
     }
   }
 

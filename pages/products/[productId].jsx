@@ -57,7 +57,7 @@ function SingleProduct({ product }) {
           <Image
             src={product.img ? product.img : No_Image}
             layout="fill"
-            objectFit="cover"
+            objectFit="contain"
             placeholder="blur"
             blurDataURL={`data:image/svg+xml;base64,${toBase64(
               shimmer(700, 475)
