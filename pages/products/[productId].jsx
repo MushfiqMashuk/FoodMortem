@@ -1,30 +1,13 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import LoadingSpinner from "../../components/LoadingSpinner";
-import styles from "./singleProduct.module.scss";
+import ReviewAnalytics from "../../components/ReviewAnalytics";
+import { shimmer, toBase64 } from "../../helpers/shimmerEffect";
 import No_Image from "../../public/no_image.png";
+import styles from "./singleProduct.module.scss";
 
 function SingleProduct({ product }) {
   const router = useRouter();
-
-  const shimmer = (w, h) => `
-<svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <defs>
-    <linearGradient id="g">
-      <stop stop-color="#dddddd" offset="20%" />
-      <stop stop-color="#f4f4f4" offset="50%" />
-      <stop stop-color="#dddddd" offset="70%" />
-    </linearGradient>
-  </defs>
-  <rect width="${w}" height="${h}" fill="#dddddd" />
-  <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
-  <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
-</svg>`;
-
-  const toBase64 = (str) =>
-    typeof window === "undefined"
-      ? Buffer.from(str).toString("base64")
-      : window.btoa(str);
 
   if (router.isFallback) {
     return <LoadingSpinner />;
@@ -64,20 +47,7 @@ function SingleProduct({ product }) {
             )}`}
           />
         </div>
-        <div className={styles.review_analytics}>
-          <h1>
-            Reviews <span className={styles.total_review}>(150)</span>
-          </h1>
-          <h3>
-            Positive Reviews <span className={styles.total_review}>(80)</span>
-          </h3>
-          <h3>
-            Moderate Reviews <span className={styles.total_review}>(40)</span>
-          </h3>
-          <h3>
-            Negative Reviews <span className={styles.total_review}>(30)</span>
-          </h3>
-        </div>
+        <ReviewAnalytics />
       </div>
       <div>nice layout</div>
       <div>nice layout</div>
