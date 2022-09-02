@@ -12,7 +12,7 @@ function ReviewAnalytics() {
 
       <div className={styles.progress_bar_container}>
         <div className={styles.progress_bar}>
-          <span className={`${styles.percentage} ${styles.c}`}></span>
+          <span className={`${styles.percentage} ${styles.positive}`}></span>
         </div>
       </div>
 
@@ -21,7 +21,7 @@ function ReviewAnalytics() {
       </h3>
       <div className={styles.progress_bar_container}>
         <div className={styles.progress_bar}>
-          <span className={`${styles.percentage} ${styles.java}`}></span>
+          <span className={`${styles.percentage} ${styles.moderate}`}></span>
         </div>
       </div>
       <h3>
@@ -30,7 +30,7 @@ function ReviewAnalytics() {
 
       <div className={styles.progress_bar_container}>
         <div className={styles.progress_bar}>
-          <span className={`${styles.percentage} ${styles.python}`}></span>
+          <span className={`${styles.percentage} ${styles.negative}`}></span>
         </div>
       </div>
     </div>

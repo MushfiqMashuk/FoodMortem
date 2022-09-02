@@ -4,7 +4,6 @@
   align-items: center;
   flex-direction: column;
 
-  /* Stylingthe last h2 tag by giving margin bottom */
   .progress_bar_container {
     width: 100%;
     display: flex;
@@ -25,7 +24,7 @@
       box-shadow: 0 0 10px rgb(245, 159, 0);
     }
 
-    /* Stylingthe background color of each
+    /* Styling the background color of each
         animation and border radius */
     .percentage {
       display: block;
@@ -36,16 +35,16 @@
     }
 
     /* Assigning width of each languages*/
-    .c {
+    .positive {
       width: 85%;
     }
 
-    .java {
-      width: 70%;
+    .moderate {
+      width: 40%;
     }
 
-    .python {
-      width: 55%;
+    .negative {
+      width: 30%;
     }
 
     /* Animating the progress bar by

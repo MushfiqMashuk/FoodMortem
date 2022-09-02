@@ -9,6 +9,11 @@ import styles from "./singleProduct.module.scss";
 function SingleProduct({ product }) {
   const router = useRouter();
 
+  function changePath() {
+    console.log("Changing path");
+    router.push(`/brands`);
+  }
+
   if (router.isFallback) {
     return <LoadingSpinner />;
   }
@@ -29,7 +34,12 @@ function SingleProduct({ product }) {
         </div>
         <div className={styles.product_info}>
           <div className={styles.product_description}>
-            <h3 className={styles.product_brand}>{product.brand}</h3>
+            <h3
+              className={styles.product_brand}
+              onClick={() => router.push(`/brands/${product.brand.id}`)}
+            >
+              {product.brand.name}
+            </h3>
             <h3 className={styles.product_category}>{product.category}</h3>
           </div>
           <div className={styles.other_description}></div>
@@ -39,6 +49,7 @@ function SingleProduct({ product }) {
         <div className={styles.image_container}>
           <Image
             src={product.img ? product.img : No_Image}
+            alt={product.name}
             layout="fill"
             objectFit="contain"
             placeholder="blur"

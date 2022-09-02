@@ -20,9 +20,12 @@
     {
       "id": 3,
       "name": "toast",
-      "brand": "pran",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
       "category": "biscuit",
-      "rating": 10,   
+      "rating": 10,
       "img": "https://i.ibb.co/zGRWmkd/pran-toast.png"
     },
     {
