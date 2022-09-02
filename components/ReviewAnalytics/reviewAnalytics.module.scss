@@ -1,8 +1,14 @@
+@import "../../styles/Variables.scss";
+
 .review_analytics {
   grid-area: ra;
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  .review_header {
+    margin-bottom: $review_header_margin_bottom;
+  }
 
   .progress_bar_container {
     width: 100%;

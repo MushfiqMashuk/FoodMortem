@@ -3,7 +3,7 @@ import styles from "./reviewAnalytics.module.scss";
 function ReviewAnalytics() {
   return (
     <div className={styles.review_analytics}>
-      <h1>
+      <h1 className={styles.review_header}>
         Reviews <span className={styles.total_review}>(150)</span>
       </h1>
       <h3>
