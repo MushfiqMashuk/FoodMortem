@@ -1,4 +1,11 @@
+import { useRouter } from "next/router";
+import LoadingSpinner from "../../components/LoadingSpinner";
+
 function SingleBrand({ brand }) {
+  const router = useRouter();
+
+  if (router.fallback) return <LoadingSpinner />;
+
   return (
     <div>
       This is page of <h3>{brand.name}</h3>
@@ -10,7 +17,7 @@ export default SingleBrand;
 
 export async function getStaticPaths() {
   return {
-    paths: [],
+    paths: [{ params: { brandId: "2" } }],
     fallback: true,
   };
 }

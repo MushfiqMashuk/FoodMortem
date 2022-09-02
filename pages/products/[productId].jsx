@@ -9,11 +9,6 @@ import styles from "./singleProduct.module.scss";
 function SingleProduct({ product }) {
   const router = useRouter();
 
-  function changePath() {
-    console.log("Changing path");
-    router.push(`/brands`);
-  }
-
   if (router.isFallback) {
     return <LoadingSpinner />;
   }
@@ -38,7 +33,7 @@ function SingleProduct({ product }) {
               className={styles.product_brand}
               onClick={() => router.push(`/brands/${product.brand.id}`)}
             >
-              {product.brand.name}
+              {product.brand.name ? product.brand.name : product.brand}
             </h3>
             <h3 className={styles.product_category}>{product.category}</h3>
           </div>
