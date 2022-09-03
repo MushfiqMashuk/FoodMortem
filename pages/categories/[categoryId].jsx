@@ -1,15 +1,16 @@
 import { useRouter } from "next/router";
+import Layout from "../../components/Layout";
 import LoadingSpinner from "../../components/LoadingSpinner";
 
 function SingleCategory({ category }) {
   const router = useRouter();
 
-  if (router.fallback) return <LoadingSpinner />;
+  if (router.isFallback) return <LoadingSpinner />;
 
   return (
-    <div>
+    <Layout>
       This is the page of <h3>{category.name}</h3>
-    </div>
+    </Layout>
   );
 }
 
@@ -30,11 +31,11 @@ export async function getStaticProps({ params }) {
   );
   const data = await fetchedData.json();
 
-  // if (!data.id) {
-  //   return {
-  //     notFound: true,
-  //   };
-  // }
+  if (!data.id) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {

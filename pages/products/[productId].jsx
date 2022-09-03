@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Layout from "../../components/Layout";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import ReviewAnalytics from "../../components/ReviewAnalytics";
 import { shimmer, toBase64 } from "../../helpers/shimmerEffect";
@@ -16,7 +17,7 @@ function SingleProduct({ product }) {
   return (
     <>
       {product && (
-        <>
+        <Layout>
           <div className={styles.header}>
             <div className={styles.top_section}>
               <div className={styles.product_name}>
@@ -78,7 +79,7 @@ function SingleProduct({ product }) {
           <div>nice layout</div>
           <div>nice layout</div>
           <div>nice layout</div>
-        </>
+        </Layout>
       )}
     </>
   );
@@ -87,17 +88,15 @@ function SingleProduct({ product }) {
 export default SingleProduct;
 
 export async function getStaticPaths() {
-  // const fetchedData = await fetch(
-  //   `http://localhost:4000/products`
-  // );
-  // const data = await fetchedData.json();
+  const fetchedData = await fetch(`http://localhost:4000/products`);
+  const data = await fetchedData.json();
 
-  // const paths = data.map((product) => ({
-  //   params: { productId: `${product.id}` },
-  // }));
+  const paths = data.map((product) => ({
+    params: { productId: `${product.id}` },
+  }));
 
   return {
-    paths: [],
+    paths,
     fallback: true,
   };
 }
@@ -110,11 +109,11 @@ export async function getStaticProps({ params }) {
   );
   const data = await fetchedData.json();
 
-  // if (!data.id) {
-  //   return {
-  //     notFound: true,
-  //   };
-  // }
+  if (!data) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {

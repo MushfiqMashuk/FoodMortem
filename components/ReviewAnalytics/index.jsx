@@ -7,7 +7,7 @@ function ReviewAnalytics() {
         Reviews <span className={styles.total_review}>(150)</span>
       </h1>
       <h3>
-        Positive Reviews <span className={styles.total_review}>(80)</span>
+        Positive <span className={styles.total_review}>(80)</span>
       </h3>
 
       <div className={styles.progress_bar_container}>
@@ -17,7 +17,7 @@ function ReviewAnalytics() {
       </div>
 
       <h3>
-        Moderate Reviews <span className={styles.total_review}>(40)</span>
+        Moderate <span className={styles.total_review}>(40)</span>
       </h3>
       <div className={styles.progress_bar_container}>
         <div className={styles.progress_bar}>
@@ -25,7 +25,7 @@ function ReviewAnalytics() {
         </div>
       </div>
       <h3>
-        Negative Reviews <span className={styles.total_review}>(30)</span>
+        Negative <span className={styles.total_review}>(30)</span>
       </h3>
 
       <div className={styles.progress_bar_container}>

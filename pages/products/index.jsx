@@ -1,5 +1,7 @@
+import Layout from "../../components/Layout";
+
 function Products() {
-  return <div>This is Products page</div>;
+  return <Layout>This is Products page</Layout>;
 }
 
 export default Products;

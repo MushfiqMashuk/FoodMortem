@@ -9,7 +9,6 @@ import { useRouter } from "next/router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import { useEffect, useState } from "react";
-import Layout from "../components/Layout";
 import LoadingSpinner from "../components/LoadingSpinner";
 import "../styles/globals.scss";
 NProgress.configure({
@@ -32,17 +31,7 @@ function MyApp({ Component, pageProps }) {
     });
   }, [setLoading, router.events]);
 
-  return (
-    <>
-      {loading ? (
-        <LoadingSpinner />
-      ) : (
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      )}
-    </>
-  );
+  return <>{loading ? <LoadingSpinner /> : <Component {...pageProps} />}</>;
 }
 
 export default MyApp;

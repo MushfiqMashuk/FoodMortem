@@ -3,8 +3,14 @@
     {
       "id": 1,
       "name": "kacchi",
-      "brand": "sultan's dine",
-      "category": "biryani",
+      "brand": {
+        "id": 1,
+        "name": "sultan's dine"
+      },
+      "category": {
+        "id": 1,
+        "name": "kacchi"
+      },
       "rating": 10,
       "img": "https://i.ibb.co/HFMpQqM/sultan-dines.jpg"
     },
@@ -34,8 +40,14 @@
     {
       "id": 4,
       "name": "domino's pizza",
-      "brand": "domino's",
-      "category": "pizza",
+      "brand": {
+        "id": 3,
+        "name": "domino's"
+      },
+      "category": {
+        "id": 5,
+        "name": "pizza"
+      },
       "rating": 10,
       "img": "https://i.ibb.co/drm1m7N/domino-s-pizza.jpg"
     },
@@ -828,8 +840,14 @@
     {
       "id": 100,
       "name": "all time honeycomb mixed fruits",
-      "brand": "pran",
-      "category": "bread",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 3,
+        "name": "bread"
+      },
       "rating": 10,
       "img": "https://i.ibb.co/86x42mr/all-time-honeycomb-mixed-fruits.png"
     }
@@ -871,6 +889,10 @@
     {
       "id": 4,
       "name": "biscuit"
+    },
+    {
+      "id": 5,
+      "name": "pizza"
     }
   ]
 }
