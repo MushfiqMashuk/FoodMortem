@@ -15,58 +15,71 @@ function SingleProduct({ product }) {
 
   return (
     <>
-      <div className={styles.header}>
-        <div className={styles.top_section}>
-          <div className={styles.product_name}>
-            <h1>{product.name}</h1>
-          </div>
-          <div className={styles.bucket_list}>
-            <div className={styles.bucket_list_button}>
-              <div className={styles.plus}>+</div>
-              <span className={styles.button_title}>Add to Bucketlist</span>
+      {product && (
+        <>
+          <div className={styles.header}>
+            <div className={styles.top_section}>
+              <div className={styles.product_name}>
+                <h1>{product.name}</h1>
+              </div>
+              <div className={styles.bucket_list}>
+                <div className={styles.bucket_list_button}>
+                  <div className={styles.plus}>+</div>
+                  <span className={styles.button_title}>Add to Bucketlist</span>
+                </div>
+              </div>
+            </div>
+            <div className={styles.product_info}>
+              <div className={styles.product_description}>
+                <h3
+                  className={styles.product_brand}
+                  onClick={() => router.push(`/brands/${product?.brand?.id}`)}
+                >
+                  {product.brand.name ? product.brand.name : product.brand}
+                </h3>
+                <h3
+                  className={styles.product_category}
+                  onClick={() =>
+                    router.push(`/categories/${product?.category?.id}`)
+                  }
+                >
+                  {product.category.name
+                    ? product.category.name
+                    : product.category}
+                </h3>
+              </div>
+              <div className={styles.other_description}></div>
             </div>
           </div>
-        </div>
-        <div className={styles.product_info}>
-          <div className={styles.product_description}>
-            <h3
-              className={styles.product_brand}
-              onClick={() => router.push(`/brands/${product.brand.id}`)}
-            >
-              {product.brand.name ? product.brand.name : product.brand}
-            </h3>
-            <h3 className={styles.product_category}>{product.category}</h3>
+          <div className={styles.content}>
+            <div className={styles.image_container}>
+              <Image
+                src={product.img ? product.img : No_Image}
+                alt={product.name}
+                layout="fill"
+                objectFit="contain"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                  shimmer(700, 475)
+                )}`}
+              />
+            </div>
+            <ReviewAnalytics />
           </div>
-          <div className={styles.other_description}></div>
-        </div>
-      </div>
-      <div className={styles.content}>
-        <div className={styles.image_container}>
-          <Image
-            src={product.img ? product.img : No_Image}
-            alt={product.name}
-            layout="fill"
-            objectFit="contain"
-            placeholder="blur"
-            blurDataURL={`data:image/svg+xml;base64,${toBase64(
-              shimmer(700, 475)
-            )}`}
-          />
-        </div>
-        <ReviewAnalytics />
-      </div>
-      <div>nice layout</div>
-      <div>nice layout</div>
-      <div>nice layout</div>
-      <div>nice layout</div>
-      <div>nice layout</div>
-      <div>nice layout</div>
-      <div>nice layout</div>
-      <div>nice layout</div>
-      <div>nice layout</div>
-      <div>nice layout</div>
-      <div>nice layout</div>
-      <div>nice layout</div>
+          <div>nice layout</div>
+          <div>nice layout</div>
+          <div>nice layout</div>
+          <div>nice layout</div>
+          <div>nice layout</div>
+          <div>nice layout</div>
+          <div>nice layout</div>
+          <div>nice layout</div>
+          <div>nice layout</div>
+          <div>nice layout</div>
+          <div>nice layout</div>
+          <div>nice layout</div>
+        </>
+      )}
     </>
   );
 }

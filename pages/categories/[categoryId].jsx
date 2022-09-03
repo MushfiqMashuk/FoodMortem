@@ -1,31 +1,33 @@
 import { useRouter } from "next/router";
 import LoadingSpinner from "../../components/LoadingSpinner";
 
-function SingleBrand({ brand }) {
+function SingleCategory({ category }) {
   const router = useRouter();
 
   if (router.fallback) return <LoadingSpinner />;
 
   return (
     <div>
-      This is the page of <h3>{brand.name}</h3>
+      This is the page of <h3>{category.name}</h3>
     </div>
   );
 }
 
-export default SingleBrand;
+export default SingleCategory;
 
 export async function getStaticPaths() {
   return {
-    paths: [{ params: { brandId: "2" } }],
+    paths: [{ params: { categoryId: "2" } }],
     fallback: true,
   };
 }
 
 export async function getStaticProps({ params }) {
-  const { brandId } = params;
+  const { categoryId } = params;
 
-  const fetchedData = await fetch(`http://localhost:4000/brands/${brandId}`);
+  const fetchedData = await fetch(
+    `http://localhost:4000/categories/${categoryId}`
+  );
   const data = await fetchedData.json();
 
   // if (!data.id) {
@@ -36,7 +38,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      brand: data,
+      category: data,
     },
     revalidate: 60,
   };
