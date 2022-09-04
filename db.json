@@ -202,7 +202,7 @@
       "id": 22,
       "name": "coca cola can",
       "brand": "international beverages pvt",
-      "category": "soft drink",
+      "category": "soft drinks",
       "rating": 10,
       "img": "https://i.ibb.co/R0bhr5p/coca-cola-can.webp"
     },
@@ -210,23 +210,23 @@
       "id": 23,
       "name": "coca cola diet can",
       "brand": "international beverages pvt. ltd.",
-      "category": "soft drink",
+      "category": "soft drinks",
       "rating": 10,
       "img": "https://i.ibb.co/wh69yvL/coca-cola-diet-can.webp"
     },
     {
       "id": 24,
       "name": "clemon drink",
-      "brand": "akij",
-      "category": "soft drink",
+      "brand": "akij food & beverage Ltd.",
+      "category": "soft drinks",
       "rating": 10,
       "img": "https://i.ibb.co/yVj8ZFF/clemon-drink.png"
     },
     {
       "id": 25,
       "name": "clemon drink can",
-      "brand": "akij",
-      "category": "soft drink",
+      "brand": "akij food & beverage Ltd.",
+      "category": "soft drinks",
       "rating": 10,
       "img": "https://i.ibb.co/HHp4DNV/clemon-can.png"
     },

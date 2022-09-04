@@ -67,6 +67,9 @@ function SingleProduct({ product }) {
             </div>
             <ReviewAnalytics />
           </div>
+          <div>
+            <h2>Similar product from other brands</h2>
+          </div>
         </Layout>
       )}
     </>
