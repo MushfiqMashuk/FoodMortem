@@ -67,18 +67,6 @@ function SingleProduct({ product }) {
             </div>
             <ReviewAnalytics />
           </div>
-          <div>nice layout</div>
-          <div>nice layout</div>
-          <div>nice layout</div>
-          <div>nice layout</div>
-          <div>nice layout</div>
-          <div>nice layout</div>
-          <div>nice layout</div>
-          <div>nice layout</div>
-          <div>nice layout</div>
-          <div>nice layout</div>
-          <div>nice layout</div>
-          <div>nice layout</div>
         </Layout>
       )}
     </>

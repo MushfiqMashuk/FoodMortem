@@ -18,7 +18,10 @@
       "id": 2,
       "name": "butter bun",
       "subBrand": "all time",
-      "brand": "pran",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
       "category": "bread",
       "rating": 10,
       "img": "https://i.ibb.co/FY6vbVZ/butter-bun.png"
@@ -64,7 +67,10 @@
       "id": 6,
       "name": "sweet toast",
       "brand": "pran",
-      "category": "biscuit",
+      "category": {
+        "id": 4,
+        "name": "biscuit"
+      },
       "rating": 10,
       "img": "https://i.ibb.co/5KwJVhn/sweet-toast.png"
     },
@@ -80,7 +86,10 @@
     {
       "id": 8,
       "name": "maggi noodles",
-      "brand": "nestle",
+      "brand": {
+        "id": 4,
+        "name": "nestle"
+      },
       "category": "noodles",
       "rating": 10,
       "img": "https://i.ibb.co/PDKnYC2/maggi-noodles.jpg"
@@ -200,7 +209,7 @@
     {
       "id": 23,
       "name": "coca cola diet can",
-      "brand": "international beverages pvt",
+      "brand": "international beverages pvt. ltd.",
       "category": "soft drink",
       "rating": 10,
       "img": "https://i.ibb.co/wh69yvL/coca-cola-diet-can.webp"
@@ -409,7 +418,10 @@
       "id": 49,
       "name": "kazifarms kitchen toast",
       "brand": "kazifarms kitchen",
-      "category": "biscuit",
+      "category": {
+        "id": 4,
+        "name": "biscuit"
+      },
       "rating": 10,
       "img": "https://i.ibb.co/wp4xGDG/kazifarms-kitchen-Toast.png"
     },
@@ -866,7 +878,6 @@
       "id": 3,
       "name": "domino's"
     },
-
     {
       "id": 4,
       "name": "nestle"
