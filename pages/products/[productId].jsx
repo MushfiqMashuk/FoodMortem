@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Layout from "../../components/Layout";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import ReviewAnalytics from "../../components/ReviewAnalytics";
+import SimilarProduct from "../../components/SimilarProduct";
 import { shimmer, toBase64 } from "../../helpers/shimmerEffect";
 import No_Image from "../../public/no_image.png";
 import styles from "./singleProduct.module.scss";
@@ -67,9 +68,7 @@ function SingleProduct({ product }) {
             </div>
             <ReviewAnalytics />
           </div>
-          <div>
-            <h2>Similar product from other brands</h2>
-          </div>
+          <SimilarProduct />
         </Layout>
       )}
     </>
