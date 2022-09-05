@@ -116,17 +116,4 @@
   grid-template-columns: repeat(12, 1fr);
   grid-template-areas: "ic ic ic ic ic ic ra ra ra ra ra ra";
   min-height: $content_min_height;
-
-  .image_container {
-    position: relative;
-    grid-area: ic;
-    margin-left: $image_container_margin_left;
-    box-shadow: $img_container_box_shadow;
-    transition: 0.3s ease-in-out;
-    border-radius: $img_container_border_radius;
-    border: $img_container_border;
-    &:hover {
-      box-shadow: $img_container_box_shadow_hover;
-    }
-  }
 }
