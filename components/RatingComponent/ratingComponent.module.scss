@@ -1,16 +1,57 @@
 .container {
   display: flex;
   height: 100px;
-  width: 80%;
+  width: 70%;
   border: 1px solid sienna;
 
   .rating {
     flex: 1;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
     background-color: #414141;
     color: white;
+
+    .rating_title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      font-weight: 500;
+      width: 100%;
+      flex: 1;
+    }
+
+    .rating_points {
+      flex: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #646464;
+      }
+      .star {
+      }
+
+      .stats {
+        display: flex;
+        flex-direction: column;
+
+        .total_rating {
+          font-size: 1.3em;
+          font-weight: 500;
+          letter-spacing: 0.1em;
+        }
+
+        .total_number_of_rate {
+          font-size: 0.8em;
+        }
+      }
+    }
   }
 
   .your_rating {
