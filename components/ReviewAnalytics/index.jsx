@@ -1,3 +1,4 @@
+import RatingComponent from "../RatingComponent";
 import styles from "./reviewAnalytics.module.scss";
 
 function ReviewAnalytics() {
@@ -33,6 +34,7 @@ function ReviewAnalytics() {
           <span className={`${styles.percentage} ${styles.negative}`}></span>
         </div>
       </div>
+      <RatingComponent />
     </div>
   );
 }

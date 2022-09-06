@@ -23,7 +23,7 @@ h6 {
 
 /* Top progress bar design */
 #nprogress .bar {
-  height: 4px;
+  height: $top_loader_height;
   background: $top_loader_color;
 }
 

@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  height: 100px;
+  width: 80%;
+  border: 1px solid sienna;
+
+  .rating {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #414141;
+    color: white;
+  }
+
+  .your_rating {
+    flex: 1;
+  }
+}
