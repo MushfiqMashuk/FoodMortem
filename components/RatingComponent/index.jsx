@@ -17,11 +17,11 @@ function RatingComponent() {
           </div>
           <div className={styles.stats}>
             <div className={styles.total_rating}>
-              <span>8.0</span>
+              <span className={styles.the_rating}>8.7</span>
               <span>/</span>
               <span>10</span>
             </div>
-            <div className={styles.total_number_of_rate}>97K</div>
+            <div className={styles.total_number_of_rate}>123K</div>
           </div>
         </div>
       </div>
