@@ -1,8 +1,19 @@
 .container {
   display: flex;
-  height: 100px;
+  height: 6em;
   width: 70%;
   border: 1px solid sienna;
+
+  .rating_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-weight: 500;
+    width: 100%;
+    flex: 1;
+  }
 
   .rating {
     flex: 1;
@@ -11,17 +22,6 @@
     flex-direction: column;
     background-color: #414141;
     color: white;
-
-    .rating_title {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-transform: uppercase;
-      letter-spacing: 0.4em;
-      font-weight: 500;
-      width: 100%;
-      flex: 1;
-    }
 
     .rating_points {
       flex: 3;
@@ -34,9 +34,6 @@
       &:hover {
         background-color: #646464;
       }
-      .star {
-      }
-
       .stats {
         display: flex;
         flex-direction: column;

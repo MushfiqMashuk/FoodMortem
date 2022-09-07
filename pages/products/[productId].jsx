@@ -1,10 +1,13 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
 import Layout from "../../components/Layout";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import ProductImage from "../../components/ProductImage";
 import ReviewAnalytics from "../../components/ReviewAnalytics";
 import SimilarProduct from "../../components/SimilarProduct";
+import { shimmer, toBase64 } from "../../helpers/shimmerEffect";
 import styles from "./singleProduct.module.scss";
+import No_Image from "../../public/no_image.png";
 
 function SingleProduct({ product }) {
   const router = useRouter();
@@ -52,7 +55,19 @@ function SingleProduct({ product }) {
             </div>
           </div>
           <div className={styles.content}>
-            <ProductImage product={product} />
+            <div className={styles.image_container}>
+              <Image
+                src={product.img ? product.img : No_Image}
+                alt={product.name}
+                layout="fill"
+                objectFit="contain"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                  shimmer(700, 475)
+                )}`}
+              />
+            </div>
+            {/* <ProductImage product={product} /> */}
             <ReviewAnalytics />
           </div>
           <SimilarProduct />
