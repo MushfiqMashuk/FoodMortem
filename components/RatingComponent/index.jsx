@@ -7,6 +7,10 @@ import styles from "./ratingComponent.module.scss";
 function RatingComponent() {
   const [rating, setRating] = useState(false);
 
+  const ratingChange = (newRating) => {
+    console.log(newRating);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.rating}>
@@ -42,6 +46,7 @@ function RatingComponent() {
               size={30}
               color1={"#64A1F0"}
               color2={"#ffd700"}
+              
             />
           </div>
         </div>

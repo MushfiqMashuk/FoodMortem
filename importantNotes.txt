@@ -1,0 +1,1 @@
+1. React stars component needs to be changed. It uses a deprecated react life cycle method.
