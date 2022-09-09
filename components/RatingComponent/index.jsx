@@ -2,8 +2,8 @@ import Image from "next/image";
 import { useState } from "react";
 import ReactStars from "react-stars";
 import StarIcon from "../../public/star_icon6.svg";
-import YourRatingIconAfter from "../../public/your_rating_star_after.png";
-import YourRatingIconBefore from "../../public/your_rating_star_before.png";
+import YourRatingIconAfter from "../../public/your_rating_star_after.svg";
+import YourRatingIconBefore from "../../public/your_rating_star_before.svg";
 import styles from "./ratingComponent.module.scss";
 
 function RatingComponent() {
@@ -33,8 +33,8 @@ function RatingComponent() {
           <div className={styles.star}>
             <Image
               src={rating ? YourRatingIconAfter : YourRatingIconBefore}
-              height={30}
-              width={30}
+              height={40}
+              width={40}
               onClick={() => setRating(!rating)}
             />
           </div>
