@@ -64,7 +64,7 @@ function SingleProduct({ product }) {
               />
             </div>
             
-            <ReviewAnalytics />
+            <ReviewAnalytics product={product}/>
           </div>
           <SimilarProduct />
         </Layout>
