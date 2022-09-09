@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { useState } from "react";
-import ReactStars from "react-stars";
 import StarIcon from "../../public/star_icon6.svg";
 import YourRatingIconAfter from "../../public/your_rating_star_after.svg";
 import YourRatingIconBefore from "../../public/your_rating_star_before.svg";
@@ -37,20 +36,18 @@ function RatingComponent() {
               width={40}
               onClick={() => setRating(!rating)}
             />
+            {rating ? (
+              <div className={styles.stats}>
+                <div className={styles.total_rating}>
+                  <span className={styles.the_rating}>8.0</span>
+                  <span>/</span>
+                  <span>10</span>
+                </div>
+              </div>
+            ) : (
+              <h3>Rate</h3>
+            )}
           </div>
-          {rating ? <div className={styles.stats}>
-            <div className={styles.total_rating}>
-              <span>8.0</span>
-              <span>/</span>
-              <span>10</span>
-            </div>
-            <ReactStars
-              count={10}
-              size={30}
-              color1={"#64A1F0"}
-              color2={"#ffd700"}
-            />
-          </div> : <h3>Rate</h3>}
         </div>
       </div>
     </div>
