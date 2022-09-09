@@ -28,24 +28,26 @@ function RatingComponent() {
       </div>
       <div className={styles.your_rating}>
         <div className={styles.rating_title}>Your Rating</div>
-        <div className={styles.rating_points}>
+        <div
+          className={styles.rating_points}
+          onClick={() => setRating(!rating)}
+        >
           <div className={styles.star}>
             <Image
               src={rating ? YourRatingIconAfter : YourRatingIconBefore}
               height={40}
               width={40}
-              onClick={() => setRating(!rating)}
             />
+          </div>
+          <div className={styles.stats}>
             {rating ? (
-              <div className={styles.stats}>
-                <div className={styles.total_rating}>
-                  <span className={styles.the_rating}>8.0</span>
-                  <span>/</span>
-                  <span>10</span>
-                </div>
+              <div className={styles.total_rating}>
+                <span className={styles.the_rating}>8.0</span>
+                <span>/</span>
+                <span>10</span>
               </div>
             ) : (
-              <h3>Rate</h3>
+              <h3 className={styles.the_rating}>Rate</h3>
             )}
           </div>
         </div>

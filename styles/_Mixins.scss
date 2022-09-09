@@ -1,0 +1,12 @@
+@mixin flex_CSS_for_rating {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@mixin center_element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,36 +1,27 @@
+@import "../../styles/Mixins.scss";
+
 .container {
   display: flex;
   height: 6em;
-  width: 90%;
+  width: 70%;
   background-color: #414141;
   color: white;
   padding-top: 3px;
 
-  .star {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-
   .total_rating {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include center_element;
     font-size: 1em;
     font-weight: 400;
     letter-spacing: 0.1em;
+  }
 
-    .the_rating {
-      font-size: 1.4em;
-      font-weight: 700;
-    }
+  .the_rating {
+    font-size: 1.4em;
+    font-weight: 700;
   }
 
   .rating_title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include center_element;
     text-transform: uppercase;
     letter-spacing: 0.3em;
     font-weight: 500;
@@ -39,38 +30,35 @@
   }
 
   .rating {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    @include flex_CSS_for_rating;
   }
 
   .rating_points {
     flex: 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include center_element;
     gap: 1em;
     cursor: pointer;
 
     &:hover {
       background-color: #646464;
     }
-    .stats {
-      display: flex;
-      flex-direction: column;
+  }
 
-      .total_number_of_rate {
-        font-size: 0.8em;
-        font-weight: 500;
-      }
+  .star {
+    @include center_element;
+    cursor: pointer;
+  }
+
+  .stats {
+    display: flex;
+    flex-direction: column;
+
+    .total_number_of_rate {
+      font-size: 0.8em;
+      font-weight: 500;
     }
   }
   .your_rating {
-    flex: 1;
-
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    @include flex_CSS_for_rating;
   }
 }
