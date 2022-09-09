@@ -8,6 +8,7 @@ import SimilarProduct from "../../components/SimilarProduct";
 import { shimmer, toBase64 } from "../../helpers/shimmerEffect";
 import styles from "./singleProduct.module.scss";
 import No_Image from "../../public/no_image.png";
+import AddToBucketListButton from "../../components/AddToBucketListButton";
 
 function SingleProduct({ product }) {
   const router = useRouter();
@@ -25,12 +26,7 @@ function SingleProduct({ product }) {
               <div className={styles.product_name}>
                 <h1>{product.name}</h1>
               </div>
-              <div className={styles.bucket_list}>
-                <div className={styles.bucket_list_button}>
-                  <div className={styles.plus}>+</div>
-                  <span className={styles.button_title}>Add to Bucketlist</span>
-                </div>
-              </div>
+              <AddToBucketListButton />
             </div>
             <div className={styles.product_info}>
               <div className={styles.product_description}>

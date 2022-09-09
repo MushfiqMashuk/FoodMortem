@@ -2,6 +2,9 @@
   display: flex;
   height: 6em;
   width: 90%;
+  background-color: #414141;
+  color: white;
+  padding-top: 3px;
 
   .star {
     display: flex;
@@ -40,8 +43,6 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: #414141;
-    color: white;
   }
 
   .rating_points {
@@ -66,9 +67,8 @@
     }
   }
   .your_rating {
-    background-color: #414141;
     flex: 1;
-    color: white;
+
     display: flex;
     justify-content: center;
     flex-direction: column;
