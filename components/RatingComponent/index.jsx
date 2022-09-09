@@ -1,15 +1,13 @@
 import Image from "next/image";
 import { useState } from "react";
 import ReactStars from "react-stars";
-import StarIcon from "../../public/star_icon2.svg";
+import StarIcon from "../../public/star_icon6.svg";
+import YourRatingIconAfter from "../../public/your_rating_star_after.png";
+import YourRatingIconBefore from "../../public/your_rating_star_before.png";
 import styles from "./ratingComponent.module.scss";
 
 function RatingComponent() {
   const [rating, setRating] = useState(false);
-
-  const ratingChange = (newRating) => {
-    console.log(newRating);
-  };
 
   return (
     <div className={styles.container}>
@@ -33,9 +31,14 @@ function RatingComponent() {
         <div className={styles.rating_title}>Your Rating</div>
         <div className={styles.rating_points}>
           <div className={styles.star}>
-            <Image src={StarIcon} height={40} width={40} />
+            <Image
+              src={rating ? YourRatingIconAfter : YourRatingIconBefore}
+              height={30}
+              width={30}
+              onClick={() => setRating(!rating)}
+            />
           </div>
-          <div className={styles.stats}>
+          {rating ? <div className={styles.stats}>
             <div className={styles.total_rating}>
               <span>8.0</span>
               <span>/</span>
@@ -46,9 +49,8 @@ function RatingComponent() {
               size={30}
               color1={"#64A1F0"}
               color2={"#ffd700"}
-              
             />
-          </div>
+          </div> : <h3>Rate</h3>}
         </div>
       </div>
     </div>
