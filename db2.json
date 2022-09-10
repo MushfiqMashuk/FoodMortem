@@ -1,0 +1,1835 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "kacchi",
+      "brand": {
+        "id": 1,
+        "name": "sultan's dine"
+      },
+      "category": {
+        "id": 1,
+        "name": "kacchi"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/HFMpQqM/sultan-dines.jpg"
+    },
+    {
+      "id": 2,
+      "name": "butter bun",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category":  {
+        "id": 4,
+        "name": "bread"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/FY6vbVZ/butter-bun.png"
+    },
+    {
+      "id": 3,
+      "name": "toast",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 5,
+        "name": "biscuit"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/zGRWmkd/pran-toast.png"
+    },
+    {
+      "id": 4,
+      "name": "pizza",
+      "brand": {
+        "id": 3,
+        "name": "domino's"
+      },
+      "category": {
+        "id": 3,
+        "name": "pizza"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/drm1m7N/domino-s-pizza.jpg"
+    },
+    {
+      "id": 5,
+      "name": "honey comb",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 4,
+        "name": "bread"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/NVyd6Tc/honey-comb.png"
+    },
+    {
+      "id": 6,
+      "name": "sweet toast",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 5,
+        "name": "biscuit"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/5KwJVhn/sweet-toast.png"
+    },
+    {
+      "id": 7,
+      "name": "cake",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 6,
+        "name": "cake"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/NVHQ3sF/alltime-cake.jpg"
+    },
+    {
+      "id": 8,
+      "name": "maggi noodles",
+      "brand": {
+        "id": 20,
+        "name": "nestle"
+      },
+      "category": {
+        "id": 7,
+        "name": "noodles"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/PDKnYC2/maggi-noodles.jpg"
+    },
+    {
+      "id": 9,
+      "name": "aarong dairy butter",
+      "brand": {
+        "id": 19,
+        "name": "aarong"
+      },
+      "category": {
+        "id": 15,
+        "name": "butter"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/bd96wtf/aarong-dairy-butter-200-gm.webp"
+    },
+    {
+      "id": 10,
+      "name": "milk vita butter",
+      "brand": {
+        "id": 18,
+        "name": "milk vita"
+      },
+      "category": {
+        "id": 15,
+        "name": "butter"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/z4XpCkg/milk-vita-butter.jpg"
+    },
+    {
+      "id": 11,
+      "name": "dano milk powder",
+      "brand": {
+        "id": 17,
+        "name": "Arla Foods Inc."
+      },
+      "category": {
+        "id": 14,
+        "name": "powder milk"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/Q9vFt1b/dano-milk-powder.jpg"
+    },
+    {
+      "id": 12,
+      "name": "co-cola noodles",
+      "brand": {
+        "id": 16,
+        "name": "International Beverages Pvt. Ltd."
+      },
+      "category": {
+        "id": 7,
+        "name": "noodles"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/z5C4xXb/co-cola-noodles.png"
+    },
+    {
+      "id": 13,
+      "name": "chung white vinegar",
+      "brand": {
+        "id": 31,
+        "name": "chung"
+      },
+      "category": {
+      "id": 13,
+      "name": "vinegar"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/4s6Vs95/chung-white-vinegar.jpg"
+    },
+    {
+      "id": 14,
+      "name": "ahmed white vinegar",
+      "brand": {
+        "id": 14,
+        "name": "ahmed"
+      },
+      "category": {
+      "id": 13,
+      "name": "vinegar"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/sW3xSQc/ahmed-white-vinegar.jpg"
+    },
+    {
+      "id": 15,
+      "name": "pran white vinegar",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+      "id": 13,
+      "name": "vinegar"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/Y08bdk9/pran-white-vinegar.png"
+    },
+    {
+      "id": 16,
+      "name": "bd white vinegar",
+      "brand": {
+        "id": 13,
+        "name": "BD Foods Limited"
+      },
+      "category": {
+      "id": 13,
+      "name": "vinegar"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/ThJYXRn/bd-white-vinegar.webp"
+    },
+    {
+      "id": 17,
+      "name": "discovery apple cider vinegar",
+      "brand": {
+        "id": 12,
+        "name": "discovery"
+      },
+      "category": {
+      "id": 12,
+      "name": "apple cider vinegar"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/nnz93Zf/discovery-apple-cider-vinegar.jpg"
+    },
+    {
+      "id": 18,
+      "name": "borges apple cider vinegar",
+      "brand": {
+        "id": 11,
+        "name": "borges"
+      },
+      "category": {
+      "id": 12,
+      "name": "apple cider vinegar"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/Db3G0z5/borges-apple-cider-vinegar.webp"
+    },
+    {
+      "id": 19,
+      "name": "herman apple cider vinegar",
+      "brand": {
+        "id": 10,
+        "name": "herman"
+      },
+      "category": {
+      "id": 12,
+      "name": "apple cider vinegar"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/gSyPjgz/herman-apple-cider-vinegar.jpg"
+    },
+    {
+      "id": 20,
+      "name": "bragg organic vinegar",
+      "brand": {
+        "id": 9,
+        "name": "bragg"
+      },
+      "category": {
+      "id": 12,
+      "name": "apple cider vinegar"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/Dk088ky/bragg-organic-vinegar.jpg"
+    },
+    {
+      "id": 21,
+      "name": "coca cola drink",
+      "brand": {
+        "id": 16,
+        "name": "International Beverages Pvt. Ltd."
+      },
+      "category": "soft drinks",
+      "rating": 10,
+      "img": "https://i.ibb.co/YhFrkxN/coca-cola-drink.jpg"
+    },
+    {
+      "id": 22,
+      "name": "coca cola can",
+      "brand": {
+        "id": 16,
+        "name": "International Beverages Pvt. Ltd."
+      },
+      "category":{
+      "id": 11,
+      "name": "soft drink"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/R0bhr5p/coca-cola-can.webp"
+    },
+    {
+      "id": 23,
+      "name": "coca cola diet can",
+      "brand": {
+        "id": 16,
+        "name": "International Beverages Pvt. Ltd."
+      },
+      "category":{
+      "id": 11,
+      "name": "soft drink"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/wh69yvL/coca-cola-diet-can.webp"
+    },
+    {
+      "id": 24,
+      "name": "clemon drink",
+      "brand": {
+      "id": 7,
+      "name": "Akij Food & Beverage Ltd"
+    },
+      "category":{
+      "id": 11,
+      "name": "soft drink"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/yVj8ZFF/clemon-drink.png"
+    },
+    {
+      "id": 25,
+      "name": "clemon drink can",
+      "brand": {
+        "id": 7,
+        "name": "Akij Food & Beverage Ltd"
+      },
+      "category":{
+      "id": 11,
+      "name": "soft drink"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/HHp4DNV/clemon-can.png"
+    },
+    {
+      "id": 26,
+      "name": "kazifarms kitchen vegetable singara",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/PrLLqZf/kazifarms-kitchen-vegetable-singara"
+    },
+    {
+      "id": 27,
+      "name": "kazifarms kitchen french fries",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/yYBmXfR/kazifarms-kitchen-french-fries.jpg"
+    },
+    {
+      "id": 28,
+      "name": "kazifarms kitchen chicken popcorn",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/4t2JJYJ/kazifarms-kitchen-chicken-popcorn.jpg"
+    },
+    {
+      "id": 29,
+      "name": "kazifarms kitchen chicken meatballs",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/z5bpWSx/kazifarms-kitchen-chicken-meatballs.webp"
+    },
+    {
+      "id": 30,
+      "name": "kazifarms kitchen chicken burger",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/jGp6Znh/kazifarms-kitchen-chicken-burger.jpg"
+    },
+    {
+      "id": 31,
+      "name": "kazifarms kitchen chicken cutlets",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/tM64grF/kazifarms-kitchen-chicken-cutlets.jpg"
+    },
+    {
+      "id": 32,
+      "name": "kazifarms kitchen chicken lollipop",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/2FTK4VN/kazifarms-kitchen-chicken-lollipop.jpg"
+    },
+    {
+      "id": 33,
+      "name": "kazifarms kitchen chicken teasers",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/JQtr7st/kazifarms-kitchen-chicken-teasers.jpg"
+    },
+    {
+      "id": 34,
+      "name": "kazifarms kitchen spicy chicken sausage",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/55BDHYS/kazifarms-kitchen-spicy-chicken-sausage.jpg"
+    },
+    {
+      "id": 35,
+      "name": "kazifarms kitchen chicken sausage",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/p4m08G9/kazifarms-kitchen-chicken-sausage.jpg"
+    },
+    {
+      "id": 36,
+      "name": "kazifarms kitchen spicy chicken nuggets",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/jrTPgXS/kazifarms-kitchen-spicy-chicken-nuggets.jpg"
+    },
+    {
+      "id": 37,
+      "name": "kazifarms kitchen chicken nuggets",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/0QZ6tLd/kazifarms-kitchen-chicken-nuggets.jpg"
+    },
+    {
+      "id": 38,
+      "name": "kazifarms kitchen spicy chicken meatballs",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/cNpQ5K6/azifarms-kitchen-spicy-chicken-meatballs.jpg"
+    },
+    {
+      "id": 39,
+      "name": "kazifarms kitchen chicken strips",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/BtL3L2B/kazifarms-kitchen-chicken-strips.jpg"
+    },
+    {
+      "id": 40,
+      "name": "kazifarms kitchen chicken shami kabab",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/Sy5Z0w9/kazifarms-kitchen-chicken-shami-kabab.jpg"
+    },
+    {
+      "id": 41,
+      "name": "kazifarms kitchen garlic butter chicken kiev",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/Qf2nPkN/kazifarms-kitchen-garlic-butter-chicken-kiev.jpg"
+    },
+    {
+      "id": 42,
+      "name": "kazifarms kitchen chicken crispy strips",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/qNtPQ0L/kazifarms-kitchen-chicken-crispy-strips.jpg"
+    },
+    {
+      "id": 43,
+      "name": "kazifarms kitchen chicken spring roll",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/b1QTvW4/kazifarms-kitchen-chicken-spring-roll.jpg"
+    },
+    {
+      "id": 44,
+      "name": "kazifarms kitchen chicken samosa",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/WPdqtyg/kazifarms-kitchen-chicken-Samosa.jpg"
+    },
+    {
+      "id": 45,
+      "name": "kazifarms kitchen vegetable samosa",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/wQ7JGhr/kazifarms-kitchen-Vegetable-Samosa.jpg"
+    },
+    {
+      "id": 46,
+      "name": "kazifarms kitchen aloo puri",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/0thKXJL/kazifarms-kitchen-Aloo-Puri.jpg"
+    },
+    {
+      "id": 47,
+      "name": "kazifarms kitchen paratha",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/nDHf54K/kazifarms-kitchen-Paratha.jpg"
+    },
+    {
+      "id": 48,
+      "name": "kazifarms kitchen cake",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+        "id": 5,
+        "name": "biscuit"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/NTcXvVf/kazifarms-kitchen-Cake.jpg"
+    },
+    {
+      "id": 49,
+      "name": "kazifarms kitchen toast",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+        "id": 5,
+        "name": "biscuit"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/wp4xGDG/kazifarms-kitchen-Toast.png"
+    },
+    {
+      "id": 50,
+      "name": "kazifarms kitchen jelly",
+      "brand": {
+        "id": 6,
+        "name": "kazifarms kitchen"
+      },
+      "category": {
+        "id": 10,
+        "name": "jelly"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/C5W5CQ9/kazifarms-kitchen-jelly.jpg"
+    },
+    {
+      "id": 51,
+      "name": "golden harvest chili sauce",
+      "brand": {
+        "id": 5,
+        "name": "golden harvest"
+      },
+      "category": {
+      "id": 9,
+      "name": "sauce"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/8Db1vtK/golden-harvest-chili-sauce.jpg"
+    },
+    {
+      "id": 52,
+      "name": "golden harvest tomato ketchup",
+      "brand": {
+        "id": 5,
+        "name": "golden harvest"
+      },
+      "category": {
+      "id": 9,
+      "name": "sauce"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/gW09TnX/golden-harvest-tomato-ketchup.jpg"
+    },
+    {
+      "id": 52,
+      "name": "golden harvest tamarind sauce",
+      "brand": {
+        "id": 5,
+        "name": "golden harvest"
+      },
+      "category": {
+      "id": 9,
+      "name": "sauce"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/hXFG7cG/golden-harvest-tamarind-sauce.jpg"
+    },
+    {
+      "id": 52,
+      "name": "golden harvest sweet & sour sauce",
+      "brand": {
+        "id": 5,
+        "name": "golden harvest"
+      },
+      "category": {
+      "id": 9,
+      "name": "sauce"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/V3K3N9k/golden-harvest-sweet-sour-sauce.jpg"
+    },
+    {
+      "id": 52,
+      "name": "golden harvest garlic chili sauce",
+      "brand": {
+        "id": 5,
+        "name": "golden harvest"
+      },
+      "category": {
+      "id": 9,
+      "name": "sauce"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/kDXqGP0/golden-harvest-garlic-chili-sauce.jpg"
+    },
+    {
+      "id": 53,
+      "name": "golden harvest paratha",
+      "brand": {
+        "id": 5,
+        "name": "golden harvest"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/tzxZgtq/golden-harvest-Paratha.jpg"
+    },
+    {
+      "id": 54,
+      "name": "golden harvest aloo puri",
+      "brand": {
+        "id": 5,
+        "name": "golden harvest"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/SxNsQnm/golden-harvest-aloo-puri.jpg"
+    },
+    {
+      "id": 55,
+      "name": "golden harvest chicken nuggets",
+      "brand": {
+        "id": 5,
+        "name": "golden harvest"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/JtZZqDF/golden-harvest-chicken-nuggets.jpg"
+    },
+    {
+      "id": 56,
+      "name": "golden harvest french fries",
+      "brand": {
+        "id": 5,
+        "name": "golden harvest"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/LJG42bZ/golden-harvest-french-fries.jpg"
+    },
+    {
+      "id": 57,
+      "name": "golden harvest vegetable singara",
+      "brand": {
+        "id": 5,
+        "name": "golden harvest"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/w7s8r63/golden-harvest-vegetable-singara.jpg"
+    },
+    {
+      "id": 58,
+      "name": "paragon beef singara",
+      "brand": {
+        "id": 4,
+        "name": "paragon"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/D92Lg70/paragon-Beef-Singara.png"
+    },
+    {
+      "id": 59,
+      "name": "paragon kids nugget",
+      "brand": {
+        "id": 4,
+        "name": "paragon"
+      },
+      "category": {
+      "id": 8,
+      "name": "frozen food"
+    },
+      "rating": 10,
+      "img": "https://i.ibb.co/Q6nstmh/paragon-Kids-Nugget.png"
+    },
+    {
+      "id": 60,
+      "name": "paragon chicken ball",
+      "brand": {
+        "id": 4,
+        "name": "paragon"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/QnBjCRL/paragon-Chicken-Ball.jpg"
+    },
+    {
+      "id": 61,
+      "name": "paragon chicken burger patty",
+      "brand": {
+        "id": 4,
+        "name": "paragon"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/3Nqs6HW/paragon-Chicken-Burger-Patty.jpg"
+    },
+    {
+      "id": 62,
+      "name": "paragon chicken lollipop",
+      "brand": {
+        "id": 4,
+        "name": "paragon"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": ""
+    },
+    {
+      "id": 63,
+      "name": "paragon chicken meat ball",
+      "brand": {
+        "id": 4,
+        "name": "paragon"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/mcT1fhQ/paragon-Chicken-Lollipop.png"
+    },
+    {
+      "id": 64,
+      "name": "paragon chicken samosa",
+      "brand": {
+        "id": 4,
+        "name": "paragon"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "ttps://i.ibb.co/zfQW33v/paragon-Chicken-Samosa.png"
+    },
+    {
+      "id": 65,
+      "name": "paragon vegetable spring roll",
+      "brand": {
+        "id": 4,
+        "name": "paragon"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/MPMGgyg/paragon-Vegetable-Spring-Roll.jpg"
+    },
+    {
+      "id": 66,
+      "name": "paragon vegetable samosa",
+      "brand": {
+        "id": 4,
+        "name": "paragon"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/NswGgPz/paragon-Vegetable-Samosa.jpg"
+    },
+    {
+      "id": 67,
+      "name": "paragon vegetable singara",
+      "brand": {
+        "id": 4,
+        "name": "paragon"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/W51cMTn/paragon-Vegetable-Singara.jpg"
+    },
+    {
+      "id": 68,
+      "name": "paragon shami kabab",
+      "brand": {
+        "id": 4,
+        "name": "paragon"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/g3kzQ4R/paragon-Shami-Kabab.jpg"
+    },
+    {
+      "id": 69,
+      "name": "paragon chicken spicy nuggets",
+      "brand": {
+        "id": 4,
+        "name": "paragon"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/ZS6CjWX/paragon-Chicken-Spicy-Nuggets.jpg"
+    },
+    {
+      "id": 70,
+      "name": "paragon chicken strips",
+      "brand": {
+        "id": 4,
+        "name": "paragon"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/VD2SBwf/paragon-Chicken-Strips.jpg"
+    },
+    {
+      "id": 71,
+      "name": "paragon chicken spring roll",
+      "brand": {
+        "id": 4,
+        "name": "paragon"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/18KNp5K/paragon-Chicken-Spring-Roll.jpg"
+    },
+    {
+      "id": 72,
+      "name": "paragon chicken sausage",
+      "brand": {
+        "id": 4,
+        "name": "paragon"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/zs9DWLL/paragon-Chicken-Sausage.jpg"
+    },
+    {
+      "id": 73,
+      "name": "paragon beef sausage",
+      "brand": {
+        "id": 4,
+        "name": "paragon"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/9rMcTrY/paragon-Beef-Sausage.jpg"
+    },
+    {
+      "id": 74,
+      "name": "paragon chicken popcorn",
+      "brand": {
+        "id": 4,
+        "name": "paragon"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/M7rfW9N/paragon-Chicken-Popcorn.jpg"
+    },
+    {
+      "id": 75,
+      "name": "paragon chicken nuggets",
+      "brand": {
+        "id": 4,
+        "name": "paragon"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/QpDN0YM/paragon-Chicken-Nuggets.jpg"
+    },
+    {
+      "id": 76,
+      "name": "jhatpot chicken wonton",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/2jNpZjc/Jhatpot-chicken-Wonton.png"
+    },
+    {
+      "id": 77,
+      "name": "jhatpot sausages",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/Zg3tz3p/Jhatpot-Chicken-Sausage.jpg"
+    },
+    {
+      "id": 78,
+      "name": "jhatpot spring roll",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/GMr2Ygy/Jhatpot-Spring-Roll.png"
+    },
+    {
+      "id": 79,
+      "name": "jhatpot dal puri",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/vhcVsDH/Jhatpot-Dal-Puri.png"
+    },
+    {
+      "id": 80,
+      "name": "jhatpot samosa",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/TRmvvwW/Jhatpot-Samosa.png"
+    },
+    {
+      "id": 81,
+      "name": "jhatpot popcorn",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/ZWKCMQj/Jhatpot-Popcorn.png"
+    },
+    {
+      "id": 82,
+      "name": "jhatpot chicken burger patty",
+      "brand": "pran",
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/JRRrLXv/Jhatpot-Chicken-Burger-Patty.png"
+    },
+    {
+      "id": 83,
+      "name": "jhatpot beef burger patty",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/55JZ3Y6/Jhatpot-Beef-Burger-Patty.png"
+    },
+    {
+      "id": 84,
+      "name": "jhatpot paratha",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/02yhnbg/Jhatpot-Paratha.png"
+    },
+    {
+      "id": 85,
+      "name": "jhatpot chicken cutlet",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/wSJLPmP/Jhatpot-Chicken-Cutlet.jpg"
+    },
+    {
+      "id": 86,
+      "name": "jhatpot aloo puri",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/ysKSsc8/Jhatpot-Aloo-Puri.png"
+    },
+    {
+      "id": 87,
+      "name": "jhatpot chicken jali kabab",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/khg93zf/Jhatpot-Chicken-Jali-Kabab.png"
+    },
+    {
+      "id": 88,
+      "name": "jhatpot chicken pop corn",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/b1MFXTs/Jhatpot-Chicken-Pop-Corn.png"
+    },
+    {
+      "id": 89,
+      "name": "jhatpot chicken nuggets",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/QXK3y7J/Jhatpot-Chicken-Nuggets.png"
+    },
+    {
+      "id": 90,
+      "name": "jhatpot chicken momo",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/wh7hvgq/Jhatpot-Chicken-Momo.png"
+    },
+    {
+      "id": 91,
+      "name": "jhatpot chicken sausage",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/Zg3tz3p/Jhatpot-Chicken-Sausage.jpg"
+    },
+    {
+      "id": 92,
+      "name": "jhatpot chicken strip",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/bQzzvnC/Jhatpot-Chicken-Strip.png"
+    },
+    {
+      "id": 93,
+      "name": "jhatpot vegetable singara",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/pdxpGwF/Jhatpot-Vegetable-Singara.png"
+    },
+    {
+      "id": 94,
+      "name": "jhatpot french fries",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/TR0Gs4C/Jhatpot-French-fries.png"
+    },
+    {
+      "id": 95,
+      "name": "jhatpot vegetable spring roll",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/qDzMj3c/Jhatpot-Vegetable-Spring-Roll.png"
+    },
+    {
+      "id": 96,
+      "name": "jhatpot chicken meat ball",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/THyvmnv/Jhatpot-Chicken-Meat-Ball.png"
+    },
+    {
+      "id": 97,
+      "name": "jhatpot vegetable samosa",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/ZN2GCvk/jhatpot-vegetable-samosa.jpg"
+    },
+    {
+      "id": 98,
+      "name": "jhatpot onion paratha",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/fGD50c4/Jhatpot-Onion-Paratha.png"
+    },
+    {
+      "id": 99,
+      "name": "jhatpot lal atta roti",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 8,
+        "name": "frozen food"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/BqhS4Jx/jhatpot-lal-atta-roti.jpg"
+    },
+    {
+      "id": 100,
+      "name": "all time honeycomb mixed fruits",
+      "subBrand": "all time",
+      "brand": {
+        "id": 2,
+        "name": "pran"
+      },
+      "category": {
+        "id": 4,
+        "name": "bread"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/86x42mr/all-time-honeycomb-mixed-fruits.png"
+    },
+    {
+      "id": 101,
+      "name": "kacchi",
+      "brand": {
+        "id": 15,
+        "name": "fakruddin"
+      },
+      "category": {
+        "id": 1,
+        "name": "kacchi"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/hD0Pks9/Fakruddin.jpg"
+      },
+      {
+      "id": 102,
+      "name": "kacchi",
+      "brand": {
+        "id": 21,
+        "name": "grand-nawab"
+      },
+      "category": {
+        "id": 1,
+        "name": "kacchi"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/VS2Dsbn/Grand-Nawab.jpg"
+      },
+      {
+      "id": 103,
+      "name": "kacchi",
+      "brand": {
+        "id": 22,
+        "name": "hanif-biryani"
+      },
+      "category": {
+        "id": 1,
+        "name": "kacchi"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/L1HcC20/Hanif-Biryani.jpg"
+      },
+      {
+      "id": 104,
+      "name": "kacchi",
+      "brand": {
+        "id": 23,
+        "name": "hazi-biriyani"
+      },
+      "category": {
+        "id": 1,
+        "name": "kacchi"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/31vhjTy/Hazi-Biriyani.jpg"
+      },
+      {
+      "id": 105,
+      "name": "kacchi",
+      "brand": {
+        "id": 24,
+        "name": "maruf-biriyani-house"
+      },
+      "category": {
+        "id": 1,
+        "name": "kacchi"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/Xxwd1Jb/Maruf-Biriyani-House.jpg"
+      },
+      {
+      "id": 106,
+      "name": "boma-burger",
+      "brand": {
+        "id": 24,
+        "name": "boma-burger"
+      },
+      "category": {
+        "id": 2,
+        "name": "burger"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/hmQb00w/Boma-Burger.jpg"
+      },
+      {
+      "id": 101,
+      "name": "kacchi",
+      "brand": {
+        "id": 24,
+        "name": "maruf-biriyani-house"
+      },
+      "category": {
+        "id": 1,
+        "name": "kacchi"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/Xxwd1Jb/Maruf-Biriyani-House.jpg"
+      },
+      {
+      "id": 101,
+      "name": "kacchi",
+      "brand": {
+        "id": 24,
+        "name": "maruf-biriyani-house"
+      },
+      "category": {
+        "id": 1,
+        "name": "kacchi"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/Xxwd1Jb/Maruf-Biriyani-House.jpg"
+      },
+      {
+      "id": 101,
+      "name": "kacchi",
+      "brand": {
+        "id": 24,
+        "name": "maruf-biriyani-house"
+      },
+      "category": {
+        "id": 1,
+        "name": "kacchi"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/Xxwd1Jb/Maruf-Biriyani-House.jpg"
+      },
+      {
+      "id": 101,
+      "name": "kacchi",
+      "brand": {
+        "id": 24,
+        "name": "maruf-biriyani-house"
+      },
+      "category": {
+        "id": 1,
+        "name": "kacchi"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/Xxwd1Jb/Maruf-Biriyani-House.jpg"
+      },
+      {
+      "id": 101,
+      "name": "kacchi",
+      "brand": {
+        "id": 24,
+        "name": "maruf-biriyani-house"
+      },
+      "category": {
+        "id": 1,
+        "name": "kacchi"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/Xxwd1Jb/Maruf-Biriyani-House.jpg"
+      },
+      {
+      "id": 101,
+      "name": "kacchi",
+      "brand": {
+        "id": 24,
+        "name": "maruf-biriyani-house"
+      },
+      "category": {
+        "id": 1,
+        "name": "kacchi"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/Xxwd1Jb/Maruf-Biriyani-House.jpg"
+      },
+      {
+      "id": 101,
+      "name": "kacchi",
+      "brand": {
+        "id": 24,
+        "name": "maruf-biriyani-house"
+      },
+      "category": {
+        "id": 1,
+        "name": "kacchi"
+      },
+      "rating": 10,
+      "img": "https://i.ibb.co/Xxwd1Jb/Maruf-Biriyani-House.jpg"
+      }
+  ],
+
+  "brands": [
+    {
+      "id": 1,
+      "name": "sultan's dine"
+    },
+    {
+      "id": 2,
+      "name": "pran"
+    },
+    {
+      "id": 3,
+      "name": "domino's"
+    },
+    {
+      "id": 4,
+      "name": "paragon"
+    },
+    {
+      "id": 5,
+      "name": "golden harvest"
+    },
+    {
+      "id": 6,
+      "name": "kazifarms kitchen"
+    },
+    {
+      "id": 7,
+      "name": "akij food & beverage ltd"
+    },
+    {
+      "id": 8,
+      "name": "international beverages pvt. ltd."
+    },
+    {
+      "id": 9,
+      "name": "bragg"
+    },
+    {
+      "id": 10,
+      "name": "herman"
+    },
+    {
+      "id": 11,
+      "name": "borges"
+    },
+    {
+      "id": 12,
+      "name": "discovery"
+    },
+    {
+      "id": 13,
+      "name": "BD Foods Limited"
+    },
+    {
+      "id": 14,
+      "name": "ahmed"
+    },
+    {
+      "id": 15,
+      "name": "Fakruddin"
+    },
+    {
+      "id": 16,
+      "name": "International Beverages Pvt. Ltd."
+    },
+    {
+      "id": 17,
+      "name": "Arla Foods Inc."
+    },
+    {
+      "id": 18,
+      "name": "milk vita"
+    },
+    {
+      "id": 19,
+      "name": "aarong"
+    },
+    {
+      "id": 20,
+      "name": "nestle"
+    },
+    {
+      "id": 21,
+      "name": "grand-nawab"
+    },
+    {
+      "id": 22,
+      "name": "hanif biryani"
+    },
+    {
+      "id": 23,
+      "name": "hazi biriyani"
+    },
+    {
+      "id": 24,
+      "name": "maruf-biriyani-house"
+    },
+    {
+      "id": 25,
+      "name": "boma-burger"
+    },
+    {
+      "id": 26,
+      "name": "kudos-burger"
+    },
+    {
+      "id": 27,
+      "name": "madchef-burger"
+    },
+    {
+      "id": 29,
+      "name": "Preetom-Burger"
+    },
+    {
+      "id": 30,
+      "name": "Takeout-Burger"
+    },
+    {
+      "id": 31,
+      "name": "chung"
+    }
+  ],
+
+  "categories": [
+    {
+      "id": 1,
+      "name": "kacchi"
+    },
+    {
+      "id": 2,
+      "name": "burger"
+    },
+    {
+      "id": 3,
+      "name": "pizza"
+    },
+    {
+      "id": 4,
+      "name": "bread"
+    },
+    {
+      "id": 5,
+      "name": "biscuit"
+    },
+    {
+      "id": 6,
+      "name": "cake"
+    },
+    {
+      "id": 7,
+      "name": "noodles"
+    },
+    {
+      "id": 8,
+      "name": "frozen food"
+    },
+    {
+      "id": 9,
+      "name": "sauce"
+    },
+    {
+      "id": 10,
+      "name": "jelly"
+    },
+    {
+      "id": 11,
+      "name": "soft drinks"
+    },
+    {
+      "id": 12,
+      "name": "apple cider vinegar"
+    },
+    {
+      "id": 13,
+      "name": "vinegar"
+    },
+    {
+      "id": 14,
+      "name": "powder milk"
+    },
+    {
+      "id": 15,
+      "name": "butter"
+    }
+  ]
+
+}

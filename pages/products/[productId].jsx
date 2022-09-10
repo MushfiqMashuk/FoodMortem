@@ -1,14 +1,13 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
+import AddToBucketListButton from "../../components/AddToBucketListButton";
 import Layout from "../../components/Layout";
 import LoadingSpinner from "../../components/LoadingSpinner";
-import ProductImage from "../../components/ProductImage";
 import ReviewAnalytics from "../../components/ReviewAnalytics";
 import SimilarProduct from "../../components/SimilarProduct";
 import { shimmer, toBase64 } from "../../helpers/shimmerEffect";
-import styles from "./singleProduct.module.scss";
 import No_Image from "../../public/no_image.png";
-import AddToBucketListButton from "../../components/AddToBucketListButton";
+import styles from "./singleProduct.module.scss";
 
 function SingleProduct({ product }) {
   const router = useRouter();
@@ -33,6 +32,7 @@ function SingleProduct({ product }) {
                 <h3
                   className={styles.product_brand}
                   onClick={() => router.push(`/brands/${product?.brand?.id}`)}
+                  title="Brand"
                 >
                   {product.brand.name ? product.brand.name : product.brand}
                 </h3>
@@ -41,6 +41,7 @@ function SingleProduct({ product }) {
                   onClick={() =>
                     router.push(`/categories/${product?.category?.id}`)
                   }
+                  title="Category"
                 >
                   {product.category.name
                     ? product.category.name
@@ -63,8 +64,8 @@ function SingleProduct({ product }) {
                 )}`}
               />
             </div>
-            
-            <ReviewAnalytics product={product}/>
+
+            <ReviewAnalytics product={product} />
           </div>
           <SimilarProduct />
         </Layout>
