@@ -1,1 +1,2 @@
 1. React stars component needs to be changed. It uses a deprecated react life cycle method.
+2. Image link of the No. 9 product id is down
