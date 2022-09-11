@@ -1,7 +1,12 @@
 import Layout from "../../components/Layout";
+import Modal from "../../components/Modal";
 
 function Products() {
-  return <Layout>This is Products page</Layout>;
+  return (
+    <Layout>
+      <Modal />
+    </Layout>
+  );
 }
 
 export default Products;

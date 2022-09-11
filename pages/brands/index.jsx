@@ -1,7 +1,7 @@
 import Layout from "../../components/Layout";
 
 function Brands() {
-  return <Layout>This is Brands page</Layout>;
+  return <Layout></Layout>;
 }
 
 export default Brands;
