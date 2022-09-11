@@ -10,13 +10,13 @@ const Modal = () => {
 
   return (
     <div className={styles.modal}>
-      <div className={styles.wrapper}>
-        <div className={styles.modal_content}>
-          <span id="closeModal" className="close">
-            &times;
-          </span>
-          <p>Simple Modal</p>
+      <div className={styles.modal_content}>
+        <div className={styles.close_button_container}>
+          <button className={styles.close_button}>
+            <span>&times;</span>
+          </button>
         </div>
+        <p>Simple Modal</p>
       </div>
     </div>
   );

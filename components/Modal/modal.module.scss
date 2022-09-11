@@ -29,16 +29,35 @@
   //   }
 
   .modal_content {
-    background: white;
-    height: 100%;
-    width: 100%;
-    border-radius: 15px;
+    position: relative;
+    background-color: #313131;
+    min-height: 40vh;
+    width: 40vw;
+    border-radius: 5px;
     padding: 15px;
-  }
+    color: white;
 
-  .wrapper {
-    overflow: hidden;
-    width: 500px;
-    height: 600px;
+    .close_button_container {
+      position: absolute;
+      right: 0;
+      top: -2.5rem;
+      background-color: rgb(149, 149, 149);
+      z-index: 2;
+      display: inline-block;
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+      font-size: 2rem;
+      line-height: 0;
+      margin: 0;
+      
+    
+      .close_button {
+        border: 0;
+        padding: 0;
+        font-size: 2rem;
+        border-radius: 50%;
+      }
+    }
   }
 }
