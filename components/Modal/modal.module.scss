@@ -2,6 +2,11 @@
 
 .overflow_hidden {
   overflow: hidden;
+  width: calc(100% - 17px); //for chrome/safari
+  width: -moz-calc(100% - 16px); //for firefox
+  width: -ms-calc(
+    100% - XXpx
+  ); // where "XX" equals the width of the scrollbar in IE)
 }
 
 .modal {
@@ -16,17 +21,7 @@
   @include center_element;
   background-color: rgba(0, 0, 0, 0.5);
   -webkit-transition: 0.5s;
-  overflow: auto;
   transition: all 0.3s linear;
-
-  //   .modal_content {
-  //     background-color: #fefefe;
-  //     margin: auto;
-  //     padding: 20px;
-  //     border-radius: 4px;
-  //     max-width: 300px;
-  //     height: 450px;
-  //   }
 
   .modal_content {
     position: relative;

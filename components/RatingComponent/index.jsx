@@ -3,13 +3,16 @@ import { useState } from "react";
 import StarIcon from "../../public/star_icon6.svg";
 import YourRatingIconAfter from "../../public/your_rating_star_after.svg";
 import YourRatingIconBefore from "../../public/your_rating_star_before.svg";
+import Modal from "../Modal";
 import styles from "./ratingComponent.module.scss";
 
 function RatingComponent({ productRating }) {
   const [rating, setRating] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <>
+      {showModal && <Modal onClose={() => setShowModal(false)} />}
       {productRating && (
         <div className={styles.container}>
           <div className={styles.rating}>
@@ -28,7 +31,10 @@ function RatingComponent({ productRating }) {
               </div>
             </div>
           </div>
-          <div className={styles.your_rating}>
+          <div
+            className={styles.your_rating}
+            onClick={() => setShowModal(true)}
+          >
             <div className={styles.rating_title}>Your Rating</div>
             <div
               className={styles.rating_points}
