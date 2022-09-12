@@ -20,17 +20,38 @@
   z-index: 9999;
   @include center_element;
   background-color: rgba(0, 0, 0, 0.5);
-  -webkit-transition: 0.5s;
-  transition: all 0.3s linear;
+  // transition: all 0.7s ease-in;
 
   .modal_content {
     position: relative;
     background-color: #313131;
-    min-height: 40vh;
-    width: 38vw;
+    min-height: 45vh;
+    width: 36vw;
     border-radius: 5px;
     padding: 15px;
     color: white;
+
+    opacity: 0;
+    -moz-animation: cssAnimation 0s 0.1s;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s 0.1s;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s 0.1s;
+    /* Opera */
+    animation: cssAnimation 0s 0.1s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    @keyframes cssAnimation {
+      to {
+        opacity: 1;
+      }
+    }
+    @-webkit-keyframes cssAnimation {
+      to {
+        opacity: 1;
+      }
+    }
 
     .close_button_container {
       height: 3rem;
