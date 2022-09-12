@@ -12,11 +12,10 @@ const Modal = () => {
     <div className={styles.modal}>
       <div className={styles.modal_content}>
         <div className={styles.close_button_container}>
-          <button className={styles.close_button}>
-            <span>&times;</span>
-          </button>
+          {/* <button className={styles.close_button}>&times;</button> */}
+          <span className={styles.close_button}>&times;</span>
+          {/* <Image src={CrossIcon}/> */}
         </div>
-        <p>Simple Modal</p>
       </div>
     </div>
   );
