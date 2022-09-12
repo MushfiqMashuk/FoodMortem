@@ -20,7 +20,6 @@
   z-index: 9999;
   @include center_element;
   background-color: rgba(0, 0, 0, 0.5);
-  // transition: all 0.7s ease-in;
 
   .modal_content {
     position: relative;
@@ -28,27 +27,30 @@
     min-height: 45vh;
     width: 36vw;
     border-radius: 5px;
-    padding: 15px;
     color: white;
 
+    scale: 0.8;
     opacity: 0;
-    -moz-animation: cssAnimation 0s 0.1s;
+
+    -moz-animation: cssAnimation 0.2s 0.2s;
     /* Firefox */
-    -webkit-animation: cssAnimation 0s 0.1s;
+    -webkit-animation: cssAnimation 0.2s 0.2s;
     /* Safari and Chrome */
-    -o-animation: cssAnimation 0s 0.1s;
+    -o-animation: cssAnimation 0.2s 0.2s;
     /* Opera */
-    animation: cssAnimation 0s 0.1s;
+    animation: cssAnimation 0.2s 0.2s;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
 
     @keyframes cssAnimation {
       to {
+        scale: 1;
         opacity: 1;
       }
     }
     @-webkit-keyframes cssAnimation {
       to {
+        scale: 1;
         opacity: 1;
       }
     }
