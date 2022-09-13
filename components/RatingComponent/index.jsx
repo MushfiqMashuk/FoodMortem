@@ -12,7 +12,7 @@ function RatingComponent({ productRating }) {
 
   return (
     <>
-      {showModal && <Modal onClose={() => setShowModal(false)} />}
+      {showModal && <Modal title="Rate This" onClose={() => setShowModal(false)} />}
       {productRating && (
         <div className={styles.container}>
           <div className={styles.rating}>

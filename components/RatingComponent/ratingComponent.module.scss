@@ -22,10 +22,7 @@
 
   .rating_title {
     @include center_element;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    font-weight: 500;
-    width: 100%;
+    @include rating_title;
     flex: 1;
   }
 

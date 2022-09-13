@@ -10,3 +10,10 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin rating_title {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-weight: 500;
+  width: 100%;
+}

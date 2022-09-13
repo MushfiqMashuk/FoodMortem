@@ -15,7 +15,7 @@ const Modal = ({ onClose, children = null, title = "Hello There" }) => {
           <span className={styles.close_button}>&times;</span>
         </div>
         <div className={styles.title}>
-          <h3>{title}</h3>
+          {title}
         </div>
         {children && children}
       </div>

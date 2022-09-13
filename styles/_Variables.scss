@@ -1,8 +1,12 @@
+// Colors
+
+$primary_color: #FFD700;
+
 // Top Loader
-$top_loader_height: 3.5px;
+$top_loader_height: 3.6px;
 $top_loader_color: #0969da;
 
-$navbar_background_color: #f4c95d;
+$navbar_background_color: $primary_color;
 $body_background_color: rgb(247, 245, 245);
 $footer_background_color: #3b3b3b;
 $heading_font_weight: 400;
