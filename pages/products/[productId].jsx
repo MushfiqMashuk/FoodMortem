@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import AddToBucketListButton from "../../components/AddToBucketListButton";
 import Layout from "../../components/Layout";
@@ -29,24 +30,22 @@ function SingleProduct({ product }) {
             </div>
             <div className={styles.product_info}>
               <div className={styles.product_description}>
-                <h3
-                  className={styles.product_brand}
-                  onClick={() => router.push(`/brands/${product?.brand?.id}`)}
-                  title="Brand"
-                >
-                  {product.brand.name ? product.brand.name : product.brand}
-                </h3>
-                <h3
-                  className={styles.product_category}
-                  onClick={() =>
-                    router.push(`/categories/${product?.category?.id}`)
-                  }
-                  title="Category"
-                >
-                  {product.category.name
-                    ? product.category.name
-                    : product.category}
-                </h3>
+                <Link href={`/brands/${product?.brand?.id}`}>
+                  <a>
+                    <h3 className={styles.product_brand} title="Brand">
+                      {product.brand.name ? product.brand.name : product.brand}
+                    </h3>
+                  </a>
+                </Link>
+                <Link href={`/categories/${product?.category?.id}`}>
+                  <a>
+                    <h3 className={styles.product_category} title="Category">
+                      {product.category.name
+                        ? product.category.name
+                        : product.category}
+                    </h3>
+                  </a>
+                </Link>
               </div>
               <div className={styles.other_description}></div>
             </div>
