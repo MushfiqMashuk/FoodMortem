@@ -55,6 +55,13 @@
       }
     }
 
+    // Now the inner layout design of the modal container
+
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+
     .close_button_container {
       height: 3rem;
       width: 3rem;

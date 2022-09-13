@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import styles from "./modal.module.scss";
 
-const Modal = ({ onClose }) => {
+const Modal = ({ onClose, children = null, title = "Hello There" }) => {
   useEffect(() => {
     document.body.classList.add(styles.overflow_hidden);
 
@@ -12,10 +12,12 @@ const Modal = ({ onClose }) => {
     <div className={styles.modal}>
       <div className={styles.modal_content}>
         <div className={styles.close_button_container} onClick={onClose}>
-          {/* <button className={styles.close_button}>&times;</button> */}
           <span className={styles.close_button}>&times;</span>
-          {/* <Image src={CrossIcon}/> */}
         </div>
+        <div className={styles.title}>
+          <h3>{title}</h3>
+        </div>
+        {children && children}
       </div>
     </div>
   );

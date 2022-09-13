@@ -19,7 +19,7 @@ function RatingComponent({ productRating }) {
             <div className={styles.rating_title}>Rating</div>
             <div className={styles.rating_points}>
               <div className={styles.star}>
-                <Image src={StarIcon} height={40} width={40} />
+                <Image src={StarIcon} height={38} width={38} />
               </div>
               <div className={styles.stats}>
                 <div className={styles.total_rating}>
@@ -43,8 +43,8 @@ function RatingComponent({ productRating }) {
               <div className={styles.star}>
                 <Image
                   src={rating ? YourRatingIconAfter : YourRatingIconBefore}
-                  height={40}
-                  width={40}
+                  height={38}
+                  width={38}
                 />
               </div>
               <div className={styles.stats}>
