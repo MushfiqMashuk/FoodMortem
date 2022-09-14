@@ -15,20 +15,20 @@
     border: none;
     color: #ffffff;
     text-align: center;
-    font-size: 17px;
+    font-size: 1.07rem;    
     padding: $bucket_list_button_padding;
-    width: 250px;
+    width: 15.4rem;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 5px;
+    margin: 0.3rem;
 
     &:hover {
       background-color: $bucket_list_button_hover;
     }
 
     .plus {
-      margin-right: 5px;
-      font-size: 20px;
+      margin-right: 0.3rem;
+      font-size: 1.25rem;
       padding: 0px;
     }
 
@@ -42,16 +42,16 @@
         position: absolute;
         opacity: 0;
         top: -1px;
-        right: -20px;
+        right: -1.25rem;
         transition: 0.5s;
       }
     }
 
     &:hover .button_title {
-      padding-right: 10px;
+      padding-right: 0.625rem;
       &:after {
         opacity: 1;
-        right: -20px;
+        right: -1.25rem;
       }
     }
 
