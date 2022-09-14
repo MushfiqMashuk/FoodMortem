@@ -25,7 +25,7 @@
   .title {
     @include center_element;
     @include rating_title;
-    margin: 10px 0px;
+    margin: 0.625rem 0px;
     color: $primary_color;
   }
 
@@ -97,7 +97,7 @@
 
       .close_button {
         position: absolute;
-        top: 20px;
+        top: 1.25rem;
         font-size: 2.5rem;
         font-weight: 300;
       }

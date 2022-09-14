@@ -16,15 +16,15 @@
     justify-content: center;
     align-items: center;
     &:not(:last-child) {
-      margin-bottom: 50px;
+      margin-bottom: 3.125rem;
     }
 
     /* Styling the border and box
         effect of the progress bar*/
     .progress_bar {
       width: 50%;
-      height: 5px;
-      margin-top: 10px;
+      height: 0.3125rem; 
+      margin-top: 0.625rem; 
       border: 1px solid #565656;
       border-radius: 5px;
       box-shadow: 0 0 10px rgb(245, 159, 0);
@@ -40,7 +40,7 @@
       animation: progress 1500ms ease-in 1;
     }
 
-    /* Assigning width of each languages*/
+    /* Assigning width of each bar*/
     .positive {
       width: 85%;
     }

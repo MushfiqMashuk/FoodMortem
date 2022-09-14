@@ -2,21 +2,21 @@
 
 .container {
   display: flex;
-  height: 6em;
+  height: 6rem;
   width: 60%;
   background-color: #414141;
   color: white;
-  padding-top: 3px;
+  padding-top: 0.1875rem; // 3px
 
   .total_rating {
     @include center_element;
-    font-size: 1em;
+    font-size: 1rem;
     font-weight: 400;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.1rem;
   }
 
   .the_rating {
-    font-size: 1.4em;
+    font-size: 1.4rem;
     font-weight: 700;
   }
 
@@ -33,7 +33,7 @@
   .rating_points {
     flex: 3;
     @include center_element;
-    gap: 1em;
+    gap: 1rem;
     cursor: pointer;
 
     &:hover {
@@ -51,7 +51,7 @@
     flex-direction: column;
 
     .total_number_of_rate {
-      font-size: 0.8em;
+      font-size: 0.8rem;
       font-weight: 500;
     }
   }
