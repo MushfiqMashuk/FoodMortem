@@ -1,6 +1,6 @@
 // Colors
 
-$primary_color: #FFD700;
+$primary_color: #ffd700;
 
 // Top Loader
 $top_loader_height: 3.6px;
@@ -10,15 +10,15 @@ $navbar_background_color: $primary_color;
 $body_background_color: rgb(247, 245, 245);
 $footer_background_color: #3b3b3b;
 $heading_font_weight: 400;
-$header_margin_bottom: 10px;
+$header_margin_bottom: 0.625rem;
 
-$product_category_padding: 0px 25px;
-$top_section_padding: 10px 10px 10px 20px;
-$product_info_padding_left: 20px;
+$product_category_padding: 0px 1.56rem;
+$top_section_padding: 0.625rem 0.625rem 0.625rem 1.25rem;
+$product_info_padding_left: 1.25rem;
 $content_min_height: 400px;
 
 //Bucket list button
-$bucket_list_button_padding: 5px;
+$bucket_list_button_padding: 0.3rem;
 $bucket_list_button: #414141;
 $bucket_list_button_hover: #313131;
 
@@ -28,9 +28,10 @@ $img_container_box_shadow: 0 0 0 1px rgb(53 72 91 / 7%),
   0 2px 2px rgb(0 0 0 / 1%), 0 4px 4px rgb(0 0 0 / 2%),
   0 10px 8px rgb(0 0 0 / 3%), 0 15px 15px rgb(0 0 0 / 3%),
   0 30px 30px rgb(0 0 0 / 4%), 0 70px 65px rgb(0 0 0 / 5%);
+
 $img_container_box_shadow_hover: 0px 0px 20px 2px #e1e0e0;
 $img_container_border: 1px solid rgb(230, 229, 229);
 $img_container_border_radius: 10px;
 
-$review_header_margin_bottom: 20px;
-$product_page_content_margin: 2em 0px;
+$review_header_margin_bottom: 1.25rem;
+$product_page_content_margin: 2rem 0px;
