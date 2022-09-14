@@ -13,7 +13,7 @@ $heading_font_weight: 400;
 $header_margin_bottom: 0.625rem;
 
 $product_category_padding: 0px 1.56rem;
-$top_section_padding: 0.625rem 0.625rem 0.625rem 1.25rem;
+$top_section_padding: 0.625rem 0.625rem 0.625rem 0;
 $product_info_padding_left: 1.25rem;
 $content_min_height: 400px;
 
@@ -32,6 +32,7 @@ $img_container_box_shadow: 0 0 0 1px rgb(53 72 91 / 7%),
 $img_container_box_shadow_hover: 0px 0px 20px 2px #e1e0e0;
 $img_container_border: 1px solid rgb(230, 229, 229);
 $img_container_border_radius: 10px;
+$image_container_width: 90%;
 
 $review_header_margin_bottom: 1.25rem;
 $product_page_content_margin: 2rem 0px;
