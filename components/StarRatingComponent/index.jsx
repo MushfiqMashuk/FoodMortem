@@ -19,6 +19,7 @@ const StarRatingComponent = ({ title = "Rate This" }) => {
         innerRadius={25}
       />
       <button className={styles.rate_button}>Rate</button>
+      <button disabled className={styles.rate_button}>Remove Rating</button>
     </div>
   );
 };
