@@ -20,7 +20,7 @@
   height: 100%;
   z-index: 9999;
   @include center_element;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: $modal_overlay_color;
 
   .title {
     @include center_element;
@@ -31,7 +31,7 @@
 
   .modal_content {
     position: relative;
-    background-color: #313131;
+    background-color: $secondary_color; 
     min-height: 45vh;
     width: 36vw;
     border-radius: 5px;

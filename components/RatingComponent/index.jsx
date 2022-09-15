@@ -4,6 +4,7 @@ import StarIcon from "../../public/star_icon6.svg";
 import YourRatingIconAfter from "../../public/your_rating_star_after.svg";
 import YourRatingIconBefore from "../../public/your_rating_star_before.svg";
 import Modal from "../Modal";
+import StarRatingComponent from "../StarRatingComponent";
 import styles from "./ratingComponent.module.scss";
 
 function RatingComponent({ productRating }) {
@@ -12,7 +13,11 @@ function RatingComponent({ productRating }) {
 
   return (
     <>
-      {showModal && <Modal title="Rate This" onClose={() => setShowModal(false)} />}
+      {showModal && (
+        <Modal title="Rate This" onClose={() => setShowModal(false)}>
+          <StarRatingComponent title="Kolkata Kacchi" />
+        </Modal>
+      )}
       {productRating && (
         <div className={styles.container}>
           <div className={styles.rating}>

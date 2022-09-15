@@ -1,0 +1,13 @@
+// @import "../../styles/Mixins.scss";
+@import "../../styles/Variables.scss";
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: $secondary_color;
+}
+
+.star_class {
+  padding: 3px;
+}
