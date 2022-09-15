@@ -5,6 +5,9 @@ const StarRatingComponent = ({ title = "Rate This" }) => {
   return (
     <div className={styles.container}>
       <div className={styles.rating_title}>{title}</div>
+
+      <div className={styles.rating_value}>0</div>
+
       <StarRating
         unit="half"
         count={10}
@@ -15,6 +18,7 @@ const StarRatingComponent = ({ title = "Rate This" }) => {
         hoverColor="red"
         innerRadius={25}
       />
+      <button className={styles.rate_button}>Rate</button>
     </div>
   );
 };

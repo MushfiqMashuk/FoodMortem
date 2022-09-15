@@ -17,3 +17,8 @@
   font-weight: 500;
   width: 100%;
 }
+
+@mixin rating_value {
+  font-size: 1.4rem;
+  font-weight: 700;
+}

@@ -16,8 +16,7 @@
   }
 
   .the_rating {
-    font-size: 1.4rem;
-    font-weight: 700;
+    @include rating_value;
   }
 
   .rating_title {
@@ -51,6 +50,7 @@
     flex-direction: column;
 
     .total_number_of_rate {
+      color: white;
       font-size: 0.8rem;
       font-weight: 500;
     }
