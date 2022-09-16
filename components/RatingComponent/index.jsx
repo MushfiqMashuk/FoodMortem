@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
+import useRating from "../../hooks/useRating";
 import StarIcon from "../../public/star_icon6.svg";
 import YourRatingIconAfter from "../../public/your_rating_star_after.svg";
 import YourRatingIconBefore from "../../public/your_rating_star_before.svg";
@@ -8,8 +9,11 @@ import StarRatingComponent from "../StarRatingComponent";
 import styles from "./ratingComponent.module.scss";
 
 function RatingComponent({ productRating }) {
-  const [rating, setRating] = useState(false);
+  //const [rating, setRating] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const { userRating } = useRating();
+
+  console.log(userRating);
 
   return (
     <>
@@ -44,21 +48,18 @@ function RatingComponent({ productRating }) {
             onClick={() => setShowModal(true)}
           >
             <div className={styles.rating_title}>Your Rating</div>
-            <div
-              className={styles.rating_points}
-              onClick={() => setRating(!rating)}
-            >
+            <div className={styles.rating_points}>
               <div className={styles.star}>
                 <Image
-                  src={rating ? YourRatingIconAfter : YourRatingIconBefore}
+                  src={userRating ? YourRatingIconAfter : YourRatingIconBefore}
                   height={38}
                   width={38}
                 />
               </div>
               <div className={styles.stats}>
-                {rating ? (
+                {userRating ? (
                   <div className={styles.total_rating}>
-                    <span className={styles.the_rating}>8.0</span>
+                    <span className={styles.the_rating}>{userRating}</span>
                     <span>/</span>
                     <span>10</span>
                   </div>
