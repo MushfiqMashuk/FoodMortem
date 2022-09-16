@@ -1,12 +1,15 @@
+import { useState } from "react";
 import StarRating from "react-svg-star-rating";
 import styles from "./starRatingComponent.module.scss";
 
-const StarRatingComponent = ({ title = "Rate This" }) => {
+const StarRatingComponent = ({ title = "Rate This", onClose }) => {
+  const [rating, setRating] = useState(0);
+
   return (
     <div className={styles.container}>
       <div className={styles.rating_title}>{title}</div>
 
-      <div className={styles.rating_value}>0</div>
+      <div className={styles.rating_value}>{rating}</div>
 
       <StarRating
         unit="half"
@@ -14,12 +17,23 @@ const StarRatingComponent = ({ title = "Rate This" }) => {
         size={35}
         emptyColor="#DDDDDD"
         starClassName={styles.star_class}
-        activeColor="#FFD700"
+        activeColor="#ffb700"
         hoverColor="red"
         innerRadius={25}
+        handleOnClick={(rate) => setRating(rate)}
       />
-      <button className={styles.rate_button}>Rate</button>
-      <button disabled className={styles.rate_button}>Remove Rating</button>
+      <button className={styles.rate_button} onClick={onClose}>
+        Rate
+      </button>
+      {rating ? (
+        <button
+          disabled={!rating}
+          onClick={() => setRating(0)}
+          className={styles.rate_button}
+        >
+          Remove Rating
+        </button>
+      ) : null}
     </div>
   );
 };

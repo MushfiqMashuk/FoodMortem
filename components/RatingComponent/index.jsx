@@ -15,7 +15,10 @@ function RatingComponent({ productRating }) {
     <>
       {showModal && (
         <Modal title="Rate This" onClose={() => setShowModal(false)}>
-          <StarRatingComponent title="Kolkata Kacchi" />
+          <StarRatingComponent
+            title="Kolkata Kacchi"
+            onClose={() => setShowModal(false)}
+          />
         </Modal>
       )}
       {productRating && (
