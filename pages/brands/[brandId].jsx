@@ -18,7 +18,7 @@ export default SingleBrand;
 
 export async function getStaticPaths() {
   return {
-    paths: [{ params: { brandId: "2" } }],
+    paths: [],
     fallback: true,
   };
 }

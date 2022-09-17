@@ -6,6 +6,8 @@ import Layout from "../../components/Layout";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import ReviewAnalytics from "../../components/ReviewAnalytics";
 import SimilarProduct from "../../components/SimilarProduct";
+import SubTitle from "../../components/SubTitle";
+import Title from "../../components/Title";
 import { shimmer, toBase64 } from "../../helpers/shimmerEffect";
 import No_Image from "../../public/no_image.png";
 import styles from "./singleProduct.module.scss";
@@ -24,7 +26,7 @@ function SingleProduct({ product }) {
           <div className={styles.header}>
             <div className={styles.top_section}>
               <div className={styles.product_name}>
-                <h1>{product.name}</h1>
+                <Title>{product.name}</Title>
               </div>
               <AddToBucketListButton />
             </div>
@@ -32,18 +34,21 @@ function SingleProduct({ product }) {
               <div className={styles.product_description}>
                 <Link href={`/brands/${product?.brand?.id}`}>
                   <a>
-                    <h3 className={styles.product_brand} title="Brand">
+                    <SubTitle className={styles.product_brand} title="Brand">
                       {product.brand.name ? product.brand.name : product.brand}
-                    </h3>
+                    </SubTitle>
                   </a>
                 </Link>
                 <Link href={`/categories/${product?.category?.id}`}>
                   <a>
-                    <h3 className={styles.product_category} title="Category">
+                    <SubTitle
+                      className={styles.product_category}
+                      title="Category"
+                    >
                       {product.category.name
                         ? product.category.name
                         : product.category}
-                    </h3>
+                    </SubTitle>
                   </a>
                 </Link>
               </div>

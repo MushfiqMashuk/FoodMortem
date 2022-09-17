@@ -1,4 +1,5 @@
 @import "../../styles/Variables";
+@import "../../styles/Mixins";
 
 .header {
   display: flex;
@@ -31,14 +32,12 @@
       .product_category {
         padding: $product_category_padding;
         &:hover {
-          text-decoration: underline;
-          cursor: pointer;
+          @include link_style;
         }
       }
       .product_brand {
         &:hover {
-          text-decoration: underline;
-          cursor: pointer;
+          @include link_style;
         }
       }
     }

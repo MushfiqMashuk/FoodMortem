@@ -876,7 +876,8 @@
     },
     {
       "id": 3,
-      "name": "domino's"
+      "name": "domino's",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/74/Dominos_pizza_logo.svg"
     },
     {
       "id": 4,

@@ -27,23 +27,22 @@
   color: azure;
 }
 
-@keyframes glowing {
-  0% {
-    background-color: rgb(126, 126, 126);
-    box-shadow: 0 0 5px rgb(126, 126, 126);
-  }
-  50% {
-    background-color: rgb(142, 142, 142);
-    box-shadow: 0 0 20px rgb(142, 142, 142);
-  }
-  100% {
-    background-color: rgb(157, 157, 157);
-    box-shadow: 0 0 5px rgb(157, 157, 157);
-  }
-}
+// @keyframes glowing {
+//   0% {
+//     background-color: #cf8134a8;
+//     box-shadow: 0 0 50px #cf8134a8;
+//   }
+//   50% {
+//     background-color: #c06b46;
+//     box-shadow: 0 0 10px #c06b46;
+//   }
+//   100% {
+//     background-color: #cf8134a8;
+//     box-shadow: 0 0 5px #cf8134a8;
+//   }
+// }
 
 .rate_button {
-  
   cursor: pointer;
   border: none;
   padding: 0.5rem;
@@ -64,9 +63,10 @@
     background-color: rgb(110, 110, 110);
   }
   &:disabled {
-    animation: glowing 1300ms infinite;
+    // animation: glowing 1300ms infinite;
     background-color: rgb(126, 126, 126);
     color: azure;
     cursor: not-allowed;
+    transition: 0.5s;
   }
 }

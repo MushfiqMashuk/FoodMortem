@@ -22,3 +22,8 @@
   font-size: 1.4rem;
   font-weight: 700;
 }
+
+@mixin link_style {
+  text-decoration: underline;
+  cursor: pointer;
+}
