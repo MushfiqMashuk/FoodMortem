@@ -11,13 +11,16 @@ function RatingComponent({ productRating }) {
   const [rating, setRating] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
+  // Fetch the user rating from the database, if there's any. Else userRating = 0
+
   return (
     <>
       {showModal && (
         <Modal title="Rate This" onClose={() => setShowModal(false)}>
           <StarRatingComponent
-            title="Kolkata Kacchi"
+            title="Kolkata Kacchi" // Here title will be dynamic
             onClose={() => setShowModal(false)}
+            userRating={0}
           />
         </Modal>
       )}

@@ -2,8 +2,8 @@ import { useState } from "react";
 import StarRating from "react-svg-star-rating";
 import styles from "./starRatingComponent.module.scss";
 
-const StarRatingComponent = ({ title = "Rate This", onClose }) => {
-  const [rating, setRating] = useState(0);
+const StarRatingComponent = ({ title = "Rate This", onClose, userRating }) => {
+  const [rating, setRating] = useState(userRating);
 
   const handleRate = () => {
     // Send rating to the database
@@ -11,7 +11,6 @@ const StarRatingComponent = ({ title = "Rate This", onClose }) => {
     // Set rating to local state
     setRating(rating);
 
-    console.log(rating);
     // close the modal
     onClose();
   };
