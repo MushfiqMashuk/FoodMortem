@@ -1,0 +1,31 @@
+@import "../../styles/Mixins";
+
+.container {
+  //border: 1px solid red;
+}
+
+.header {
+  //border: 1px solid green;
+  min-height: 30vh;
+  padding-top: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+}
+
+.image_container {
+  position: relative;
+  flex: 1;
+}
+
+.title {
+  flex: 1;
+  @include center_element;
+}
+
+.description {
+  flex: 2;
+  @include center_element;
+}
+
+.body {
+}

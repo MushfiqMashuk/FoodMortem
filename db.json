@@ -58,7 +58,11 @@
       "id": 5,
       "name": "honey comb",
       "subBrand": "all time",
-      "brand": "pran",
+      "brand": {
+        "id": 2,
+        "name": "pran",
+        "img": "https://link.fobshanghai.com/bbsimage/fair/gulfood2018/1664.png"
+      },
       "category": "bread",
       "rating": 10,
       "img": "https://i.ibb.co/NVyd6Tc/honey-comb.png"
@@ -88,7 +92,8 @@
       "name": "maggi noodles",
       "brand": {
         "id": 4,
-        "name": "nestle"
+        "name": "nestle",
+        "img": "https://i.ibb.co/4R1dPZf/nestle-logo.png"
       },
       "category": "noodles",
       "rating": 10,
@@ -872,7 +877,8 @@
     },
     {
       "id": 2,
-      "name": "pran"
+      "name": "pran",
+      "img": "https://link.fobshanghai.com/bbsimage/fair/gulfood2018/1664.png"
     },
     {
       "id": 3,
@@ -881,7 +887,8 @@
     },
     {
       "id": 4,
-      "name": "nestle"
+      "name": "nestle",
+      "img": "https://i.ibb.co/4R1dPZf/nestle-logo.png"
     }
   ],
 
