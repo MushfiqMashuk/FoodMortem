@@ -1,19 +1,17 @@
 import { useState } from "react";
 import StarRating from "react-svg-star-rating";
 import styles from "./starRatingComponent.module.scss";
-import useRating from "../../hooks/useRating";
 
 const StarRatingComponent = ({ title = "Rate This", onClose }) => {
-  //const [rating, setRating] = useState(0);
-  const {userRating, setUserRating} = useRating(0);
+  const [rating, setRating] = useState(0);
 
   const handleRate = () => {
     // Send rating to the database
 
     // Set rating to local state
-    setUserRating(userRating);
+    setRating(rating);
 
-    console.log(userRating);
+    console.log(rating);
     // close the modal
     onClose();
   };
@@ -31,7 +29,7 @@ const StarRatingComponent = ({ title = "Rate This", onClose }) => {
     <div className={styles.container}>
       <div className={styles.rating_title}>{title}</div>
 
-      <div className={styles.rating_value}>{userRating}</div>
+      <div className={styles.rating_value}>{rating}</div>
 
       <StarRating
         unit="half"
@@ -42,13 +40,17 @@ const StarRatingComponent = ({ title = "Rate This", onClose }) => {
         activeColor="#ffb700"
         hoverColor="red"
         innerRadius={25}
-        handleOnClick={(rate) => setUserRating(rate)}
-        initialRating={userRating}
+        handleOnClick={(rate) => setRating(rate)}
+        initialRating={rating}
       />
-      <button className={styles.rate_button} onClick={handleRate}>
+      <button
+        disabled={!rating}
+        className={styles.rate_button}
+        onClick={handleRate}
+      >
         Rate
       </button>
-      {userRating ? (
+      {rating ? (
         <button onClick={handleRemoveRating} className={styles.rate_button}>
           Remove Rating
         </button>

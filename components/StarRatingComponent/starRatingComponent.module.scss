@@ -16,13 +16,15 @@
   font-size: 1.4rem;
   letter-spacing: 0.2rem;
   font-weight: 500;
-  text-transform: uppercase;  
+  text-transform: uppercase;
+  color: azure;
 }
 
 .rating_value {
   margin: 1rem 0;
   @include center_element;
   font-size: 2.5rem;
+  color: azure;
 }
 
 .rate_button {
@@ -30,6 +32,24 @@
   border: none;
   padding: 0.5rem;
   width: 65%;
-  border-radius: 3px;
+  border-radius: 0.2rem;
   margin: 1rem 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: rgb(73, 73, 73);
+  color: rgb(255, 221, 0);
+
+  &:hover {
+    background-color: rgb(89, 89, 89);
+  }
+  &:active {
+    background-color: rgb(110, 110, 110);
+  }
+  &:disabled {
+    background-color: rgb(126, 126, 126);
+    color: azure;
+    cursor: not-allowed;
+  }
 }
