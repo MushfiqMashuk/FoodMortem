@@ -56,7 +56,7 @@
   min-height: $content_min_height;
 
   .image_container {
-    position: relative;
+    position: $image_container_position;
     width: $image_container_width;
     grid-area: ic;
     // margin-left: $image_container_margin_left;

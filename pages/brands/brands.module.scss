@@ -1,4 +1,5 @@
 @import "../../styles/Mixins";
+@import "../../styles/Variables";
 
 .container {
   //border: 1px solid red;
@@ -13,7 +14,7 @@
 }
 
 .image_container {
-  position: relative;
+  position: $image_container_position;
   flex: 1;
 }
 
@@ -28,4 +29,28 @@
 }
 
 .body {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 3rem 0;
+  gap: 3rem;
+  flex-wrap: wrap;
+
+  .card_image_container {
+    position: $image_container_position;
+    width: 100%;
+    height: 75%;
+  }
+
+  .product_card {
+    cursor: pointer;
+    min-width: 15rem;
+    min-height: 15rem;
+    border: 1px solid grey;
+    border-radius: 0.5rem;
+
+    .product_info {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
 }
