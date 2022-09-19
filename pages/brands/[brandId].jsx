@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import Layout from "../../components/Layout";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import Overlay from "../../components/Overlay";
 import SubTitle from "../../components/SubTitle";
 import Title from "../../components/Title";
 import { shimmer, toBase64 } from "../../helpers/shimmerEffect";
@@ -49,7 +50,7 @@ function SingleBrand({ brand }) {
             </Link> */}
             <div className={styles.card_image_container}>
               <Image
-                src={"https://i.ibb.co/drm1m7N/domino-s-pizza.jpg"}
+                src={"https://i.ibb.co/HFMpQqM/sultan-dines.jpg"}
                 layout="fill"
                 objectFit="cover"
                 placeholder="blur"
@@ -57,6 +58,7 @@ function SingleBrand({ brand }) {
                   shimmer(700, 475)
                 )}`}
               />
+              <Overlay />
             </div>
 
             <div className={styles.product_description}>

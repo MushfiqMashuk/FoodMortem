@@ -1,4 +1,5 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css);
+//@import url("http://fonts.cdnfonts.com/css/wix-madefor-text");
 @import "./_Variables.scss";
 
 html,
@@ -7,6 +8,9 @@ button {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  // font-family: "Wix Madefor Text", sans-serif;
+  // font-family: "Wix Madefor Display", sans-serif;
 }
 
 h1,

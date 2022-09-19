@@ -1,3 +1,5 @@
+@import "./Variables";
+
 @mixin flex_CSS_for_rating {
   flex: 1;
   display: flex;
@@ -26,4 +28,20 @@
 @mixin link_style {
   text-decoration: underline;
   cursor: pointer;
+}
+
+@mixin overlay_style {
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  background-color: $overlay_background_color;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: $overlay_transition;
+
+  &:hover {
+    opacity: 1;
+  }
 }
