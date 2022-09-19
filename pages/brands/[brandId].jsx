@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import Layout from "../../components/Layout";
 import LoadingSpinner from "../../components/LoadingSpinner";
@@ -43,33 +42,41 @@ function SingleBrand({ brand }) {
         <hr />
         <div className={styles.body}>
           <div className={styles.product_card}>
-            <Link href={`/products/5`}>
+            {/* <Link href={`/products/5`}>
               <a>
-                <div className={styles.card_image_container}>
-                  <Image
-                    src={"https://i.ibb.co/NVyd6Tc/honey-comb.png"}
-                    layout="fill"
-                    objectFit="contain"
-                    placeholder="blur"
-                    blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                      shimmer(700, 475)
-                    )}`}
-                  />
-                </div>
-                <hr />
-                <div className={styles.product_description}>
-                  <div className={styles.product_info}>
-                    <SubTitle>Honeycomb</SubTitle>
-
-                    <SubTitle>Bread</SubTitle>
-                  </div>
-                  <div className={styles.product_rating}></div>
-                </div>
+                
               </a>
-            </Link>
+            </Link> */}
+            <div className={styles.card_image_container}>
+              <Image
+                src={"https://i.ibb.co/HFMpQqM/sultan-dines.jpg"}
+                layout="fill"
+                objectFit="cover"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                  shimmer(700, 475)
+                )}`}
+              />
+            </div>
+
+            <div className={styles.product_description}>
+              <div className={styles.product_info}>
+                <SubTitle>Honeycomb</SubTitle>
+
+                <SubTitle>Bread</SubTitle>
+              </div>
+              <div className={styles.product_rating}>
+                <SubTitle>Honeycomb</SubTitle>
+
+                <SubTitle>Bread</SubTitle>
+                <SubTitle>Honeycomb</SubTitle>
+
+                <SubTitle>Bread</SubTitle>
+              </div>
+            </div>
           </div>
 
-          <div className={styles.product_card}>
+          {/* <div className={styles.product_card}>
             <div className={styles.card_image_container}>
               <Image
                 src={"https://i.ibb.co/NVyd6Tc/honey-comb.png"}
@@ -221,7 +228,7 @@ function SingleBrand({ brand }) {
               </div>
               <div className={styles.product_rating}></div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </Layout>
