@@ -44,4 +44,8 @@
   &:hover {
     opacity: 1;
   }
+
+  &:active {
+    background-color: $overlay_background_color_active;
+  }
 }

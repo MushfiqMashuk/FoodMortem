@@ -29,6 +29,7 @@
 }
 
 .body {
+  //background-color: #4c5958;
   display: flex;
   justify-content: space-evenly;
   margin: 3rem 0;
@@ -38,9 +39,9 @@
   .card_wrapper {
     background-color: #4c5958;
     width: 18rem;
-    min-height: 22rem;
+    min-height: 25rem;
     @include center_element;
-    padding: 1.7rem;
+    padding: 1rem;
     border-radius: 0.3rem;
   }
 
@@ -68,18 +69,22 @@
     .product_description {
       flex: 2;
       display: flex;
+
       flex-direction: column;
       padding: 0.2rem;
       color: wheat;
+      font-size: 1rem;
+
+      .product_rating {
+        @include center_element;
+        flex-wrap: wrap;
+      }
 
       .product_info {
         display: flex;
+        align-items: center;
         justify-content: space-evenly;
-      }
-      .product_rating {
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
+        margin: 0.5rem 0;
       }
     }
   }

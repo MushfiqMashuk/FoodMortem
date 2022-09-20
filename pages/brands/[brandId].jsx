@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
+import AddToBucketListButton from "../../components/AddToBucketListButton";
 import Layout from "../../components/Layout";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import Overlay from "../../components/Overlay";
@@ -7,6 +8,7 @@ import SubTitle from "../../components/SubTitle";
 import Title from "../../components/Title";
 import { shimmer, toBase64 } from "../../helpers/shimmerEffect";
 import No_Image from "../../public/no_image.png";
+import StarIcon from "../../public/star_icon6.svg";
 import styles from "./brands.module.scss";
 
 function SingleBrand({ brand }) {
@@ -64,14 +66,16 @@ function SingleBrand({ brand }) {
 
               <div className={styles.product_description}>
                 <div className={styles.product_rating}>
+                  <Image src={StarIcon} height={22} width={22} />
                   <SubTitle>9.5</SubTitle>
-
-                  <SubTitle>/10</SubTitle>
                 </div>
                 <div className={styles.product_info}>
                   <SubTitle>Honeycomb</SubTitle>
 
                   <SubTitle>Bread</SubTitle>
+                </div>
+                <div>
+                  <AddToBucketListButton />
                 </div>
               </div>
             </div>
