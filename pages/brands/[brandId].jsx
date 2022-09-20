@@ -42,38 +42,37 @@ function SingleBrand({ brand }) {
         </div>
         <hr />
         <div className={styles.body}>
-          <div className={styles.product_card}>
-            {/* <Link href={`/products/5`}>
+          <div className={styles.card_wrapper}>
+            <div className={styles.product_card}>
+              {/* <Link href={`/products/5`}>
               <a>
                 
               </a>
             </Link> */}
-            <div className={styles.card_image_container}>
-              <Image
-                src={"https://i.ibb.co/HFMpQqM/sultan-dines.jpg"}
-                layout="fill"
-                objectFit="cover"
-                placeholder="blur"
-                blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(700, 475)
-                )}`}
-              />
-              <Overlay />
-            </div>
-
-            <div className={styles.product_description}>
-              <div className={styles.product_info}>
-                <SubTitle>Honeycomb</SubTitle>
-
-                <SubTitle>Bread</SubTitle>
+              <div className={styles.card_image_container}>
+                <Image
+                  src={"https://i.ibb.co/HFMpQqM/sultan-dines.jpg"}
+                  layout="fill"
+                  objectFit="cover"
+                  placeholder="blur"
+                  blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                    shimmer(700, 475)
+                  )}`}
+                />
+                <Overlay />
               </div>
-              <div className={styles.product_rating}>
-                <SubTitle>Honeycomb</SubTitle>
 
-                <SubTitle>Bread</SubTitle>
-                <SubTitle>Honeycomb</SubTitle>
+              <div className={styles.product_description}>
+                <div className={styles.product_rating}>
+                  <SubTitle>9.5</SubTitle>
 
-                <SubTitle>Bread</SubTitle>
+                  <SubTitle>/10</SubTitle>
+                </div>
+                <div className={styles.product_info}>
+                  <SubTitle>Honeycomb</SubTitle>
+
+                  <SubTitle>Bread</SubTitle>
+                </div>
               </div>
             </div>
           </div>
