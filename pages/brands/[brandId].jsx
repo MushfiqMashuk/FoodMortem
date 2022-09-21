@@ -53,7 +53,7 @@ function SingleBrand({ brand }) {
             </Link> */}
               <div className={styles.card_image_container}>
                 <Image
-                  src={"https://i.ibb.co/HFMpQqM/sultan-dines.jpg"}
+                  src={"https://i.ibb.co/drm1m7N/domino-s-pizza.jpg"}
                   layout="fill"
                   objectFit="cover"
                   placeholder="blur"

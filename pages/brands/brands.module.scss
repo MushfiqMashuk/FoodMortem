@@ -38,16 +38,16 @@
 
   .card_wrapper {
     background-color: #4c5958;
-    width: 18rem;
-    min-height: 25rem;
+    width: 16rem;
+    min-height: 24rem;
     @include center_element;
-    padding: 1rem;
+    padding: 1.1rem;
     border-radius: 0.3rem;
   }
 
   .product_card {
     background-color: #4c5958;
-    box-shadow: -11px 9px 30px -1px rgb(0 0 0 / 75%);
+    box-shadow: 0px 0px 30px -1px rgba(0 0 0 / 75%);
     width: 100%;
     height: 100%;
     display: flex;
@@ -64,6 +64,8 @@
       height: 100%;
       cursor: pointer;
       margin-bottom: 1rem;
+      background-color: wheat
+      
     }
 
     .product_description {
