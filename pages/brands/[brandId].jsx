@@ -75,7 +75,7 @@ function SingleBrand({ brand }) {
                   <SubTitle>Bread</SubTitle>
                 </div>
                 <div>
-                  <AddToBucketListButton />
+                  <AddToBucketListButton>BucketList</AddToBucketListButton>
                 </div>
               </div>
             </div>

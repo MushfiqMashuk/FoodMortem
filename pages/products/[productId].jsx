@@ -28,7 +28,7 @@ function SingleProduct({ product }) {
               <div className={styles.product_name}>
                 <Title>{product.name}</Title>
               </div>
-              <AddToBucketListButton />
+              <AddToBucketListButton>Add to BucketList</AddToBucketListButton>
             </div>
             <div className={styles.product_info}>
               <div className={styles.product_description}>
