@@ -13,6 +13,8 @@ function RatingComponent({ productRating }) {
   const [showModal, setShowModal] = useState(false);
   const rating = useRatingStore((state) => state.rating);
 
+  console.log(rating);
+
   // Fetch the user rating from the database, if there's any. Else userRating = 0
 
   return (

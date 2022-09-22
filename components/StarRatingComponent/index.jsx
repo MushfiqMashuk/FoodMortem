@@ -3,10 +3,20 @@ import StarRating from "react-svg-star-rating";
 import useRatingStore from "../store/useRatingStore";
 import styles from "./starRatingComponent.module.scss";
 
-const StarRatingComponent = ({ title = "Rate This", onClose, initialRating }) => {
+const StarRatingComponent = ({
+  title = "Rate This",
+  onClose,
+  initialRating,
+}) => {
   const [userRating, setUserRating] = useState(initialRating);
 
-  const setRating = useRatingStore((state) => state.setRating);
+  const [rating, setRating, removeRating] = useRatingStore((state) => [
+    state.setRating,
+    state.removeRating,
+    state.rating,
+  ]);
+
+  //console.log(rating);
 
   const handleRate = () => {
     // Send rating to the database
@@ -22,7 +32,7 @@ const StarRatingComponent = ({ title = "Rate This", onClose, initialRating }) =>
     // Remove rating from the database
 
     // Remove rating from the local state
-
+    removeRating();
     //close the modal
     onClose();
   };
