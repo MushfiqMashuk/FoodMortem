@@ -42,7 +42,10 @@ function ReviewAnalytics({ product }) {
               ></span>
             </div>
           </div>
-          <RatingComponent productRating={product?.rating} />
+          <RatingComponent
+            productRating={product?.rating}
+            productName={product?.name}
+          />
         </div>
       )}
     </>

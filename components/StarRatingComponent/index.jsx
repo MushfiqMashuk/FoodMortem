@@ -4,16 +4,16 @@ import useRatingStore from "../store/useRatingStore";
 import styles from "./starRatingComponent.module.scss";
 
 const StarRatingComponent = ({
-  title = "Rate This",
+  name = "Rate This",
   onClose,
   initialRating,
 }) => {
   const [userRating, setUserRating] = useState(initialRating);
 
   const [rating, setRating, removeRating] = useRatingStore((state) => [
+    state.rating,
     state.setRating,
     state.removeRating,
-    state.rating,
   ]);
 
   //console.log(rating);
@@ -39,7 +39,7 @@ const StarRatingComponent = ({
 
   return (
     <div className={styles.container}>
-      <div className={styles.rating_title}>{title}</div>
+      <div className={styles.rating_title}>{name}</div>
 
       <div className={styles.rating_value}>{userRating}</div>
 
@@ -62,7 +62,7 @@ const StarRatingComponent = ({
       >
         Rate
       </button>
-      {userRating ? (
+      {rating ? (
         <button onClick={handleRemoveRating} className={styles.rate_button}>
           Remove Rating
         </button>

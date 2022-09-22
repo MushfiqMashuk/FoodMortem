@@ -8,12 +8,9 @@ import StarRatingComponent from "../StarRatingComponent";
 import useRatingStore from "../store/useRatingStore";
 import styles from "./ratingComponent.module.scss";
 
-function RatingComponent({ productRating }) {
-  const [isRated, setIsRated] = useState(false);
+function RatingComponent({ productRating, productName }) {
   const [showModal, setShowModal] = useState(false);
   const rating = useRatingStore((state) => state.rating);
-
-  console.log(rating);
 
   // Fetch the user rating from the database, if there's any. Else userRating = 0
 
@@ -22,7 +19,7 @@ function RatingComponent({ productRating }) {
       {showModal && (
         <Modal title="Rate This" onClose={() => setShowModal(false)}>
           <StarRatingComponent
-            title="Kolkata Kacchi" // Here title will be dynamic
+            name={productName} // Here title will be dynamic
             onClose={() => setShowModal(false)}
             initialRating={rating}
           />
@@ -51,13 +48,10 @@ function RatingComponent({ productRating }) {
             onClick={() => setShowModal(true)}
           >
             <div className={styles.rating_title}>Your Rating</div>
-            <div
-              className={styles.rating_points}
-              onClick={() => setIsRated(true)}
-            >
+            <div className={styles.rating_points}>
               <div className={styles.star}>
                 <Image
-                  src={isRated ? YourRatingIconAfter : YourRatingIconBefore}
+                  src={rating ? YourRatingIconAfter : YourRatingIconBefore}
                   height={38}
                   width={38}
                 />
