@@ -18,7 +18,8 @@
     "react-dom": "18.2.0",
     "react-svg-star-rating": "^2.1.2",
     "sass": "^1.54.4",
-    "sharp": "^0.30.7"
+    "sharp": "^0.30.7",
+    "zustand": "^4.1.1"
   },
   "devDependencies": {
     "eslint": "8.21.0",

@@ -5,11 +5,13 @@ import YourRatingIconAfter from "../../public/your_rating_star_after.svg";
 import YourRatingIconBefore from "../../public/your_rating_star_before.svg";
 import Modal from "../Modal";
 import StarRatingComponent from "../StarRatingComponent";
+import useRatingStore from "../store/useRatingStore";
 import styles from "./ratingComponent.module.scss";
 
 function RatingComponent({ productRating }) {
-  const [rating, setRating] = useState(false);
+  const [isRated, setIsRated] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const rating = useRatingStore((state) => state.rating);
 
   // Fetch the user rating from the database, if there's any. Else userRating = 0
 
@@ -20,7 +22,7 @@ function RatingComponent({ productRating }) {
           <StarRatingComponent
             title="Kolkata Kacchi" // Here title will be dynamic
             onClose={() => setShowModal(false)}
-            userRating={0}
+            initialRating={rating}
           />
         </Modal>
       )}
@@ -49,11 +51,11 @@ function RatingComponent({ productRating }) {
             <div className={styles.rating_title}>Your Rating</div>
             <div
               className={styles.rating_points}
-              onClick={() => setRating(!rating)}
+              onClick={() => setIsRated(true)}
             >
               <div className={styles.star}>
                 <Image
-                  src={rating ? YourRatingIconAfter : YourRatingIconBefore}
+                  src={isRated ? YourRatingIconAfter : YourRatingIconBefore}
                   height={38}
                   width={38}
                 />
@@ -61,7 +63,7 @@ function RatingComponent({ productRating }) {
               <div className={styles.stats}>
                 {rating ? (
                   <div className={styles.total_rating}>
-                    <span className={styles.the_rating}>9.5</span>
+                    <span className={styles.the_rating}>{rating}</span>
                     <span>/</span>
                     <span>10</span>
                   </div>
