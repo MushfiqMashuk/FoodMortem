@@ -56,7 +56,7 @@ const StarRatingComponent = ({
         initialRating={userRating}
       />
       <button
-        disabled={!userRating}
+        disabled={initialRating === userRating}
         className={styles.rate_button}
         onClick={handleRate}
       >
