@@ -68,17 +68,34 @@ function SingleBrand({ brand, products }) {
 
                   <div className={styles.product_description}>
                     <div className={styles.product_rating}>
-                      <Image src={StarIcon} height={22} width={22} />
-                      <SubTitle>{product.rating}</SubTitle>
+                      <Image
+                        src={StarIcon}
+                        height={20}
+                        width={20}
+                        color="red"
+                      />
+                      <SubTitle className={styles.rating}>
+                        {product.rating}
+                      </SubTitle>
                     </div>
                     <div className={styles.product_info}>
-                      <SubTitle>{product.name}</SubTitle>
+                      <Link href={`/products/${product.id}`}>
+                        <a>
+                          <SubTitle className={styles.product_name}>
+                            {product.name}
+                          </SubTitle>
+                        </a>
+                      </Link>
 
-                      <SubTitle>
-                        {product.category.name
-                          ? product.category.name
-                          : product.category}
-                      </SubTitle>
+                      <Link href={`/categories/${product.category?.id}`}>
+                        <a>
+                          <SubTitle className={styles.product_category}>
+                            {product.category.name
+                              ? product.category.name
+                              : product.category}
+                          </SubTitle>
+                        </a>
+                      </Link>
                     </div>
                     <div>
                       <AddToBucketListButton>BucketList</AddToBucketListButton>
