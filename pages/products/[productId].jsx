@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import AddToBucketListButton from "../../components/AddToBucketListButton";
 import Layout from "../../components/Layout";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import ProductImage from "../../components/ProductImage";
 import ReviewAnalytics from "../../components/ReviewAnalytics";
 import SimilarProduct from "../../components/SimilarProduct";
 import SubTitle from "../../components/SubTitle";
@@ -56,7 +57,7 @@ function SingleProduct({ product }) {
             </div>
           </div>
           <div className={styles.content}>
-            <div className={styles.image_container}>
+            {/* <div className={styles.image_container}>
               <Image
                 src={product.img ? product.img : No_Image}
                 alt={product.name}
@@ -67,7 +68,8 @@ function SingleProduct({ product }) {
                   shimmer(700, 475)
                 )}`}
               />
-            </div>
+            </div> */}
+            <ProductImage product={product}/>
             <ReviewAnalytics product={product} />
           </div>
           <SimilarProduct />

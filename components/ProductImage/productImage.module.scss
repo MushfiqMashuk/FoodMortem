@@ -1,9 +1,10 @@
 @import "../../styles/Variables.scss";
 
 .image_container {
-  position: relative;
+  position: $image_container_position;
+  width: $image_container_width;
   grid-area: ic;
-  margin-left: $image_container_margin_left;
+  // margin-left: $image_container_margin_left;
   box-shadow: $img_container_box_shadow;
   transition: 0.3s ease-in-out;
   border-radius: $img_container_border_radius;

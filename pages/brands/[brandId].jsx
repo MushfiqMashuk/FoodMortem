@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import AddToBucketListButton from "../../components/AddToBucketListButton";
 import Layout from "../../components/Layout";
@@ -48,22 +49,21 @@ function SingleBrand({ brand, products }) {
             products.map((product) => (
               <div className={styles.card_wrapper}>
                 <div className={styles.product_card}>
-                  {/* <Link href={`/products/5`}>
-              <a>
-                
-              </a>
-            </Link> */}
                   <div className={styles.card_image_container}>
-                    <Image
-                      src={product.img}
-                      layout="fill"
-                      objectFit="cover"
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                        shimmer(700, 475)
-                      )}`}
-                    />
-                    <Overlay />
+                    <Link href={`/products/${product.id}`}>
+                      <a>
+                        <Image
+                          src={product.img}
+                          layout="fill"
+                          objectFit="cover"
+                          placeholder="blur"
+                          blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                            shimmer(700, 475)
+                          )}`}
+                        />
+                        <Overlay />
+                      </a>
+                    </Link>
                   </div>
 
                   <div className={styles.product_description}>
@@ -87,160 +87,6 @@ function SingleBrand({ brand, products }) {
                 </div>
               </div>
             ))}
-
-          {/* <div className={styles.product_card}>
-            <div className={styles.card_image_container}>
-              <Image
-                src={"https://i.ibb.co/NVyd6Tc/honey-comb.png"}
-                layout="fill"
-                objectFit="contain"
-                placeholder="blur"
-                blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(700, 475)
-                )}`}
-              />
-            </div>
-            <hr />
-            <div className={styles.product_description}>
-              <div className={styles.product_info}>
-                <SubTitle>Honeycomb</SubTitle>
-                <SubTitle>Bread</SubTitle>
-              </div>
-              <div className={styles.product_rating}></div>
-            </div>
-          </div>
-
-          <div className={styles.product_card}>
-            <div className={styles.card_image_container}>
-              <Image
-                src={"https://i.ibb.co/NVyd6Tc/honey-comb.png"}
-                layout="fill"
-                objectFit="contain"
-                placeholder="blur"
-                blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(700, 475)
-                )}`}
-              />
-            </div>
-            <hr />
-            <div className={styles.product_description}>
-              <div className={styles.product_info}>
-                <SubTitle>Honeycomb</SubTitle>
-                <SubTitle>Bread</SubTitle>
-              </div>
-              <div className={styles.product_rating}></div>
-            </div>
-          </div>
-
-          <div className={styles.product_card}>
-            <div className={styles.card_image_container}>
-              <Image
-                src={"https://i.ibb.co/NVyd6Tc/honey-comb.png"}
-                layout="fill"
-                objectFit="contain"
-                placeholder="blur"
-                blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(700, 475)
-                )}`}
-              />
-            </div>
-            <hr />
-            <div className={styles.product_description}>
-              <div className={styles.product_info}>
-                <SubTitle>Honeycomb</SubTitle>
-                <SubTitle>Bread</SubTitle>
-              </div>
-              <div className={styles.product_rating}></div>
-            </div>
-          </div>
-
-          <div className={styles.product_card}>
-            <div className={styles.card_image_container}>
-              <Image
-                src={"https://i.ibb.co/NVyd6Tc/honey-comb.png"}
-                layout="fill"
-                objectFit="contain"
-                placeholder="blur"
-                blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(700, 475)
-                )}`}
-              />
-            </div>
-            <hr />
-            <div className={styles.product_description}>
-              <div className={styles.product_info}>
-                <SubTitle>Honeycomb</SubTitle>
-                <SubTitle>Bread</SubTitle>
-              </div>
-              <div className={styles.product_rating}></div>
-            </div>
-          </div>
-
-          <div className={styles.product_card}>
-            <div className={styles.card_image_container}>
-              <Image
-                src={"https://i.ibb.co/NVyd6Tc/honey-comb.png"}
-                layout="fill"
-                objectFit="contain"
-                placeholder="blur"
-                blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(700, 475)
-                )}`}
-              />
-            </div>
-            <hr />
-            <div className={styles.product_description}>
-              <div className={styles.product_info}>
-                <SubTitle>Honeycomb</SubTitle>
-                <SubTitle>Bread</SubTitle>
-              </div>
-              <div className={styles.product_rating}></div>
-            </div>
-          </div>
-
-          <div className={styles.product_card}>
-            <div className={styles.card_image_container}>
-              <Image
-                src={"https://i.ibb.co/NVyd6Tc/honey-comb.png"}
-                layout="fill"
-                objectFit="contain"
-                placeholder="blur"
-                blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(700, 475)
-                )}`}
-              />
-            </div>
-            <hr />
-            <div className={styles.product_description}>
-              <div className={styles.product_info}>
-                <SubTitle>Honeycomb</SubTitle>
-                <SubTitle>Bread</SubTitle>
-              </div>
-              <div className={styles.product_rating}></div>
-            </div>
-          </div>
-
-          <div className={styles.product_card}>
-            <div className={styles.card_image_container}>
-              <Image
-                src={"https://i.ibb.co/NVyd6Tc/honey-comb.png"}
-                layout="fill"
-                objectFit="contain"
-                placeholder="blur"
-                blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(700, 475)
-                )}`}
-              />
-            </div>
-            <hr />
-            <div className={styles.product_description}>
-              <div className={styles.product_info}>
-                <SubTitle>Honeycomb</SubTitle>
-                <SubTitle>Bread</SubTitle>
-              </div>
-              <div className={styles.product_rating}></div>
-            </div>
-          </div> */}
         </div>
       </div>
     </Layout>
