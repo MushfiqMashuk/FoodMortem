@@ -47,20 +47,21 @@ function SingleBrand({ brand, products }) {
         <div className={styles.body}>
           {products &&
             products.map((product) => (
-              <div className={styles.card_wrapper}>
+              <div className={styles.card_wrapper} key={product.id}>
                 <div className={styles.product_card}>
                   <div className={styles.card_image_container}>
+                    <Image
+                      src={product.img}
+                      layout="fill"
+                      objectFit="cover"
+                      placeholder="blur"
+                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                        shimmer(700, 475)
+                      )}`}
+                    />
+
                     <Link href={`/products/${product.id}`}>
                       <a>
-                        <Image
-                          src={product.img}
-                          layout="fill"
-                          objectFit="cover"
-                          placeholder="blur"
-                          blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                            shimmer(700, 475)
-                          )}`}
-                        />
                         <Overlay />
                       </a>
                     </Link>
