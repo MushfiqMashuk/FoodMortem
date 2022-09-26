@@ -1,23 +1,23 @@
-@import "../../styles/Variables.scss";
+@import "../../styles/Variables";
+@import "../../styles/Mixins";
 
 .bucket_list {
   flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include center_element;
 
   .bucket_list_button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
+    position: relative;
+    @include center_element;
+    border-radius: 0.3rem;
+    width: 14rem;
+    //height: 2.5rem;
     background-color: $bucket_list_button;
     border: none;
     color: #ffffff;
     text-align: center;
-    font-size: 1.07rem;    
-    padding: $bucket_list_button_padding;
-    width: 15.4rem;
+    font-size: 1.07rem;
+    padding: 0.70rem;
+    
     transition: all 0.5s;
     cursor: pointer;
     margin: 0.3rem;
@@ -27,33 +27,43 @@
     }
 
     .plus {
+      @include center_element;
+      //border: 1px solid red;
+      height: 100%;
       margin-right: 0.3rem;
-      font-size: 1.25rem;
+      font-size: 1.8rem;
       padding: 0px;
+      position: absolute;
+      left: 1rem;
+      bottom: 0.2rem;
+
+      font-weight: 300;
     }
 
     .button_title {
+      @include center_element;
+
       cursor: pointer;
-      position: relative;
       transition: 0.3s;
+      //position: relative;
 
-      &:after {
-        content: "🛒";
-        position: absolute;
-        opacity: 0;
-        top: -1px;
-        right: -1.25rem;
-        transition: 0.5s;
-      }
+      // &:after {
+      //   content: "🛒";
+      //   position: absolute;
+      //   opacity: 0;
+      //   top: -1px;
+      //   right: -1.25rem;
+      //   transition: 0.5s;
+      // }
     }
 
-    &:hover .button_title {
-      padding-right: 0.625rem;
-      &:after {
-        opacity: 1;
-        right: -1.25rem;
-      }
-    }
+    // &:hover .button_title {
+    //   padding-right: 0.625rem;
+    //   &:after {
+    //     opacity: 1;
+    //     right: -1.25rem;
+    //   }
+    // }
 
     &:active {
       scale: 0.95;

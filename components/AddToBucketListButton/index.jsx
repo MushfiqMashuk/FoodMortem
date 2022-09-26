@@ -5,7 +5,7 @@ function AddToBucketListButton({children}) {
     <div className={styles.bucket_list}>
       <div className={styles.bucket_list_button}>
         <div className={styles.plus}>&#43;</div>
-        <span className={styles.button_title}>{children}</span>
+        <div className={styles.button_title}>{children}</div>
       </div>
     </div>
   );
