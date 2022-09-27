@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import AddToBucketListButton from "../../components/AddToBucketListButton";
 import Layout from "../../components/Layout";
 import LoadingSpinner from "../../components/LoadingSpinner";
@@ -12,8 +13,22 @@ import No_Image from "../../public/no_image.png";
 import StarIcon from "../../public/star_icon6.svg";
 import styles from "./brands.module.scss";
 
-function SingleBrand({ brand, products }) {
+function SingleBrand({ brand, products = [] }) {
   const router = useRouter();
+  const [categoryValue, setCategoryValue] = useState();
+  const [filteredProducts, setFilteredProducts] = useState(products);
+
+  useEffect(() => {
+    setFilteredProducts(
+      products.filter((product) =>
+        product?.category?.name?.includes(categoryValue)
+      )
+    );
+  }, [categoryValue]);
+
+  const handleOnChange = (e) => {
+    setCategoryValue(e.target.value);
+  };
 
   if (router.isFallback) return <LoadingSpinner />;
 
@@ -44,67 +59,142 @@ function SingleBrand({ brand, products }) {
           </div>
         </div>
         <hr />
+        <div className={styles.filters}>
+          <select value={categoryValue} onChange={handleOnChange}>
+            <option value="">All Categories</option>
+            <option value="frozen food">Frozen Food</option>
+            <option value="biscuit">Biscuit</option>
+            <option value="cake">Cake</option>
+          </select>
+        </div>
         <div className={styles.body}>
-          {products &&
-            products.map((product) => (
-              <div className={styles.card_wrapper} key={product.id}>
-                <div className={styles.product_card}>
-                  <div className={styles.card_image_container}>
-                    <Image
-                      src={product.img}
-                      layout="fill"
-                      objectFit="cover"
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                        shimmer(700, 475)
-                      )}`}
-                    />
-
-                    <Link href={`/products/${product.id}`}>
-                      <a>
-                        <Overlay />
-                      </a>
-                    </Link>
-                  </div>
-
-                  <div className={styles.product_description}>
-                    <div className={styles.product_rating}>
+          {categoryValue
+            ? filteredProducts &&
+              filteredProducts.length > 0 &&
+              filteredProducts.map((product) => (
+                <div className={styles.card_wrapper} key={product.id}>
+                  <div className={styles.product_card}>
+                    <div className={styles.card_image_container}>
                       <Image
-                        src={StarIcon}
-                        height={20}
-                        width={20}
-                        color="red"
+                        src={product.img}
+                        layout="fill"
+                        objectFit="cover"
+                        placeholder="blur"
+                        blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                          shimmer(700, 475)
+                        )}`}
                       />
-                      <SubTitle className={styles.rating}>
-                        {product.rating}
-                      </SubTitle>
-                    </div>
-                    <div className={styles.product_info}>
+
                       <Link href={`/products/${product.id}`}>
                         <a>
-                          <SubTitle className={styles.product_name}>
-                            {product.name}
-                          </SubTitle>
-                        </a>
-                      </Link>
-
-                      <Link href={`/categories/${product.category?.id}`}>
-                        <a>
-                          <SubTitle className={styles.product_category}>
-                            {product.category.name
-                              ? product.category.name
-                              : product.category}
-                          </SubTitle>
+                          <Overlay />
                         </a>
                       </Link>
                     </div>
-                    <div>
-                      <AddToBucketListButton>BucketList</AddToBucketListButton>
+
+                    <div className={styles.product_description}>
+                      <div className={styles.product_rating}>
+                        <Image
+                          src={StarIcon}
+                          height={20}
+                          width={20}
+                          color="red"
+                        />
+                        <SubTitle className={styles.rating}>
+                          {product.rating}
+                        </SubTitle>
+                      </div>
+                      <div className={styles.product_info}>
+                        <Link href={`/products/${product.id}`}>
+                          <a>
+                            <SubTitle className={styles.product_name}>
+                              {product.name}
+                            </SubTitle>
+                          </a>
+                        </Link>
+
+                        <Link href={`/categories/${product.category?.id}`}>
+                          <a>
+                            <SubTitle className={styles.product_category}>
+                              {product.category.name
+                                ? product.category.name
+                                : product.category}
+                            </SubTitle>
+                          </a>
+                        </Link>
+                      </div>
+                      <div>
+                        <AddToBucketListButton>
+                          BucketList
+                        </AddToBucketListButton>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            : products &&
+              products.length > 0 &&
+              products.map((product) => (
+                <div className={styles.card_wrapper} key={product.id}>
+                  <div className={styles.product_card}>
+                    <div className={styles.card_image_container}>
+                      <Image
+                        src={product.img}
+                        layout="fill"
+                        objectFit="cover"
+                        placeholder="blur"
+                        blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                          shimmer(700, 475)
+                        )}`}
+                      />
+
+                      <Link href={`/products/${product.id}`}>
+                        <a>
+                          <Overlay />
+                        </a>
+                      </Link>
+                    </div>
+
+                    <div className={styles.product_description}>
+                      <div className={styles.product_rating}>
+                        <Image
+                          src={StarIcon}
+                          height={20}
+                          width={20}
+                          color="red"
+                        />
+                        <SubTitle className={styles.rating}>
+                          {product.rating}
+                        </SubTitle>
+                      </div>
+                      <div className={styles.product_info}>
+                        <Link href={`/products/${product.id}`}>
+                          <a>
+                            <SubTitle className={styles.product_name}>
+                              {product.name}
+                            </SubTitle>
+                          </a>
+                        </Link>
+
+                        <Link href={`/categories/${product.category?.id}`}>
+                          <a>
+                            <SubTitle className={styles.product_category}>
+                              {product.category.name
+                                ? product.category.name
+                                : product.category}
+                            </SubTitle>
+                          </a>
+                        </Link>
+                      </div>
+                      <div>
+                        <AddToBucketListButton>
+                          BucketList
+                        </AddToBucketListButton>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
         </div>
       </div>
     </Layout>
