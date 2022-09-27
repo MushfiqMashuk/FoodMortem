@@ -4,8 +4,7 @@ import addToBucketAfter from "../../public/add_to_bucket_after.svg";
 import addToBucketBefore from "../../public/add_to_bucket_before.svg";
 import styles from "./addToBucketListButton.module.scss";
 
-function AddToBucketListButton({children}) {
-
+function AddToBucketListButton({ children }) {
   const [isInBucket, setIsInBucket] = useState(false);
 
   const handleAddBucketList = () => {
@@ -13,15 +12,22 @@ function AddToBucketListButton({children}) {
     // send the item to the database
 
     // set the local state
-    setIsInBucket(!isInBucket)
-  }
+    setIsInBucket(!isInBucket);
+  };
 
   return (
     <div className={styles.bucket_list}>
       <div className={styles.bucket_list_button} onClick={handleAddBucketList}>
-        {/* <div className={styles.plus}>&#43;</div> */}
-        <Image src={isInBucket ? addToBucketAfter : addToBucketBefore} width={25} height={25}/>
-        <div className={styles.button_title}>{isInBucket? "in BucketList" : children}</div>
+        <div className={styles.plus}>
+          <Image
+            src={isInBucket ? addToBucketAfter : addToBucketBefore}
+            width={25}
+            height={25}
+          />
+        </div>
+        <div className={styles.button_title}>
+          {isInBucket ? "in BucketList" : children}
+        </div>
       </div>
     </div>
   );
