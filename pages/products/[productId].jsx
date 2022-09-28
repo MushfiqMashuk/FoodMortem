@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import AddToBucketListButton from "../../components/AddToBucketListButton";
@@ -9,8 +8,6 @@ import ReviewAnalytics from "../../components/ReviewAnalytics";
 import SimilarProduct from "../../components/SimilarProduct";
 import SubTitle from "../../components/SubTitle";
 import Title from "../../components/Title";
-import { shimmer, toBase64 } from "../../helpers/shimmerEffect";
-import No_Image from "../../public/no_image.png";
 import styles from "./singleProduct.module.scss";
 
 function SingleProduct({ product }) {
@@ -69,7 +66,7 @@ function SingleProduct({ product }) {
                 )}`}
               />
             </div> */}
-            <ProductImage product={product}/>
+            <ProductImage product={product} />
             <ReviewAnalytics product={product} />
           </div>
           <SimilarProduct />
