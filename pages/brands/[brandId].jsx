@@ -1,7 +1,8 @@
+import autoAnimate from "@formkit/auto-animate";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AddToBucketListButton from "../../components/AddToBucketListButton";
 import Layout from "../../components/Layout";
 import LoadingSpinner from "../../components/LoadingSpinner";
@@ -17,6 +18,14 @@ function SingleBrand({ brand, products = [] }) {
   const router = useRouter();
   const [categoryValue, setCategoryValue] = useState();
   const [filteredProducts, setFilteredProducts] = useState(products);
+
+  const parentRef = useRef(null);
+
+  useEffect(() => {
+    if (parentRef.current) {
+      autoAnimate(parentRef.current);
+    }
+  }, [parentRef.current]);
 
   useEffect(() => {
     setFilteredProducts(
@@ -67,7 +76,7 @@ function SingleBrand({ brand, products = [] }) {
             <option value="cake">Cake</option>
           </select>
         </div>
-        <div className={styles.body}>
+        <div className={styles.body} ref={parentRef}>
           {categoryValue
             ? filteredProducts &&
               filteredProducts.length > 0 &&
