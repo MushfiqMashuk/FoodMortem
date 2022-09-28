@@ -69,7 +69,7 @@ function SingleProduct({ product }) {
             <ProductImage product={product} />
             <ReviewAnalytics product={product} />
           </div>
-          <SimilarProduct />
+          <SimilarProduct product={product}/>
         </Layout>
       )}
     </>
