@@ -23,7 +23,7 @@ function SingleBrand({ brand, products = [] }) {
 
   useEffect(() => {
     if (parentRef.current) {
-      autoAnimate(parentRef.current);
+      autoAnimate(parentRef.current, { duration: 500 });
     }
   }, [parentRef.current]);
 
