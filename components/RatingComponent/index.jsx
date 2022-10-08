@@ -5,7 +5,7 @@ import YourRatingIconAfter from "../../public/your_rating_star_after.svg";
 import YourRatingIconBefore from "../../public/your_rating_star_before.svg";
 import Modal from "../Modal";
 import StarRatingComponent from "../StarRatingComponent";
-import useRatingStore from "../store/useRatingStore";
+import useRatingStore from "../../store/useRatingStore";
 import styles from "./ratingComponent.module.scss";
 
 function RatingComponent({ productRating, productName }) {

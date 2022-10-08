@@ -1,6 +1,6 @@
 import { useState } from "react";
 import StarRating from "react-svg-star-rating";
-import useRatingStore from "../store/useRatingStore";
+import useRatingStore from "../../store/useRatingStore";
 import styles from "./starRatingComponent.module.scss";
 
 const StarRatingComponent = ({
