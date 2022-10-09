@@ -8,6 +8,7 @@ import ReviewAnalytics from "../../components/ReviewAnalytics";
 import SimilarProduct from "../../components/SimilarProduct";
 import SubTitle from "../../components/SubTitle";
 import Title from "../../components/Title";
+import WriteAReview from "../../components/WriteAReview";
 import styles from "./singleProduct.module.scss";
 
 function SingleProduct({ product }) {
@@ -69,6 +70,7 @@ function SingleProduct({ product }) {
             <ProductImage product={product} />
             <ReviewAnalytics product={product} />
           </div>
+          <WriteAReview />
           <SimilarProduct product={product}/>
         </Layout>
       )}

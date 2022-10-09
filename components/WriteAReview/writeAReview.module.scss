@@ -1,0 +1,24 @@
+@import "../../styles/Mixins";
+
+.container {
+  margin: 5rem 0;
+  width: 45%;
+  background-color: #f0f2f5;
+  cursor: pointer;
+  height: 5rem;
+  @include center_element;
+  border-radius: 5rem;
+
+  &:hover {
+    background-color: #e4e6e8;
+  }
+
+  &:active {
+    background-color: #dbdde0;
+  }
+
+  .text {
+    color: rgb(97, 97, 97);
+    font-size: 1.1rem;
+  }
+}

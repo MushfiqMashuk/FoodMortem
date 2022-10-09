@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Portal from "../HOC/Portal";
 import styles from "./modal.module.scss";
 
 const Modal = ({ onClose, children = null, title = "Hello There" }) => {
@@ -9,15 +10,17 @@ const Modal = ({ onClose, children = null, title = "Hello There" }) => {
   });
 
   return (
-    <div className={styles.modal}>
-      <div className={styles.modal_content}>
-        <div className={styles.close_button_container} onClick={onClose}>
-          <span className={styles.close_button}>&times;</span>
+    <Portal>
+      <div className={styles.modal}>
+        <div className={styles.modal_content}>
+          <div className={styles.close_button_container} onClick={onClose}>
+            <span className={styles.close_button}>&times;</span>
+          </div>
+          <div className={styles.title}>{title}</div>
+          <div className={styles.modal_body}>{children && children}</div>
         </div>
-        <div className={styles.title}>{title}</div>
-        <div className={styles.modal_body}>{children && children}</div>
       </div>
-    </div>
+    </Portal>
   );
 };
 
