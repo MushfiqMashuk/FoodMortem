@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import AddToBucketListButton from "../../components/AddToBucketListButton";
 import Layout from "../../components/Layout";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import Modal from "../../components/Modal";
 import ProductImage from "../../components/ProductImage";
 import ReviewAnalytics from "../../components/ReviewAnalytics";
+import ReviewForm from "../../components/ReviewForm";
 import SimilarProduct from "../../components/SimilarProduct";
 import SubTitle from "../../components/SubTitle";
 import Title from "../../components/Title";
@@ -13,6 +16,7 @@ import styles from "./singleProduct.module.scss";
 
 function SingleProduct({ product }) {
   const router = useRouter();
+  const [showModal, setShowModal] = useState(false);
 
   if (router.isFallback) {
     return <LoadingSpinner />;
@@ -70,8 +74,16 @@ function SingleProduct({ product }) {
             <ProductImage product={product} />
             <ReviewAnalytics product={product} />
           </div>
-          <WriteAReview />
-          <SimilarProduct product={product}/>
+          {showModal && (
+            <Modal
+              title="Review this product"
+              onClose={() => setShowModal(false)}
+            >
+              <ReviewForm />
+            </Modal>
+          )}
+          <WriteAReview openModal={() => setShowModal(true)} />
+          <SimilarProduct product={product} />
         </Layout>
       )}
     </>
