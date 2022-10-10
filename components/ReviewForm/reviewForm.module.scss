@@ -1,0 +1,31 @@
+@import "../../styles/Mixins";
+
+.container {
+  //padding: 1rem;
+  //background-color: rgb(118, 140, 160);
+  //   width: 100%;
+  //   @include center_element;
+
+  .form {
+    //background-color: rgb(161, 130, 130);
+
+    .title {
+      margin-bottom: 1.5rem;
+      .title_input {
+        width: 100%;
+        padding: 0.5rem;
+        border-radius: 0.3rem;
+      }
+    }
+
+    .review {
+      margin-bottom: 1.5rem;
+
+      .review_input {
+        width: 100%;
+        padding: 0.5rem;
+        border-radius: 0.3rem;
+      }
+    }
+  }
+}
