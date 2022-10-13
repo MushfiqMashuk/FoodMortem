@@ -8,7 +8,8 @@
 
   .form {
     //background-color: rgb(161, 130, 130);
-
+    // height: 75vh;
+    // width: 45vw;
     .title {
       margin-bottom: 1.5rem;
       .title_input {
@@ -18,11 +19,16 @@
       }
     }
 
+    .review_type {
+      margin-bottom: 1.5rem;
+    }
+
     .review {
       margin-bottom: 1.5rem;
 
       .review_input {
         width: 100%;
+
         padding: 0.5rem;
         border-radius: 0.3rem;
       }
