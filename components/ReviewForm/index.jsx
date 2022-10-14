@@ -29,6 +29,14 @@ const ReviewForm = () => {
             value="negative"
           />
             <label for="negative">Negative</label>
+          <br /> {" "}
+          <input
+            type="radio"
+            id="very_negative"
+            name="review_type"
+            value="very_negative"
+          />
+            <label for="very_negative">Very Negative</label>
         </div>
         <div className={styles.title}>
           <p>Review Title</p>
