@@ -1,43 +1,13 @@
+import RadioButton from "../RadioButton";
 import styles from "./reviewForm.module.scss";
 
 const ReviewForm = () => {
   return (
     <div className={styles.container}>
       <form className={styles.form}>
-        <div className={styles.review_type}>
-          <p>Please select your review type</p> {" "}
-          <input
-            type="radio"
-            id="positive"
-            name="review_type"
-            value="positive"
-          />
-            <label for="positive">Positive</label>
-          <br /> {" "}
-          <input
-            type="radio"
-            id="moderate"
-            name="review_type"
-            value="moderate"
-          />
-            <label for="moderate">Moderate</label>
-          <br /> {" "}
-          <input
-            type="radio"
-            id="negative"
-            name="review_type"
-            value="negative"
-          />
-            <label for="negative">Negative</label>
-          <br /> {" "}
-          <input
-            type="radio"
-            id="very_negative"
-            name="review_type"
-            value="very_negative"
-          />
-            <label for="very_negative">Very Negative</label>
-        </div>
+        
+        <RadioButton />
+
         <div className={styles.title}>
           <p>Review Title</p>
           <input
