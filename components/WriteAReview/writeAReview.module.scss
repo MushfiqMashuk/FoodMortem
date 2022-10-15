@@ -26,12 +26,12 @@
 
     &::after {
       content: "";
-      width: 0.2rem;
-      height: 1.5rem;
+      width: 0.23rem;
+      height: 1.56rem;
       background: rgb(255, 13, 0);
       display: inline-block;
 
-      animation: cursor-blink 1.5s steps(2) infinite;
+      animation: cursor-blink 1s steps(2) infinite;
     }
 
     @keyframes cursor-blink {
