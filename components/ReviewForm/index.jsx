@@ -24,7 +24,7 @@ const ReviewForm = () => {
             cols="30"
             rows="10"
             placeholder="Write your review here"
-            className={styles.review_input + " error_class"}
+            className={styles.review_input}
             required
           ></textarea>
           <p className="error_message">Error Message</p>
