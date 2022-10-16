@@ -5,8 +5,7 @@ const ReviewForm = () => {
   return (
     <div className={styles.container}>
       <form className={styles.form}>
-        
-        <RadioButton />
+        <RadioButton options={["good", "moderate", "bad"]} />
 
         <div className={styles.title}>
           <p>Review Title</p>

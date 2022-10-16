@@ -1,51 +1,33 @@
 import styles from "./radioButton.module.scss";
 
-function RadioButton() {
+const RadioButton = ({ options = [] }) => {
   return (
-    <div className={styles.container}>
-      <div className={styles.input_container}>
-        <input
-          id="good"
-          className={styles.radio_button}
-          type="radio"
-          name="radio"
-        />
-        <div className={styles.radio_tile}>
-          <label for="good" className={styles.radio_tile_label}>
-            Good
-          </label>
-        </div>
+    <div className={styles.button_container}>
+      <p className={styles.review_type}>Select Review Type</p>
+      <div className={styles.container}>
+        {options &&
+          options.length > 0 &&
+          options.map((option) => (
+            <div className={styles.input_container}>
+              <input
+                id={option}
+                className={styles.radio_button}
+                type="radio"
+                name="radio"
+              />
+              <div className={styles.radio_tile}>
+                <label for={option} className={styles.radio_tile_label}>
+                  {option &&
+                    option.length > 0 &&
+                    option.charAt(0).toUpperCase() + option.slice(1)}
+                </label>
+              </div>
+            </div>
+          ))}
       </div>
-
-      <div className={styles.input_container}>
-        <input
-          id="moderate"
-          className={styles.radio_button}
-          type="radio"
-          name="radio"
-        />
-        <div className={styles.radio_tile}>
-          <label for="moderate" className={styles.radio_tile_label}>
-            Moderate
-          </label>
-        </div>
-      </div>
-
-      <div className={styles.input_container}>
-        <input
-          id="bad"
-          className={styles.radio_button}
-          type="radio"
-          name="radio"
-        />
-        <div className={styles.radio_tile}>
-          <label for="bad" className={styles.radio_tile_label}>
-            Bad
-          </label>
-        </div>
-      </div>
+      <p>Error Message</p>
     </div>
   );
-}
+};
 
 export default RadioButton;

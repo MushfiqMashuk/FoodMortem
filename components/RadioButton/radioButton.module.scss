@@ -1,17 +1,25 @@
+@import "../../styles/Mixins";
+
 $primary-color: #079ad9;
 
+.review_type {
+  margin-bottom: 1rem;
+}
+
+.button_container {
+  margin-bottom: 1rem;
+}
+
 .container {
-  display: flex;
+  @include center_element;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
 
   //set dimensions for invisible container
   .input_container {
     position: relative;
     height: 2.5rem;
     width: 6rem;
-    margin: 0.5rem;
+    margin-right: 1rem;
 
     //make actual radio input invisible
     // + stretch to fill container
@@ -35,7 +43,7 @@ $primary-color: #079ad9;
       width: 100%;
       height: 100%;
       border: 2px solid $primary-color;
-      border-radius: 5px;
+      border-radius: 0.5rem;
       padding-left: 1rem;
       padding-right: 1rem;
       transition: transform 300ms ease;
