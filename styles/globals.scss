@@ -1,6 +1,7 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css);
 //@import url("http://fonts.cdnfonts.com/css/wix-madefor-text");
-@import "./_Variables.scss";
+@import "./Variables";
+@import "./Mixins";
 
 html,
 body,
@@ -29,6 +30,18 @@ h6 {
 #nprogress .bar {
   height: $top_loader_height;
   background: $top_loader_color;
+}
+
+.required {
+  color: red;
+}
+
+.error_message {
+  color: red;
+}
+
+.error_class {
+  outline: 2px solid red;
 }
 
 a {
