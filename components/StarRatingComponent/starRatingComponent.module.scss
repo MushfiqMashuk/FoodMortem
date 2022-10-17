@@ -23,7 +23,23 @@
 .rating_value {
   margin: 1rem 0;
   @include center_element;
-  font-size: 2.5rem;
+  font-size: 2rem;
+  color: azure;
+}
+
+.container_review_form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: $secondary_color;
+  margin-bottom: 0.8rem;
+}
+
+.rating_value_review_form {
+  //margin: 0.5rem 0;
+  margin-bottom: 0.2rem;
+  @include center_element;
+  font-size: 1.4rem;
   color: azure;
 }
 

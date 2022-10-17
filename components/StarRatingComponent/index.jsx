@@ -7,6 +7,7 @@ const StarRatingComponent = ({
   name = "Rate This",
   onClose,
   initialRating,
+  reviewForm = false,
 }) => {
   const [userRating, setUserRating] = useState(initialRating);
 
@@ -38,15 +39,22 @@ const StarRatingComponent = ({
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.rating_title}>{name}</div>
-
-      <div className={styles.rating_value}>{userRating}</div>
+    <div
+      className={reviewForm ? styles.container_review_form : styles.container}
+    >
+      {!reviewForm && <div className={styles.rating_title}>{name}</div>}
+      <div
+        className={
+          reviewForm ? styles.rating_value_review_form : styles.rating_value
+        }
+      >
+        {userRating}
+      </div>
 
       <StarRating
         unit="half"
         count={10}
-        size={35}
+        size={reviewForm ? 30 : 35}
         emptyColor="#DDDDDD"
         starClassName={styles.star_class}
         activeColor="#ffb700"
@@ -55,14 +63,16 @@ const StarRatingComponent = ({
         handleOnClick={(rate) => setUserRating(rate)}
         initialRating={userRating}
       />
-      <button
-        disabled={initialRating === userRating}
-        className={styles.rate_button}
-        onClick={handleRate}
-      >
-        Rate
-      </button>
-      {rating ? (
+      {!reviewForm && (
+        <button
+          disabled={initialRating === userRating}
+          className={styles.rate_button}
+          onClick={handleRate}
+        >
+          Rate
+        </button>
+      )}
+      {!reviewForm && rating ? (
         <button onClick={handleRemoveRating} className={styles.rate_button}>
           Remove Rating
         </button>

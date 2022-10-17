@@ -1,14 +1,29 @@
+import { useState } from "react";
+import useRatingStore from "../../store/useRatingStore";
 import RadioButton from "../RadioButton";
+import StarRatingComponent from "../StarRatingComponent";
 import styles from "./reviewForm.module.scss";
 
 const ReviewForm = () => {
+  const [error, setError] = useState(false);
+  const rating = useRatingStore((state) => state.rating);
+
   return (
     <div className={styles.container}>
       <form className={styles.form}>
-        <RadioButton options={["good", "moderate", "bad"]} />
-
+        <p>
+          Your Rating <span className="required">*</span>
+        </p>
+        <StarRatingComponent reviewForm={true} initialRating={rating} />
+        <div className={styles.radio_button_container}>
+          <p className={styles.review_type}>
+            Select Review Type <span className="required">*</span>
+          </p>
+          <RadioButton options={["good", "moderate", "bad"]} />
+          {error && <p className="error_message">Error Message</p>}
+        </div>
         <div className={styles.title}>
-          <p>
+          <p className={styles.review_title}>
             Review Title <span className="required">*</span>
           </p>
           <input
@@ -17,7 +32,7 @@ const ReviewForm = () => {
             className={styles.title_input}
             required
           />
-          <p className="error_message">Error Message</p>
+          {error && <p className="error_message">Error Message</p>}
         </div>
         <div className={styles.review}>
           <textarea
@@ -27,7 +42,7 @@ const ReviewForm = () => {
             className={styles.review_input}
             required
           ></textarea>
-          <p className="error_message">Error Message</p>
+          {error && <p className="error_message">Error Message</p>}
         </div>
         <div className={styles.button_container}>
           <button type="submit">Submit</button>
