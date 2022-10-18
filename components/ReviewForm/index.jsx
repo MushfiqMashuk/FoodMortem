@@ -5,7 +5,8 @@ import StarRatingComponent from "../StarRatingComponent";
 import styles from "./reviewForm.module.scss";
 
 const ReviewForm = ({ productName }) => {
-  const [error, setError] = useState(true);
+  const [error, setError] = useState();
+  const [userReview, setUserReview] = useState("");
   const rating = useRatingStore((state) => state.rating);
 
   return (
@@ -44,11 +45,17 @@ const ReviewForm = ({ productName }) => {
             placeholder="Write your review here"
             className={styles.review_input}
             required
+            value={userReview}
+            onChange={(e) => setUserReview(e.target.value)}
           ></textarea>
           {error && <p className="error_message">Error Message</p>}
         </div>
         <div className={styles.button_container}>
-          <button type="submit" className={styles.submit_button}>
+          <button
+            type="submit"
+            className={"submit_button"}
+            disabled={!userReview}
+          >
             Submit
           </button>
         </div>

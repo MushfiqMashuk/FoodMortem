@@ -1,3 +1,4 @@
+import randomNumber from "../../helpers/randomNumber";
 import styles from "./radioButton.module.scss";
 
 const RadioButton = ({ options = [] }) => {
@@ -6,7 +7,10 @@ const RadioButton = ({ options = [] }) => {
       {options &&
         options.length > 0 &&
         options.map((option) => (
-          <div className={styles.input_container}>
+          <div
+            className={styles.input_container}
+            key={randomNumber(Date.now())}
+          >
             <input
               id={option}
               className={styles.radio_button}
@@ -15,7 +19,7 @@ const RadioButton = ({ options = [] }) => {
               required
             />
             <div className={styles.radio_tile}>
-              <label for={option} className={styles.radio_tile_label}>
+              <label htmlFor={option} className={styles.radio_tile_label}>
                 {option &&
                   option.length > 0 &&
                   option.charAt(0).toUpperCase() + option.slice(1)}

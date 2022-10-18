@@ -40,6 +40,36 @@ h6 {
   color: red;
 }
 
+.submit_button {
+  background-color: $submit_button_color;
+  color: $secondary_color;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  //text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  transition: scale 0.1s ease;
+
+  &:hover {
+    background-color: $darken_primary_color;
+  }
+
+  &:active {
+    background-color: $active_submit_button_color;
+    scale: 0.99;
+  }
+
+  &:disabled {
+    background-color: $disabled_submit_button_color;
+    color: rgb(81, 81, 81);
+    cursor: not-allowed;
+  }
+}
+
 .error_class {
   outline: 2px solid red;
 }
