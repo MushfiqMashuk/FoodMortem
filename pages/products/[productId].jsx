@@ -59,18 +59,6 @@ function SingleProduct({ product }) {
             </div>
           </div>
           <div className={styles.content}>
-            {/* <div className={styles.image_container}>
-              <Image
-                src={product.img ? product.img : No_Image}
-                alt={product.name}
-                layout="fill"
-                objectFit="contain"
-                placeholder="blur"
-                blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(700, 475)
-                )}`}
-              />
-            </div> */}
             <ProductImage product={product} />
             <ReviewAnalytics product={product} />
           </div>
@@ -79,7 +67,7 @@ function SingleProduct({ product }) {
               title="Review this product"
               onClose={() => setShowModal(false)}
             >
-              <ReviewForm />
+              <ReviewForm productName={product?.name} />
             </Modal>
           )}
           <WriteAReview openModal={() => setShowModal(true)} />

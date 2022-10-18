@@ -4,12 +4,15 @@ import RadioButton from "../RadioButton";
 import StarRatingComponent from "../StarRatingComponent";
 import styles from "./reviewForm.module.scss";
 
-const ReviewForm = () => {
-  const [error, setError] = useState(false);
+const ReviewForm = ({ productName }) => {
+  const [error, setError] = useState(true);
   const rating = useRatingStore((state) => state.rating);
 
   return (
     <div className={styles.container}>
+      {productName && productName.length > 0 && (
+        <div className={styles.product_name}>{productName}</div>
+      )}
       <form className={styles.form}>
         <p>
           Your Rating <span className="required">*</span>

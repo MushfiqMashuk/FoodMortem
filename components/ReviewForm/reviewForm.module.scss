@@ -2,6 +2,13 @@
 @import "../../styles/Variables";
 
 .container {
+  .product_name {
+    @include center_element;
+    @include product_rating_title;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
   .form {
     .title {
       margin-bottom: 1.5rem;
@@ -57,9 +64,7 @@
 
     &:active {
       background-color: $active_primary_color;
-      scale: 0.98;
+      scale: 0.99;
     }
-
-
   }
 }
