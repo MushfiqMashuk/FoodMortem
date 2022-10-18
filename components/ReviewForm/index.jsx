@@ -17,7 +17,7 @@ const ReviewForm = () => {
         <StarRatingComponent reviewForm={true} initialRating={rating} />
         <div className={styles.radio_button_container}>
           <p className={styles.review_type}>
-            Select Review Type <span className="required">*</span>
+            Review Type <span className="required">*</span>
           </p>
           <RadioButton options={["good", "moderate", "bad"]} />
           {error && <p className="error_message">Error Message</p>}
@@ -45,7 +45,9 @@ const ReviewForm = () => {
           {error && <p className="error_message">Error Message</p>}
         </div>
         <div className={styles.button_container}>
-          <button type="submit">Submit</button>
+          <button type="submit" className={styles.submit_button}>
+            Submit
+          </button>
         </div>
       </form>
     </div>

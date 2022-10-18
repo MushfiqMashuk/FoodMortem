@@ -1,4 +1,5 @@
 @import "../../styles/Mixins";
+@import "../../styles/Variables";
 
 .container {
   .form {
@@ -6,7 +7,7 @@
       margin-bottom: 1.5rem;
       .title_input {
         width: 100%;
-        padding: 0.5rem;
+        padding: 0.6rem;
         border-radius: 0.3rem;
         border: none;
       }
@@ -34,5 +35,31 @@
         border: none;
       }
     }
+  }
+
+  .submit_button {
+    background-color: $submit_button_color;
+    color: $secondary_color;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    //text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    transition: scale 0.1s ease;
+
+    &:hover {
+      background-color: $darken_primary_color;
+    }
+
+    &:active {
+      background-color: $active_primary_color;
+      scale: 0.98;
+    }
+
+
   }
 }
