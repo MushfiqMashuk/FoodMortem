@@ -1,7 +1,17 @@
+import { useState } from "react";
 import randomNumber from "../../helpers/randomNumber";
 import styles from "./radioButton.module.scss";
 
 const RadioButton = ({ options = [] }) => {
+  const [value, setValue] = useState("");
+
+  const isSelected = (selectedValue) => selectedValue === value;
+
+  const handleChange = (e) => {
+    const target = e.target;
+    setValue(target.value);
+  };
+
   return (
     <div className={styles.container}>
       {options &&
@@ -16,6 +26,9 @@ const RadioButton = ({ options = [] }) => {
               className={styles.radio_button}
               type="radio"
               name="radio"
+              value={option.toLowerCase()}
+              checked={isSelected(option.toLowerCase())}
+              onChange={handleChange}
               required
             />
             <div className={styles.radio_tile}>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import useRatingStore from "../../store/useRatingStore";
 import RadioButton from "../RadioButton";
 import StarRatingComponent from "../StarRatingComponent";
@@ -18,12 +18,22 @@ const ReviewForm = ({ productName }) => {
         <p>
           Your Rating <span className="required">*</span>
         </p>
-        <StarRatingComponent reviewForm={true} initialRating={rating} />
+        {useMemo(
+          () => (
+            <StarRatingComponent reviewForm={true} initialRating={rating} />
+          ),
+          [rating]
+        )}
         <div className={styles.radio_button_container}>
           <p className={styles.review_type}>
             Review Type <span className="required">*</span>
           </p>
-          <RadioButton options={["good", "moderate", "bad"]} />
+          {useMemo(
+            () => (
+              <RadioButton options={["good", "moderate", "bad"]} />
+            ),
+            []
+          )}
           {error && <p className="error_message">Error Message</p>}
         </div>
         <div className={styles.title}>

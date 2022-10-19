@@ -17,8 +17,6 @@ const StarRatingComponent = ({
     state.removeRating,
   ]);
 
-  //console.log(rating);
-
   const handleRate = () => {
     // Send rating to the database
 
