@@ -30,7 +30,7 @@ const ReviewForm = ({ productName }) => {
           </p>
           {useMemo(
             () => (
-              <RadioButton options={["good", "moderate", "bad"]} />
+              <RadioButton options={["good", "moderate"]} />
             ),
             []
           )}
