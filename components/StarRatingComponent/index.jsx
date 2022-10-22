@@ -8,6 +8,7 @@ const StarRatingComponent = ({
   onClose,
   initialRating,
   reviewForm = false,
+  setError,
 }) => {
   const [userRating, setUserRating] = useState(initialRating);
 
@@ -17,12 +18,26 @@ const StarRatingComponent = ({
     state.removeRating,
   ]);
 
+  const handleSetRating = (myRating) => {
+    setUserRating(myRating);
+
+    // If the form is review form then do the handle rate here
+    if (reviewForm) {
+      // Send rating to the database
+
+      // Set rating to the local state
+      setRating(myRating);
+
+      // set the error object.
+      setError(false);
+    }
+  };
+
   const handleRate = () => {
     // Send rating to the database
 
     // Set rating to local state
     setRating(userRating);
-
     // close the modal
     onClose();
   };
@@ -58,7 +73,7 @@ const StarRatingComponent = ({
         activeColor="#ffb700"
         hoverColor="red"
         innerRadius={25}
-        handleOnClick={(rate) => setUserRating(rate)}
+        handleOnClick={handleSetRating}
         initialRating={userRating}
       />
       {!reviewForm && (

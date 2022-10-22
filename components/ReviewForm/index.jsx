@@ -5,25 +5,40 @@ import StarRatingComponent from "../StarRatingComponent";
 import styles from "./reviewForm.module.scss";
 
 const ReviewForm = ({ productName }) => {
-  const [error, setError] = useState();
+  const [error, setError] = useState(null);
   const [userReview, setUserReview] = useState("");
   const rating = useRatingStore((state) => state.rating);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!rating) {
+      setError(true);
+    }
+  };
 
   return (
     <div className={styles.container}>
       {productName && productName.length > 0 && (
         <div className={styles.product_name}>{productName}</div>
       )}
-      <form className={styles.form}>
-        <p>
-          Your Rating <span className="required">*</span>
-        </p>
-        {useMemo(
-          () => (
-            <StarRatingComponent reviewForm={true} initialRating={rating} />
-          ),
-          [rating]
-        )}
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <div className={styles.product_rating}>
+          <p>
+            Your Rating <span className="required">*</span>
+          </p>
+          {useMemo(
+            () => (
+              <StarRatingComponent
+                reviewForm={true}
+                initialRating={rating}
+                setError={setError}
+              />
+            ),
+            [rating]
+          )}
+          {error && <p className="error_message">Please provide a rating</p>}
+        </div>
         <div className={styles.radio_button_container}>
           <p className={styles.review_type}>
             Review Type <span className="required">*</span>
