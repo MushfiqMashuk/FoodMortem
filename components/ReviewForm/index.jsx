@@ -5,7 +5,12 @@ import StarRatingComponent from "../StarRatingComponent";
 import styles from "./reviewForm.module.scss";
 
 const ReviewForm = ({ productName }) => {
-  const [error, setError] = useState(null);
+  const [error, setError] = useState({
+    ratingError: "",
+    typeError: "",
+    titleError: "",
+    reviewError: "",
+  });
   const [userReview, setUserReview] = useState("");
   const rating = useRatingStore((state) => state.rating);
 
@@ -13,9 +18,13 @@ const ReviewForm = ({ productName }) => {
     e.preventDefault();
 
     if (!rating) {
-      setError(true);
+      setError((prev) => ({ ...prev, ratingError: "Please provide a rating" }));
     }
   };
+
+  const { ratingError, typeError, titleError, reviewError } = error;
+
+  //console.log(ratingError);
 
   return (
     <div className={styles.container}>
@@ -37,7 +46,9 @@ const ReviewForm = ({ productName }) => {
             ),
             [rating]
           )}
-          {error && <p className="error_message">Please provide a rating</p>}
+          {ratingError && ratingError.length > 0 && (
+            <p className="error_message">{ratingError}</p>
+          )}
         </div>
         <div className={styles.radio_button_container}>
           <p className={styles.review_type}>
@@ -49,7 +60,9 @@ const ReviewForm = ({ productName }) => {
             ),
             []
           )}
-          {error && <p className="error_message">Error Message</p>}
+          {typeError && typeError.length > 0 && (
+            <p className="error_message">{typeError}</p>
+          )}
         </div>
         <div className={styles.title}>
           <p className={styles.review_title}>
@@ -61,7 +74,9 @@ const ReviewForm = ({ productName }) => {
             className={styles.title_input}
             required
           />
-          {error && <p className="error_message">Error Message</p>}
+          {titleError && titleError.length > 0 && (
+            <p className="error_message">{titleError}</p>
+          )}
         </div>
         <div className={styles.review}>
           <textarea
@@ -73,7 +88,9 @@ const ReviewForm = ({ productName }) => {
             value={userReview}
             onChange={(e) => setUserReview(e.target.value)}
           ></textarea>
-          {error && <p className="error_message">Error Message</p>}
+          {reviewError && reviewError.length > 0 && (
+            <p className="error_message">{reviewError}</p>
+          )}
         </div>
         <div className={styles.button_container}>
           <button
