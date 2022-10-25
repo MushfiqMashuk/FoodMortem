@@ -3,7 +3,7 @@ import Layout from "../../components/Layout";
 const Products = ({ products }) => {
   return (
     <Layout>
-      {products && products.map((product) => <div>{product.name}</div>)}
+      {products && products.map((product) => <div key={product.id}>{product.name}</div>)}
     </Layout>
   );
 };
