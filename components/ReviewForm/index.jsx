@@ -24,8 +24,6 @@ const ReviewForm = ({ productName }) => {
 
   const { ratingError, typeError, titleError, reviewError } = error;
 
-  //console.log(ratingError);
-
   return (
     <div className={styles.container}>
       {productName && productName.length > 0 && (
