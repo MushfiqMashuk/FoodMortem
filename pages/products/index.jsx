@@ -1,9 +1,16 @@
 import Layout from "../../components/Layout";
+import ProductCard from "../../components/ProductCard";
+import styles from "./allProducts.module.scss";
 
 const Products = ({ products }) => {
   return (
     <Layout>
-      {products && products.map((product) => <div key={product.id}>{product.name}</div>)}
+      <div className={styles.container}>
+        {products &&
+          products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+      </div>
     </Layout>
   );
 };
