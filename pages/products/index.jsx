@@ -6,10 +6,15 @@ const Products = ({ products }) => {
   return (
     <Layout>
       <div className={styles.container}>
-        {products &&
-          products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+        <div className={styles.filter_container}>
+          
+        </div>
+        <div className={styles.body}>
+          {products &&
+            products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+        </div>
       </div>
     </Layout>
   );

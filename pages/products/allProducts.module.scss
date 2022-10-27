@@ -1,6 +1,12 @@
 .container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: space-around;
+  .filter_container {
+    display: flex;
+  }
+
+  .body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem 0.2rem;
+    justify-content: space-around;
+  }
 }

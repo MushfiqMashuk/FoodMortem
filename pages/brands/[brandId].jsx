@@ -77,12 +77,12 @@ function SingleBrand({ brand, products = [] }) {
             ? filteredProducts &&
               filteredProducts.length > 0 &&
               filteredProducts.map((product) => (
-                <ProductCard product={product} key={product.id} />
+                <ProductCard product={product} key={product.id} singleProduct />
               ))
             : products &&
               products.length > 0 &&
               products.map((product) => (
-                <ProductCard product={product} key={product.id} />
+                <ProductCard product={product} key={product.id} singleProduct />
               ))}
         </div>
       </div>

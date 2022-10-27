@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { shimmer, toBase64 } from "../../helpers/shimmerEffect";
+import StarIcon from "../../public/star_icon6.svg";
 import AddToBucketListButton from "../AddToBucketListButton";
 import Overlay from "../Overlay";
 import SubTitle from "../SubTitle";
 import styles from "./productCard.module.scss";
-import StarIcon from "../../public/star_icon6.svg";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, singleProduct = false }) => {
   return (
     <div className={styles.card_wrapper} key={product.id}>
       <div className={styles.product_card}>
@@ -42,6 +42,16 @@ const ProductCard = ({ product }) => {
                 </SubTitle>
               </a>
             </Link>
+
+            {!singleProduct && (
+              <Link href={`/brands/${product.brand?.id}`}>
+                <a>
+                  <SubTitle className={styles.product_name}>
+                    {product.brand.name}
+                  </SubTitle>
+                </a>
+              </Link>
+            )}
 
             <Link href={`/categories/${product.category?.id}`}>
               <a>
