@@ -9,7 +9,7 @@ const Products = ({ products }) => {
         <div className={styles.filter_container}>
           
         </div>
-        <div className={styles.body}>
+        <div className={styles}>
           {products &&
             products.map((product) => (
               <ProductCard key={product.id} product={product} />
