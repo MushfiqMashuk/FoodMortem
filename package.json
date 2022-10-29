@@ -18,6 +18,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-multi-carousel": "^2.8.2",
+    "react-select": "^5.5.7",
     "react-svg-star-rating": "^2.1.2",
     "sass": "^1.54.4",
     "sharp": "^0.30.7",
