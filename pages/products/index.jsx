@@ -7,7 +7,12 @@ const Products = ({ products }) => {
     <Layout>
       <div className={styles.container}>
         <div className={styles.filter_container}>
-          
+          <div className={styles.brand_filter}>
+            
+          </div>
+          <div className={styles.category_filter}>
+
+          </div>
         </div>
         <div className={styles.body}>
           {products &&
