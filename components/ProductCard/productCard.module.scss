@@ -1,22 +1,24 @@
 @import "../../styles/Mixins";
 
-.card_wrapper {
-  background-color: #4c5958;
-  width: 16rem;
-  min-height: 24rem;
-  @include center_element;
-  padding: 1.1rem;
-  border-radius: 0.3rem;
-}
+// .card_wrapper {
+//   background-color: #F7F9F9;//#4c5958;
+//   width: 16rem;
+//   min-height: 23rem;
+//   @include center_element;
+//   //padding: 1.1rem;
+//   border-radius: 0.3rem;
+// }
 
 .product_card {
-  background-color: #4c5958;
-  box-shadow: 0px 0px 30px -1px rgba(0 0 0 / 75%);
-  width: 100%;
-  height: 100%;
+  background-color: #F7F9F9;//#4c5958;
+  box-shadow: 0px 0px 4px -1px rgba(0 0 0 / 75%);
+  // width: 100%;
+  // height: 100%;
+  width: 16rem;
+  min-height: 23rem;
   display: flex;
   flex-direction: column;
-  border-radius: 0.2rem;
+  border-radius: 0.3rem;
 
   .card_image_container {
     flex: 6;
@@ -26,6 +28,7 @@
     cursor: pointer;
     //margin-bottom: 1rem;
     background-color: white;
+    border-radius: 0.3rem;
   }
 
   .product_description {
@@ -34,7 +37,7 @@
 
     flex-direction: column;
     padding: 0.4rem;
-    color: wheat;
+    color: black;
 
     .product_rating {
       @include center_element;

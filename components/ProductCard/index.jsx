@@ -9,7 +9,6 @@ import styles from "./productCard.module.scss";
 
 const ProductCard = ({ product, singleProduct = false }) => {
   return (
-    <div className={styles.card_wrapper} key={product.id}>
       <div className={styles.product_card}>
         <div className={styles.card_image_container}>
           <Image
@@ -20,6 +19,7 @@ const ProductCard = ({ product, singleProduct = false }) => {
             blurDataURL={`data:image/svg+xml;base64,${toBase64(
               shimmer(700, 475)
             )}`}
+            style={{borderRadius: "0.3rem"}}
           />
 
           <Link href={`/products/${product.id}`}>
@@ -68,7 +68,6 @@ const ProductCard = ({ product, singleProduct = false }) => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
