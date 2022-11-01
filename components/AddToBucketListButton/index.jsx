@@ -1,7 +1,6 @@
-import Image from "next/image";
 import { useState } from "react";
-import addToBucketAfter from "../../public/add_to_bucket_after.svg";
-import addToBucketBefore from "../../public/add_to_bucket_before.svg";
+import PlusSign from "../HelperComponents/PlusSign";
+import TickSign from "../HelperComponents/TickSign";
 import styles from "./addToBucketListButton.module.scss";
 
 function AddToBucketListButton({ children }) {
@@ -19,14 +18,10 @@ function AddToBucketListButton({ children }) {
     <div className={styles.bucket_list}>
       <div className={styles.bucket_list_button} onClick={handleAddBucketList}>
         <div className={styles.plus}>
-          <Image
-            src={isInBucket ? addToBucketAfter : addToBucketBefore}
-            width={25}
-            height={25}
-          />
+          {isInBucket ? <TickSign /> : <PlusSign />}
         </div>
         <div className={styles.button_title}>
-          {isInBucket ? "In BucketList" : children}
+          {isInBucket ? "Added to BucketList" : children}
         </div>
       </div>
     </div>
