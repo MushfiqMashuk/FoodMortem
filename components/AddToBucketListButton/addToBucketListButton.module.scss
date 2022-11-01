@@ -28,14 +28,10 @@
 
     .plus {
       @include center_element;
-      //border: 1px solid red;
-
-      margin-right: 0.3rem;
-
       padding: 0;
       position: absolute;
-      left: 0.5rem;
-      bottom: 0.4rem;
+      left: 0.9rem;
+      bottom: 0.3rem;
 
       font-weight: 300;
     }
