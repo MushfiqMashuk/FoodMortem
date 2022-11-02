@@ -21,7 +21,7 @@ function AddToBucketListButton({ children }) {
           {isInBucket ? <TickSign /> : <PlusSign />}
         </div>
         <div className={styles.button_title}>
-          {isInBucket ? "Added to BucketList" : children}
+          {isInBucket ? "In BucketList" : children}
         </div>
       </div>
     </div>
