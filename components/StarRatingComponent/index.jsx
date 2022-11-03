@@ -44,7 +44,7 @@ const StarRatingComponent = ({
 
   const handleRemoveRating = () => {
     // Remove rating from the database
-
+    
     // Remove rating from the local state
     removeRating();
     //close the modal
