@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import connectDB from "./config/(db)";
+import connectDB from "../../backend/config/db";
+
 
 connectDB();
 
