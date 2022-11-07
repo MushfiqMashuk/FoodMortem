@@ -1,16 +1,19 @@
-import { model, Schema } from "mongoose";
+import { model, models, Schema } from "mongoose";
 
 const SuggestionsSchema = new Schema({
-  name: {
+  productName: {
+    type: String,
+    required: "Please provide a product name",
+    trim : true
+  },
+  brandName: {
+    type: String,
+    required: "Please provide a brand name",
+    trim : true
+  },
+  location: {
     type: String,
   },
-  brand: {
-    type: String,
-  },
-  status: {
-    type: String,
-    enum: ['Not Started', 'In Progress', 'Completed'],
-  },
-});
+}, {timestamps: true});
 
-export default model('Suggestions', SuggestionsSchema);
+export default models.Suggestions || model('Suggestions', SuggestionsSchema);

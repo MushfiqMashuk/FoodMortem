@@ -1,19 +1,43 @@
 import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 import { ApolloServer, gql } from "apollo-server-micro";
+import connectDB from "../../backend/config/db";
+import Suggestions from "../../backend/models/Suggestions";
+
+connectDB();
 
 const typeDefs = gql`
-  type Book {
-    id: ID!
-    name: String
+  type Suggestion {
+    id: ID
+    productName: String!
+    brandName: String!
+    location: String
   }
+
+  type Mutation {
+    addSuggestion(): Suggestion
+  }
+
   type Query {
-    getBook: Book
+    getBook: [Suggestion]
   }
 `;
 const resolvers = {
-    Query: {
-        getBook: () => ({"id": 0, "name": "Tony Stark"})
+    // Query: {
+    //     addSuggestion: () => ({"id": 0, "name": "Tony Stark"})
+    // },
+
+    Mutation: {
+        addSuggestion: (parent, args) => {
+            const suggestion = new Suggestions({
+          productName: args.productName,
+          brandName: args.brandName,
+          location: args.location,
+        });
+
+        return suggestion.save();
+        }
     }
+
 }
 
 const server = new ApolloServer({
