@@ -1,4 +1,4 @@
-import { model, models, Schema } from "mongoose";
+import { model, models, Schema, Types } from "mongoose";
 
 const ProductsSchema = new Schema(
   {
@@ -7,15 +7,48 @@ const ProductsSchema = new Schema(
       required: "Please provide a product name",
       trim: true,
     },
-    brandId: {
-      type: Schema.Types.ObjectId,
-      ref: "Brands",
+    brand: {
+      id: Types.ObjectId,
+      name: {
+        type: String,
+        trim: true,
+      },
     },
-    categoryId: {
-      type: Schema.Types.ObjectId,
-      ref: "Categories",
+    category: {
+      id: Types.ObjectId,
+      name: {
+        type: String,
+        trim: true,
+      },
     },
+
     img: String,
+
+    ratings: [
+      {
+        userId: Types.ObjectId,
+        name: {
+          type: String,
+          trim: true,
+        },
+        rating: Types.Decimal128,
+      },
+    ],
+
+    reviews: [
+      {
+        userId: Types.ObjectId,
+        name: {
+          type: String,
+          trim: true,
+        },
+        review: String,
+        type: {
+          type: String,
+          enum: ["good", "moderate", "bad"],
+        },
+      },
+    ],
   },
   { timestamps: true }
 );

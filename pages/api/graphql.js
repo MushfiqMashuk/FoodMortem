@@ -15,6 +15,12 @@ const typeDefs = gql`
     location: String
   }
 
+  type Reviews {
+    id: ID
+    productId: ID
+    brand 
+  }
+
   type Category {
     id: ID
     name: String!

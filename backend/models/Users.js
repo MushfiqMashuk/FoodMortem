@@ -1,0 +1,25 @@
+import { model, models, Schema } from "mongoose";
+
+const UsersSchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      trim: true,
+      lowercase: true,
+    },
+
+    password: {
+      type: String,
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
+
+export default models.Users || model("Users", UsersSchema);
