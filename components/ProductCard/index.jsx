@@ -8,6 +8,8 @@ import SubTitle from "../SubTitle";
 import styles from "./productCard.module.scss";
 
 const ProductCard = ({ product, singleProduct = false }) => {
+  const {ratings} = product;
+  console.log(product);
   return (
       <div className={styles.product_card}>
         <div className={styles.card_image_container}>

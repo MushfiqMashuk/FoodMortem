@@ -32,7 +32,7 @@ const ProductsSchema = new Schema(
           trim: true,
         },
         rating: {
-          type: Types.Decimal128,
+          type: Number,
           required: "Please provide an unbiased rating",
         },
       },
@@ -55,6 +55,7 @@ const ProductsSchema = new Schema(
           enum: ["good", "moderate", "bad"],
           required: "Please provide an appropriate review type",
         },
+        date: { type: Date, default: Date.now },
       },
     ],
   },

@@ -45,7 +45,7 @@ const Products = ({ products }) => {
         <div className={styles.body}>
           {products &&
             products.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard key={product._id} product={product} />
             ))}
         </div>
       </div>
@@ -56,7 +56,8 @@ const Products = ({ products }) => {
 export async function getStaticProps() {
   let data;
   try {
-    const fetchedData = await fetch(`http://localhost:4000/products`);
+    const fetchedData = await fetch(`http://localhost:3000/api/hello`);
+    console.log(fetchedData);
     data = await fetchedData.json();
   } catch (err) {
     console.log(err);
