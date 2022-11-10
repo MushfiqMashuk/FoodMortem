@@ -2,6 +2,7 @@ import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-co
 import { ApolloServer, gql } from "apollo-server-micro";
 import connectDB from "../../backend/config/db";
 import Brands from "../../backend/models/Brands";
+import Products from "../../backend/models/Products";
 import Suggestions from "../../backend/models/Suggestions";
 
 // Connect to mongodb database
@@ -15,10 +16,27 @@ const typeDefs = gql`
     location: String
   }
 
-  type Reviews {
+  type Products {
     id: ID
-    productId: ID
-    brand 
+    name: String!
+    brand: Brand
+    category: Category
+    img: String
+    ratings: [Rating]
+    reviews: [Review]
+  }
+
+  type Rating {
+    id: ID
+    name: String
+    rating: Float!
+  }
+
+  type Review {
+    id: ID
+    name: String
+    review: String!
+    type: String!
   }
 
   type Category {
@@ -51,6 +69,8 @@ const typeDefs = gql`
     getAllBrands: [Brand]
 
     getBrand(id: ID): Brand
+
+    getAllProducts: Products
   }
 `;
 const resolvers = {
@@ -67,6 +87,8 @@ const resolvers = {
       const { id } = args;
       return await Brands.findById(id);
     },
+
+    getAllProducts: async () => await Products.find(),
   },
 
   Mutation: {

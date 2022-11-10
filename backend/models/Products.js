@@ -31,7 +31,10 @@ const ProductsSchema = new Schema(
           type: String,
           trim: true,
         },
-        rating: Types.Decimal128,
+        rating: {
+          type: Types.Decimal128,
+          required: "Please provide an unbiased rating",
+        },
       },
     ],
 
@@ -42,10 +45,15 @@ const ProductsSchema = new Schema(
           type: String,
           trim: true,
         },
-        review: String,
+        review: {
+          type: String,
+          trim: true,
+          required: "Please provide an unbiased review",
+        },
         type: {
           type: String,
           enum: ["good", "moderate", "bad"],
+          required: "Please provide an appropriate review type",
         },
       },
     ],
