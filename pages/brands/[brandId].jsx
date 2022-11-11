@@ -103,7 +103,7 @@ export async function getStaticProps({ params }) {
   const { brandId } = params;
 
   // Fetching the brand
-  const fetchedBrand = await fetch(`http://localhost:4000/brands/${brandId}`);
+  const fetchedBrand = await fetch(`${process.env.API_URL}/brands/${brandId}`);
   const data = await fetchedBrand.json();
 
   // Fetching all the products with the brand id
