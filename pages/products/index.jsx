@@ -56,7 +56,7 @@ const Products = ({ products }) => {
 export async function getStaticProps() {
   let data;
   try {
-    const fetchedData = await fetch(`http://localhost:3000/api/hello`);
+    const fetchedData = await fetch(`http://localhost:3000/api/products`);
     console.log(fetchedData);
     data = await fetchedData.json();
   } catch (err) {

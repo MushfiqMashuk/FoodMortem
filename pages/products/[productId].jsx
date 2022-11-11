@@ -15,6 +15,7 @@ import WriteAReview from "../../components/WriteAReview";
 import styles from "./singleProduct.module.scss";
 
 function SingleProduct({ product }) {
+  console.log(product);
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
 
@@ -97,9 +98,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { productId } = params;
 
-  const fetchedData = await fetch(
-    `http://localhost:4000/products/${productId}`
-  );
+  const fetchedData = await fetch(`${process.env.API_URL}/products/${productId}`);
   const data = await fetchedData.json();
 
   if (!data) {
