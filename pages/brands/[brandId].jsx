@@ -113,11 +113,11 @@ export async function getStaticProps({ params }) {
   );
   const products = await fetchedProducts.json();
 
-  // if (!data.id) {
-  //   return {
-  //     notFound: true,
-  //   };
-  // }
+  if (!data._id) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
