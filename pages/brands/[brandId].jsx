@@ -11,6 +11,7 @@ import No_Image from "../../public/no_image.png";
 import styles from "./brands.module.scss";
 
 function SingleBrand({ brand, products = [] }) {
+  console.log(brand);
   const router = useRouter();
   const [categoryValue, setCategoryValue] = useState();
   const [filteredProducts, setFilteredProducts] = useState(products);
@@ -108,15 +109,15 @@ export async function getStaticProps({ params }) {
 
   // Fetching all the products with the brand id
   const fetchedProducts = await fetch(
-    `http://localhost:4000/products?brand.id=${brandId}`
+    `${process.env.API_URL}/products?brandId=${brandId}`
   );
   const products = await fetchedProducts.json();
 
-  if (!data.id) {
-    return {
-      notFound: true,
-    };
-  }
+  // if (!data.id) {
+  //   return {
+  //     notFound: true,
+  //   };
+  // }
 
   return {
     props: {
