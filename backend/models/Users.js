@@ -1,4 +1,4 @@
-import { model, models, Schema } from "mongoose";
+import { model, models, Schema, Types } from "mongoose";
 
 const UsersSchema = new Schema(
   {
@@ -20,6 +20,11 @@ const UsersSchema = new Schema(
       required: true,
       trim: true,
     },
+    bucketList: [
+      {
+        id: Types.ObjectId,
+      },
+    ],
   },
   { timestamps: true }
 );

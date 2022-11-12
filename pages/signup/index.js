@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import validateName from "../../helpers/validateName";
 import signupImage from "../../public/signup.svg";
 import styles from "../signin/signin.module.scss";
 
 function Signup() {
+  const router = useRouter();
   const defaultFormData = {
     name: "",
     email: "",
@@ -30,13 +32,34 @@ function Signup() {
     }));
   };
 
-  const formSubmit = () => {
-    console.log({
+  const formSubmit = async () => {
+    const userObject = {
       name: name.trim(),
       email: email.trim().toLowerCase(),
       password: password.trim(),
-      bucketList: [],
-    });
+      bucketList: {
+        id: "636e4690372e337ce49a9594",
+      },
+    };
+
+    try {
+      const savedData = await fetch(`http://localhost:3000/api/signup`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: JSON.stringify(userObject),
+      });
+
+      const data = await savedData.json();
+
+      console.log(data);
+      console.log(router);
+      router.push("/");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleSubmit = (e) => {
