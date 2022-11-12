@@ -11,27 +11,27 @@ function Signin() {
         <div className={styles.illustration}>
           <Image src={loginImage} width={500} height={500} />
         </div>
-        <form className={`${styles.login} ${styles.form}`} action="#">
+        <form className={`${styles.signin} ${styles.form}`}>
           <div className={styles.text_input}>
-            <input type="text" placeholder="Enter email" />
-            
+            <input type="email" placeholder="Enter email" required />
           </div>
 
           <div className={styles.text_input}>
-            <input type="password" placeholder="Enter password" />
-            
+            <input type="password" placeholder="Enter password" required />
           </div>
 
           <button className={styles.button}>
             <span>Submit now</span>
           </button>
 
-          <div className="info">
+          <div className={styles.info}>
             Don't have an account?{" "}
             <Link href="/signup">
-              <a>Signup </a>
+              <a>
+                <span className={styles.signup_instead}>Signup</span>{" "}
+              </a>
             </Link>
-            instead.
+            here.
           </div>
         </form>
       </div>

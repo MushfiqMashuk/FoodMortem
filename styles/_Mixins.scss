@@ -57,3 +57,9 @@
     background-color: $overlay_background_color_active;
   }
 }
+
+@mixin signin_container {
+  background-color: $fb_background;
+  height: 100vh;
+  padding: 5rem;
+}

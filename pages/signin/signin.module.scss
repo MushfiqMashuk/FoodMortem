@@ -1,9 +1,8 @@
 @import "../../styles/Variables";
+@import "../../styles/Mixins";
 
 .container {
-    background-color: $fb_background;
-    height: 100vh;
-    padding: 5rem;
+  @include signin_container;
 }
 
 .column {
@@ -32,15 +31,6 @@
     font-size: 16px;
     font-weight: 500;
   }
-
-  span {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
 }
 
 /* button component */
@@ -60,27 +50,33 @@
   border: 0px;
 }
 
-.button:hover {
-  background: var(--fontPrimary);
-  color: #fff;
+.button {
+  &:hover {
+    background: $success_green_hover;
+    color: #fff;
+    span {
+      color: #fff;
+    }
+  }
 }
 
-.button:hover span {
-  color: #fff;
+/* signin component */
+.signin {
+  height: 21rem;
 }
 
-/* login component */
-.login {
-  height: 330px;
+/* signup component */
+.signup {
+  height: 35rem;
 }
 
 /* illustration component */
 .illustration {
   padding: 5rem 2rem;
-}
 
-.illustration img {
-  max-width: 80%;
+  img {
+    max-width: 80%;
+  }
 }
 
 @media only screen and (max-width: 1023px) {
@@ -94,19 +90,39 @@
   display: grid;
   grid-template-columns: 1fr;
   padding: 2rem 0;
-}
 
-.form label {
-  margin-top: 1rem;
-}
+  label {
+    margin-top: 1rem;
+  }
 
-.form .button {
-  height: 44px;
-  margin-top: 2rem;
+  .button {
+    height: 44px;
+    margin-top: 2rem;
+  }
 }
 
 @media only screen and (max-width: 600px) {
   .form {
     grid-template-columns: 1fr;
   }
+}
+
+.info {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.signup_instead {
+  color: #5b5cfc;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.error {
+  background-color: var(--dangerRed);
+  padding: 0.6rem 1.2rem;
+  margin-top: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
 }
