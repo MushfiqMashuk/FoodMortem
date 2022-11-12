@@ -28,8 +28,8 @@ function Signup() {
             <input type="password" placeholder="Confirm password" required />
           </div>
 
-          <label>
-            <input type="checkbox" />
+          <label className={styles.terms}>
+            <input type="checkbox" className={styles.checkbox} />
             <span>I agree to the Terms & Conditions</span>
           </label>
 

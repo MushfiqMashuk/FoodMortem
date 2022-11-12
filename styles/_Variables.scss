@@ -57,5 +57,10 @@ $overlay_transition: all 0.15s ease;
 // Signup/Login page variables
 
 $fb_background: #F0F2F5;
-$success_green: #00ff84;
-$success_green_hover: #002333;
+$success_green: #002333;
+$success_green_hover: #014666;
+$success_green_active: #00314a;
+$submit_button_text: #002333;
+
+//errors
+$danger_red: #ffc0c7;
