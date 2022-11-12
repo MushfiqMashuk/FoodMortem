@@ -12,7 +12,7 @@
 }
 /* text input component */
 .text_input {
-  width: 100%;
+  width: 90%;
   height: 3.125rem;
   background-color: #fff;
   display: flex;
@@ -35,6 +35,7 @@
 
 /* button component */
 .button {
+  width: 90%;
   background-color: $success_green;
   color: white;
   padding: 0.6rem 1.2rem;
@@ -131,10 +132,11 @@
 }
 
 .error {
+  width: 60%;
   background-color: $danger_red;
   padding: 0.6rem 1.2rem;
-  margin-top: 0.625rem;
-  border-radius: 0.5rem;
+  //margin-top: 0.625rem;
+  border-radius: 0.2rem;
   display: flex;
   align-items: center;
 }

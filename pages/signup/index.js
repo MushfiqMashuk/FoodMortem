@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useState } from "react";
 import validateName from "../../helpers/validateName";
 import signupImage from "../../public/signup.svg";
 import styles from "../signin/signin.module.scss";
@@ -16,36 +16,32 @@ function Signup() {
   };
 
   const [formData, setFormData] = useState(defaultFormData);
-  const nameRef = useRef();
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const confirmPasswordRef = useRef();
 
-  //   const handleChange = (e) => {
-  //     const value = e.target.value;
-  //     const name = e.target.name;
+  const { name, email, password, confirmPassword, nameError, passwordError } =
+    formData;
 
-  //     setFormData((prev) => ({
-  //       ...prev,
-  //       [name]: value,
-  //     }));
-  //   };
+  const handleChange = (e) => {
+    const value = e.target.value;
+    const name = e.target.name;
 
-  const setFormValues = () => {
     setFormData((prev) => ({
       ...prev,
-      name: nameRef.current.value,
-      email: emailRef.current.value,
-      password: passwordRef.current.value,
-      confirmPassword: confirmPasswordRef.current.value,
+      [name]: value,
     }));
+  };
+
+  const formSubmit = () => {
+    console.log({
+      name: name.trim(),
+      email: email.trim().toLowerCase(),
+      password: password.trim(),
+      bucketList: [],
+    });
   };
 
   const handleSubmit = (e) => {
     // preventing the default behaviour (reloading) of the form
     e.preventDefault();
-
-    setFormValues();
 
     if (validate()) {
       // submit the form
@@ -61,10 +57,10 @@ function Signup() {
     let nameError = null;
     let passwordError = null;
 
-    if (!validateName(formData.name)) {
+    if (!validateName(name)) {
       nameError = "Please enter a valid name";
     }
-    if (formData.password !== formData.confirmPassword) {
+    if (password !== confirmPassword) {
       passwordError = "Password didn't match";
     }
 
@@ -91,10 +87,12 @@ function Signup() {
               type="text"
               placeholder="Enter name"
               required
-              ref={nameRef}
+              name="name"
+              value={name}
+              onChange={handleChange}
             />
-            {nameError && ratingError.length > 0 && (
-              <p className="error_message">{ratingError}</p>
+            {nameError && nameError.length > 0 && (
+              <p className={styles.error}>{nameError}</p>
             )}
           </div>
 
@@ -103,7 +101,9 @@ function Signup() {
               type="email"
               placeholder="Enter email"
               required
-              ref={emailRef}
+              name="email"
+              value={email}
+              onChange={handleChange}
             />
           </div>
 
@@ -112,7 +112,9 @@ function Signup() {
               type="password"
               placeholder="Enter password"
               required
-              ref={passwordRef}
+              name="password"
+              value={password}
+              onChange={handleChange}
             />
           </div>
 
@@ -121,12 +123,17 @@ function Signup() {
               type="password"
               placeholder="Confirm password"
               required
-              ref={confirmPasswordRef}
+              name="confirmPassword"
+              value={confirmPassword}
+              onChange={handleChange}
             />
+            {passwordError && passwordError.length > 0 && (
+              <p className={styles.error}>{passwordError}</p>
+            )}
           </div>
 
           <label className={styles.terms}>
-            <input type="checkbox" className={styles.checkbox} />
+            <input type="checkbox" className={styles.checkbox} required />
             <span>I agree to the Terms & Conditions</span>
           </label>
 

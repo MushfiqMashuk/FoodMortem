@@ -3,11 +3,9 @@ const validateName = (str) => {
 
   if (str.length < 1) return false;
 
-  const CharacterOnly = /^[A-Za-z]+$/;
+  const CharacterOnly = /^[A-Za-z\s]+$/;
 
-  if (CharacterOnly.test(str)) {
-    return true;
-  } else false;
+  return CharacterOnly.test(str) ? true : false;
 };
 
 export default validateName;
