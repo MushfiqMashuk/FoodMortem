@@ -2,14 +2,20 @@
 
 import connectDB from "../../../backend/config/db";
 import Users from "../../../backend/models/Users";
+import { encryptPassword } from "../../../helpers/hashPassword";
 
 export default async function handler(req, res) {
   connectDB();
 
   switch (req.method) {
     case "POST":
+      const encryptedPassword = encryptPassword(req.body.password);
+
       try {
-        const user = await Users.create(req.body);
+        const user = await Users.create({
+          ...req.body,
+          password: encryptedPassword,
+        });
         const savedData = await user.save();
         res.status(200).json(savedData);
         break;
