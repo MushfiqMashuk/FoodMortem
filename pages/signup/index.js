@@ -38,13 +38,11 @@ function Signup() {
       name: name.trim(),
       email: email.trim().toLowerCase(),
       password: password.trim(),
-      bucketList: {
-        id: "636e4690372e337ce49a9594",
-      },
+      bucketList: [],
     };
 
     try {
-      const savedData = await fetch(
+      const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/signup`,
         {
           method: "POST",
@@ -56,11 +54,9 @@ function Signup() {
         }
       );
 
-      const data = await savedData.json();
-
-      console.log(data);
-
-      if (data.code === 200) {
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
         router.push("/");
       } else {
         throw new Error("Something went wrong! Try a different email account");

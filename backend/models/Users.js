@@ -23,6 +23,9 @@ const UsersSchema = new Schema(
     bucketList: [
       {
         id: Types.ObjectId,
+        name: String,
+        brandName: String,
+        date: { type: Date, default: Date.now },
       },
     ],
   },
