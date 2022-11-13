@@ -8,9 +8,7 @@ const BrandsSchema = new Schema(
       trim: true,
     },
 
-    categories: {
-      type: Array,
-    },
+    categories: [String],
 
     img: String,
   },

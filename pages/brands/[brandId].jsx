@@ -11,7 +11,6 @@ import No_Image from "../../public/no_image.png";
 import styles from "./brands.module.scss";
 
 function SingleBrand({ brand, products = [] }) {
-  console.log(brand);
   const router = useRouter();
   const [categoryValue, setCategoryValue] = useState();
   const [filteredProducts, setFilteredProducts] = useState(products);
@@ -104,12 +103,14 @@ export async function getStaticProps({ params }) {
   const { brandId } = params;
 
   // Fetching the brand
-  const fetchedBrand = await fetch(`${process.env.API_URL}/brands/${brandId}`);
+  const fetchedBrand = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/brands/${brandId}`
+  );
   const data = await fetchedBrand.json();
 
   // Fetching all the products with the brand id
   const fetchedProducts = await fetch(
-    `${process.env.API_URL}/products?brandId=${brandId}`
+    `${process.env.NEXT_PUBLIC_API_URL}/products?brandId=${brandId}`
   );
   const products = await fetchedProducts.json();
 

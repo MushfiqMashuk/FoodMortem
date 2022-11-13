@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./navbar.module.scss";
 
 function Navbar() {
@@ -15,7 +16,11 @@ function Navbar() {
       <p>Suggest Something</p>
 
       <div className={styles.profile}>
-        <button>Signup</button>
+        <Link href={"/signin"}>
+          <a>
+            <button>Signin</button>
+          </a>
+        </Link>
       </div>
     </div>
   );

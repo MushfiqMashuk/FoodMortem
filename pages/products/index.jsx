@@ -56,8 +56,10 @@ const Products = ({ products }) => {
 export async function getStaticProps() {
   let data;
   try {
-    const fetchedData = await fetch(`http://localhost:3000/api/products`);
-    console.log(fetchedData);
+    const fetchedData = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/products`
+    );
+
     data = await fetchedData.json();
   } catch (err) {
     console.log(err);

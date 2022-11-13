@@ -82,7 +82,9 @@ function SingleProduct({ product }) {
 export default SingleProduct;
 
 export async function getStaticPaths() {
-  const fetchedData = await fetch(`http://localhost:4000/products`);
+  const fetchedData = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/products`
+  );
   const data = await fetchedData.json();
 
   const paths = data.map((product) => ({
@@ -98,7 +100,9 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { productId } = params;
 
-  const fetchedData = await fetch(`${process.env.API_URL}/products/${productId}`);
+  const fetchedData = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/products/${productId}`
+  );
   const data = await fetchedData.json();
 
   if (!data) {

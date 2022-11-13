@@ -23,6 +23,8 @@ const ProductsSchema = new Schema(
     },
 
     img: String,
+    averageRating: { type: Number },
+    tags: [String],
 
     ratings: [
       {

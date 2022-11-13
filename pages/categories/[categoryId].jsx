@@ -27,7 +27,7 @@ export async function getStaticProps({ params }) {
   const { categoryId } = params;
 
   const fetchedData = await fetch(
-    `http://localhost:4000/categories/${categoryId}`
+    `${process.env.NEXT_PUBLIC_API_URL}/categories/${categoryId}`
   );
   const data = await fetchedData.json();
 

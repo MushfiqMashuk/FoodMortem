@@ -44,7 +44,7 @@ function ReviewAnalytics({ product }) {
             </div>
           </div>
           <RatingComponent
-            productRating={product?.rating}
+            productRating={product?.averageRating}
             productName={product?.name}
           />
         </div>
