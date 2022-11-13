@@ -8,10 +8,14 @@ export default async function handler(req, res) {
 
   switch (req.method) {
     case "POST":
-      const user = await Users.create(req.body);
-      const savedData = await user.save();
-      res.status(200).json(savedData);
-      break;
+      try {
+        const user = await Users.create(req.body);
+        const savedData = await user.save();
+        res.status(200).json(savedData);
+        break;
+      } catch (err) {
+        res.status(500).json(err);
+      }
     case "GET":
       //   if (brandId) {
       //     const data = await Products.find({ "brand.id": brandId });

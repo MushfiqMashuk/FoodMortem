@@ -18,6 +18,7 @@ function Signup() {
   };
 
   const [formData, setFormData] = useState(defaultFormData);
+  const [signupError, setSignupError] = useState(null);
 
   const { name, email, password, confirmPassword, nameError, passwordError } =
     formData;
@@ -43,22 +44,29 @@ function Signup() {
     };
 
     try {
-      const savedData = await fetch(`http://localhost:3000/api/signup`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: JSON.stringify(userObject),
-      });
+      const savedData = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/signup`,
+        {
+          method: "POST",
+          headers: {
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userObject),
+        }
+      );
 
       const data = await savedData.json();
 
       console.log(data);
-      console.log(router);
-      router.push("/");
+
+      if (data.code === 200) {
+        router.push("/");
+      } else {
+        throw new Error("Something went wrong! Try a different email account");
+      }
     } catch (err) {
-      console.log(err);
+      setSignupError(err.message);
     }
   };
 
@@ -163,7 +171,7 @@ function Signup() {
           <button className={styles.button}>
             <span>Submit now</span>
           </button>
-
+          {signupError && <p className={styles.signup_error}>{signupError}</p>}
           <div className={styles.info}>
             Already have an account?{" "}
             <Link href="/signin">

@@ -132,11 +132,11 @@
 }
 
 .error {
-  width: 60%;
-  background-color: $danger_red;
-  padding: 0.6rem 1.2rem;
-  //margin-top: 0.625rem;
-  border-radius: 0.2rem;
-  display: flex;
-  align-items: center;
+  @include error;
+}
+
+.signup_error {
+  @include error;
+  width: 90%;
+  margin-top: 0.625rem;
 }
