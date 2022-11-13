@@ -59,7 +59,9 @@ function Signup() {
         console.log(data);
         router.push("/");
       } else {
-        throw new Error("Something went wrong! Try a different email account");
+        throw new Error(
+          "Something went wrong! Try a different email account or a valid password"
+        );
       }
     } catch (err) {
       setSignupError(err.message);
@@ -167,7 +169,9 @@ function Signup() {
           <button className={styles.button}>
             <span>Submit now</span>
           </button>
-          {signupError && <p className={styles.signup_error}>{signupError}</p>}
+          {signupError && signupError.length > 0 && (
+            <p className={styles.signup_error}>{signupError}</p>
+          )}
           <div className={styles.info}>
             Already have an account?{" "}
             <Link href="/signin">

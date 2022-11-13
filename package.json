@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^1.0.0-beta.3",
+    "crypto-js": "^4.1.1",
     "json-server": "^0.17.0",
     "mongoose": "^6.7.1",
     "next": "12.2.5",
