@@ -1,6 +1,8 @@
-import crypto from "node:crypto";
+import bcrypt from "bcrypt";
 
-const encryptPassword = (str) =>
-  crypto.pbkdf2Sync(str, process.env.SALT, 1000, 64, `sha512`).toString(`hex`);
+const encryptPassword = async (str) => bcrypt.hash(str, 10);
 
-export { encryptPassword };
+const comparePassword = async (password, encryptedPassword) =>
+  bcrypt.compare(password, encryptedPassword);
+
+export { encryptPassword, comparePassword };

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import loginImage from "../../public/login.svg";
 import styles from "./signin.module.scss";
@@ -12,6 +13,7 @@ function Signin() {
 
   const [formData, setFormData] = useState(defaultFormData);
   const [signinError, setSigninError] = useState(null);
+  const router = useRouter();
 
   const { email, password } = formData;
 
@@ -58,10 +60,8 @@ function Signin() {
       const data = await response.json();
 
       if (response.ok) {
-        console.log(data);
         router.push("/");
       } else {
-        console.log(data);
         setSigninError(data.error?.message);
         //throw new Error("Signin failed! Incorrect email or password");
       }

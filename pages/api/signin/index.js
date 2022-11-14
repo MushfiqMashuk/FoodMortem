@@ -2,23 +2,27 @@
 
 import connectDB from "../../../backend/config/db";
 import Users from "../../../backend/models/Users";
-import { encryptPassword } from "../../../helpers/hashPassword";
+import { comparePassword } from "../../../helpers/hashPassword";
 
 export default async function handler(req, res) {
   connectDB();
 
   switch (req.method) {
     case "POST":
-      if (req.body.email && req.body.password) {
+      const { email, password } = req.body;
+
+      if (email && password) {
         try {
-          const user = await Users.findOne({ email: req.body.email });
+          const user = await Users.findOne({ email: email });
 
           // if the user exists
           if (user && user._id) {
             // matching the password
-            console.log(user.password);
-            console.log(encryptPassword(req.body.password));
-            if (user.password === encryptPassword(req.body.password)) {
+            const isValidPassword = await comparePassword(
+              password,
+              user.password
+            );
+            if (isValidPassword) {
               res.status(200).json("Success");
             } else {
               res.status(401).json({

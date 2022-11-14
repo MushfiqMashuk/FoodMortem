@@ -12,7 +12,7 @@ export default async function handler(req, res) {
       const { name, email, password } = req.body;
 
       if (name && email && password) {
-        const encryptedPassword = encryptPassword(password);
+        const encryptedPassword = await encryptPassword(password);
 
         try {
           const user = await Users.create({
