@@ -41,6 +41,8 @@ function Signup() {
       bucketList: [],
     };
 
+    console.log(userObject);
+
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/signup`,
@@ -57,7 +59,7 @@ function Signup() {
       if (response.ok) {
         const data = await response.json();
         console.log(data);
-        router.push("/");
+        router.push("/signin");
       } else {
         throw new Error(
           "Something went wrong! Try a different email account or a valid password"

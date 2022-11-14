@@ -9,19 +9,30 @@ export default async function handler(req, res) {
 
   switch (req.method) {
     case "POST":
-      const encryptedPassword = encryptPassword(req.body.password);
+      const { name, email, password } = req.body;
 
-      try {
-        const user = await Users.create({
-          ...req.body,
-          password: encryptedPassword,
+      if (name && email && password) {
+        const encryptedPassword = encryptPassword(password);
+
+        try {
+          const user = await Users.create({
+            ...req.body,
+            password: encryptedPassword,
+          });
+          const savedData = await user.save();
+          res.status(200).json(savedData);
+          break;
+        } catch (err) {
+          res.status(500).json(err);
+        }
+      } else {
+        res.status(401).json({
+          error: {
+            message: "Please fillup all the fields!",
+          },
         });
-        const savedData = await user.save();
-        res.status(200).json(savedData);
-        break;
-      } catch (err) {
-        res.status(500).json(err);
       }
+
     case "GET":
       //   if (brandId) {
       //     const data = await Products.find({ "brand.id": brandId });

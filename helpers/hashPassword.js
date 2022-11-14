@@ -1,11 +1,6 @@
-import { AES } from "crypto-js";
+import crypto from "node:crypto";
 
 const encryptPassword = (str) =>
-  AES.encrypt(str, process.env.SECRET_PASS_PHRASE);
-const decryptPassword = (encrypted) =>
-  AES.encrypt(encrypted, process.env.SECRET_PASS_PHRASE);
+  crypto.pbkdf2Sync(str, process.env.SALT, 1000, 64, `sha512`).toString(`hex`);
 
-export {
-  encryptPassword,
-  decryptPassword,
-};
+export { encryptPassword };
