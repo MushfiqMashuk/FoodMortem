@@ -1,14 +1,18 @@
 import Image from "next/image";
 import { useState } from "react";
+import checkUserLogin from "../../helpers/checkUserLogin";
 import StarIcon from "../../public/star_icon6.svg";
 import YourRatingIconAfter from "../../public/your_rating_star_after.svg";
 import YourRatingIconBefore from "../../public/your_rating_star_before.svg";
 import useRatingStore from "../../store/useRatingStore";
+import LoginPrompt from "../LoginPrompt";
 import Modal from "../Modal";
 import StarRatingComponent from "../StarRatingComponent";
 import styles from "./ratingComponent.module.scss";
 
 function RatingComponent({ productRating, productName }) {
+  const loggedInUser = checkUserLogin();
+
   const [showModal, setShowModal] = useState(false);
   const rating = useRatingStore((state) => state.rating);
 
@@ -17,12 +21,19 @@ function RatingComponent({ productRating, productName }) {
   return (
     <>
       {showModal && (
-        <Modal title="Rate This" onClose={() => setShowModal(false)}>
-          <StarRatingComponent
-            name={productName} // Here title will be dynamic
-            onClose={() => setShowModal(false)}
-            initialRating={rating}
-          />
+        <Modal
+          title={loggedInUser ? "Rate this" : "Please Signin"}
+          onClose={() => setShowModal(false)}
+        >
+          {loggedInUser ? (
+            <StarRatingComponent
+              name={productName} // Here title will be dynamic
+              onClose={() => setShowModal(false)}
+              initialRating={rating}
+            />
+          ) : (
+            <LoginPrompt />
+          )}
         </Modal>
       )}
       {productRating && (

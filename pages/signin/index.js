@@ -9,6 +9,7 @@ import styles from "./signin.module.scss";
 function Signin() {
   const loggedInUser = checkUserLogin();
   const router = useRouter();
+
   if (loggedInUser) {
     router.push("/");
   }
@@ -29,9 +30,6 @@ function Signin() {
 
     // submit the form
     formSubmit();
-
-    // set the form data to it's default state
-    setFormData(defaultFormData);
   };
 
   const handleChange = (e) => {
@@ -66,13 +64,15 @@ function Signin() {
       const data = await response.json();
 
       if (response.ok) {
+        // set the form data to it's default state
+        //setFormData(defaultFormData);
         router.push("/");
       } else {
         setSigninError(data.error?.message);
         //throw new Error("Signin failed! Incorrect email or password");
       }
     } catch (err) {
-      setSigninError(err.message);
+      setSigninError("Internal Server Error");
     }
   };
 
