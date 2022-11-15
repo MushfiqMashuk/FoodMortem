@@ -15,7 +15,6 @@ import WriteAReview from "../../components/WriteAReview";
 import styles from "./singleProduct.module.scss";
 
 function SingleProduct({ product }) {
-  console.log(product);
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
 

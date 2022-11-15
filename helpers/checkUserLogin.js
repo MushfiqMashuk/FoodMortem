@@ -7,10 +7,13 @@ const checkUserLogin = () => {
     ?.split("=")[1];
 
   if (token) {
-    const user = jwt.verify(token, process.env.NEXT_PUBLIC_JWT_SECRET);
-
-    if (user) return user;
-    else false;
+    try {
+      const user = jwt.verify(token, process.env.NEXT_PUBLIC_JWT_SECRET);
+      if (user) return user;
+      else false;
+    } catch (err) {
+      return false;
+    }
   } else {
     return false;
   }

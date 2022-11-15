@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import checkUserLogin from "../../helpers/checkUserLogin";
+import userAvatar from "../../public/avatar.svg";
 import styles from "./navbar.module.scss";
 
 function Navbar() {
@@ -8,15 +10,13 @@ function Navbar() {
 
   useEffect(() => {
     const loggedInUser = checkUserLogin();
-    console.log(loggedInUser);
-
+    const { userId, userName, email, bucketList } = loggedInUser;
     if (loggedInUser) {
-      console.log(loggedInUser.userName);
       setUser({
-        userId: loggedInUser.userId,
-        userName: loggedInUser.userName,
-        email: loggedInUser.email,
-        bucketList: loggedInUser.bucketList,
+        userId,
+        userName,
+        email,
+        bucketList,
       });
     }
   }, []);
@@ -40,8 +40,7 @@ function Navbar() {
         {user && (
           <div className={styles.user_info}>
             <div className={styles.avatar}>
-              <p>Avatar</p>
-              {/* <Image src={userAvatar}/> */}
+              <Image src={userAvatar} height={20} width={20} />
             </div>
             <div>{user && <p>{user.userName}</p>}</div>
           </div>
