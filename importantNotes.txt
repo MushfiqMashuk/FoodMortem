@@ -1,1 +1,2 @@
-* Nothing to be changed.
+* Cookie httpOnly should be true.
+* building application has issues.

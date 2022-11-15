@@ -1,5 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
+import { serialize } from "cookie";
+import jwt from "jsonwebtoken";
 import connectDB from "../../../backend/config/db";
 import Users from "../../../backend/models/Users";
 import { comparePassword } from "../../../helpers/hashPassword";
@@ -23,7 +25,38 @@ export default async function handler(req, res) {
               user.password
             );
             if (isValidPassword) {
-              res.status(200).json("Success");
+              // creating user object
+              const userObject = {
+                userId: user._id,
+                userName: user.name,
+                email: user.email,
+                bucketList: user.bucketList,
+              };
+
+              // creating jsonwebtoken
+              const token = jwt.sign(
+                userObject,
+                process.env.NEXT_PUBLIC_JWT_SECRET,
+                {
+                  expiresIn: process.env.JWT_EXPIRY, // 30 days,
+                }
+              );
+
+              const serialised = serialize(
+                process.env.NEXT_PUBLIC_COOKIE_NAME,
+                token,
+                {
+                  secure: process.env.NODE_ENV !== "development",
+                  sameSite: "strict",
+                  maxAge: process.env.JWT_EXPIRY, // 30 days,
+                  path: "/",
+                  signed: true,
+                }
+              );
+              // setting the cookie at the client end
+              res.setHeader("Set-Cookie", serialised);
+
+              res.status(200).json({ message: "Success!" });
             } else {
               res.status(401).json({
                 error: {

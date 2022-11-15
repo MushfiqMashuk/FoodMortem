@@ -1,8 +1,12 @@
 @import "../../styles/Variables.scss";
+@import "../../styles/Mixins.scss";
 
 .container {
-  display: flex;
-  justify-content: space-around;
+  // display: flex;
+  // justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  gap: 1rem;
   align-items: center;
   background-color: $navbar_background_color;
   min-height: 10vh;
@@ -16,4 +20,15 @@
 
 .search_button {
   cursor: pointer;
+}
+
+.profile {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.user_info {
+  @include center_element;
+  column-gap: 0.5rem;
 }
