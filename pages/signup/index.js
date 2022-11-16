@@ -58,8 +58,12 @@ function Signup() {
 
       if (response.ok) {
         const data = await response.json();
-    
-        router.push("/signin");
+
+        router.push(
+          router.query.from
+            ? `/signin?from=${encodeURIComponent(router.query.from)}`
+            : "/signin"
+        );
       } else {
         throw new Error(
           "Something went wrong! Try a different email account or a valid password"
@@ -80,7 +84,7 @@ function Signup() {
       formSubmit();
 
       // set the form data to it's default state
-     //setFormData(defaultFormData);
+      //setFormData(defaultFormData);
     }
   };
 

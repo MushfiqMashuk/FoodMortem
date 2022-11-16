@@ -28,7 +28,9 @@ function LoginPrompt({
           ) : (
             <button
               className={styles.signin_button}
-              onClick={() => router.push(signinPath)}
+              onClick={() =>
+                router.push(`/signin?from=${encodeURIComponent(router.asPath)}`)
+              }
             >
               {firstButtonText}
             </button>
@@ -42,7 +44,9 @@ function LoginPrompt({
           ) : (
             <button
               className={styles.signin_button}
-              onClick={() => router.push("/signup")}
+              onClick={() =>
+                router.push(`/signup?from=${encodeURIComponent(router.asPath)}`)
+              }
             >
               {secondButtonText}
             </button>

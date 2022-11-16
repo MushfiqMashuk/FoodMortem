@@ -10,9 +10,6 @@ function Signin() {
   const loggedInUser = checkUserLogin();
   const router = useRouter();
 
-  console.log(router.query);
-  console.log(decodeURIComponent(router.query.from));
-
   if (loggedInUser) {
     router.push("/");
   }

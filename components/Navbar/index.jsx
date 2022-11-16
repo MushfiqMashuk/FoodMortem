@@ -13,8 +13,6 @@ function Navbar() {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
 
-  const signinPath = `/signin?from=${encodeURIComponent(router.asPath)}`;
-
   useEffect(() => {
     const loggedInUser = checkUserLogin();
     const { userId, userName, email, bucketList } = loggedInUser;
@@ -106,16 +104,24 @@ function Navbar() {
             <div>
               <button
                 className={styles.signin_button}
-                onClick={() => router.push(signinPath)}
+                onClick={() =>
+                  router.push(
+                    `/signin?from=${encodeURIComponent(router.asPath)}`
+                  )
+                }
               >
                 Sign In
               </button>
-
-              <Link href={"/signup"}>
-                <a>
-                  <button className={styles.signin_button}>Sign Up</button>
-                </a>
-              </Link>
+              <button
+                className={styles.signin_button}
+                onClick={() =>
+                  router.push(
+                    `/signup?from=${encodeURIComponent(router.asPath)}`
+                  )
+                }
+              >
+                Sign Up
+              </button>
             </div>
           )}
         </div>
