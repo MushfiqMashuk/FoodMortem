@@ -29,8 +29,12 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      column-gap: 1rem;
       .product_category {
-        padding: $product_category_padding;
+        display: flex;
+        justify-content: flex-start;
+        font-size: 1rem;
+
         &:hover {
           @include link_style;
         }
@@ -46,6 +50,12 @@
       display: flex;
     }
   }
+}
+
+.straight_line {
+  @include center_element;
+  font-size: 1.8rem;
+  color: rgb(198, 198, 198);
 }
 
 .content {

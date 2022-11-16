@@ -35,25 +35,34 @@ function SingleProduct({ product }) {
             </div>
             <div className={styles.product_info}>
               <div className={styles.product_description}>
-                <Link href={`/brands/${product?.brand?.id}`}>
-                  <a>
-                    <SubTitle className={styles.product_brand} title="Brand">
-                      {product.brand.name ? product.brand.name : product.brand}
-                    </SubTitle>
-                  </a>
-                </Link>
-                <Link href={`/categories/${product?.category?.id}`}>
-                  <a>
-                    <SubTitle
-                      className={styles.product_category}
-                      title="Category"
-                    >
-                      {product.category.name
-                        ? product.category.name
-                        : product.category}
-                    </SubTitle>
-                  </a>
-                </Link>
+                <div>
+                  <Link href={`/brands/${product?.brand?.id}`}>
+                    <a>
+                      <SubTitle className={styles.product_brand} title="Brand">
+                        {product.brand.name
+                          ? product.brand.name
+                          : product.brand}
+                      </SubTitle>
+                    </a>
+                  </Link>
+                </div>
+                <div className={styles.straight_line}>
+                  <p>┈┈</p>
+                </div>
+                <div className={styles.product_category}>
+                  <Link href={`/categories/${product?.category?.id}`}>
+                    <a>
+                      <SubTitle
+                        className={styles.product_category}
+                        title="Category"
+                      >
+                        {product.category.name
+                          ? product.category.name
+                          : product.category}
+                      </SubTitle>
+                    </a>
+                  </Link>
+                </div>
               </div>
               <div className={styles.other_description}></div>
             </div>
