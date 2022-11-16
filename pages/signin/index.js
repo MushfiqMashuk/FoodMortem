@@ -50,7 +50,7 @@ function Signin() {
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/signin`,
+        `${process.env.NEXT_PUBLIC_API_URL}/auth/signin`,
         {
           method: "POST",
           headers: {
@@ -117,7 +117,7 @@ function Signin() {
             Don't have an account?{" "}
             <Link href="/signup">
               <a>
-                <span className={styles.signup_instead}>Signup</span>{" "}
+                <span className={styles.signup_instead}>Sign Up</span>{" "}
               </a>
             </Link>
             here.

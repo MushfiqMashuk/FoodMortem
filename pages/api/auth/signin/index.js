@@ -2,9 +2,9 @@
 
 import { serialize } from "cookie";
 import jwt from "jsonwebtoken";
-import connectDB from "../../../backend/config/db";
-import Users from "../../../backend/models/Users";
-import { comparePassword } from "../../../helpers/hashPassword";
+import connectDB from "../../../../backend/config/db";
+import Users from "../../../../backend/models/Users";
+import { comparePassword } from "../../../../helpers/hashPassword";
 
 export default async function handler(req, res) {
   connectDB();

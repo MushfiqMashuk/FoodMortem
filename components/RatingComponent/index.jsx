@@ -32,7 +32,11 @@ function RatingComponent({ productRating, productName }) {
               initialRating={rating}
             />
           ) : (
-            <LoginPrompt />
+            <LoginPrompt
+              promptText="You are not signed in. Please sign in to rate your favourite food."
+              firstButtonText="Sign In here"
+              secondButtonText="Sign Up here"
+            />
           )}
         </Modal>
       )}

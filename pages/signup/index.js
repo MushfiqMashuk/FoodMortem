@@ -45,7 +45,7 @@ function Signup() {
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/signup`,
+        `${process.env.NEXT_PUBLIC_API_URL}/auth/signup`,
         {
           method: "POST",
           headers: {
@@ -58,7 +58,7 @@ function Signup() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
+    
         router.push("/signin");
       } else {
         throw new Error(
@@ -80,7 +80,7 @@ function Signup() {
       formSubmit();
 
       // set the form data to it's default state
-      setFormData(defaultFormData);
+     //setFormData(defaultFormData);
     }
   };
 
@@ -178,7 +178,7 @@ function Signup() {
             Already have an account?{" "}
             <Link href="/signin">
               <a>
-                <span className={styles.signup_instead}>Signin</span>{" "}
+                <span className={styles.signup_instead}>Sign In</span>{" "}
               </a>
             </Link>{" "}
             here.

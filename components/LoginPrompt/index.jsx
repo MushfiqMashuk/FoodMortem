@@ -2,29 +2,50 @@ import { useRouter } from "next/router";
 import React from "react";
 import styles from "./loginPrompt.module.scss";
 
-function LoginPrompt() {
+function LoginPrompt({
+  promptText,
+  firstButtonText,
+  secondButtonText,
+  onClose,
+  signoutPrompt = false,
+  handleSignout,
+}) {
   const router = useRouter();
 
   return (
     <div className={styles.container}>
       <div className={styles.subtitle}>
-        <p>
-          You are not signed in. Please sign in to rate your favourite food.
-        </p>
+        <p>{promptText}</p>
       </div>
       <div className={styles.button_container}>
-        <button
-          className={styles.signin_button}
-          onClick={() => router.push("/signin")}
-        >
-          Signin here
-        </button>
-        <button
-          className={styles.signin_button}
-          onClick={() => router.push("/signup")}
-        >
-          Signup here
-        </button>
+        <div>
+          {signoutPrompt ? (
+            <button className={styles.signin_button} onClick={handleSignout}>
+              {firstButtonText}
+            </button>
+          ) : (
+            <button
+              className={styles.signin_button}
+              onClick={() => router.push("/signin")}
+            >
+              {firstButtonText}
+            </button>
+          )}
+        </div>
+        <div>
+          {signoutPrompt ? (
+            <button className={styles.signin_button} onClick={() => onClose()}>
+              {secondButtonText}
+            </button>
+          ) : (
+            <button
+              className={styles.signin_button}
+              onClick={() => router.push("/signup")}
+            >
+              {secondButtonText}
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

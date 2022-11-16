@@ -16,28 +16,9 @@
     margin-top: 2rem;
     @include center_element;
     column-gap: 3rem;
+  }
 
-    .signin_button {
-      padding: 0.5rem 3rem;
-      border: none;
-      cursor: pointer;
-      @include center_element;
-      border-radius: 2rem;
-      font-size: 0.97rem;
-      background-color: #e69977;
-      color: rgb(0, 0, 0);
-      font-weight: 400;
-      transition: all 0.5s ease;
-
-      &:hover {
-        scale: 1.02;
-        background-color: #e98155;
-        color: white;
-      }
-      &:active {
-        scale: 1;
-        background-color: #ed662b;
-      }
-    }
+  .signin_button {
+    @include signin_button_style;
   }
 }

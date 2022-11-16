@@ -32,3 +32,7 @@
   @include center_element;
   column-gap: 0.5rem;
 }
+
+.signin_button {
+  @include signin_button_style;
+}

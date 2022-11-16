@@ -1,8 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import connectDB from "../../../backend/config/db";
-import Users from "../../../backend/models/Users";
-import { encryptPassword } from "../../../helpers/hashPassword";
+import connectDB from "../../../../backend/config/db";
+import Users from "../../../../backend/models/Users";
+import { encryptPassword } from "../../../../helpers/hashPassword";
 
 export default async function handler(req, res) {
   connectDB();
