@@ -12,6 +12,8 @@ function LoginPrompt({
 }) {
   const router = useRouter();
 
+  const signinPath = `/signin?from=${encodeURIComponent(router.asPath)}`;
+
   return (
     <div className={styles.container}>
       <div className={styles.subtitle}>
@@ -26,7 +28,7 @@ function LoginPrompt({
           ) : (
             <button
               className={styles.signin_button}
-              onClick={() => router.push("/signin")}
+              onClick={() => router.push(signinPath)}
             >
               {firstButtonText}
             </button>

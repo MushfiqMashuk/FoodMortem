@@ -10,6 +10,9 @@ function Signin() {
   const loggedInUser = checkUserLogin();
   const router = useRouter();
 
+  console.log(router.query);
+  console.log(decodeURIComponent(router.query.from));
+
   if (loggedInUser) {
     router.push("/");
   }
@@ -66,7 +69,16 @@ function Signin() {
       if (response.ok) {
         // set the form data to it's default state
         //setFormData(defaultFormData);
-        router.push("/");
+
+        router.push(
+          router.query.from ? decodeURIComponent(router.query.from) : "/"
+        );
+
+        // if (router.query && router.query.from) {
+        //   router.push(router.query.from);
+        // } else {
+        //   router.push("/");
+        // }
       } else {
         setSigninError(data.error?.message);
         //throw new Error("Signin failed! Incorrect email or password");

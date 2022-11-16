@@ -13,6 +13,8 @@ function Navbar() {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
 
+  const signinPath = `/signin?from=${encodeURIComponent(router.asPath)}`;
+
   useEffect(() => {
     const loggedInUser = checkUserLogin();
     const { userId, userName, email, bucketList } = loggedInUser;
@@ -65,7 +67,11 @@ function Navbar() {
         </Modal>
       )}
       <div className={styles.container}>
-        <div>Logo</div>
+        <div className={styles.logo}>
+          <Link href="/">
+            <a>FoodMortem</a>
+          </Link>
+        </div>
         {/* <div className="searchbar">
         <input type="text" placeholder="search here" />
         <button className={styles.search_button}>
@@ -76,6 +82,8 @@ function Navbar() {
         <div className={styles.midsection}>
           <p>Bucket List</p>
           <p>Suggest Something</p>
+          <p>Product List</p>
+          <p>All Brands</p>
         </div>
 
         <div className={styles.profile}>
@@ -96,11 +104,13 @@ function Navbar() {
             </button>
           ) : (
             <div>
-              <Link href={"/signin"}>
-                <a>
-                  <button className={styles.signin_button}>Sign In</button>
-                </a>
-              </Link>
+              <button
+                className={styles.signin_button}
+                onClick={() => router.push(signinPath)}
+              >
+                Sign In
+              </button>
+
               <Link href={"/signup"}>
                 <a>
                   <button className={styles.signin_button}>Sign Up</button>
