@@ -4,6 +4,7 @@ import { useState } from "react";
 import AddToBucketListButton from "../../components/AddToBucketListButton";
 import Layout from "../../components/Layout";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import LoginPrompt from "../../components/LoginPrompt";
 import Modal from "../../components/Modal";
 import ProductImage from "../../components/ProductImage";
 import ReviewAnalytics from "../../components/ReviewAnalytics";
@@ -12,11 +13,13 @@ import SimilarProduct from "../../components/SimilarProduct";
 import SubTitle from "../../components/SubTitle";
 import Title from "../../components/Title";
 import WriteAReview from "../../components/WriteAReview";
+import checkUserLogin from "../../helpers/checkUserLogin";
 import styles from "./singleProduct.module.scss";
 
 function SingleProduct({ product }) {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
+  const loggedInUser = checkUserLogin();
 
   if (router.isFallback) {
     return <LoadingSpinner />;
@@ -76,7 +79,15 @@ function SingleProduct({ product }) {
               title="Review this product"
               onClose={() => setShowModal(false)}
             >
-              <ReviewForm productName={product?.name} />
+              {loggedInUser ? (
+                <ReviewForm productName={product?.name} />
+              ) : (
+                <LoginPrompt
+                  promptText="You are not signed in. Please sign in to review your favourite food."
+                  firstButtonText="Sign In here"
+                  secondButtonText="Sign Up here"
+                />
+              )}
             </Modal>
           )}
           <WriteAReview openModal={() => setShowModal(true)} />
