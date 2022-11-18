@@ -11,7 +11,9 @@ function Signin() {
   const router = useRouter();
 
   if (loggedInUser) {
-    router.push("/");
+    router.push(
+      router.query.from ? decodeURIComponent(router.query.from) : "/"
+    );
   }
 
   const defaultFormData = {
