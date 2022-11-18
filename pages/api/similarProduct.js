@@ -9,11 +9,10 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     try {
       const data = await Products.find({ tags: { $in: req.body.tags } });
-      const filteredData = data.filter((product) => 
-        product._id != req.body.productId;
+      const filteredData = data.filter(
+        (product) => product._id != req.body.productId
       );
-      //console.log(req.body.productId);
-      //console.log(filteredData);
+
       res.status(200).json(filteredData);
     } catch (err) {
       res.status(500).json({ error: { message: "Internal server error!" } });
