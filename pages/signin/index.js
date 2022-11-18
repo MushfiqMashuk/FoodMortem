@@ -66,21 +66,11 @@ function Signin() {
       const data = await response.json();
 
       if (response.ok) {
-        // set the form data to it's default state
-        //setFormData(defaultFormData);
-
         router.push(
           router.query.from ? decodeURIComponent(router.query.from) : "/"
         );
-
-        // if (router.query && router.query.from) {
-        //   router.push(router.query.from);
-        // } else {
-        //   router.push("/");
-        // }
       } else {
         setSigninError(data.error?.message);
-        //throw new Error("Signin failed! Incorrect email or password");
       }
     } catch (err) {
       setSigninError("Internal Server Error");

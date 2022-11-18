@@ -66,9 +66,11 @@ function Navbar() {
       )}
       <div className={styles.container}>
         <div className={styles.logo}>
-          <Link href="/">
-            <a>FoodMortem</a>
-          </Link>
+          <div className={styles.site_name}>
+            <Link href="/">
+              <a>{process.env.NEXT_PUBLIC_SITE_NAME}</a>
+            </Link>
+          </div>
         </div>
         {/* <div className="searchbar">
         <input type="text" placeholder="search here" />
@@ -88,20 +90,22 @@ function Navbar() {
           {user && (
             <div className={styles.user_info}>
               <div className={styles.avatar}>
-                <Image src={userAvatar} height={20} width={20} />
+                <Image src={userAvatar} height={15} width={15} />
               </div>
               <div>{user && <p>{user.userName}</p>}</div>
             </div>
           )}
           {user ? (
-            <button
-              className={styles.signin_button}
-              onClick={() => setShowModal(true)}
-            >
-              Sign Out
-            </button>
+            <div className={styles.button_container}>
+              <button
+                className={styles.signin_button}
+                onClick={() => setShowModal(true)}
+              >
+                Sign Out
+              </button>
+            </div>
           ) : (
-            <div>
+            <div className={styles.button_container}>
               <button
                 className={styles.signin_button}
                 onClick={() =>

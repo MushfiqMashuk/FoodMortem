@@ -20,5 +20,18 @@
 
   .signin_button {
     @include signin_button_style;
+    background-color: #e69977;
+    color: rgb(0, 0, 0);
+    padding: 0.5rem 2rem;
+
+    &:hover {
+      scale: 1.02;
+      background-color: #e98155;
+      color: white;
+    }
+    &:active {
+      scale: 1;
+      background-color: #ed662b;
+    }
   }
 }

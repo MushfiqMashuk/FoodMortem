@@ -74,25 +74,12 @@
 }
 
 @mixin signin_button_style {
-  padding: 0.5rem 2rem;
   border: none;
   cursor: pointer;
   @include center_element;
   border-radius: 2rem;
   font-size: 0.9rem;
-  background-color: #e69977;
-  color: rgb(0, 0, 0);
   font-weight: 500;
   text-transform: uppercase;
   transition: all 0.2s cubic-bezier(1, 0, 0, 1);
-
-  &:hover {
-    scale: 1.02;
-    background-color: #e98155;
-    color: white;
-  }
-  &:active {
-    scale: 1;
-    background-color: #ed662b;
-  }
 }
