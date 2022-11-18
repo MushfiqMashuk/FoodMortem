@@ -101,18 +101,24 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { brandId } = params;
+  let data;
+  let products;
 
-  // Fetching the brand
-  const fetchedBrand = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/brands/${brandId}`
-  );
-  const data = await fetchedBrand.json();
+  try {
+    // Fetching the brand
+    const fetchedBrand = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/brands/${brandId}`
+    );
+    data = await fetchedBrand.json();
 
-  // Fetching all the products with the brand id
-  const fetchedProducts = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/products?brandId=${brandId}`
-  );
-  const products = await fetchedProducts.json();
+    // Fetching all the products with the brand id
+    const fetchedProducts = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/products?brandId=${brandId}`
+    );
+    products = await fetchedProducts.json();
+  } catch (err) {
+    console.log(err);
+  }
 
   if (!data._id) {
     return {

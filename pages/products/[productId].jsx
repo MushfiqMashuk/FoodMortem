@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import connectDB from "../../backend/config/db";
 import AddToBucketListButton from "../../components/AddToBucketListButton";
 import Layout from "../../components/Layout";
 import LoadingSpinner from "../../components/LoadingSpinner";
@@ -16,7 +17,7 @@ import WriteAReview from "../../components/WriteAReview";
 import checkUserLogin from "../../helpers/checkUserLogin";
 import styles from "./singleProduct.module.scss";
 
-function SingleProduct({ product }) {
+function SingleProduct({ product, similarProducts }) {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
   const loggedInUser = checkUserLogin();
@@ -91,7 +92,7 @@ function SingleProduct({ product }) {
             </Modal>
           )}
           <WriteAReview openModal={() => setShowModal(true)} />
-          <SimilarProduct product={product} />
+          <SimilarProduct products={similarProducts} />
         </Layout>
       )}
     </>
@@ -118,11 +119,44 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { productId } = params;
+  let data;
+  let similarProducts;
+  connectDB();
 
-  const fetchedData = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/products/${productId}`
-  );
-  const data = await fetchedData.json();
+  try {
+    const fetchedData = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/products/${productId}`
+    );
+    data = await fetchedData.json();
+  } catch (err) {
+    console.log(err);
+  }
+  const { tags } = data;
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/similarProduct`,
+      {
+        method: "POST",
+        headers: {
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ tags, productId }),
+      }
+    );
+
+    if (response.ok) {
+      similarProducts = await response.json();
+    } else {
+      throw new Error(
+        "No similar products to show!"
+      );
+    }
+
+    console.log(similarProducts);
+  } catch (err) {
+    console.log(err);
+  }
 
   if (!data) {
     return {
@@ -130,9 +164,18 @@ export async function getStaticProps({ params }) {
     };
   }
 
+  // // fetch related product through tags
+
+  // const getRelatedProducts = () => {
+  //   try {
+  //     const response = fetch();
+  //   } catch (err) {}
+  // };
+
   return {
     props: {
       product: data,
+      similarProducts,
     },
     revalidate: 60,
   };

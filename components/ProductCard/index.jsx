@@ -12,6 +12,7 @@ const ProductCard = ({ product, singleProduct = false }) => {
   const { ratings } = product;
 
   const productRating = calculateAverageRating(ratings);
+  //const productRating = 5.6;
 
   return (
     <div className={styles.product_card}>

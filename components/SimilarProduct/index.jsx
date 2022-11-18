@@ -1,5 +1,6 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import ProductCard from "../ProductCard";
 import styles from "./similarProduct.module.scss";
 
 const responsive = {
@@ -22,7 +23,7 @@ const responsive = {
   },
 };
 
-function SimilarProduct({ product }) {
+function SimilarProduct({ products = [] }) {
   return (
     <div>
       <h2 className={styles.heading_title}>
@@ -31,7 +32,6 @@ function SimilarProduct({ product }) {
       <Carousel
         swipeable={false}
         draggable={false}
-        showDots={true}
         responsive={responsive}
         ssr={true} // means to render carousel on server-side.
         infinite={true}
@@ -44,16 +44,9 @@ function SimilarProduct({ product }) {
         centerMode={true}
         itemClass={styles.carousel_list}
       >
-        <div>Item 1</div>
-        <div>Item 2</div>
-        <div>Item 3</div>
-        <div>Item 4</div>
-        <div>Item 5</div>
-        <div>Item 6</div>
-        <div>Item 7</div>
-        <div>Item 8</div>
+        {products &&
+          products.map((product) => <ProductCard product={product} />)}
       </Carousel>
-      ;
     </div>
   );
 }
