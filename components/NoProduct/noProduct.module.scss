@@ -1,0 +1,8 @@
+@import "../../styles/Mixins";
+
+.container {
+  height: 100%;
+  @include center_element;
+  flex-direction: column;
+  padding: 1rem;
+}

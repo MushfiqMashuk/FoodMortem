@@ -1,5 +1,6 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import NoProduct from "../NoProduct";
 import ProductCard from "../ProductCard";
 import styles from "./similarProduct.module.scss";
 
@@ -25,28 +26,32 @@ const responsive = {
 
 function SimilarProduct({ products = [] }) {
   return (
-    <div>
+    <div className={styles.container}>
       <h2 className={styles.heading_title}>
         Similar product from other brands
       </h2>
-      <Carousel
-        swipeable={false}
-        draggable={false}
-        responsive={responsive}
-        ssr={true} // means to render carousel on server-side.
-        infinite={true}
-        keyBoardControl={true}
-        customTransition="transform 300ms ease-in-out"
-        transitionDuration={500}
-        containerClass={styles.carousel_container}
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-        dotListClass="custom-dot-list-style"
-        centerMode={true}
-        itemClass={styles.carousel_list}
-      >
-        {products &&
-          products.map((product) => <ProductCard product={product} />)}
-      </Carousel>
+      {products && products.length > 0 ? (
+        <Carousel
+          swipeable={false}
+          draggable={false}
+          responsive={responsive}
+          ssr={true} // means to render carousel on server-side.
+          infinite={true}
+          keyBoardControl={true}
+          customTransition="transform 300ms ease-in-out"
+          transitionDuration={500}
+          containerClass={styles.carousel_container}
+          removeArrowOnDeviceType={["tablet", "mobile"]}
+          dotListClass="custom-dot-list-style"
+          centerMode={true}
+          itemClass={styles.carousel_list}
+        >
+          {products &&
+            products.map((product) => <ProductCard product={product} />)}
+        </Carousel>
+      ) : (
+        <NoProduct text="Sorry! No similar products to show right now. Would you like to suggest anything?" />
+      )}
     </div>
   );
 }

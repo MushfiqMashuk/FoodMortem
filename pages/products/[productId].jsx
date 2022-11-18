@@ -148,9 +148,7 @@ export async function getStaticProps({ params }) {
     if (response.ok) {
       similarProducts = await response.json();
     } else {
-      throw new Error(
-        "No similar products to show!"
-      );
+      throw new Error("No similar products to show!");
     }
 
     console.log(similarProducts);
