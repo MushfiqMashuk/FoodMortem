@@ -1,10 +1,9 @@
 import CarouselComponent from "../components/CarouselComponent";
 import Layout from "../components/Layout";
 import styles from "./homePage.module.scss";
+import ProductCard from "../components/ProductCard";
 
 export default function Home({ topRatedProducts }) {
-  const { rating } = topRatedProducts;
-  console.log(topRatedProducts);
 
   return (
     <Layout>
@@ -16,6 +15,7 @@ export default function Home({ topRatedProducts }) {
               products={topRatedProducts}
               noProductText="Sorry! No top rated products to show right now."
               rating={true}
+              CardComponent={ProductCard}
             />
           </div>
         </div>

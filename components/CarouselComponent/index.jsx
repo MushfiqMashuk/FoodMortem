@@ -1,7 +1,6 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import NoProduct from "../NoProduct";
-import ProductCard from "../ProductCard";
 import styles from "./carouselComponent.module.scss";
 
 const responsive = {
@@ -24,7 +23,7 @@ const responsive = {
   },
 };
 
-function CarouselComponent({ products = [], noProductText, rating = null }) {
+function CarouselComponent({ products = [], noProductText, rating = null, CardComponent }) {
   return (
     <div>
       {products && products.length > 0 ? (
@@ -44,7 +43,11 @@ function CarouselComponent({ products = [], noProductText, rating = null }) {
           itemClass={styles.carousel_list}
         >
           {products &&
-            products.map((product) => <ProductCard product={product} rating={rating && rating}/>)}
+            products.map((product) => (
+              <CardComponent product={product} rating={rating && rating} />
+            ))}
+          {/* {products &&
+            products.map((product) => <ProductCard product={product} rating={rating && rating}/>)} */}
         </Carousel>
       ) : (
         <NoProduct text={noProductText} />

@@ -10,7 +10,7 @@ import Modal from "../Modal";
 import StarRatingComponent from "../StarRatingComponent";
 import styles from "./ratingComponent.module.scss";
 
-function RatingComponent({ productRating, productName }) {
+function RatingComponent({ productRating, productName, totalRating = 0 }) {
   const loggedInUser = checkUserLogin();
 
   const [showModal, setShowModal] = useState(false);
@@ -54,7 +54,7 @@ function RatingComponent({ productRating, productName }) {
                   <span>/</span>
                   <span>10</span>
                 </div>
-                <div className={styles.total_number_of_rate}>123K</div>
+                <div className={styles.total_number_of_rate}>{totalRating}</div>
               </div>
             </div>
           </div>

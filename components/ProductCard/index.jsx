@@ -11,15 +11,10 @@ import styles from "./productCard.module.scss";
 const ProductCard = ({ product, singleProduct = false, rating }) => {
   let productRating;
 
-  console.log(rating);
-
   if (!rating) {
     const { ratings } = product;
-
     productRating = calculateAverageRating(ratings);
   }
-
-  //const productRating = 5.6;
 
   return (
     <div className={styles.product_card}>
@@ -62,13 +57,13 @@ const ProductCard = ({ product, singleProduct = false, rating }) => {
             <Link href={`/brands/${product.brand?.id}`}>
               <a>
                 <SubTitle className={styles.product_name}>
-                  {product.brand.name}
+                  {product?.brand?.name}
                 </SubTitle>
               </a>
             </Link>
           )}
 
-          <Link href={`/categories/${product.category?.id}`}>
+          <Link href={`/categories/${product?.category?.id}`}>
             <a>
               <SubTitle className={styles.product_category}>
                 {product.category.name

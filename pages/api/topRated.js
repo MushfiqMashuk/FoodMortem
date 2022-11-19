@@ -18,6 +18,7 @@ export default async function handler(req, res) {
       break;
 
     case "GET":
+    
       try {
         const data = await TopRated.find();
         res.status(200).json(data);

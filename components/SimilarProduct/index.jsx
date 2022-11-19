@@ -1,6 +1,7 @@
 import "react-multi-carousel/lib/styles.css";
 import CarouselComponent from "../CarouselComponent";
 import styles from "./similarProduct.module.scss";
+import ProductCard from "../ProductCard";
 
 function SimilarProduct({ products = [] }) {
   return (
@@ -11,6 +12,7 @@ function SimilarProduct({ products = [] }) {
       <CarouselComponent
         products={products}
         noProductText="Sorry! No similar products to show right now. Would you like to suggest anything?"
+        CardComponent={ProductCard}
       />
     </div>
   );

@@ -2,7 +2,6 @@ import RatingComponent from "../RatingComponent";
 import styles from "./reviewAnalytics.module.scss";
 
 function ReviewAnalytics({ product }) {
-  
   return (
     <>
       {product && (
@@ -46,6 +45,7 @@ function ReviewAnalytics({ product }) {
           <RatingComponent
             productRating={product?.averageRating}
             productName={product?.name}
+            totalRating={product?.ratings?.length}
           />
         </div>
       )}
