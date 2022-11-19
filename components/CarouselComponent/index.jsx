@@ -23,7 +23,13 @@ const responsive = {
   },
 };
 
-function CarouselComponent({ products = [], noProductText, rating = null, CardComponent }) {
+function CarouselComponent({
+  products = [],
+  noProductText,
+  rating = null,
+  CardComponent,
+  topRated,
+}) {
   return (
     <div>
       {products && products.length > 0 ? (
@@ -44,7 +50,11 @@ function CarouselComponent({ products = [], noProductText, rating = null, CardCo
         >
           {products &&
             products.map((product) => (
-              <CardComponent product={product} rating={rating && rating} />
+              <CardComponent
+                product={product}
+                rating={rating && rating}
+                topRated
+              />
             ))}
           {/* {products &&
             products.map((product) => <ProductCard product={product} rating={rating && rating}/>)} */}

@@ -8,7 +8,7 @@ import Overlay from "../Overlay";
 import SubTitle from "../SubTitle";
 import styles from "./productCard.module.scss";
 
-const ProductCard = ({ product, singleProduct = false, rating }) => {
+const ProductCard = ({ product, singleProduct = false, rating, topRated = false }) => {
   let productRating;
 
   if (!rating) {
@@ -30,7 +30,9 @@ const ProductCard = ({ product, singleProduct = false, rating }) => {
           style={{ borderRadius: "0.3rem" }}
         />
 
-        <Link href={`/products/${product._id}`}>
+        <Link
+          href={`/products/${topRated ? product?.productId : product?._id}`}
+        >
           <a>
             <Overlay />
           </a>
@@ -45,7 +47,9 @@ const ProductCard = ({ product, singleProduct = false, rating }) => {
           </SubTitle>
         </div>
         <div className={styles.product_info}>
-          <Link href={`/products/${product._id}`}>
+          <Link
+            href={`/products/${topRated ? product?.productId : product?._id}`}
+          >
             <a>
               <SubTitle className={styles.product_name}>
                 {product.name}
