@@ -8,10 +8,17 @@ import Overlay from "../Overlay";
 import SubTitle from "../SubTitle";
 import styles from "./productCard.module.scss";
 
-const ProductCard = ({ product, singleProduct = false }) => {
-  const { ratings } = product;
+const ProductCard = ({ product, singleProduct = false, rating }) => {
+  let productRating;
 
-  const productRating = calculateAverageRating(ratings);
+  console.log(rating);
+
+  if (!rating) {
+    const { ratings } = product;
+
+    productRating = calculateAverageRating(ratings);
+  }
+
   //const productRating = 5.6;
 
   return (
@@ -38,7 +45,9 @@ const ProductCard = ({ product, singleProduct = false }) => {
       <div className={styles.product_description}>
         <div className={styles.product_rating}>
           <Image src={StarIcon} height={20} width={20} color="red" />
-          <SubTitle className={styles.rating}>{productRating}</SubTitle>
+          <SubTitle className={styles.rating}>
+            {rating ? product.rating : productRating}
+          </SubTitle>
         </div>
         <div className={styles.product_info}>
           <Link href={`/products/${product._id}`}>

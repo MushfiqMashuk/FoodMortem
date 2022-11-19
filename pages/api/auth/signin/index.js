@@ -13,8 +13,6 @@ export default async function handler(req, res) {
     case "POST":
       const { email, password } = req.body;
 
-      console.log(email, password);
-
       if (email && password) {
         try {
           const user = await Users.findOne({ email: email });

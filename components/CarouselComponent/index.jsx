@@ -24,7 +24,7 @@ const responsive = {
   },
 };
 
-function CarouselComponent({ products = [], noProductText }) {
+function CarouselComponent({ products = [], noProductText, rating = null }) {
   return (
     <div>
       {products && products.length > 0 ? (
@@ -44,7 +44,7 @@ function CarouselComponent({ products = [], noProductText }) {
           itemClass={styles.carousel_list}
         >
           {products &&
-            products.map((product) => <ProductCard product={product} />)}
+            products.map((product) => <ProductCard product={product} rating={rating && rating}/>)}
         </Carousel>
       ) : (
         <NoProduct text={noProductText} />
