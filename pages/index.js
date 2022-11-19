@@ -1,14 +1,14 @@
-import Link from "next/link";
 import Layout from "../components/Layout";
+import styles from "./homePage.module.scss";
 
 export default function Home() {
   return (
     <Layout>
-      Go to
-      <Link href="/products">
-        <a> Product </a>
-      </Link>
-      page
+      <div className={styles.container}>
+        <div className={styles.top_rated_product}>
+          
+        </div>
+      </div>
     </Layout>
   );
 }

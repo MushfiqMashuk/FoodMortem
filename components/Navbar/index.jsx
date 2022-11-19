@@ -82,7 +82,9 @@ function Navbar() {
         <div className={styles.midsection}>
           <p>Bucket List</p>
           <p>Suggest Something</p>
-          <p>Product List</p>
+          <Link href="/products">
+            <a>Product List</a>
+          </Link>
           <p>All Brands</p>
         </div>
 
