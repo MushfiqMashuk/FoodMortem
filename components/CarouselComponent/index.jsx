@@ -1,6 +1,7 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import NoProduct from "../NoProduct";
+import SuggestProductButton from "../SuggestProductButton";
 import styles from "./carouselComponent.module.scss";
 
 const responsive = {
@@ -65,7 +66,9 @@ function CarouselComponent({
             products.map((product) => <ProductCard product={product} rating={rating && rating}/>)} */}
         </Carousel>
       ) : (
-        <NoProduct text={noProductText} />
+        <NoProduct text={noProductText}>
+          <SuggestProductButton/>
+        </NoProduct>
       )}
     </div>
   );
