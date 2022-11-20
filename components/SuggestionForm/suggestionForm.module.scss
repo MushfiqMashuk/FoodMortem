@@ -2,4 +2,27 @@
 
 .container {
   @include center_element;
+
+}
+
+.form {
+  width: 80%;
+}
+
+.form_element {
+  margin-bottom: 1rem;
+  width: 100%;
+
+  input {
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    width: 100%;
+  }
+}
+
+.submit_button {
+  @include suggest_button_style;
+  padding: 0.4rem 1rem;
+  width: 100%;
+  font-size: 1.05rem;
 }

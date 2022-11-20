@@ -83,3 +83,20 @@
   text-transform: uppercase;
   transition: all 0.2s cubic-bezier(1, 0, 0, 1);
 }
+
+@mixin suggest_button_style {
+  border: none;
+  background-color: rgb(19, 69, 205);
+  color: white;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+
+  &:hover {
+    background-color: rgb(16, 58, 175);
+  }
+
+  &:active {
+    background-color: rgb(13, 50, 150);
+  }
+}
