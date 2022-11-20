@@ -6,12 +6,14 @@ import checkUserLogin from "../../helpers/checkUserLogin";
 import userAvatar from "../../public/avatar.svg";
 import LoginPrompt from "../LoginPrompt";
 import Modal from "../Modal";
+import SuggestionForm from "../SuggestionForm";
 import styles from "./navbar.module.scss";
 
 function Navbar() {
   const [user, setUser] = useState(null);
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
+  const [showSuggestion, setShowSuggestion] = useState(false);
 
   useEffect(() => {
     const loggedInUser = checkUserLogin();
@@ -47,21 +49,35 @@ function Navbar() {
     }
   };
 
+  const handleSuggestion = () => {
+    setShowModal(true);
+    setShowSuggestion(true);
+  };
+
+  const handleClose = () => {
+    setShowModal(false);
+    setShowSuggestion(false);
+  };
+
   return (
     <>
       {showModal && (
         <Modal
-          title={user && user.userName}
-          onClose={() => setShowModal(false)}
+          title={showSuggestion ? "Suggest a product" : user && user.userName}
+          onClose={handleClose}
         >
-          <LoginPrompt
-            promptText="Do you really want to sign out?"
-            firstButtonText="Yes"
-            secondButtonText="No"
-            onClose={() => setShowModal(false)}
-            signoutPrompt={true}
-            handleSignout={handleSignout}
-          />
+          {showSuggestion ? (
+            <SuggestionForm />
+          ) : (
+            <LoginPrompt
+              promptText="Do you really want to sign out?"
+              firstButtonText="Yes"
+              secondButtonText="No"
+              onClose={() => setShowModal(false)}
+              signoutPrompt={true}
+              handleSignout={handleSignout}
+            />
+          )}
         </Modal>
       )}
       <div className={styles.container}>
@@ -81,7 +97,7 @@ function Navbar() {
 
         <div className={styles.midsection}>
           <p>Bucket List</p>
-          <p>Suggest Something</p>
+          <p onClick={handleSuggestion}>Suggest a product</p>
           <Link href="/products">
             <a>Product List</a>
           </Link>
