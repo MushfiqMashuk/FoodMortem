@@ -1,3 +1,4 @@
+import BrandCard from "../components/BrandCard";
 import CarouselComponent from "../components/CarouselComponent";
 import Layout from "../components/Layout";
 import ProductCard from "../components/ProductCard";
@@ -16,6 +17,17 @@ export default function Home({ topRatedProducts }) {
               rating={true}
               CardComponent={ProductCard}
               topRated={true}
+            />
+          </div>
+        </div>
+        <div className={styles.top_rated_brands}>
+          <h2 className={styles.heading_title}>Top rated brands</h2>
+          <div className={styles.carousel}>
+            <CarouselComponent
+              products={topRatedProducts}
+              noProductText="Sorry! No top rated brands to show right now."
+              CardComponent={BrandCard}
+              brandCard
             />
           </div>
         </div>

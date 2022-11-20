@@ -29,6 +29,7 @@ function CarouselComponent({
   rating = null,
   CardComponent,
   topRated,
+  brandCard,
 }) {
   return (
     <div>
@@ -42,7 +43,11 @@ function CarouselComponent({
           keyBoardControl={true}
           customTransition="transform 300ms ease-in-out"
           transitionDuration={500}
-          containerClass={styles.carousel_container}
+          containerClass={
+            brandCard
+              ? styles.carousel_container_brand
+              : styles.carousel_container
+          }
           removeArrowOnDeviceType={["tablet", "mobile"]}
           dotListClass="custom-dot-list-style"
           centerMode={true}
@@ -53,7 +58,7 @@ function CarouselComponent({
               <CardComponent
                 product={product}
                 rating={rating && rating}
-                topRated
+                topRated={topRated}
               />
             ))}
           {/* {products &&

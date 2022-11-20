@@ -1,7 +1,13 @@
 .container {
-  background-color: beige;
+  display: flex;
+  flex-direction: column;
 }
 
 .heading_title {
   margin: 2rem 0;
+  font-weight: 500;
+}
+
+.top_rated_product {
+  margin-bottom: 0rem;
 }

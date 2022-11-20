@@ -13,6 +13,7 @@ const ProductsSchema = new Schema(
         type: String,
         trim: true,
       },
+      img: String,
     },
     category: {
       id: Types.ObjectId,
