@@ -1,0 +1,16 @@
+.container {
+  border: 1px solid red;
+  min-width: 25rem;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top_section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

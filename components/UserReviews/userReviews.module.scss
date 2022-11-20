@@ -1,0 +1,20 @@
+.container {
+  background-color: beige;
+  height: 20rem;
+}
+
+// .heading_title {
+//   //margin: 2rem 0;
+// }
+
+.top_section {
+  display: flex;
+  margin-bottom: 2rem;
+  justify-content: space-between;
+}
+
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -13,6 +13,7 @@ import ReviewForm from "../../components/ReviewForm";
 import SimilarProduct from "../../components/SimilarProduct";
 import SubTitle from "../../components/SubTitle";
 import Title from "../../components/Title";
+import UserReviews from "../../components/UserReviews";
 import WriteAReview from "../../components/WriteAReview";
 import checkUserLogin from "../../helpers/checkUserLogin";
 import styles from "./singleProduct.module.scss";
@@ -92,6 +93,7 @@ function SingleProduct({ product, similarProducts }) {
             </Modal>
           )}
           <WriteAReview openModal={() => setShowModal(true)} />
+          <UserReviews />
           <SimilarProduct products={similarProducts} />
         </Layout>
       )}
