@@ -1,7 +1,6 @@
 import Image from "next/image";
 import StarIcon from "../../public/star_icon6.svg";
 import styles from "./reviewCard.module.scss";
-import SubTitle from "../SubTitle";
 
 function ReviewCard() {
   return (

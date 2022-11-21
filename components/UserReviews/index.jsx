@@ -8,7 +8,7 @@ function UserReviews() {
       <div className={styles.top_section}>
         <h2 className={styles.heading_title}>User Reviews</h2>
         <Link href={`/products`}>
-          <a className="see_all">See all</a>
+          <a className="see_all">See all reviews</a>
         </Link>
       </div>
       <div className={styles.body}>

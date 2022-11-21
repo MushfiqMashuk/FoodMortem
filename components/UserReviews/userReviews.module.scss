@@ -16,6 +16,7 @@
 .body {
   display: flex;
   align-items: center;
+  //flex-wrap: wrap;
   justify-content: space-between;
-  column-gap: 2rem;
+  gap: 2rem;
 }
