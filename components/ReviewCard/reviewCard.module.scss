@@ -1,8 +1,12 @@
 .container {
   min-width: 25rem;
   border-radius: 0.3rem;
-  box-shadow: 0.001rem 0.07rem 0.12rem 0.02rem rgb(182, 182, 182);
+  box-shadow: 0.001rem 0.07rem 0.1rem 0.05rem rgb(182, 182, 182);
   padding: 1rem;
+}
+
+.name {
+  font-weight: 500;
 }
 
 .rating {
@@ -34,5 +38,6 @@
 }
 
 .main_content {
-  font-size: 1.2rem;
+  //font-size: 1rem;
+  line-height: 1.6rem;
 }
