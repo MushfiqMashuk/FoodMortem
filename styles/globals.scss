@@ -30,6 +30,7 @@ h6 {
 #nprogress .bar {
   height: $top_loader_height;
   background: $top_loader_color;
+  z-index: 10001;
 }
 
 .required {
