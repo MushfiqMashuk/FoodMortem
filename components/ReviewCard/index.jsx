@@ -27,20 +27,23 @@ function ReviewCard({ page }) {
       <div className={styles.date}>12 September 2022</div>
       <div className={styles.body}>
         <div className={styles.title}>
-          <p>This is a title</p>
+          <p>Best Mutton Kacchi in town</p>
         </div>
         <div className={styles.main_content}>
           <p>
-            While "Nope" is a visual spectacle I found that it didn't sit as
-            well as I would've hoped when it came to the story. However, it
-            still manages to reach its goal of entertaining on some level. The
-            film felt slightly long due to the first and third acts feeling fast
-            and somewhat stuffed with a lot of goings ons while the second act
-            felt very slow and drawn out. The long parts put me into a state of
-            boredom, and even further than that, once the reveal of the
-            antagonist happened, the magic and tension disappeared. Before that
-            tension disappeared I found there was some good tension built up due
-            to the soundtrack, but again, things fell short.
+            Trust me, it is the best Kacchi in town We visited there today
+            (Sunday); found the place was crowded. Fortunately, we were in odd
+            number; if we went two then authority compelled us to allow unknown
+            persons to sit in front of us. I think this is the only demerit of
+            this restaurant. Apart from this, food, environment and sitting was
+            quite good. Because of crowded place, you might feel quite warm and
+            when you start to consume more spicy Kacchi then it feels more
+            warmer 😅 Long story short, we ordered Kacchi, Borhani and Firni.
+            Firni was good but you may order Jorda instead of it. The delivery
+            was a bit slow because of crowd. But overall their service was
+            excellent, I must say. So, I would like to rate Sultan's Dine as 9
+            out of 10. Food Rating: 10/10 Service Rating: 9/10 Place Rating:
+            9/10
           </p>
         </div>
       </div>

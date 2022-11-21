@@ -15,7 +15,7 @@ function Reviews() {
           <div className={styles.image_container}>
             <Image
               className={styles.image_class}
-              src={"https://i.ibb.co/WfdzwHy/tehari-tehari-ghar.jpg"}
+              src={"https://i.ibb.co/T1VsWB9/kacchi-sultan-s-dine.jpg"}
               alt={"nicde"}
               width={150}
               height={150}
@@ -29,13 +29,13 @@ function Reviews() {
           <div className={styles.info}>
             <div className={styles.name}>
               <Link href={"/"}>
-                <a>
-                  Mutton Kacchi
-                </a>
+                <a>Mutton Kacchi</a>
               </Link>
             </div>
             <div className={styles.brand_name}>
-              <p>Sultan's Dine</p>
+              <Link href={"/"}>
+                <a>Sultan's Dine</a>
+              </Link>
             </div>
           </div>
         </div>
