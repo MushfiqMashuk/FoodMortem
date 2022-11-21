@@ -2,9 +2,15 @@ import Image from "next/image";
 import StarIcon from "../../public/star_icon6.svg";
 import styles from "./reviewCard.module.scss";
 
-function ReviewCard() {
+function ReviewCard({ page }) {
   return (
-    <div className={styles.container}>
+    <div
+      className={
+        page === "reviews"
+          ? styles.container_for_reviews_page
+          : styles.container
+      }
+    >
       <div className={styles.top_section}>
         <div className={styles.name}>
           <p>Mushfiq Mashuk</p>

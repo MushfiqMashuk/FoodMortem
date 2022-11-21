@@ -1,8 +1,13 @@
+@import "../../styles/Mixins";
+
 .container {
   min-width: 25rem;
-  border-radius: 0.3rem;
-  box-shadow: 0.001rem 0.07rem 0.1rem 0.05rem rgb(182, 182, 182);
-  padding: 1rem;
+  @include reviews_page_container;
+}
+
+.container_for_reviews_page {
+  width: 50rem;
+  @include reviews_page_container;
 }
 
 .name {

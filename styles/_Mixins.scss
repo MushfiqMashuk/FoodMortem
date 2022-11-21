@@ -100,3 +100,10 @@
     background-color: rgb(13, 50, 150);
   }
 }
+
+@mixin reviews_page_container {
+  border-radius: 0.3rem;
+  box-shadow: 0.001rem 0.07rem 0.1rem 0.05rem rgb(182, 182, 182);
+  padding: 1rem;
+  background-color: white;
+}

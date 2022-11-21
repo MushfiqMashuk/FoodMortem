@@ -1,0 +1,36 @@
+@import "../../../styles/Mixins";
+
+.container {
+  background-color: rgb(246, 226, 226);
+  min-height: 100vh;
+  padding: 5rem;
+}
+
+.body {
+  padding: 5rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.top {
+  display: flex;
+  @include center_element;
+  border: 1px solid rgb(251, 210, 210);
+  border-radius: 0.3rem;
+}
+
+.image_container {
+  border-radius: 0.3rem;
+}
+
+.image_class {
+  border-radius: 0.3rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
