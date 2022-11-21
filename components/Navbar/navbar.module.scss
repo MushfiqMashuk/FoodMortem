@@ -12,7 +12,7 @@
   min-height: 8vh;
   position: sticky;
   top: 0;
-  z-index: 10000;
+  z-index: $navbar_z_index;
 
   .logo {
     @include center_element;
@@ -73,13 +73,18 @@
 
   &:hover {
     scale: 1.02;
-    background-color: #cccccc;
+    background-color: #ffffff;
     color: rgb(0, 0, 0);
   }
   &:active {
     scale: 1;
-    background-color: #ed662b;
+    background-color: #28e489;
   }
+  // &:disabled {
+  //   background-color: #ffffff;
+  //   color: black;
+  //   cursor: not-allowed;
+  // }
 }
 
 .avatar {

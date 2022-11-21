@@ -29,8 +29,8 @@ $content_min_height: 25rem;
 
 //Bucket list button
 $bucket_list_button_padding: 0.3rem;
-$bucket_list_button: rgb(29, 155, 240);//#303030;
-$bucket_list_button_hover: #1A8CD8;//#414141;
+$bucket_list_button: rgb(29, 155, 240); //#303030;
+$bucket_list_button_hover: #1a8cd8; //#414141;
 
 // Image container
 $image_container_margin_left: $product_info_padding_left;
@@ -56,7 +56,7 @@ $overlay_transition: all 0.15s ease;
 
 // Signup/Login page variables
 
-$fb_background: #F0F2F5;
+$fb_background: #f0f2f5;
 $success_green: #002333;
 $success_green_hover: #014666;
 $success_green_active: #00314a;
@@ -64,3 +64,8 @@ $submit_button_text: #002333;
 
 //errors
 $danger_red: #ffc0c7;
+
+// Z Index
+$modal_z_index: 100000;
+$progress_bar_z_index: 10001;
+$navbar_z_index: 10000;

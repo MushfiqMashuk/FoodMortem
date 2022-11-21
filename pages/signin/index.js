@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import Layout from "../../components/Layout";
 import checkUserLogin from "../../helpers/checkUserLogin";
 import loginImage from "../../public/login.svg";
 import styles from "./signin.module.scss";
@@ -11,12 +10,15 @@ function Signin() {
   const loggedInUser = checkUserLogin();
   const router = useRouter();
 
-  if (loggedInUser) {
-    router.push(
-      router.query.from ? decodeURIComponent(router.query.from) : "/"
-    );
+  try {
+    if (loggedInUser) {
+      router.push(
+        router.query.from ? decodeURIComponent(router.query.from) : "/"
+      );
+    }
+  } catch (err) {
+    console.log(err);
   }
-
   const defaultFormData = {
     email: "",
     password: "",
@@ -79,56 +81,54 @@ function Signin() {
   };
 
   return (
-    <Layout>
-      <div className={styles.container}>
-        <h1>Login to your account</h1>
-        <div className={styles.column}>
-          <div className={styles.illustration}>
-            <Image src={loginImage} width={500} height={500} />
-          </div>
-          <form
-            className={`${styles.signin} ${styles.form}`}
-            onSubmit={handleSubmit}
-          >
-            <div className={styles.text_input}>
-              <input
-                type="email"
-                placeholder="Enter email"
-                name="email"
-                required
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className={styles.text_input}>
-              <input
-                type="password"
-                placeholder="Enter password"
-                name="password"
-                required
-                onChange={handleChange}
-              />
-            </div>
-
-            <button className={styles.button}>
-              <span>Submit now</span>
-            </button>
-            {signinError && signinError.length > 0 && (
-              <p className={styles.signup_error}>{signinError}</p>
-            )}
-            <div className={styles.info}>
-              Don't have an account?{" "}
-              <Link href="/signup">
-                <a>
-                  <span className={styles.signup_instead}>Sign Up</span>{" "}
-                </a>
-              </Link>
-              here.
-            </div>
-          </form>
+    <div className={styles.container}>
+      <h1>Login to your account</h1>
+      <div className={styles.column}>
+        <div className={styles.illustration}>
+          <Image src={loginImage} width={450} height={450} />
         </div>
+        <form
+          className={`${styles.signin} ${styles.form}`}
+          onSubmit={handleSubmit}
+        >
+          <div className={styles.text_input}>
+            <input
+              type="email"
+              placeholder="Enter email"
+              name="email"
+              required
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className={styles.text_input}>
+            <input
+              type="password"
+              placeholder="Enter password"
+              name="password"
+              required
+              onChange={handleChange}
+            />
+          </div>
+
+          <button className={styles.button}>
+            <span>Submit now</span>
+          </button>
+          {signinError && signinError.length > 0 && (
+            <p className={styles.signup_error}>{signinError}</p>
+          )}
+          <div className={styles.info}>
+            Don't have an account?{" "}
+            <Link href="/signup">
+              <a>
+                <span className={styles.signup_instead}>Sign Up</span>{" "}
+              </a>
+            </Link>
+            here.
+          </div>
+        </form>
       </div>
-    </Layout>
+    </div>
   );
 }
 

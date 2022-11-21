@@ -18,7 +18,7 @@
   right: 0;
   width: 100%;
   height: 100%;
-  z-index: 100000;
+  z-index: $modal_z_index;
   @include center_element;
   background-color: $modal_overlay_color;
 

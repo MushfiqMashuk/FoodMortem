@@ -2,7 +2,7 @@ import Footer from "../Footer";
 import Navbar from "../Navbar";
 import styles from "./layout.module.scss";
 
-function Layout({ children }) {
+function Layout({ children, page }) {
   return (
     <>
       <Navbar />

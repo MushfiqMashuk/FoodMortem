@@ -2,12 +2,25 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import checkUserLogin from "../../helpers/checkUserLogin";
 import validateName from "../../helpers/validateName";
 import signupImage from "../../public/signup.svg";
 import styles from "../signin/signin.module.scss";
 
 function Signup() {
+  const loggedInUser = checkUserLogin();
   const router = useRouter();
+
+  try {
+    if (loggedInUser) {
+      router.push(
+        router.query.from ? decodeURIComponent(router.query.from) : "/"
+      );
+    }
+  } catch (err) {
+    console.log(err);
+  }
+
   const defaultFormData = {
     name: "",
     email: "",
@@ -109,7 +122,7 @@ function Signup() {
       <h1>Create an account</h1>
       <div className={styles.column}>
         <div className={styles.illustration}>
-          <Image src={signupImage} width={500} height={500} />
+          <Image src={signupImage} width={450} height={450} />
         </div>
         <form
           className={`${styles.signup} ${styles.form}`}
