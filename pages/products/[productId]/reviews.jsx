@@ -1,7 +1,10 @@
+import Layout from "../../../components/Layout"
 
 function Reviews() {
   return (
-    <div>Reviews</div>
+    <Layout>
+        reviews
+    </Layout>
   )
 }
 

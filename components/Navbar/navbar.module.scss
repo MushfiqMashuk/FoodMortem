@@ -9,7 +9,10 @@
   gap: 1rem;
   align-items: center;
   background-color: $navbar_background_color;
-  min-height: 10vh;
+  min-height: 8vh;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 
   .logo {
     @include center_element;
