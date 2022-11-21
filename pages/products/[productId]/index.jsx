@@ -1,21 +1,21 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import connectDB from "../../backend/config/db";
-import AddToBucketListButton from "../../components/AddToBucketListButton";
-import Layout from "../../components/Layout";
-import LoadingSpinner from "../../components/LoadingSpinner";
-import LoginPrompt from "../../components/LoginPrompt";
-import Modal from "../../components/Modal";
-import ProductImage from "../../components/ProductImage";
-import ReviewAnalytics from "../../components/ReviewAnalytics";
-import ReviewForm from "../../components/ReviewForm";
-import SimilarProduct from "../../components/SimilarProduct";
-import SubTitle from "../../components/SubTitle";
-import Title from "../../components/Title";
-import UserReviews from "../../components/UserReviews";
-import WriteAReview from "../../components/WriteAReview";
-import checkUserLogin from "../../helpers/checkUserLogin";
+import connectDB from "../../../backend/config/db";
+import AddToBucketListButton from "../../../components/AddToBucketListButton";
+import Layout from "../../../components/Layout";
+import LoadingSpinner from "../../../components/LoadingSpinner";
+import LoginPrompt from "../../../components/LoginPrompt";
+import Modal from "../../../components/Modal";
+import ProductImage from "../../../components/ProductImage";
+import ReviewAnalytics from "../../../components/ReviewAnalytics";
+import ReviewForm from "../../../components/ReviewForm";
+import SimilarProduct from "../../../components/SimilarProduct";
+import SubTitle from "../../../components/SubTitle";
+import Title from "../../../components/Title";
+import UserReviews from "../../../components/UserReviews";
+import WriteAReview from "../../../components/WriteAReview";
+import checkUserLogin from "../../../helpers/checkUserLogin";
 import styles from "./singleProduct.module.scss";
 
 function SingleProduct({ product, similarProducts }) {
@@ -93,7 +93,10 @@ function SingleProduct({ product, similarProducts }) {
             </Modal>
           )}
           <WriteAReview openModal={() => setShowModal(true)} />
-          <UserReviews />
+          <UserReviews
+            totalReviews={product.reviews.slice(0, 3)}
+            productId={product?._id}
+          />
           <SimilarProduct products={similarProducts} />
         </Layout>
       )}

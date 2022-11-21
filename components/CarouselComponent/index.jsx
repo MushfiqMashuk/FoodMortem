@@ -57,6 +57,7 @@ function CarouselComponent({
           {products &&
             products.map((product) => (
               <CardComponent
+                key={product?._id}
                 product={product}
                 rating={rating && rating}
                 topRated={topRated}
@@ -67,7 +68,7 @@ function CarouselComponent({
         </Carousel>
       ) : (
         <NoProduct text={noProductText}>
-          <SuggestProductButton/>
+          <SuggestProductButton />
         </NoProduct>
       )}
     </div>

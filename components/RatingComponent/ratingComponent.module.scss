@@ -1,12 +1,23 @@
 @import "../../styles/Mixins.scss";
 
 .container {
+  position: relative;
   display: flex;
+  border-radius: 0.3rem;
   height: 6rem;
   width: 60%;
   background-color: #414141;
   color: white;
   padding-top: 0.1875rem; // 3px
+
+  .bar {
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    width: 0.15rem;
+    position: absolute;
+    left: 12rem;
+    top: -0.01rem;
+  }
 
   .total_rating {
     @include center_element;

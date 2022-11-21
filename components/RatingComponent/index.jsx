@@ -42,6 +42,7 @@ function RatingComponent({ productRating, productName, totalRating = 0 }) {
       )}
       {productRating && (
         <div className={styles.container}>
+          <div className={styles.bar}></div>
           <div className={styles.rating}>
             <div className={styles.rating_title}>Rating</div>
             <div className={styles.rating_points}>
