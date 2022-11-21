@@ -1,11 +1,11 @@
 .container {
-  background-color: beige;
-  height: 20rem;
+  //background-color: beige;
+  margin-top: 10rem;
 }
 
-// .heading_title {
-//   //margin: 2rem 0;
-// }
+.heading_title {
+  font-weight: 500;
+}
 
 .top_section {
   display: flex;
@@ -17,4 +17,5 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  column-gap: 2rem;
 }

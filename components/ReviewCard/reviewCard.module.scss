@@ -1,16 +1,38 @@
 .container {
-  border: 1px solid red;
   min-width: 25rem;
+  border-radius: 0.3rem;
+  box-shadow: 0.001rem 0.07rem 0.12rem 0.02rem rgb(182, 182, 182);
+  padding: 1rem;
 }
 
 .rating {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  column-gap: 0.3rem;
+}
+
+.rating_value {
+  letter-spacing: 0.1rem;
+}
+
+.date {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
 }
 
 .top_section {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.title {
+  margin: 2rem 0;
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
+.main_content {
+  font-size: 1.2rem;
 }
