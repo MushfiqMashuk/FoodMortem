@@ -55,7 +55,7 @@ const ProductsSchema = new Schema(
         },
         type: {
           type: String,
-          enum: ["good", "moderate", "bad"],
+          enum: ["positive", "moderate", "negative"],
           required: "Please provide an appropriate review type",
         },
         date: { type: Date, default: Date.now },

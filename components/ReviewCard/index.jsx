@@ -26,8 +26,8 @@ function ReviewCard({ page }) {
       </div>
       <div className={styles.date}>12 September 2022</div>
       <div className={styles.body}>
-        <div className={styles.title}>
-          <p>Best Mutton Kacchi in town</p>
+        <div className={styles.type}>
+          <div><p>Moderate</p></div>
         </div>
         <div className={styles.main_content}>
           <p>

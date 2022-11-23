@@ -17,13 +17,13 @@ function ReviewAnalytics({ product }) {
           </h1>
           <h3>
             Positive{" "}
-            <span className={styles.total_review}>({reviewObject?.good}%)</span>
+            <span className={styles.total_review}>({reviewObject?.positive}%)</span>
           </h3>
           <div className={styles.progress_bar_container}>
             <div className={styles.progress_bar}>
               <span
                 className={`${styles.percentage}`}
-                style={{ width: `${reviewObject.good}%` }}
+                style={{ width: `${reviewObject.positive}%` }}
               ></span>
             </div>
           </div>
@@ -44,14 +44,14 @@ function ReviewAnalytics({ product }) {
           </div>
           <h3>
             Negative{" "}
-            <span className={styles.total_review}>({reviewObject?.bad}%)</span>
+            <span className={styles.total_review}>({reviewObject?.negative}%)</span>
           </h3>
 
           <div className={styles.progress_bar_container}>
             <div className={styles.progress_bar}>
               <span
                 className={`${styles.percentage}`}
-                style={{ width: `${reviewObject.bad}%` }}
+                style={{ width: `${reviewObject.negative}%` }}
               ></span>
             </div>
           </div>

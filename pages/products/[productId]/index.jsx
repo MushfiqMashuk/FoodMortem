@@ -22,7 +22,7 @@ import styles from "./singleProduct.module.scss";
 function SingleProduct({ product, similarProducts }) {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
-  let loggedInUser;
+  const loggedInUser = checkUserLogin();
   let ratings;
 
   const setRating = useRatingStore((state) => state.setRating);
@@ -30,7 +30,7 @@ function SingleProduct({ product, similarProducts }) {
   useEffect(() => {
     ratings = product?.ratings;
 
-    loggedInUser = checkUserLogin();
+    
     if (loggedInUser) {
       const myRating = ratings?.filter(
         (rating) => rating.userId == loggedInUser.userId

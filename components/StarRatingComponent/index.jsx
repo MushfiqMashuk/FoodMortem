@@ -21,41 +21,76 @@ const StarRatingComponent = ({
     state.removeRating,
   ]);
 
-  // useEffect(() => {
-  //   const getRating = async () => {
-
-  //     try {
-  //       const response = await fetch(
-  //         `${process.env.NEXT_PUBLIC_API_URL}/rate?userId=636b9b839672484720f32b4f&productId=637be197e237b3365a66b915`
-  //       );
-
-  //       if (response.ok) {
-  //         const data = await response.json();
-  //         setRating(data);
-  //         console.log(data);
-  //       } else {
-  //         throw new Error("Something went wrong!");
-  //       }
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-
-  //   getRating();
-  // }, []);
-
-  const handleSetRating = (myRating) => {
+  const handleSetRating = async (myRating) => {
     setUserRating(myRating);
 
     // If the form is review form then do the handle rate here
     if (reviewForm) {
       // Send rating to the database
 
-      // Set rating to the local state
-      setRating(myRating);
+      if (rating) {
+        try {
+          const response = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/rate`,
+            {
+              method: "PUT",
+              headers: {
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                productId,
+                userId,
+                userRating,
+              }),
+            }
+          );
 
-      // set the error object.
-      setError(false);
+          if (response.ok) {
+            const data = await response.json();
+            // Set rating to the local state
+            setRating(myRating);
+
+            // set the error object.
+            setError(false);
+          } else {
+            throw new Error("Something went wrong!");
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      } else {
+        try {
+          const response = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/rate?productId=${productId}`,
+            {
+              method: "PATCH",
+              headers: {
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                userId,
+                name: userName,
+                rating: userRating,
+              }),
+            }
+          );
+
+          if (response.ok) {
+            const data = await response.json();
+            // Set rating to the local state
+            setRating(myRating);
+
+            // set the error object.
+            setError(false);
+          } else {
+            throw new Error("Something went wrong!");
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      }
     }
   };
 
@@ -82,6 +117,7 @@ const StarRatingComponent = ({
 
         if (response.ok) {
           const data = await response.json();
+          // Set rating to local state
           setRating(userRating);
         } else {
           throw new Error("Something went wrong!");
@@ -109,6 +145,7 @@ const StarRatingComponent = ({
 
         if (response.ok) {
           const data = await response.json();
+          // Set rating to local state
           setRating(userRating);
         } else {
           throw new Error("Something went wrong!");
@@ -118,8 +155,6 @@ const StarRatingComponent = ({
       }
     }
 
-    // Set rating to local state
-
     // close the modal
     onClose();
   };
@@ -128,20 +163,17 @@ const StarRatingComponent = ({
     // Remove rating from the database
 
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/rate`,
-        {
-          method: "DELETE",
-          headers: {
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            userId,
-            productId
-          }),
-        }
-      );
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/rate`, {
+        method: "DELETE",
+        headers: {
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId,
+          productId,
+        }),
+      });
 
       if (response.ok) {
         const data = await response.json();

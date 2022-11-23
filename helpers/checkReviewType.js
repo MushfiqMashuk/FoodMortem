@@ -2,21 +2,21 @@ import calculateReviews from "./calculateReviews";
 
 const checkReviewType = (reviews = []) => {
   const types = {
-    good: 0,
+    positive: 0,
     moderate: 0,
-    bad: 0,
+    negative: 0,
   };
 
   reviews.map((review) => {
     switch (review.type) {
-      case "good":
-        types.good += 1;
+      case "positive":
+        types.positive += 1;
         break;
       case "moderate":
         types.moderate += 1;
         break;
-      case "bad":
-        types.bad += 1;
+      case "negative":
+        types.negative += 1;
         break;
       default:
         break;
