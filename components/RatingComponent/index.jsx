@@ -10,8 +10,14 @@ import Modal from "../Modal";
 import StarRatingComponent from "../StarRatingComponent";
 import styles from "./ratingComponent.module.scss";
 
-function RatingComponent({ productRating, productName, totalRating = 0 }) {
+function RatingComponent({
+  productRating,
+  productName,
+  totalRating = 0,
+  productId,
+}) {
   const loggedInUser = checkUserLogin();
+  const {name, userId} = loggedInUser;
 
   const [showModal, setShowModal] = useState(false);
   const rating = useRatingStore((state) => state.rating);
@@ -30,6 +36,9 @@ function RatingComponent({ productRating, productName, totalRating = 0 }) {
               name={productName} // Here title will be dynamic
               onClose={() => setShowModal(false)}
               initialRating={rating}
+              productId={productId}
+              userId={userId}
+              userName={name}
             />
           ) : (
             <LoginPrompt

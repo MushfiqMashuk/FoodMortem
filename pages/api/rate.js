@@ -4,7 +4,7 @@ import connectDB from "../../backend/config/db";
 import Products from "../../backend/models/Products";
 
 export default async function handler(req, res) {
-  const { userId, productId } = req.query;
+  const { productId } = req.query;
 
   connectDB();
 
@@ -25,19 +25,31 @@ export default async function handler(req, res) {
       break;
 
     case "PATCH":
-      break;
-
-    case "GET":
       try {
-        const result = await Products.find({
-          _id: productId,
-          "ratings.userId": userId,
-        }).select("ratings.rating");
-        console.log(result);
+        const result = await Products.updateOne(
+          { _id: productId },
+          { $push: { ratings: req.body } }
+        );
+
         res.status(200).json(result);
       } catch (err) {
         res.status(500).json({ error: { message: "Internal server error!" } });
       }
+      break;
+
+    case "GET":
+      // try {
+      //   const result = await Products.find({
+      //     _id: productId,
+      //     "ratings.userId": userId,
+      //   }).select("ratings.rating");
+      //   console.log(result);
+      //   res.status(200).json(result);
+      // } catch (err) {
+      //   res.status(500).json({ error: { message: "Internal server error!" } });
+      // }
+      break;
+    default:
       break;
   }
 }

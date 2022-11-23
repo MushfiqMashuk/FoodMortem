@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useState } from "react";
 import StarRating from "react-svg-star-rating";
 import useRatingStore from "../../store/useRatingStore";
@@ -10,6 +9,9 @@ const StarRatingComponent = ({
   initialRating,
   reviewForm = false,
   setError,
+  productId,
+  userId,
+  userName,
 }) => {
   const [userRating, setUserRating] = useState(initialRating);
 
@@ -19,28 +21,28 @@ const StarRatingComponent = ({
     state.removeRating,
   ]);
 
-  useEffect(() => {
-    const getRating = async () => {
-      console.log("nice");
-      try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/rate?userId=636b9b839672484720f32b4f&productId=637be197e237b3365a66b915`
-        );
+  // useEffect(() => {
+  //   const getRating = async () => {
 
-        if (response.ok) {
-          const data = await response.json();
-          setRating(data);
-          console.log(data);
-        } else {
-          throw new Error("Something went wrong!");
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    };
+  //     try {
+  //       const response = await fetch(
+  //         `${process.env.NEXT_PUBLIC_API_URL}/rate?userId=636b9b839672484720f32b4f&productId=637be197e237b3365a66b915`
+  //       );
 
-    getRating();
-  }, []);
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         setRating(data);
+  //         console.log(data);
+  //       } else {
+  //         throw new Error("Something went wrong!");
+  //       }
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+
+  //   getRating();
+  // }, []);
 
   const handleSetRating = (myRating) => {
     setUserRating(myRating);
@@ -60,30 +62,62 @@ const StarRatingComponent = ({
   const handleRate = async () => {
     // Send rating to the database
 
-    try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/rate`, {
-        method: "PUT",
-        headers: {
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          productId: "637be197e237b3365a66b915",
-          userId: "636b9b839672484720f32b4f",
-          userRating: 7.5,
-        }),
-      });
+    if (rating) {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/rate`,
+          {
+            method: "PUT",
+            headers: {
+              // 'Content-Type': 'application/x-www-form-urlencoded',
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              productId,
+              userId,
+              userRating,
+            }),
+          }
+        );
 
-      if (response.ok) {
-        const data = await response.json();
-        setRating(userRating);
-        console.log(data);
-      } else {
-        throw new Error("Something went wrong!");
+        if (response.ok) {
+          const data = await response.json();
+          setRating(userRating);
+        } else {
+          throw new Error("Something went wrong!");
+        }
+      } catch (err) {
+        console.log(err);
       }
-    } catch (err) {
-      console.log(err);
+    } else {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/rate?productId=${productId}`,
+          {
+            method: "PATCH",
+            headers: {
+              // 'Content-Type': 'application/x-www-form-urlencoded',
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              userId,
+              name: userName,
+              rating: userRating,
+            }),
+          }
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          setRating(userRating);
+        } else {
+          throw new Error("Something went wrong!");
+        }
+      } catch (err) {
+        console.log(err);
+      }
     }
+
     // Set rating to local state
 
     // close the modal

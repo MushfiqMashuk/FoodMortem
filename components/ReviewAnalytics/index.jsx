@@ -62,6 +62,7 @@ function ReviewAnalytics({ product }) {
             productRating={product?.averageRating}
             productName={product?.name}
             totalRating={product?.ratings?.length}
+            productId={product?._id}
           />
         </div>
       )}

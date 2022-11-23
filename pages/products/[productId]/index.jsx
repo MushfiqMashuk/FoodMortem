@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import connectDB from "../../../backend/config/db";
 import AddToBucketListButton from "../../../components/AddToBucketListButton";
 import Layout from "../../../components/Layout";
@@ -16,12 +16,28 @@ import Title from "../../../components/Title";
 import UserReviews from "../../../components/UserReviews";
 import WriteAReview from "../../../components/WriteAReview";
 import checkUserLogin from "../../../helpers/checkUserLogin";
+import useRatingStore from "../../../store/useRatingStore";
 import styles from "./singleProduct.module.scss";
 
 function SingleProduct({ product, similarProducts }) {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
-  const loggedInUser = checkUserLogin();
+  let loggedInUser;
+  let ratings;
+
+  const setRating = useRatingStore((state) => state.setRating);
+
+  useEffect(() => {
+    ratings = product?.ratings;
+    loggedInUser = checkUserLogin();
+    if (loggedInUser) {
+      const myRating = ratings?.filter(
+        (rating) => rating.userId == loggedInUser.userId
+      );
+      console.log(loggedInUser);
+      setRating(myRating[0]?.rating);
+    }
+  }, []);
 
   if (router.isFallback) {
     return <LoadingSpinner />;
