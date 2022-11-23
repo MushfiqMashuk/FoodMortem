@@ -25,7 +25,8 @@ function ReviewAnalytics({ product }) {
           <div className={styles.progress_bar_container}>
             <div className={styles.progress_bar}>
               <span
-                className={`${styles.percentage} ${styles.positive}`}
+                className={`${styles.percentage}`}
+                style={{ width: `${reviewObject.good}%` }}
               ></span>
             </div>
           </div>
@@ -39,7 +40,8 @@ function ReviewAnalytics({ product }) {
           <div className={styles.progress_bar_container}>
             <div className={styles.progress_bar}>
               <span
-                className={`${styles.percentage} ${styles.moderate}`}
+                className={`${styles.percentage}`}
+                style={{ width: `${reviewObject.moderate}%` }}
               ></span>
             </div>
           </div>
@@ -51,7 +53,8 @@ function ReviewAnalytics({ product }) {
           <div className={styles.progress_bar_container}>
             <div className={styles.progress_bar}>
               <span
-                className={`${styles.percentage} ${styles.negative}`}
+                className={`${styles.percentage}`}
+                style={{ width: `${reviewObject.bad}%` }}
               ></span>
             </div>
           </div>

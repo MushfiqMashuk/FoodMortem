@@ -23,8 +23,8 @@
         effect of the progress bar*/
     .progress_bar {
       width: 50%;
-      height: 0.3125rem; 
-      margin-top: 0.625rem; 
+      height: 0.3rem;
+      margin-top: 0.625rem;
       border: 1px solid #565656;
       border-radius: 5px;
       box-shadow: 0 0 10px rgb(245, 159, 0);
@@ -41,17 +41,17 @@
     }
 
     /* Assigning width of each bar*/
-    .positive {
-      width: 85%;
-    }
+    // .positive {
+    //   width: 85%;
+    // }
 
-    .moderate {
-      width: 40%;
-    }
+    // .moderate {
+    //   width: 40%;
+    // }
 
-    .negative {
-      width: 30%;
-    }
+    // .negative {
+    //   width: 30%;
+    // }
 
     /* Animating the progress bar by
         initially starting from 0*/
