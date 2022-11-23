@@ -18,13 +18,15 @@ export default async function handler(req, res) {
       break;
 
     case "GET":
-    
       try {
         const data = await TopRated.find();
         res.status(200).json(data);
       } catch (err) {
         res.status(500).json({ error: { message: "Internal server error!" } });
       }
+      break;
+
+    default:
       break;
   }
 }

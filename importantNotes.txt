@@ -4,3 +4,4 @@
 * In NoProduct component a 'Suggest' component need to be passed as a children
 * Swith cases need to be added default statements.
 * When I reload the single product page, product data is undefined. 
+* In rate api file - average rating functionality needs to be moved in a function.

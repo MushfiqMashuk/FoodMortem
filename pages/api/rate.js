@@ -62,17 +62,31 @@ export default async function handler(req, res) {
       }
       break;
 
-    case "GET":
-      // try {
-      //   const result = await Products.find({
-      //     _id: productId,
-      //     "ratings.userId": userId,
-      //   }).select("ratings.rating");
-      //   console.log(result);
-      //   res.status(200).json(result);
-      // } catch (err) {
-      //   res.status(500).json({ error: { message: "Internal server error!" } });
-      // }
+    case "DELETE":
+      try {
+        const result = await Products.findOneAndUpdate(
+          { _id: req.body.productId },
+          { $pull: { ratings: { userId: req.body.userId } } }
+        );
+
+        const ratings = await Products.findById(req.body.productId).select({
+          ratings: 1,
+        });
+
+        //console.log(ratings);
+
+        const averageRating = calculateAverageRating(ratings.ratings);
+
+        await Products.findOneAndUpdate(
+          { _id: req.body.productId },
+
+          { averageRating: averageRating }
+        );
+
+        res.status(200).json(result);
+      } catch (err) {
+        res.status(500).json({ error: { message: "Internal server error!" } });
+      }
       break;
     default:
       break;

@@ -12,7 +12,6 @@ export default async function handler(req, res) {
       averageRating: 1,
       ratings: 1,
     });
-
     res.status(200).json(product);
   }
 }

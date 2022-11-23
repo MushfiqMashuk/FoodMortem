@@ -124,13 +124,37 @@ const StarRatingComponent = ({
     onClose();
   };
 
-  const handleRemoveRating = () => {
+  const handleRemoveRating = async () => {
     // Remove rating from the database
 
-    // Remove rating from the local state
-    removeRating();
-    //close the modal
-    onClose();
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/rate`,
+        {
+          method: "DELETE",
+          headers: {
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId,
+            productId
+          }),
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        // Remove rating from the local state
+        removeRating();
+        //close the modal
+        onClose();
+      } else {
+        throw new Error("Something went wrong!");
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
