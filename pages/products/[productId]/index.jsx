@@ -29,15 +29,16 @@ function SingleProduct({ product, similarProducts }) {
 
   useEffect(() => {
     ratings = product?.ratings;
+
     loggedInUser = checkUserLogin();
     if (loggedInUser) {
       const myRating = ratings?.filter(
         (rating) => rating.userId == loggedInUser.userId
       );
-      console.log(loggedInUser);
-      setRating(myRating[0]?.rating);
+
+      setRating(myRating && myRating.length > 0 && myRating[0]?.rating);
     }
-  }, []);
+  });
 
   if (router.isFallback) {
     return <LoadingSpinner />;
@@ -171,8 +172,6 @@ export async function getStaticProps({ params }) {
     } else {
       throw new Error("No similar products to show!");
     }
-
-    console.log(similarProducts);
   } catch (err) {
     console.log(err);
   }
@@ -182,14 +181,6 @@ export async function getStaticProps({ params }) {
       notFound: true,
     };
   }
-
-  // // fetch related product through tags
-
-  // const getRelatedProducts = () => {
-  //   try {
-  //     const response = fetch();
-  //   } catch (err) {}
-  // };
 
   return {
     props: {

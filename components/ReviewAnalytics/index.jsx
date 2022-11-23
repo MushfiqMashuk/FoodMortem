@@ -1,14 +1,11 @@
 import checkReviewType from "../../helpers/checkReviewType";
-import checkUserLogin from "../../helpers/checkUserLogin";
 import RatingComponent from "../RatingComponent";
 import styles from "./reviewAnalytics.module.scss";
 
 function ReviewAnalytics({ product }) {
   const { ratings, reviews } = product;
-  const loggedInUser = checkUserLogin();
 
   const reviewObject = checkReviewType(reviews);
-  console.log(reviewObject);
 
   return (
     <>
@@ -61,7 +58,7 @@ function ReviewAnalytics({ product }) {
           <RatingComponent
             productRating={product?.averageRating}
             productName={product?.name}
-            totalRating={product?.ratings?.length}
+            totalRating={ratings?.length}
             productId={product?._id}
           />
         </div>
