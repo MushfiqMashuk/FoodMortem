@@ -2,3 +2,4 @@
 * building application has issues.
 * In each page, there should be only 1 h1 tag (good for seo). Need to change h3 to h1 
 * In NoProduct component a 'Suggest' component need to be passed as a children
+* Swith cases need to be added default statements.
