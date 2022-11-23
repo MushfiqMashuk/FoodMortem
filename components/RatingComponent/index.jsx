@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import checkUserLogin from "../../helpers/checkUserLogin";
 import StarIcon from "../../public/star_icon6.svg";
 import YourRatingIconAfter from "../../public/your_rating_star_after.svg";
@@ -17,10 +17,32 @@ function RatingComponent({
   productId,
 }) {
   const loggedInUser = checkUserLogin();
-  const {name, userId} = loggedInUser;
+  const { userName, userId } = loggedInUser;
 
   const [showModal, setShowModal] = useState(false);
+  const [averageRating, setAverageRating] = useState(productRating);
+  const [numberOfratings, setNumberOfratings] = useState(totalRating);
+
   const rating = useRatingStore((state) => state.rating);
+
+  useEffect(() => {
+    const getAverageRating = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/averageRating?productId=${productId}`
+        );
+
+        const data = await res.json();
+
+        setAverageRating(data.averageRating);
+        setNumberOfratings(data.ratings.length);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    getAverageRating();
+  }, [rating]);
 
   // Fetch the user rating from the database, if there's any. Else userRating = 0
 
@@ -38,7 +60,7 @@ function RatingComponent({
               initialRating={rating}
               productId={productId}
               userId={userId}
-              userName={name}
+              userName={userName}
             />
           ) : (
             <LoginPrompt
@@ -60,11 +82,13 @@ function RatingComponent({
               </div>
               <div className={styles.stats}>
                 <div className={styles.total_rating}>
-                  <span className={styles.the_rating}>{productRating}</span>
+                  <span className={styles.the_rating}>{averageRating}</span>
                   <span>/</span>
                   <span>10</span>
                 </div>
-                <div className={styles.total_number_of_rate}>{totalRating}</div>
+                <div className={styles.total_number_of_rate}>
+                  {numberOfratings}
+                </div>
               </div>
             </div>
           </div>

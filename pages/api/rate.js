@@ -2,6 +2,7 @@
 
 import connectDB from "../../backend/config/db";
 import Products from "../../backend/models/Products";
+import calculateAverageRating from "../../helpers/calculateRating";
 
 export default async function handler(req, res) {
   const { productId } = req.query;
@@ -18,6 +19,18 @@ export default async function handler(req, res) {
           }
         );
 
+        const ratings = await Products.findById(req.body.productId).select({
+          ratings: 1,
+        });
+
+        const averageRating = calculateAverageRating(ratings.ratings);
+
+        await Products.findOneAndUpdate(
+          { _id: req.body.productId },
+
+          { averageRating: averageRating }
+        );
+
         res.status(200).json(result);
       } catch (err) {
         res.status(500).json({ error: { message: "Internal server error!" } });
@@ -29,6 +42,18 @@ export default async function handler(req, res) {
         const result = await Products.updateOne(
           { _id: productId },
           { $push: { ratings: req.body } }
+        );
+
+        const ratings = await Products.findById(productId).select({
+          ratings: 1,
+        });
+
+        const averageRating = calculateAverageRating(ratings.ratings);
+
+        await Products.findOneAndUpdate(
+          { _id: productId },
+
+          { averageRating: averageRating }
         );
 
         res.status(200).json(result);
