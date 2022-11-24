@@ -12,7 +12,6 @@ const ReviewForm = ({ productName }) => {
     reviewError: "",
   });
   const [userReview, setUserReview] = useState("");
-  const rating = useRatingStore((state) => state.rating);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,7 +29,7 @@ const ReviewForm = ({ productName }) => {
         <div className={styles.product_name}>{productName}</div>
       )}
       <form className={styles.form} onSubmit={handleSubmit}>
-        <div className={styles.product_rating}>
+        {/* <div className={styles.product_rating}>
           <p>
             Your Rating <span className="required">*</span>
           </p>
@@ -47,7 +46,7 @@ const ReviewForm = ({ productName }) => {
           {ratingError && ratingError.length > 0 && (
             <p className="error_message">{ratingError}</p>
           )}
-        </div>
+        </div> */}
         <div className={styles.radio_button_container}>
           <p className={styles.review_type}>
             Review Type <span className="required">*</span>
@@ -62,7 +61,7 @@ const ReviewForm = ({ productName }) => {
             <p className="error_message">{typeError}</p>
           )}
         </div>
-        <div className={styles.title}>
+        {/* <div className={styles.title}>
           <p className={styles.review_title}>
             Review Title <span className="required">*</span>
           </p>
@@ -75,7 +74,7 @@ const ReviewForm = ({ productName }) => {
           {titleError && titleError.length > 0 && (
             <p className="error_message">{titleError}</p>
           )}
-        </div>
+        </div> */}
         <div className={styles.review}>
           <textarea
             cols="30"

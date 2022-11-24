@@ -2,8 +2,7 @@ import Link from "next/link";
 import ReviewCard from "../ReviewCard";
 import styles from "./userReviews.module.scss";
 
-function UserReviews({reviews, productId}) {
-  
+function UserReviews({ reviews = [], productId, ratings = [] }) {
   return (
     <div className={styles.container}>
       <div className={styles.top_section}>
@@ -13,9 +12,19 @@ function UserReviews({reviews, productId}) {
         </Link>
       </div>
       <div className={styles.body}>
-        <ReviewCard />
-        <ReviewCard />
-        <ReviewCard />
+        {reviews &&
+          reviews.map((review) => {
+            const user = ratings.find(
+              (rating) => rating.userId == review.userId
+            );
+
+            return (
+              <ReviewCard
+                userReview={review}
+                rating={user ? user.rating : null}
+              />
+            );
+          })}
       </div>
     </div>
   );

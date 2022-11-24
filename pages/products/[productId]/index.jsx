@@ -111,8 +111,9 @@ function SingleProduct({ product, similarProducts }) {
           )}
           <WriteAReview openModal={() => setShowModal(true)} />
           <UserReviews
-            totalReviews={product.reviews.slice(0, 3)}
+            reviews={product.reviews.slice(0, 3)}
             productId={product?._id}
+            ratings={product?.ratings}
           />
           <SimilarProduct products={similarProducts} />
         </Layout>
