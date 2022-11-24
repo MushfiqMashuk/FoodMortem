@@ -13,13 +13,14 @@ function UserReviews({ reviews = [], productId, ratings = [] }) {
       </div>
       <div className={styles.body}>
         {reviews &&
-          reviews.map((review) => {
+          reviews.map((review, i) => {
             const user = ratings.find(
               (rating) => rating.userId == review.userId
             );
 
             return (
               <ReviewCard
+                key={i}
                 userReview={review}
                 rating={user ? user.rating : null}
               />

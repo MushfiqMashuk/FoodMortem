@@ -1,10 +1,12 @@
 import Image from "next/image";
+import getDate from "../../helpers/getDate";
 import StarIcon from "../../public/star_icon6.svg";
 import styles from "./reviewCard.module.scss";
 
-function ReviewCard({userReview, page, rating }) {
+function ReviewCard({ userReview, page, rating }) {
+  const { name, review, type, date } = userReview;
 
-  const { userId, name, review, type, date } = userReview;
+  const parsedDate = getDate(date);
 
   return (
     <div
@@ -29,7 +31,7 @@ function ReviewCard({userReview, page, rating }) {
           </div>
         )}
       </div>
-      <div className={styles.date}>12 September 2022</div>
+      <div className={styles.date}>{parsedDate && parsedDate}</div>
       <div className={styles.body}>
         <div className={styles.type}>
           <div>
@@ -37,9 +39,7 @@ function ReviewCard({userReview, page, rating }) {
           </div>
         </div>
         <div className={styles.main_content}>
-          <p>
-            {review}
-          </p>
+          <p>{review}</p>
         </div>
       </div>
     </div>
