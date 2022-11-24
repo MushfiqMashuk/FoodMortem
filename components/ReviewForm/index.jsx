@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import checkUserLogin from "../../helpers/checkUserLogin";
+import useRatingStore from "../../store/useRatingStore";
 import RadioButton from "../RadioButton";
 import styles from "./reviewForm.module.scss";
 
@@ -14,6 +15,7 @@ const ReviewForm = ({ productName, productId, onClose }) => {
   });
   const [userReview, setUserReview] = useState("");
   const [radioButtonValue, setRadioButtonValue] = useState(null);
+  const setReviews = useRatingStore((state) => state.setReviews);
 
   // const handleSubmit = (e) => {
   //   e.preventDefault();
@@ -55,7 +57,7 @@ const ReviewForm = ({ productName, productId, onClose }) => {
       const data = await response.json();
 
       if (response.ok) {
-        console.log(data);
+        setReviews(data.reviews);
         onClose();
       } else {
         setError((prev) => ({

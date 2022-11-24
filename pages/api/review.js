@@ -2,7 +2,6 @@
 
 import connectDB from "../../backend/config/db";
 import Products from "../../backend/models/Products";
-import calculateAverageRating from "../../helpers/calculateRating";
 
 export default async function handler(req, res) {
   const { productId } = req.query;
@@ -10,14 +9,13 @@ export default async function handler(req, res) {
   connectDB();
 
   switch (req.method) {
-
     case "PATCH":
       try {
         const result = await Products.findOneAndUpdate(
           { _id: productId },
-          { $push: { reviews: req.body } }
+          { $push: { reviews: req.body } },
+          { new: true }
         );
-        
         res.status(200).json(result);
       } catch (err) {
         res.status(500).json({ error: { message: "Internal server error!" } });

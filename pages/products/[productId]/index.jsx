@@ -24,13 +24,17 @@ function SingleProduct({ product, similarProducts }) {
   const [showModal, setShowModal] = useState(false);
   const loggedInUser = checkUserLogin();
   let ratings;
+  let userReviews;
 
-  const setRating = useRatingStore((state) => state.setRating);
+  const [setRating, reviews, setReviews] = useRatingStore((state) => [
+    state.setRating,
+    state.reviews,
+    state.setReviews,
+  ]);
 
   useEffect(() => {
     ratings = product?.ratings;
 
-    
     if (loggedInUser) {
       const myRating = ratings?.filter(
         (rating) => rating.userId == loggedInUser.userId
@@ -38,7 +42,12 @@ function SingleProduct({ product, similarProducts }) {
 
       setRating(myRating && myRating.length > 0 && myRating[0]?.rating);
     }
-  });
+  }, []);
+
+  useEffect(() => {
+    userReviews = product?.reviews;
+    setReviews(userReviews && userReviews.length > 0 && userReviews);
+  }, []);
 
   if (router.isFallback) {
     return <LoadingSpinner />;
@@ -115,7 +124,7 @@ function SingleProduct({ product, similarProducts }) {
           )}
           <WriteAReview openModal={() => setShowModal(true)} />
           <UserReviews
-            reviews={product.reviews.slice(0, 3)}
+            reviews={reviews?.slice(-3)}
             productId={product?._id}
             ratings={product?.ratings}
           />
