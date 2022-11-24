@@ -17,13 +17,6 @@ const ReviewForm = ({ productName, productId, onClose }) => {
   const [radioButtonValue, setRadioButtonValue] = useState(null);
   const setReviews = useRatingStore((state) => state.setReviews);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   if (!rating) {
-  //     setError((prev) => ({ ...prev, ratingError: "Please provide a rating" }));
-  //   }
-  // };
 
   const handleSubmit = (e) => {
     // preventing the default behaviour (reloading) of the form
