@@ -2,7 +2,7 @@ import { useState } from "react";
 import randomNumber from "../../helpers/randomNumber";
 import styles from "./radioButton.module.scss";
 
-const RadioButton = ({ options = [] }) => {
+const RadioButton = ({ options = [], callback }) => {
   const [value, setValue] = useState("");
 
   const isSelected = (selectedValue) => selectedValue === value;
@@ -10,6 +10,7 @@ const RadioButton = ({ options = [] }) => {
   const handleChange = (e) => {
     const target = e.target;
     setValue(target.value);
+    callback(target.value);
   };
 
   return (

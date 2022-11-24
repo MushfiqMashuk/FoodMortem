@@ -1,4 +1,5 @@
 import Link from "next/link";
+import randomNumber from "../../helpers/randomNumber";
 import ReviewCard from "../ReviewCard";
 import styles from "./userReviews.module.scss";
 
@@ -20,7 +21,7 @@ function UserReviews({ reviews = [], productId, ratings = [] }) {
 
             return (
               <ReviewCard
-                key={i}
+                key={randomNumber(Date.now())}
                 userReview={review}
                 rating={user ? user.rating : null}
               />

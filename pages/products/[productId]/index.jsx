@@ -99,7 +99,11 @@ function SingleProduct({ product, similarProducts }) {
               onClose={() => setShowModal(false)}
             >
               {loggedInUser ? (
-                <ReviewForm productName={product?.name} />
+                <ReviewForm
+                  productName={product?.name}
+                  productId={product?._id}
+                  onClose={() => setShowModal(false)}
+                />
               ) : (
                 <LoginPrompt
                   promptText="You are not signed in. Please sign in to review your favourite food."

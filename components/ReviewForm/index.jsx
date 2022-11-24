@@ -1,27 +1,77 @@
 import { useMemo, useState } from "react";
-import useRatingStore from "../../store/useRatingStore";
+import checkUserLogin from "../../helpers/checkUserLogin";
 import RadioButton from "../RadioButton";
-import StarRatingComponent from "../StarRatingComponent";
 import styles from "./reviewForm.module.scss";
 
-const ReviewForm = ({ productName }) => {
+const ReviewForm = ({ productName, productId, onClose }) => {
+  const loggedInUser = checkUserLogin();
+
+  const { userName, userId } = loggedInUser;
+
   const [error, setError] = useState({
-    ratingError: "",
     typeError: "",
-    titleError: "",
     reviewError: "",
   });
   const [userReview, setUserReview] = useState("");
+  const [radioButtonValue, setRadioButtonValue] = useState(null);
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   if (!rating) {
+  //     setError((prev) => ({ ...prev, ratingError: "Please provide a rating" }));
+  //   }
+  // };
 
   const handleSubmit = (e) => {
+    // preventing the default behaviour (reloading) of the form
     e.preventDefault();
 
-    if (!rating) {
-      setError((prev) => ({ ...prev, ratingError: "Please provide a rating" }));
+    // submit the form
+    formSubmit();
+  };
+
+  const formSubmit = async () => {
+    const reviewObject = {
+      userId,
+      name: userName.trim(),
+      type: radioButtonValue.trim(),
+      review: userReview,
+    };
+
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/review?productId=${productId}`,
+        {
+          method: "PATCH",
+          headers: {
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(reviewObject),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log(data);
+        onClose();
+      } else {
+        setError((prev) => ({
+          ...prev,
+          reviewError: "Can not review now!",
+        }));
+      }
+    } catch (err) {
+      setError((prev) => ({
+        ...prev,
+        reviewError: "Internal server error!",
+      }));
     }
   };
 
-  const { ratingError, typeError, titleError, reviewError } = error;
+  const { typeError, reviewError } = error;
 
   return (
     <div className={styles.container}>
@@ -53,7 +103,10 @@ const ReviewForm = ({ productName }) => {
           </p>
           {useMemo(
             () => (
-              <RadioButton options={["positive", "moderate", "negative"]} />
+              <RadioButton
+                options={["positive", "moderate", "negative"]}
+                callback={(value) => setRadioButtonValue(value)}
+              />
             ),
             []
           )}
