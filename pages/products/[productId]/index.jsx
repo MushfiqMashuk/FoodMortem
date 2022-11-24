@@ -26,10 +26,11 @@ function SingleProduct({ product, similarProducts }) {
   let ratings;
   let userReviews;
 
-  const [setRating, reviews, setReviews] = useRatingStore((state) => [
+  const [setRating, reviews, setReviews, rating] = useRatingStore((state) => [
     state.setRating,
     state.reviews,
     state.setReviews,
+    state.rating
   ]);
 
   useEffect(() => {
@@ -42,12 +43,12 @@ function SingleProduct({ product, similarProducts }) {
 
       setRating(myRating && myRating.length > 0 && myRating[0]?.rating);
     }
-  }, []);
+  }, [product]);
 
   useEffect(() => {
     userReviews = product?.reviews;
     setReviews(userReviews && userReviews.length > 0 && userReviews);
-  }, []);
+  }, [product]);
 
   if (router.isFallback) {
     return <LoadingSpinner />;
@@ -127,6 +128,7 @@ function SingleProduct({ product, similarProducts }) {
             reviews={reviews?.slice(-3)}
             productId={product?._id}
             ratings={product?.ratings}
+            currentUserRating={rating}
           />
           <SimilarProduct products={similarProducts} />
         </Layout>

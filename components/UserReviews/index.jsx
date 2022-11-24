@@ -3,7 +3,12 @@ import randomNumber from "../../helpers/randomNumber";
 import ReviewCard from "../ReviewCard";
 import styles from "./userReviews.module.scss";
 
-function UserReviews({ reviews = [], productId, ratings = [] }) {
+function UserReviews({
+  reviews = [],
+  productId,
+  ratings = [],
+  currentUserRating,
+}) {
   return (
     <div className={styles.container}>
       <div className={styles.top_section}>
@@ -14,7 +19,7 @@ function UserReviews({ reviews = [], productId, ratings = [] }) {
       </div>
       <div className={styles.body}>
         {reviews &&
-          reviews.map((review, i) => {
+          reviews.map((review) => {
             const user = ratings.find(
               (rating) => rating.userId == review.userId
             );
@@ -24,6 +29,7 @@ function UserReviews({ reviews = [], productId, ratings = [] }) {
                 key={randomNumber(Date.now())}
                 userReview={review}
                 rating={user ? user.rating : null}
+                currentUserRating={currentUserRating}
               />
             );
           })}

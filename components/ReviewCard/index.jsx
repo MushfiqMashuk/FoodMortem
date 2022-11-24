@@ -1,10 +1,23 @@
 import Image from "next/image";
+import { useState } from "react";
+import { useEffect } from "react";
+import checkUserLogin from "../../helpers/checkUserLogin";
 import getDate from "../../helpers/getDate";
 import StarIcon from "../../public/star_icon6.svg";
 import styles from "./reviewCard.module.scss";
 
-function ReviewCard({ userReview, page, rating }) {
-  const { name, review, type, date } = userReview;
+function ReviewCard({ userReview, page, rating, currentUserRating }) {
+  const { name, review, type, date, userId } = userReview;
+
+  const [cardRating, setCardRating] = useState(rating);
+
+  useEffect(() => {
+    const loggedInUser = checkUserLogin();
+
+    if (loggedInUser.userId == userId) {
+      setCardRating(currentUserRating);
+    }
+  }, [currentUserRating]);
 
   const parsedDate = getDate(date);
 
@@ -20,11 +33,11 @@ function ReviewCard({ userReview, page, rating }) {
         <div className={styles.name}>
           <p>{name}</p>
         </div>
-        {rating && (
+        {cardRating && (
           <div className={styles.rating}>
             <Image src={StarIcon} width={16} height={16} />
             <div className={styles.rating_value}>
-              <span className={styles.the_rating}>{rating}</span>
+              <span className={styles.the_rating}>{cardRating}</span>
               <span>/</span>
               <span>10</span>
             </div>
