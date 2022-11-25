@@ -18,8 +18,6 @@ function Navbar() {
 
   const bucketList = useBucketListStore((state) => state.bucketList);
 
-  console.log(bucketList);
-
   useEffect(() => {
     const loggedInUser = checkUserLogin();
     const { userId, userName, email, bucketList } = loggedInUser;

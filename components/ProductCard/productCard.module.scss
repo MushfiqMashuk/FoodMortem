@@ -41,11 +41,12 @@
 
     .product_rating {
       @include center_element;
-      gap: 0.5rem;
+      gap: 0.8rem;
       flex-wrap: wrap;
 
       .rating {
-        margin-left: 0.2rem;
+        //font-size: 1.2rem;
+        font-weight: 500;
       }
     }
 

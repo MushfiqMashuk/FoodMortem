@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import checkUserLogin from "../../helpers/checkUserLogin";
+import useBucketListStore from "../../store/useBucketListStore";
 import PlusSign from "../HelperComponents/PlusSign";
 import TickSign from "../HelperComponents/TickSign";
 import LoginPrompt from "../LoginPrompt";
@@ -9,11 +10,24 @@ import styles from "./addToBucketListButton.module.scss";
 function AddToBucketListButton({ children, product }) {
   const [isInBucket, setIsInBucket] = useState(false);
   const [showModal, setShowModal] = useState(false);
+
+  const [setBucketList, bucketList] = useBucketListStore((state) => [state.setBucketList, state.bucketList]);
+
   let loggedInUser;
 
   useEffect(() => {
     loggedInUser = checkUserLogin();
   });
+
+  useEffect(() => {
+
+    const bucketListedProduct = bucketList.find(item => item.productId == product._id);
+
+    if(bucketListedProduct) {
+      setIsInBucket(true);
+    }
+
+  }, [product, bucketList]);
 
   const handleAddBucketList = async () => {
     // set loading true
@@ -53,9 +67,9 @@ function AddToBucketListButton({ children, product }) {
         const data = await response.json();
 
         if (response.ok) {
+          setBucketList(data.bucketList);
           // set the local state
           setIsInBucket(true);
-          console.log(data);
         }
       } catch (err) {
         console.log(err);
@@ -86,8 +100,8 @@ function AddToBucketListButton({ children, product }) {
 
         if (response.ok) {
           // set the local state
+          setBucketList(data.bucketList);
           setIsInBucket(false);
-          console.log(data);
         }
       } catch (err) {
         console.log(err);
@@ -119,7 +133,7 @@ function AddToBucketListButton({ children, product }) {
           {isInBucket ? <TickSign /> : <PlusSign />}
         </div>
         <div className={styles.button_title}>
-          {isInBucket ? "Remove Item" : children}
+          {isInBucket ? "Remove from list" : children}
         </div>
       </div>
     </div>

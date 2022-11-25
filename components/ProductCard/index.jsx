@@ -46,7 +46,7 @@ const ProductCard = ({
 
       <div className={styles.product_description}>
         <div className={styles.product_rating}>
-          <Image src={StarIcon} height={20} width={20} color="red" />
+          <Image src={StarIcon} height={20} width={20} />
           <SubTitle className={styles.rating}>
             {rating ? product.rating : productRating}
           </SubTitle>
