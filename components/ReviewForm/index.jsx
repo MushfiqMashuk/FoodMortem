@@ -28,8 +28,8 @@ const ReviewForm = ({ productName, productId, onClose }) => {
   const formSubmit = async () => {
     const reviewObject = {
       userId,
-      name: userName.trim(),
-      type: radioButtonValue.trim(),
+      name: userName.trim().toLowerCase(),
+      type: radioButtonValue.trim().toLowerCase(),
       review: userReview,
     };
 

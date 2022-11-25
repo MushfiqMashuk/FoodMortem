@@ -67,7 +67,7 @@ function Navbar() {
           onClose={handleClose}
         >
           {showSuggestion ? (
-            <SuggestionForm />
+            <SuggestionForm onClose={handleClose} />
           ) : (
             <LoginPrompt
               promptText="Do you really want to sign out?"
