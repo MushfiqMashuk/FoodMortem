@@ -103,6 +103,9 @@ function Navbar() {
         <div className={styles.midsection}>
           <div className={styles.bucket_list}>
             <p>Bucket List</p>
+            {bucketList && bucketList.length > 0 && (
+              <span className={styles.bucket_list_number}>{bucketList.length}</span>
+            )}
           </div>
           <div className={styles.suggest_product}>
             <p onClick={handleSuggestion}>Suggest a product</p>
