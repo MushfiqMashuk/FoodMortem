@@ -45,7 +45,22 @@ h6 {
 .see_all {
   color: rgb(10, 24, 222);
   text-transform: uppercase;
-  
+}
+
+.nav_buttons {
+  cursor: pointer;
+  background-color: #414141;
+  color: beige;
+  padding: 0.5rem 1.3rem;
+  border-radius: 0.3rem;
+  &:hover {
+    background-color: bisque;
+    color: #414141;
+  }
+
+  &:active {
+    background-color: rgb(251, 189, 113);
+  }
 }
 
 .submit_button {

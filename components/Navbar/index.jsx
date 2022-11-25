@@ -114,7 +114,7 @@ function Navbar() {
       )}
       <div className={styles.container}>
         <div className={styles.logo}>
-          <div className={styles.site_name}>
+          <div className={`${styles.site_name} nav_buttons`}>
             <Link href="/">
               <a>{process.env.NEXT_PUBLIC_SITE_NAME}</a>
             </Link>
@@ -128,18 +128,10 @@ function Navbar() {
       </div> */}
 
         <div className={styles.midsection}>
-          <div className={styles.bucket_list}>
-            <p>Bucket List</p>
-            {userBucketList && userBucketList.length > 0 && (
-              <span className={styles.bucket_list_number}>
-                {userBucketList.length}
-              </span>
-            )}
-          </div>
-          <div className={styles.suggest_product}>
+          <div className={`${styles.suggest_product} nav_buttons`}>
             <p onClick={handleSuggestion}>Suggest a product</p>
           </div>
-          <div className={styles.product_list}>
+          <div className={`${styles.product_list} nav_buttons`}>
             <Link href="/products">
               <a>Product List</a>
             </Link>
@@ -158,6 +150,14 @@ function Navbar() {
               <div>{user && <p>{user.userName}</p>}</div>
             </div>
           )}
+          <div className={`${styles.bucket_list} nav_buttons`}>
+            <p>Bucket List</p>
+            {userBucketList && userBucketList?.length > 0 && (
+              <span className={styles.bucket_list_number}>
+                {userBucketList?.length}
+              </span>
+            )}
+          </div>
           {user ? (
             <div className={styles.button_container}>
               <button
