@@ -72,7 +72,6 @@ function Signin() {
       const data = await response.json();
 
       if (response.ok) {
-        console.log(data);
         setBucketList(data.bucketList);
         router.push(
           router.query.from ? decodeURIComponent(router.query.from) : "/"

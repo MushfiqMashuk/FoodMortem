@@ -6,3 +6,4 @@
 * When I reload the single product page, product data is undefined. 
 * In rate api file - average rating functionality needs to be moved in a function.
 * Review delete need to be added.
+* If I reload the page, bucket list goes away

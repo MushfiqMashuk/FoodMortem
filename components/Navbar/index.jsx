@@ -15,11 +15,40 @@ function Navbar() {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
   const [showSuggestion, setShowSuggestion] = useState(false);
+  const loggedInUser = checkUserLogin();
 
-  const bucketList = useBucketListStore((state) => state.bucketList);
+  let userBucketList;
+
+  if (loggedInUser) {
+    const [bucketList, setBucketList] = useBucketListStore((state) => [
+      state.bucketList,
+      state.setBucketList,
+    ]);
+
+    userBucketList = bucketList;
+
+    useEffect(() => {
+      const getBucketList = async () => {
+        try {
+          const response = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/bucketList?userId=${loggedInUser.userId}`
+          );
+
+          const data = await response.json();
+
+          if (response.ok) {
+            setBucketList(data.bucketList);
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
+      getBucketList();
+    }, []);
+  }
 
   useEffect(() => {
-    const loggedInUser = checkUserLogin();
     const { userId, userName, email, bucketList } = loggedInUser;
     if (loggedInUser) {
       setUser({
@@ -101,8 +130,10 @@ function Navbar() {
         <div className={styles.midsection}>
           <div className={styles.bucket_list}>
             <p>Bucket List</p>
-            {bucketList && bucketList.length > 0 && (
-              <span className={styles.bucket_list_number}>{bucketList.length}</span>
+            {userBucketList && userBucketList.length > 0 && (
+              <span className={styles.bucket_list_number}>
+                {userBucketList.length}
+              </span>
             )}
           </div>
           <div className={styles.suggest_product}>
