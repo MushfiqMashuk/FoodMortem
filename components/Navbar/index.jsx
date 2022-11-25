@@ -96,12 +96,20 @@ function Navbar() {
       </div> */}
 
         <div className={styles.midsection}>
-          <p>Bucket List</p>
-          <p onClick={handleSuggestion}>Suggest a product</p>
-          <Link href="/products">
-            <a>Product List</a>
-          </Link>
-          <p>All Brands</p>
+          <div className={styles.bucket_list}>
+            <p>Bucket List</p>
+          </div>
+          <div className={styles.suggest_product}>
+            <p onClick={handleSuggestion}>Suggest a product</p>
+          </div>
+          <div className={styles.product_list}>
+            <Link href="/products">
+              <a>Product List</a>
+            </Link>
+          </div>
+          <div className={styles.all_brands}>
+            <p>All Brands</p>
+          </div>
         </div>
 
         <div className={styles.profile}>
