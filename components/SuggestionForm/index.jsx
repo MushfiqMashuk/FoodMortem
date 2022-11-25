@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./suggestionForm.module.scss";
 
-function SuggestionForm({onClose}) {
+function SuggestionForm({ onClose }) {
   const [formData, setFormData] = useState({
     productName: "",
     brandName: "",
@@ -52,21 +52,17 @@ function SuggestionForm({onClose}) {
       const data = await response.json();
 
       if (response.ok) {
-        //setReviews(data.reviews);
-
-        console.log(formData);
-
         onClose();
       } else {
         setFormData((prev) => ({
           ...prev,
-          reviewError: "Can not provide a suggestion write now",
+          suggestionError: "Can not provide a suggestion write now",
         }));
       }
     } catch (err) {
-      setError((prev) => ({
+      setFormData((prev) => ({
         ...prev,
-        reviewError: "Internal server error!",
+        suggestionError: err.message,
       }));
     }
   };
