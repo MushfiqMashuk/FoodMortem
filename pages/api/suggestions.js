@@ -10,14 +10,12 @@ export default async function handler(req, res) {
       const savedData = await suggestion.save();
       res.status(200).json(savedData);
     } catch (err) {
-      req
-        .status(500)
-        .json({
-          error: {
-            message:
-              "Couldn't recieve your suggestion right now. Please try again later!",
-          },
-        });
+      res.status(500).json({
+        error: {
+          message:
+            "Couldn't recieve your suggestion right now. Please try again later!",
+        },
+      });
     }
   }
 }

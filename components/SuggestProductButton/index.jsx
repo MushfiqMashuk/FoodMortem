@@ -10,7 +10,7 @@ function SuggestProductButton() {
     <>
       {showModal && (
         <Modal title="Suggest a product" onClose={() => setShowModal(false)}>
-          <SuggestionForm />
+          <SuggestionForm onClose={() => setShowModal(false)} />
         </Modal>
       )}
       <button className={styles.button} onClick={() => setShowModal(true)}>
