@@ -63,15 +63,35 @@ function AddToBucketListButton({ children, product }) {
     }
   };
 
-  const handleRemoveBucketList = () => {
-    // set loading true
-    // send the item to the database
-
+  const handleRemoveBucketList = async () => {
     if (!loggedInUser) {
       setShowModal(true);
     } else {
-      // set the local state
-      setIsInBucket(false);
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/bucketList?userId=${loggedInUser.userId}`,
+          {
+            method: "DELETE",
+            headers: {
+              // 'Content-Type': 'application/x-www-form-urlencoded',
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              productId: product._id,
+            }),
+          }
+        );
+
+        const data = await response.json();
+
+        if (response.ok) {
+          // set the local state
+          setIsInBucket(false);
+          console.log(data);
+        }
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
 

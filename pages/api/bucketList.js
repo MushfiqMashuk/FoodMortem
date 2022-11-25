@@ -23,6 +23,20 @@ export default async function handler(req, res) {
       }
       break;
 
+    case "DELETE":
+      try {
+        const result = await Users.findOneAndUpdate(
+          { _id: userId },
+          { $pull: { bucketList: { productId: req.body.productId } } },
+          { new: true }
+        );
+
+        const { password, ...data } = result._doc;
+        res.status(200).json(data);
+      } catch (err) {
+        res.status(500).json({ error: { message: "Internal server error!" } });
+      }
+
     default:
       break;
   }
