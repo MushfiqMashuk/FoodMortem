@@ -85,7 +85,7 @@ const ProductCard = ({
           )}
         </div>
         <div>
-          <AddToBucketListButton>BucketList</AddToBucketListButton>
+          <AddToBucketListButton product={product}>BucketList</AddToBucketListButton>
         </div>
       </div>
     </div>

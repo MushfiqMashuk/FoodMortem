@@ -4,11 +4,14 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import checkUserLogin from "../../helpers/checkUserLogin";
 import loginImage from "../../public/login.svg";
+import useBucketListStore from "../../store/useBucketListStore";
 import styles from "./signin.module.scss";
 
 function Signin() {
   const loggedInUser = checkUserLogin();
   const router = useRouter();
+
+  const setBucketList = useBucketListStore((state) => state.setBucketList);
 
   try {
     if (loggedInUser) {
@@ -69,6 +72,8 @@ function Signin() {
       const data = await response.json();
 
       if (response.ok) {
+        console.log(data);
+        setBucketList(data.bucketList);
         router.push(
           router.query.from ? decodeURIComponent(router.query.from) : "/"
         );

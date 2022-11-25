@@ -56,7 +56,7 @@ export default async function handler(req, res) {
               // setting the cookie at the client end
               res.setHeader("Set-Cookie", serialised);
 
-              res.status(200).json({ message: "Success!" });
+              res.status(200).json(userObject);
             } else {
               res.status(401).json({
                 error: {

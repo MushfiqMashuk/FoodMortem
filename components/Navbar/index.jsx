@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import checkUserLogin from "../../helpers/checkUserLogin";
 import userAvatar from "../../public/avatar.svg";
+import useBucketListStore from "../../store/useBucketListStore";
 import LoginPrompt from "../LoginPrompt";
 import Modal from "../Modal";
 import SuggestionForm from "../SuggestionForm";
@@ -14,6 +15,10 @@ function Navbar() {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
   const [showSuggestion, setShowSuggestion] = useState(false);
+
+  const bucketList = useBucketListStore((state) => state.bucketList);
+
+  console.log(bucketList);
 
   useEffect(() => {
     const loggedInUser = checkUserLogin();
