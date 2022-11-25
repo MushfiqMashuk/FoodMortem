@@ -22,9 +22,25 @@ const UsersSchema = new Schema(
     },
     bucketList: [
       {
-        id: Types.ObjectId,
-        name: String,
-        brandName: String,
+        productId: Types.ObjectId,
+        productName: {
+          type: String,
+          trim: true,
+        },
+        brand: {
+          id: Types.ObjectId,
+          name: {
+            type: String,
+            trim: true,
+          },
+        },
+        category: {
+          id: Types.ObjectId,
+          name: {
+            type: String,
+            trim: true,
+          },
+        },
         date: { type: Date, default: Date.now },
       },
     ],
