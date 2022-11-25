@@ -24,7 +24,7 @@ export default async function handler(req, res) {
 
         res.status(200).json(data);
       } else {
-        const data = await Products.find();
+        const data = await Products.find().sort({ averageRating: "desc" });
 
         res.status(200).json(data);
       }

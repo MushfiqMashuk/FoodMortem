@@ -29,12 +29,19 @@ function SuggestionForm({ onClose }) {
 
   const formSubmit = async () => {
     const { productName, brandName, location } = formData;
-
-    const suggestionObject = {
-      productName: productName.trim().toLowerCase(),
-      brandName: brandName.trim().toLowerCase(),
-      location: location.trim().toLowerCase(),
-    };
+    let suggestionObject;
+    if (productName.length > 0 && brandName.length > 0) {
+      suggestionObject = {
+        productName: productName.trim().toLowerCase(),
+        brandName: brandName.trim().toLowerCase(),
+        location: location.trim().toLowerCase(),
+      };
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        suggestionError: "Product & Brand name is required!",
+      }));
+    }
 
     try {
       const response = await fetch(
@@ -62,7 +69,7 @@ function SuggestionForm({ onClose }) {
     } catch (err) {
       setFormData((prev) => ({
         ...prev,
-        suggestionError: err.message,
+        suggestionError: "Product & Brand name is required!",
       }));
     }
   };
@@ -107,6 +114,11 @@ function SuggestionForm({ onClose }) {
           >
             Submit
           </button>
+          <div>
+            {formData.suggestionError && (
+              <p className="error_message">{formData.suggestionError}</p>
+            )}
+          </div>
         </div>
       </form>
     </div>
