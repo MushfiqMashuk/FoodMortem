@@ -52,7 +52,7 @@ function SingleCategory({ category, products }) {
           {products &&
             products.length > 0 &&
             products.map((product) => (
-              <ProductCard product={product} key={product._id} singleProduct />
+              <ProductCard product={product} key={product._id} page="category" />
             ))}
         </div>
       </div>

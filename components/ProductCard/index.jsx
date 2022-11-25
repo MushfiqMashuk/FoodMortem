@@ -8,7 +8,12 @@ import Overlay from "../Overlay";
 import SubTitle from "../SubTitle";
 import styles from "./productCard.module.scss";
 
-const ProductCard = ({ product, singleProduct = false, rating, topRated = false }) => {
+const ProductCard = ({
+  product,
+  page = "",
+  rating,
+  topRated = false,
+}) => {
   let productRating;
 
   if (!rating) {
@@ -57,7 +62,7 @@ const ProductCard = ({ product, singleProduct = false, rating, topRated = false 
             </a>
           </Link>
 
-          {!singleProduct && (
+          {page === "brand" ? null : (
             <Link href={`/brands/${product.brand?.id}`}>
               <a>
                 <SubTitle className={styles.product_name}>
@@ -67,15 +72,17 @@ const ProductCard = ({ product, singleProduct = false, rating, topRated = false 
             </Link>
           )}
 
-          <Link href={`/categories/${product?.category?.id}`}>
-            <a>
-              <SubTitle className={styles.product_category}>
-                {product.category.name
-                  ? product.category.name
-                  : product.category}
-              </SubTitle>
-            </a>
-          </Link>
+          {page === "category" ? null : (
+            <Link href={`/categories/${product?.category?.id}`}>
+              <a>
+                <SubTitle className={styles.product_category}>
+                  {product.category.name
+                    ? product.category.name
+                    : product.category}
+                </SubTitle>
+              </a>
+            </Link>
+          )}
         </div>
         <div>
           <AddToBucketListButton>BucketList</AddToBucketListButton>

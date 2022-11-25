@@ -82,7 +82,7 @@ function SingleBrand({ brand, products = [] }) {
             : products &&
               products.length > 0 &&
               products.map((product) => (
-                <ProductCard product={product} key={product._id} singleProduct />
+                <ProductCard product={product} key={product._id} page="brand" />
               ))}
         </div>
       </div>
