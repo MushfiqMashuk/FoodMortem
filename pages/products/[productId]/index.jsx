@@ -30,7 +30,7 @@ function SingleProduct({ product, similarProducts }) {
     state.setRating,
     state.reviews,
     state.setReviews,
-    state.rating
+    state.rating,
   ]);
 
   useEffect(() => {

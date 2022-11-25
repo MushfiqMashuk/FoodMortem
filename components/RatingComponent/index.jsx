@@ -22,8 +22,11 @@ function RatingComponent({
   const [showModal, setShowModal] = useState(false);
   const [averageRating, setAverageRating] = useState(productRating);
   const [numberOfratings, setNumberOfratings] = useState(totalRating);
+  let rating;
 
-  const rating = useRatingStore((state) => state.rating);
+  if (loggedInUser) {
+    rating = useRatingStore((state) => state.rating);
+  }
 
   useEffect(() => {
     const getAverageRating = async () => {

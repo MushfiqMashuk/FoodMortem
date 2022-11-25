@@ -12,8 +12,6 @@ function LoginPrompt({
 }) {
   const router = useRouter();
 
-  const signinPath = `/signin?from=${encodeURIComponent(router.asPath)}`;
-
   return (
     <div className={styles.container}>
       <div className={styles.subtitle}>

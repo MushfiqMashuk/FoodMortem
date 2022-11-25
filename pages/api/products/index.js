@@ -4,7 +4,7 @@ import connectDB from "../../../backend/config/db";
 import Products from "../../../backend/models/Products";
 
 export default async function handler(req, res) {
-  const { brandId } = req.query;
+  const { brandId, categoryId } = req.query;
 
   connectDB();
 
@@ -17,6 +17,10 @@ export default async function handler(req, res) {
     case "GET":
       if (brandId) {
         const data = await Products.find({ "brand.id": brandId });
+
+        res.status(200).json(data);
+      } else if (categoryId) {
+        const data = await Products.find({ "category.id": categoryId });
 
         res.status(200).json(data);
       } else {

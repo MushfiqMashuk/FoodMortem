@@ -10,6 +10,8 @@ const BrandsSchema = new Schema(
 
     categories: [String],
 
+    restaurant: Boolean,
+
     img: String,
   },
   { timestamps: true }

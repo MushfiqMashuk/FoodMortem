@@ -1,0 +1,34 @@
+@import "../../styles/Mixins";
+@import "../../styles/Variables";
+
+.header {
+  //border: 1px solid green;
+  min-height: 30vh;
+  padding-top: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+}
+
+.image_container {
+  position: $image_container_position;
+  flex: 1;
+}
+
+.title {
+  flex: 1;
+  @include center_element;
+}
+
+.description {
+  flex: 2;
+  @include center_element;
+}
+
+.body {
+  //background-color: #4c5958;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 3rem 0;
+  gap: 2rem 0.2rem;
+  flex-wrap: wrap;
+}
