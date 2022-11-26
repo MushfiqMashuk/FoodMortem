@@ -1,12 +1,15 @@
 import Image from "next/image";
-import NoProductImage from "../../public/no_product.svg";
-import styles from "./noProduct.module.scss";
+import NoDataImage from "../../public/no_data.svg";
+import styles from "./noData.module.scss";
 
-function NoProduct({ text = "Sorry! No products to show right now.", children }) {
+function NoData({
+  text = "Sorry! No products to show right now.",
+  children,
+}) {
   return (
     <div className={styles.container}>
       <div className={styles.image_container}>
-        <Image src={NoProductImage} height={150} width={150} />
+        <Image src={NoDataImage} height={150} width={150} />
       </div>
       <div className={styles.text_container}>
         <p className="no_data_text">{text}</p>
@@ -16,4 +19,4 @@ function NoProduct({ text = "Sorry! No products to show right now.", children })
   );
 }
 
-export default NoProduct;
+export default NoData;

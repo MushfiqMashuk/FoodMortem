@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Layout from "../../components/Layout";
+import NoData from "../../components/NoData";
 import ProductCard from "../../components/ProductCard";
 import checkUserLogin from "../../helpers/checkUserLogin";
 import useBucketListStore from "../../store/useBucketListStore";
@@ -9,11 +10,6 @@ import styles from "./bucketlist.module.scss";
 function BucketList() {
   const router = useRouter();
   const loggedInUser = checkUserLogin();
-  // const [bucketList, setBucketList] = useBucketListStore((state) => [
-  //   state.bucketList,
-  //   state.setBucketList,
-  // ]);
-  //const [bucketList, setBucketList] = useState([]);
 
   let userBucketList;
 
@@ -61,14 +57,17 @@ function BucketList() {
         </div>
         <div className={styles.filter}></div>
         <div className={styles.body}>
-          {userBucketList &&
+          {userBucketList && userBucketList.length > 0 ? (
             userBucketList.map((item) => (
               <ProductCard
                 key={item.productId}
                 product={item}
                 bucketListPage={true}
               />
-            ))}
+            ))
+          ) : (
+            <NoData text="Your Bucket List is empty! Let's bucket some food...." />
+          )}
         </div>
       </div>
     </Layout>

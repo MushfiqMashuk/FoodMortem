@@ -94,13 +94,14 @@
 
 .bucket_list_number {
   @include center_element;
-  background-color: red;
+  background-color: #1A6ED8;
   border-radius: 50%;
   height: 1.5rem;
   width: 1.5rem;
   //padding: 0.7rem;
   position: absolute;
-  top: -1rem;
+  top: -0.8rem;
   right: 0;
   color: white;
+  border: none;
 }
