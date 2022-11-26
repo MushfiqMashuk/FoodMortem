@@ -7,9 +7,11 @@ import LoginPrompt from "../LoginPrompt";
 import Modal from "../Modal";
 import styles from "./addToBucketListButton.module.scss";
 
-function AddToBucketListButton({ children, product }) {
+function AddToBucketListButton({ children, product, bucketListPage = false }) {
   const [isInBucket, setIsInBucket] = useState(false);
   const [showModal, setShowModal] = useState(false);
+
+  console.log(product);
 
   const [setBucketList, bucketList] = useBucketListStore((state) => [
     state.setBucketList,
@@ -23,9 +25,17 @@ function AddToBucketListButton({ children, product }) {
   });
 
   useEffect(() => {
-    const bucketListedProduct = bucketList.find(
-      (item) => item.productId == product._id
-    );
+    let bucketListedProduct;
+
+    if (bucketListPage) {
+      bucketListedProduct = bucketList.find(
+        (item) => item.productId == product.productId
+      );
+    } else {
+      bucketListedProduct = bucketList.find(
+        (item) => item.productId == product._id
+      );
+    }
 
     if (bucketListedProduct) {
       setIsInBucket(true);

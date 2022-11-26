@@ -14,7 +14,7 @@ const ProductCard = ({
   page = "",
   rating,
   topRated = false,
-  bucketList = false,
+  bucketListPage = false,
 }) => {
   let productRating;
 
@@ -39,7 +39,7 @@ const ProductCard = ({
 
         <Link
           href={`/products/${
-            topRated || bucketList ? product?.productId : product?._id
+            topRated || bucketListPage ? product?.productId : product?._id
           }`}
         >
           <a>
@@ -58,12 +58,12 @@ const ProductCard = ({
         <div className={styles.product_info}>
           <Link
             href={`/products/${
-              topRated || bucketList ? product?.productId : product?._id
+              topRated || bucketListPage ? product?.productId : product?._id
             }`}
           >
             <a>
               <SubTitle className={styles.product_name}>
-                {bucketList ? product.productName : product.name}
+                {bucketListPage ? product.productName : product.name}
               </SubTitle>
             </a>
           </Link>
@@ -91,7 +91,7 @@ const ProductCard = ({
           )}
         </div>
         <div>
-          <AddToBucketListButton product={product} isBucketList={true}>
+          <AddToBucketListButton product={product} isBucketList={true} bucketListPage={bucketListPage}>
             BucketList
           </AddToBucketListButton>
         </div>

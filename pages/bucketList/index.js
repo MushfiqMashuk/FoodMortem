@@ -1,15 +1,18 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Layout from "../../components/Layout";
 import ProductCard from "../../components/ProductCard";
 import checkUserLogin from "../../helpers/checkUserLogin";
+import useBucketListStore from "../../store/useBucketListStore";
 import styles from "./bucketlist.module.scss";
 
 function BucketList() {
   const router = useRouter();
-  const [bucketList, setBucketList] = useState([]);
-  let userId;
+  const [bucketList, setBucketList] = useBucketListStore((state) => [
+    state.bucketList,
+    state.setBucketList,
+  ]);
+  //const [bucketList, setBucketList] = useState([]);
 
   useEffect(() => {
     const loggedInUser = checkUserLogin();
@@ -27,9 +30,7 @@ function BucketList() {
       let data;
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/bucketList?userId=${
-            loggedInUser.userId
-          }`
+          `${process.env.NEXT_PUBLIC_API_URL}/bucketList?userId=${loggedInUser.userId}`
         );
 
         if (response.ok) {
@@ -52,15 +53,10 @@ function BucketList() {
   return (
     <Layout>
       <div className={styles.container}>
-        
         <div className={styles.top}>
           <div className={styles.info}>
-            <div className={styles.name}>
-              
-            </div>
-            <div className={styles.brand_name}>
-             
-            </div>
+            <div className={styles.name}></div>
+            <div className={styles.brand_name}></div>
           </div>
         </div>
         <div className={styles.filter}></div>
@@ -70,7 +66,7 @@ function BucketList() {
               <ProductCard
                 key={item.productId}
                 product={item}
-                bucketList={true}
+                bucketListPage={true}
               />
             ))}
         </div>
