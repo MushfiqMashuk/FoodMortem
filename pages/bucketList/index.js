@@ -8,61 +8,61 @@ import styles from "./bucketlist.module.scss";
 
 function BucketList() {
   const router = useRouter();
-  const [bucketList, setBucketList] = useBucketListStore((state) => [
-    state.bucketList,
-    state.setBucketList,
-  ]);
+  const loggedInUser = checkUserLogin();
+  // const [bucketList, setBucketList] = useBucketListStore((state) => [
+  //   state.bucketList,
+  //   state.setBucketList,
+  // ]);
   //const [bucketList, setBucketList] = useState([]);
 
-  useEffect(() => {
-    const loggedInUser = checkUserLogin();
+  let userBucketList;
 
-    // if (loggedInUser) {
-    //   console.log(loggedInUser.userId);
-    //   console.log(router.query._usr);
-    //   userId =
-    //     loggedInUser.userId === router.query[process.env.USER]
-    //       ? loggedInUser.userId
-    //       : null;
-    // }
+  if (loggedInUser) {
+    const [bucketList, setBucketList] = useBucketListStore((state) => [
+      state.bucketList,
+      state.setBucketList,
+    ]);
 
-    const getBucketList = async () => {
-      let data;
-      try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/bucketList?userId=${loggedInUser.userId}`
-        );
+    userBucketList = bucketList;
 
-        if (response.ok) {
-          data = await response.json();
-          console.log(data);
-          setBucketList(data?.bucketList);
+    useEffect(() => {
+      const getBucketList = async () => {
+        try {
+          const response = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/bucketList?userId=${loggedInUser.userId}`
+          );
+
+          const data = await response.json();
+
+          if (response.ok) {
+            setBucketList(data.bucketList);
+          }
+        } catch (err) {
+          console.log(err);
         }
-      } catch (err) {
-        console.log(err);
-      }
-    };
+      };
 
-    if (loggedInUser) {
       getBucketList();
-    } else {
-      router.push("/");
-    }
-  }, []);
+    }, []);
+  } else {
+    router.push("/");
+  }
 
   return (
     <Layout>
       <div className={styles.container}>
         <div className={styles.top}>
           <div className={styles.info}>
-            <div className={styles.name}></div>
-            <div className={styles.brand_name}></div>
+            <div className={styles.name}>Mushfiq mashuk</div>
+            <div className={styles.bucket_list}>
+              <p>Bucket List</p>
+            </div>
           </div>
         </div>
         <div className={styles.filter}></div>
         <div className={styles.body}>
-          {bucketList &&
-            bucketList.map((item) => (
+          {userBucketList &&
+            userBucketList.map((item) => (
               <ProductCard
                 key={item.productId}
                 product={item}

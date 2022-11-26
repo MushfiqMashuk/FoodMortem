@@ -91,7 +91,7 @@ const ProductCard = ({
           )}
         </div>
         <div>
-          <AddToBucketListButton product={product} isBucketList={true} bucketListPage={bucketListPage}>
+          <AddToBucketListButton product={product} bucketListPage={bucketListPage}>
             BucketList
           </AddToBucketListButton>
         </div>

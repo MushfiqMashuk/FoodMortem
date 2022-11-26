@@ -11,8 +11,6 @@ function AddToBucketListButton({ children, product, bucketListPage = false }) {
   const [isInBucket, setIsInBucket] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  console.log(product);
-
   const [setBucketList, bucketList] = useBucketListStore((state) => [
     state.setBucketList,
     state.bucketList,
@@ -106,7 +104,7 @@ function AddToBucketListButton({ children, product, bucketListPage = false }) {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              productId: product._id,
+              productId: bucketListPage ? product.productId : product._id,
             }),
           }
         );
