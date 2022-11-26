@@ -62,7 +62,6 @@ function Navbar() {
 
   const handleBucketList = () => {
     if (loggedInUser) {
-      console.log(loggedInUser.userId);
       router.push(
         `/bucketList?${process.env.NEXT_PUBLIC_USER}=${encodeURIComponent(
           loggedInUser.userId

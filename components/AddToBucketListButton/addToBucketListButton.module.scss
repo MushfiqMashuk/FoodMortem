@@ -25,6 +25,9 @@
     &:hover {
       background-color: $bucket_list_button_hover;
     }
+    &:active {
+      background-color: $bucket_list_button_active;
+    }
 
     .plus {
       @include center_element;
