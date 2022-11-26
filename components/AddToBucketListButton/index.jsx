@@ -11,7 +11,10 @@ function AddToBucketListButton({ children, product }) {
   const [isInBucket, setIsInBucket] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  const [setBucketList, bucketList] = useBucketListStore((state) => [state.setBucketList, state.bucketList]);
+  const [setBucketList, bucketList] = useBucketListStore((state) => [
+    state.setBucketList,
+    state.bucketList,
+  ]);
 
   let loggedInUser;
 
@@ -20,13 +23,13 @@ function AddToBucketListButton({ children, product }) {
   });
 
   useEffect(() => {
+    const bucketListedProduct = bucketList.find(
+      (item) => item.productId == product._id
+    );
 
-    const bucketListedProduct = bucketList.find(item => item.productId == product._id);
-
-    if(bucketListedProduct) {
+    if (bucketListedProduct) {
       setIsInBucket(true);
     }
-
   }, [product, bucketList]);
 
   const handleAddBucketList = async () => {
@@ -36,11 +39,13 @@ function AddToBucketListButton({ children, product }) {
     if (!loggedInUser) {
       setShowModal(true);
     } else {
-      const { _id, name, brand, category } = product;
+      const { _id, name, brand, category, img, averageRating } = product;
 
       const bucketListObject = {
         productId: _id,
         productName: name.trim().toLowerCase(),
+        img: img,
+        averageRating: averageRating,
         brand: {
           id: brand.id,
           name: brand.name,

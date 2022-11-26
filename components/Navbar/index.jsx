@@ -60,6 +60,17 @@ function Navbar() {
     }
   }, []);
 
+  const handleBucketList = () => {
+    if (loggedInUser) {
+      console.log(loggedInUser.userId);
+      router.push(
+        `/bucketList?${process.env.NEXT_PUBLIC_USER}=${encodeURIComponent(
+          loggedInUser.userId
+        )}`
+      );
+    }
+  };
+
   const handleSignout = async () => {
     try {
       const response = await fetch(
@@ -136,7 +147,7 @@ function Navbar() {
               <a>Product List</a>
             </Link>
           </div>
-          <div className={styles.all_brands}>
+          <div className={`${styles.all_brands} nav_buttons`}>
             <p>All Brands</p>
           </div>
         </div>
@@ -150,14 +161,19 @@ function Navbar() {
               <div>{user && <p>{user.userName}</p>}</div>
             </div>
           )}
-          <div className={`${styles.bucket_list} nav_buttons`}>
-            <p>Bucket List</p>
-            {userBucketList && userBucketList?.length > 0 && (
-              <span className={styles.bucket_list_number}>
-                {userBucketList?.length}
-              </span>
-            )}
-          </div>
+          {user && (
+            <div
+              className={`${styles.bucket_list} nav_buttons`}
+              onClick={handleBucketList}
+            >
+              <p>Bucket List</p>
+              {userBucketList && userBucketList?.length > 0 && (
+                <span className={styles.bucket_list_number}>
+                  {userBucketList?.length}
+                </span>
+              )}
+            </div>
+          )}
           {user ? (
             <div className={styles.button_container}>
               <button

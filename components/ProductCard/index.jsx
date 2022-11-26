@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import calculateAverageRating from "../../helpers/calculateRating";
 import { shimmer, toBase64 } from "../../helpers/shimmerEffect";
+import NoImage from "../../public/no_image.png";
 import StarIcon from "../../public/star_icon6.svg";
 import AddToBucketListButton from "../AddToBucketListButton";
 import Overlay from "../Overlay";
@@ -13,19 +14,20 @@ const ProductCard = ({
   page = "",
   rating,
   topRated = false,
+  bucketList = false,
 }) => {
   let productRating;
 
-  if (!rating) {
-    const { ratings } = product;
-    productRating = calculateAverageRating(ratings);
-  }
+  // if (!rating) {
+  //   const { ratings } = product;
+  //   productRating = calculateAverageRating(ratings);
+  // }
 
   return (
     <div className={styles.product_card}>
       <div className={styles.card_image_container}>
         <Image
-          src={product.img}
+          src={product.img ? product.img : NoImage}
           layout="fill"
           objectFit="cover"
           placeholder="blur"
@@ -36,7 +38,9 @@ const ProductCard = ({
         />
 
         <Link
-          href={`/products/${topRated ? product?.productId : product?._id}`}
+          href={`/products/${
+            topRated || bucketList ? product?.productId : product?._id
+          }`}
         >
           <a>
             <Overlay />
@@ -48,16 +52,18 @@ const ProductCard = ({
         <div className={styles.product_rating}>
           <Image src={StarIcon} height={20} width={20} />
           <SubTitle className={styles.rating}>
-            {rating ? product.rating : productRating}
+            {product?.averageRating}
           </SubTitle>
         </div>
         <div className={styles.product_info}>
           <Link
-            href={`/products/${topRated ? product?.productId : product?._id}`}
+            href={`/products/${
+              topRated || bucketList ? product?.productId : product?._id
+            }`}
           >
             <a>
               <SubTitle className={styles.product_name}>
-                {product.name}
+                {bucketList ? product.productName : product.name}
               </SubTitle>
             </a>
           </Link>
@@ -85,7 +91,9 @@ const ProductCard = ({
           )}
         </div>
         <div>
-          <AddToBucketListButton product={product}>BucketList</AddToBucketListButton>
+          <AddToBucketListButton product={product} isBucketList={true}>
+            BucketList
+          </AddToBucketListButton>
         </div>
       </div>
     </div>

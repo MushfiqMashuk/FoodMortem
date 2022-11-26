@@ -27,6 +27,8 @@ const UsersSchema = new Schema(
           type: String,
           trim: true,
         },
+        img: String,
+        averageRating: { type: Number },
         brand: {
           id: Types.ObjectId,
           name: {

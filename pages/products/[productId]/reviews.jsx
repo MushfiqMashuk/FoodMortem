@@ -8,6 +8,15 @@ import Link from "next/link";
 
 function Reviews() {
 
+  const userReviewObject = {
+    name: "Kishor Pasha",
+    review:
+      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
+    type: "positive",
+    date: Date.now(),
+    userId: "hadsa782634hdfg7634yg",
+  };
+
   return (
     <Layout>
       <div className={styles.container}>
@@ -41,10 +50,10 @@ function Reviews() {
         </div>
         <div className={styles.filter}></div>
         <div className={styles.body}>
-          <ReviewCard page="reviews" />
-          <ReviewCard page="reviews" />
-          <ReviewCard page="reviews" />
-          <ReviewCard page="reviews" />
+          <ReviewCard page="reviews" userReview={userReviewObject} />
+          <ReviewCard page="reviews" userReview={userReviewObject} />
+          <ReviewCard page="reviews" userReview={userReviewObject} />
+          <ReviewCard page="reviews" userReview={userReviewObject} />
         </div>
       </div>
     </Layout>
