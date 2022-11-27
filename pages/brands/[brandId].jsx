@@ -17,7 +17,7 @@ function SingleBrand({ brand, products = [] }) {
   const [categoryValue, setCategoryValue] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState(products);
 
-  const categoryOptions = brand.categories.map((category) => ({
+  const categoryOptions = brand?.categories?.map((category) => ({
     value: category,
     label: capitalize(category),
   }));

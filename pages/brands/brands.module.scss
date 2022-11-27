@@ -14,6 +14,11 @@
   flex: 1;
 }
 
+
+.filters {
+  margin: 2rem 0;
+}
+
 .title {
   flex: 1;
   @include center_element;

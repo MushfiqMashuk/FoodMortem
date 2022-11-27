@@ -49,8 +49,8 @@ function Navbar() {
   }
 
   useEffect(() => {
-    const { userId, userName, email, bucketList } = loggedInUser;
     if (loggedInUser) {
+      const { userId, userName, email, bucketList } = loggedInUser;
       setUser({
         userId,
         userName,
