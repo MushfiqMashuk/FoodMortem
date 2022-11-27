@@ -63,25 +63,22 @@ function SingleBrand({ brand, products = [] }) {
           <div className={styles.title}>
             <Title>{brand.name}</Title>
           </div>
-          <div className={styles.description}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus,
-            nobis cumque. Et, velit tempore dolorem atque corrupti quasi, ut
-            blanditiis corporis aut in quam. Illum dolor eos possimus fugit
-            dolore!
+          <div className={styles.filters}>
+            <p className={styles.filter_title}>Sort By Categories</p>
+            {brand.categories && brand.categories.length > 0 && (
+              <Select
+                className={styles.select}
+                closeMenuOnSelect={true}
+                isMulti
+                options={categoryOptions}
+                placeholder="Select Category..."
+                onChange={handleOnChange}
+              />
+            )}
           </div>
         </div>
         <hr />
-        <div className={styles.filters}>
-          {brand.categories && brand.categories.length > 0 && (
-            <Select
-              closeMenuOnSelect={true}
-              isMulti
-              options={categoryOptions}
-              placeholder="Select category..."
-              onChange={handleOnChange}
-            />
-          )}
-        </div>
+
         <div className={styles.body} ref={parentRef}>
           {categoryValue && categoryValue.length > 0
             ? filteredProducts &&

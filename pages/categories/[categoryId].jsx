@@ -64,13 +64,14 @@ function SingleCategory({ category, products = [] }) {
             <Title>{category.name}</Title>
           </div>
           <div className={styles.filters}>
+            <p className={styles.filter_title}>Sort By Brands</p>
             {brandOptions && brandOptions.length > 0 && (
               <Select
                 className={styles.select}
                 closeMenuOnSelect={true}
                 isMulti
                 options={brandOptions}
-                placeholder="Select brand..."
+                placeholder="Select Brand..."
                 onChange={handleOnChange}
               />
             )}

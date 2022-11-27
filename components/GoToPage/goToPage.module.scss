@@ -1,3 +1,5 @@
+@import "../../styles/Mixins";
+
 .container {
   min-height: 2rem;
   width: 15rem;
@@ -5,6 +7,7 @@
   border-radius: 0.3rem;
   padding: 0.2rem 1rem;
   margin-top: 1rem;
+  @include center_element;
 
   p {
     font-size: 1.3rem;
