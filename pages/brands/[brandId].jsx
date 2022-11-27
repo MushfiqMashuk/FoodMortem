@@ -2,6 +2,7 @@ import autoAnimate from "@formkit/auto-animate";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
+import Select from "react-select";
 import Layout from "../../components/Layout";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import ProductCard from "../../components/ProductCard";
@@ -9,12 +10,16 @@ import Title from "../../components/Title";
 import { shimmer, toBase64 } from "../../helpers/shimmerEffect";
 import No_Image from "../../public/no_image.png";
 import styles from "./brands.module.scss";
-import randomNumber from "../../helpers/randomNumber";
 
 function SingleBrand({ brand, products = [] }) {
   const router = useRouter();
   const [categoryValue, setCategoryValue] = useState();
   const [filteredProducts, setFilteredProducts] = useState(products);
+
+  const categoryOptions = brand.categories.map((category) => ({
+    value: category.name,
+    label: category.name,
+  }));
 
   const parentRef = useRef(null);
 
@@ -24,16 +29,24 @@ function SingleBrand({ brand, products = [] }) {
     }
   }, [parentRef.current]);
 
+  // useEffect(() => {
+  //   setFilteredProducts(
+  //     products.filter((product) =>
+  //       product?.category?.name?.includes(categoryValue)
+  //     )
+  //   );
+  // }, [categoryValue]);
+
   useEffect(() => {
     setFilteredProducts(
       products.filter((product) =>
-        product?.category?.name?.includes(categoryValue)
+        categoryValue.find((item) => item.value.includes(product.category.name))
       )
     );
   }, [categoryValue]);
 
-  const handleOnChange = (e) => {
-    setCategoryValue(e.target.value);
+  const handleOnChange = (categoryValues) => {
+    setCategoryValue(categoryValues);
   };
 
   if (router.isFallback) return <LoadingSpinner />;
@@ -66,17 +79,21 @@ function SingleBrand({ brand, products = [] }) {
         </div>
         <hr />
         <div className={styles.filters}>
-          <select value={categoryValue} onChange={handleOnChange} className="select" >
-            <option value="">
-              All categories
-            </option>
-            {brand.categories &&
-              brand.categories.length > 0 &&
-              brand.categories.map((item) => (
-                <option value={item} key={randomNumber(Date.now())} className="option">
-                  {item}
-                </option>
-              ))}
+          <select
+            value={categoryValue}
+            onChange={handleOnChange}
+            className="select"
+          >
+            <option value="">All categories</option>
+            {brand.categories && brand.categories.length > 0 && (
+              <Select
+                closeMenuOnSelect={true}
+                isMulti
+                options={categoryOptions}
+                placeholder="Select category..."
+                onChange={handleCategoryChange}
+              />
+            )}
           </select>
         </div>
         <div className={styles.body} ref={parentRef}>

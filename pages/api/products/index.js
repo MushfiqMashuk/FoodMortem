@@ -41,7 +41,7 @@ export default async function handler(req, res) {
             "category.name": categoryName,
           })
             .sort({ averageRating: "desc" })
-            .limit(6);
+            .limit(8);
 
           res.status(200).json(data);
         } catch (err) {

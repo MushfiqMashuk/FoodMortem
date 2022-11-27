@@ -2,17 +2,18 @@ import { useEffect, useState } from "react";
 import Select from "react-select";
 import Layout from "../../components/Layout";
 import ProductCard from "../../components/ProductCard";
+import capitalize from "../../helpers/capitalize";
 import styles from "./allProducts.module.scss";
 
 const Products = ({ products, brands, categories }) => {
   const brandOptions = brands.map((brand) => ({
     value: brand.name,
-    label: brand.name,
+    label: capitalize(brand.name),
   }));
 
   const categoryOptions = categories.map((category) => ({
     value: category.name,
-    label: category.name,
+    label: capitalize(category.name),
   }));
 
   const [categoryValue, setCategoryValue] = useState([]);
@@ -54,6 +55,7 @@ const Products = ({ products, brands, categories }) => {
               options={brandOptions}
               placeholder="Select brand..."
               onChange={handleBrandChange}
+              className={styles.select}
             />
           </div>
           <div className={styles.category_filter}>
