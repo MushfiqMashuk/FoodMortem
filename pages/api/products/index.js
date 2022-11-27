@@ -4,7 +4,7 @@ import connectDB from "../../../backend/config/db";
 import Products from "../../../backend/models/Products";
 
 export default async function handler(req, res) {
-  const { brandId, categoryId } = req.query;
+  const { brandId, categoryId, categoryName } = req.query;
 
   connectDB();
 
@@ -16,17 +16,45 @@ export default async function handler(req, res) {
       break;
     case "GET":
       if (brandId) {
-        const data = await Products.find({ "brand.id": brandId });
+        try {
+          const data = await Products.find({ "brand.id": brandId }).sort({
+            averageRating: "desc",
+          });
 
-        res.status(200).json(data);
+          res.status(200).json(data);
+        } catch (err) {
+          res.status(500).json("Internal server error");
+        }
       } else if (categoryId) {
-        const data = await Products.find({ "category.id": categoryId });
+        try {
+          const data = await Products.find({ "category.id": categoryId }).sort({
+            averageRating: "desc",
+          });
 
-        res.status(200).json(data);
+          res.status(200).json(data);
+        } catch (err) {
+          res.status(500).json("Internal server error");
+        }
+      } else if (categoryName) {
+        try {
+          const data = await Products.find({
+            "category.name": categoryName,
+          })
+            .sort({ averageRating: "desc" })
+            .limit(6);
+
+          res.status(200).json(data);
+        } catch (err) {
+          res.status(500).json("Internal server error");
+        }
       } else {
-        const data = await Products.find().sort({ averageRating: "desc" });
+        try {
+          const data = await Products.find().sort({ averageRating: "desc" });
 
-        res.status(200).json(data);
+          res.status(200).json(data);
+        } catch (err) {
+          res.status(500).json("Internal server error");
+        }
       }
 
       break;

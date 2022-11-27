@@ -5,10 +5,15 @@
 
 .heading_title {
   font-weight: 500;
+  text-transform: capitalize;
 }
 
 .top_rated_product {
   margin-bottom: 3rem;
+}
+
+.top_rated_brands {
+  margin-bottom: 2rem;
 }
 
 .top {
