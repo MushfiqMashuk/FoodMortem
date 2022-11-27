@@ -7,18 +7,19 @@ import Layout from "../../components/Layout";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import ProductCard from "../../components/ProductCard";
 import Title from "../../components/Title";
+import capitalize from "../../helpers/capitalize";
 import { shimmer, toBase64 } from "../../helpers/shimmerEffect";
 import No_Image from "../../public/no_image.png";
 import styles from "./brands.module.scss";
 
 function SingleBrand({ brand, products = [] }) {
   const router = useRouter();
-  const [categoryValue, setCategoryValue] = useState();
+  const [categoryValue, setCategoryValue] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState(products);
 
   const categoryOptions = brand.categories.map((category) => ({
-    value: category.name,
-    label: category.name,
+    value: category,
+    label: capitalize(category),
   }));
 
   const parentRef = useRef(null);
@@ -79,25 +80,18 @@ function SingleBrand({ brand, products = [] }) {
         </div>
         <hr />
         <div className={styles.filters}>
-          <select
-            value={categoryValue}
-            onChange={handleOnChange}
-            className="select"
-          >
-            <option value="">All categories</option>
-            {brand.categories && brand.categories.length > 0 && (
-              <Select
-                closeMenuOnSelect={true}
-                isMulti
-                options={categoryOptions}
-                placeholder="Select category..."
-                onChange={handleCategoryChange}
-              />
-            )}
-          </select>
+          {brand.categories && brand.categories.length > 0 && (
+            <Select
+              closeMenuOnSelect={true}
+              isMulti
+              options={categoryOptions}
+              placeholder="Select category..."
+              onChange={handleOnChange}
+            />
+          )}
         </div>
         <div className={styles.body} ref={parentRef}>
-          {categoryValue
+          {categoryValue && categoryValue.length > 0
             ? filteredProducts &&
               filteredProducts.length > 0 &&
               filteredProducts.map((product) => (

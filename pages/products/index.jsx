@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import autoAnimate from "@formkit/auto-animate";
+import { useEffect, useRef, useState } from "react";
 import Select from "react-select";
 import Layout from "../../components/Layout";
 import ProductCard from "../../components/ProductCard";
@@ -19,6 +20,14 @@ const Products = ({ products, brands, categories }) => {
   const [categoryValue, setCategoryValue] = useState([]);
   const [brandValue, setBrandValue] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState(products);
+
+  const parentRef = useRef(null);
+
+  useEffect(() => {
+    if (parentRef.current) {
+      autoAnimate(parentRef.current, { duration: 500 });
+    }
+  }, [parentRef.current]);
 
   useEffect(() => {
     setFilteredProducts(
@@ -55,7 +64,6 @@ const Products = ({ products, brands, categories }) => {
               options={brandOptions}
               placeholder="Select brand..."
               onChange={handleBrandChange}
-              className={styles.select}
             />
           </div>
           <div className={styles.category_filter}>
@@ -69,7 +77,7 @@ const Products = ({ products, brands, categories }) => {
             />
           </div>
         </div>
-        <div className={styles.body}>
+        <div className={styles.body} ref={parentRef}>
           {(brandValue && brandValue.length > 0) ||
           (categoryValue && categoryValue.length > 0)
             ? filteredProducts &&
