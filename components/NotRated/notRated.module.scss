@@ -3,8 +3,10 @@
 
 .container {
   @include center_element;
-  background-color: $primary_color;
-  color: white;
+  background-color: $secondary_color;
+  color: $primary_color;
   padding: 0.2rem 0.3rem;
   border-radius: 0.3rem;
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
 }

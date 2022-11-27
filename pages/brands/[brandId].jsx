@@ -30,14 +30,6 @@ function SingleBrand({ brand, products = [] }) {
     }
   }, [parentRef.current]);
 
-  // useEffect(() => {
-  //   setFilteredProducts(
-  //     products.filter((product) =>
-  //       product?.category?.name?.includes(categoryValue)
-  //     )
-  //   );
-  // }, [categoryValue]);
-
   useEffect(() => {
     setFilteredProducts(
       products.filter((product) =>

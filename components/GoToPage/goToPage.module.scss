@@ -1,0 +1,15 @@
+.container {
+  min-height: 2rem;
+  width: 15rem;
+  background-color: aquamarine;
+  border-radius: 0.3rem;
+  padding: 0.2rem 1rem;
+  margin-top: 1rem;
+
+  p {
+    font-size: 1.3rem;
+    &::after {
+      content: ">";
+    }
+  }
+}

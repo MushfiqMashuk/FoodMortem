@@ -1,5 +1,7 @@
+import autoAnimate from "@formkit/auto-animate";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useEffect, useRef, useState } from "react";
 import Select from "react-select";
 import Layout from "../../components/Layout";
 import LoadingSpinner from "../../components/LoadingSpinner";
@@ -10,14 +12,35 @@ import { shimmer, toBase64 } from "../../helpers/shimmerEffect";
 import No_Image from "../../public/no_image.png";
 import styles from "./categories.module.scss";
 
-function SingleCategory({ category, products }) {
+function SingleCategory({ category, products = [] }) {
   const router = useRouter();
+  const [brandValue, setBrandValue] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState(products);
+
+  const parentRef = useRef(null);
 
   const brandOptions = products?.map((product) => ({
     value: product?.brand?.name,
     label: capitalize(product?.brand?.name),
   }));
 
+  useEffect(() => {
+    if (parentRef.current) {
+      autoAnimate(parentRef.current, { duration: 500 });
+    }
+  }, [parentRef.current]);
+
+  useEffect(() => {
+    setFilteredProducts(
+      products?.filter((product) =>
+        brandValue.find((item) => item.value.includes(product.brand.name))
+      )
+    );
+  }, [brandValue]);
+
+  const handleOnChange = (categoryValues) => {
+    setBrandValue(categoryValues);
+  };
 
   if (router.isFallback) return <LoadingSpinner />;
 
@@ -40,35 +63,41 @@ function SingleCategory({ category, products }) {
           <div className={styles.title}>
             <Title>{category.name}</Title>
           </div>
-          <div className={styles.description}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus,
-            nobis cumque. Et, velit tempore dolorem atque corrupti quasi, ut
-            blanditiis corporis aut in quam. Illum dolor eos possimus fugit
-            dolore!
+          <div className={styles.filters}>
+            {brandOptions && brandOptions.length > 0 && (
+              <Select
+                className={styles.select}
+                closeMenuOnSelect={true}
+                isMulti
+                options={brandOptions}
+                placeholder="Select brand..."
+                onChange={handleOnChange}
+              />
+            )}
           </div>
         </div>
         <hr />
-        <div className={styles.filters}>
-          {
-            <Select
-              closeMenuOnSelect={true}
-              isMulti
-              options={brandOptions}
-              placeholder="Select brand..."
-              // onChange={handleOnChange}
-            />
-          }
-        </div>
-        <div className={styles.body}>
-          {products &&
-            products.length > 0 &&
-            products.map((product) => (
-              <ProductCard
-                product={product}
-                key={product._id}
-                page="category"
-              />
-            ))}
+
+        <div className={styles.body} ref={parentRef}>
+          {brandValue && brandValue.length > 0
+            ? filteredProducts &&
+              filteredProducts.length > 0 &&
+              filteredProducts.map((product) => (
+                <ProductCard
+                  product={product}
+                  key={product._id}
+                  page="category"
+                />
+              ))
+            : products &&
+              products.length > 0 &&
+              products.map((product) => (
+                <ProductCard
+                  product={product}
+                  key={product._id}
+                  page="category"
+                />
+              ))}
         </div>
       </div>
     </Layout>
@@ -98,18 +127,13 @@ export async function getStaticProps({ params }) {
     if (fetchedBrand.ok) {
       data = await fetchedBrand.json();
     } else {
-      throw new Error("Internal server error!")
+      throw new Error("Internal server error!");
     }
 
     // Fetching all the products with the brand id
     const fetchedProducts = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/products?categoryId=${categoryId}`
     );
-
-    // // Fetching all the brands with the category name
-    // const fetchedBrands = await fetch(
-    //   `${process.env.NEXT_PUBLIC_API_URL}/brands?categoryName=${categoryId}`
-    // );
 
     if (fetchedProducts.ok) {
       products = await fetchedProducts.json();

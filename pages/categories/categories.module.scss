@@ -7,6 +7,16 @@
   padding-top: 1rem;
   margin-bottom: 2rem;
   display: flex;
+  justify-content: space-between;
+}
+
+.filters {
+  flex: 1;
+  @include center_element;
+}
+
+.select {
+  width: 100%;
 }
 
 .image_container {
@@ -19,10 +29,10 @@
   @include center_element;
 }
 
-.description {
-  flex: 2;
-  @include center_element;
-}
+// .description {
+//   flex: 2;
+//   @include center_element;
+// }
 
 .body {
   //background-color: #4c5958;

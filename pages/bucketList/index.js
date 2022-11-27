@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import GoToPage from "../../components/GoToPage";
 import Layout from "../../components/Layout";
 import NoData from "../../components/NoData";
 import ProductCard from "../../components/ProductCard";
@@ -66,7 +67,9 @@ function BucketList() {
               />
             ))
           ) : (
-            <NoData text="Your Bucket List is empty! Let's bucket some food...." />
+            <NoData text="Your Bucket List is empty! Let's bucket some food...." >
+              <GoToPage text="Go to products page" href="/products"/>
+            </NoData>
           )}
         </div>
       </div>
