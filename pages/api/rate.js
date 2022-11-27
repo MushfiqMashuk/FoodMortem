@@ -6,89 +6,106 @@ import calculateAverageRating from "../../helpers/calculateRating";
 
 export default async function handler(req, res) {
   const { productId } = req.query;
+  const { cookies } = req;
+
+  const jwt = cookies[process.env.NEXT_PUBLIC_COOKIE_NAME];
 
   connectDB();
 
-  switch (req.method) {
-    case "PUT":
-      try {
-        const result = await Products.updateOne(
-          { _id: req.body.productId, "ratings.userId": req.body.userId },
-          {
-            $set: { "ratings.$.rating": req.body.userRating },
-          }
-        );
+  if (!jwt) {
+    res.status(401).json({
+      error: {
+        message: "You are not a valid user. Please sign in first!",
+      },
+    });
+  } else {
+    switch (req.method) {
+      case "PUT":
+        try {
+          const result = await Products.updateOne(
+            { _id: req.body.productId, "ratings.userId": req.body.userId },
+            {
+              $set: { "ratings.$.rating": req.body.userRating },
+            }
+          );
 
-        const ratings = await Products.findById(req.body.productId).select({
-          ratings: 1,
-        });
+          const ratings = await Products.findById(req.body.productId).select({
+            ratings: 1,
+          });
 
-        const averageRating = calculateAverageRating(ratings.ratings);
+          const averageRating = calculateAverageRating(ratings.ratings);
 
-        await Products.findOneAndUpdate(
-          { _id: req.body.productId },
+          await Products.findOneAndUpdate(
+            { _id: req.body.productId },
 
-          { averageRating: averageRating }
-        );
+            { averageRating: averageRating }
+          );
 
-        res.status(200).json(result);
-      } catch (err) {
-        res.status(500).json({ error: { message: "Internal server error!" } });
-      }
-      break;
+          res.status(200).json(result);
+        } catch (err) {
+          res
+            .status(500)
+            .json({ error: { message: "Internal server error!" } });
+        }
+        break;
 
-    case "PATCH":
-      try {
-        const result = await Products.updateOne(
-          { _id: productId },
-          { $push: { ratings: req.body } }
-        );
+      case "PATCH":
+        try {
+          const result = await Products.updateOne(
+            { _id: productId },
+            { $push: { ratings: req.body } }
+          );
 
-        const ratings = await Products.findById(productId).select({
-          ratings: 1,
-        });
+          const ratings = await Products.findById(productId).select({
+            ratings: 1,
+          });
 
-        const averageRating = calculateAverageRating(ratings.ratings);
+          const averageRating = calculateAverageRating(ratings.ratings);
 
-        await Products.findOneAndUpdate(
-          { _id: productId },
+          await Products.findOneAndUpdate(
+            { _id: productId },
 
-          { averageRating: averageRating }
-        );
+            { averageRating: averageRating }
+          );
 
-        res.status(200).json(result);
-      } catch (err) {
-        res.status(500).json({ error: { message: "Internal server error!" } });
-      }
-      break;
+          res.status(200).json(result);
+        } catch (err) {
+          res
+            .status(500)
+            .json({ error: { message: "Internal server error!" } });
+        }
+        break;
 
-    case "DELETE":
-      try {
-        const result = await Products.findOneAndUpdate(
-          { _id: req.body.productId },
-          { $pull: { ratings: { userId: req.body.userId } } }
-        );
+      case "DELETE":
+        try {
+          const result = await Products.findOneAndUpdate(
+            { _id: req.body.productId },
+            { $pull: { ratings: { userId: req.body.userId } } }
+          );
 
-        const ratings = await Products.findById(req.body.productId).select({
-          ratings: 1,
-        });
+          const ratings = await Products.findById(req.body.productId).select({
+            ratings: 1,
+          });
 
-        //console.log(ratings);
+          //console.log(ratings);
 
-        const averageRating = calculateAverageRating(ratings.ratings);
+          const averageRating = calculateAverageRating(ratings.ratings);
 
-        await Products.findOneAndUpdate(
-          { _id: req.body.productId },
+          await Products.findOneAndUpdate(
+            { _id: req.body.productId },
 
-          { averageRating: averageRating }
-        );
+            { averageRating: averageRating }
+          );
 
-        res.status(200).json(result);
-      } catch (err) {
-        res.status(500).json({ error: { message: "Internal server error!" } });
-      }
-      break;
-    default:
-      break;
+          res.status(200).json(result);
+        } catch (err) {
+          res
+            .status(500)
+            .json({ error: { message: "Internal server error!" } });
+        }
+        break;
+      default:
+        break;
+    }
   }
 }

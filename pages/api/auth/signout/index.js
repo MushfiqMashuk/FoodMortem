@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     const jwt = cookies[process.env.NEXT_PUBLIC_COOKIE_NAME];
 
     if (!jwt) {
-      return res.json({ message: "Bro you are already not logged in..." });
+      return res.json({ message: "You are already not logged in..." });
     } else {
       const serialised = serialize(process.env.NEXT_PUBLIC_COOKIE_NAME, null, {
         secure: process.env.NODE_ENV !== "development",
