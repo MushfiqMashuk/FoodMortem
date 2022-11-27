@@ -1,6 +1,8 @@
 @import "../../styles/Variables.scss";
+@import "../../styles/Mixins.scss";
 
 .container {
+  @include center_element;
   background-color: $footer_background_color;
   min-height: 25vh;
   color: white;
