@@ -12,16 +12,16 @@ import { shimmer, toBase64 } from "../../helpers/shimmerEffect";
 import No_Image from "../../public/no_image.png";
 import styles from "./categories.module.scss";
 
-function SingleCategory({ category, products = [] }) {
+function SingleCategory({ category, products = [], brands }) {
   const router = useRouter();
   const [brandValue, setBrandValue] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState(products);
 
   const parentRef = useRef(null);
 
-  const brandOptions = products?.map((product) => ({
-    value: product?.brand?.name,
-    label: capitalize(product?.brand?.name),
+  const brandOptions = brands?.map((item) => ({
+    value: item.name,
+    label: capitalize(item.name),
   }));
 
   useEffect(() => {
@@ -118,15 +118,17 @@ export async function getStaticProps({ params }) {
   const { categoryId } = params;
   let data;
   let products;
+  let brands;
+  let categoryName;
 
   try {
     // Fetching the category
-    const fetchedBrand = await fetch(
+    const fetchedCategory = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/categories/${categoryId}`
     );
 
-    if (fetchedBrand.ok) {
-      data = await fetchedBrand.json();
+    if (fetchedCategory.ok) {
+      data = await fetchedCategory.json();
     } else {
       throw new Error("Internal server error!");
     }
@@ -138,6 +140,19 @@ export async function getStaticProps({ params }) {
 
     if (fetchedProducts.ok) {
       products = await fetchedProducts.json();
+      categoryName = products[0]?.category?.name;
+    } else {
+      throw new Error("Internal server error!");
+    }
+
+    // Fetching all the products with the category name
+    const fetchedBrands = await fetch(
+      `http://localhost:3000/api/brands?categoryName=${categoryName}`
+    );
+
+    if (fetchedBrands.ok) {
+      brands = await fetchedBrands.json();
+      console.log(brands);
     } else {
       throw new Error("Internal server error!");
     }
@@ -155,6 +170,7 @@ export async function getStaticProps({ params }) {
     props: {
       category: data,
       products,
+      brands,
     },
     revalidate: 60,
   };

@@ -139,16 +139,16 @@ function Navbar() {
 
         <div className={styles.midsection}>
           <div className={`${styles.suggest_product} nav_buttons`}>
-            <p onClick={handleSuggestion}>Suggest a product</p>
+            <p onClick={handleSuggestion}>Suggest a Product</p>
           </div>
           <div className={`${styles.product_list} nav_buttons`}>
             <Link href="/products">
-              <a>Product List</a>
+              <a>All Products</a>
             </Link>
           </div>
-          <div className={`${styles.all_brands} nav_buttons`}>
+          {/* <div className={`${styles.all_brands} nav_buttons`}>
             <p>All Brands</p>
-          </div>
+          </div> */}
         </div>
 
         <div className={styles.profile}>
