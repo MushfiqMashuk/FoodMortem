@@ -4,10 +4,19 @@
 }
 
 .heading_title {
-  margin: 2rem 0;
   font-weight: 500;
 }
 
 .top_rated_product {
   margin-bottom: 3rem;
+}
+
+.top {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.heading {
+  margin: 2rem 0;
 }

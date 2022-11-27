@@ -1,3 +1,4 @@
+import Link from "next/link";
 import BrandCard from "../components/BrandCard";
 import CarouselComponent from "../components/CarouselComponent";
 import Layout from "../components/Layout";
@@ -9,7 +10,12 @@ export default function Home({ topRatedProducts }) {
     <Layout>
       <div className={styles.container}>
         <div className={styles.top_rated_product}>
-          <h2 className={styles.heading_title}>Top rated products</h2>
+          <div className={styles.top}>
+            <h2 className={styles.heading_title}>Top rated products</h2>
+            <Link href={`/products`}>
+              <a className="see_all">See all products</a>
+            </Link>
+          </div>
           <div className={styles.carousel}>
             <CarouselComponent
               products={topRatedProducts}
@@ -21,7 +27,9 @@ export default function Home({ topRatedProducts }) {
           </div>
         </div>
         <div className={styles.top_rated_brands}>
-          <h2 className={styles.heading_title}>Top rated brands</h2>
+          <div className={styles.heading}>
+            <h2 className={styles.heading_title}>Top rated brands</h2>
+          </div>
           <div className={styles.carousel}>
             <CarouselComponent
               products={topRatedProducts}

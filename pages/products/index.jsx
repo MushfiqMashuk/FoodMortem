@@ -27,6 +27,14 @@ const Products = ({ products, brands, categories }) => {
     );
   }, [brandValue]);
 
+  useEffect(() => {
+    setFilteredProducts(
+      products.filter((product) =>
+        categoryValue.find((item) => item.value.includes(product.category.name))
+      )
+    );
+  }, [categoryValue]);
+
   const handleBrandChange = (brandValues) => {
     setBrandValue(brandValues);
   };
@@ -41,7 +49,7 @@ const Products = ({ products, brands, categories }) => {
           <div className={styles.brand_filter}>
             <p>Sort By Brand Name</p>
             <Select
-              closeMenuOnSelect={false}
+              closeMenuOnSelect={true}
               isMulti
               options={brandOptions}
               placeholder="Select brand..."
@@ -51,7 +59,7 @@ const Products = ({ products, brands, categories }) => {
           <div className={styles.category_filter}>
             <p>Sort By Category Name</p>
             <Select
-              closeMenuOnSelect={false}
+              closeMenuOnSelect={true}
               isMulti
               options={categoryOptions}
               placeholder="Select category..."
@@ -60,7 +68,8 @@ const Products = ({ products, brands, categories }) => {
           </div>
         </div>
         <div className={styles.body}>
-          {brandValue && brandValue.length > 0
+          {(brandValue && brandValue.length > 0) ||
+          (categoryValue && categoryValue.length > 0)
             ? filteredProducts &&
               filteredProducts.length > 0 &&
               filteredProducts.map((product) => (
