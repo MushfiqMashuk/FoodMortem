@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import checkUserLogin from "../../helpers/checkUserLogin";
 import getDate from "../../helpers/getDate";
 import StarIcon from "../../public/star_icon6.svg";
+import NotRated from "../NotRated";
 import styles from "./reviewCard.module.scss";
 
 function ReviewCard({ userReview, page, rating, currentUserRating }) {
@@ -33,7 +34,7 @@ function ReviewCard({ userReview, page, rating, currentUserRating }) {
         <div className={styles.name}>
           <p>{name}</p>
         </div>
-        {cardRating && (
+        {cardRating ? (
           <div className={styles.rating}>
             <Image src={StarIcon} width={16} height={16} />
             <div className={styles.rating_value}>
@@ -42,7 +43,7 @@ function ReviewCard({ userReview, page, rating, currentUserRating }) {
               <span>10</span>
             </div>
           </div>
-        )}
+        ) : <NotRated />}
       </div>
       <div className={styles.date}>{parsedDate && parsedDate}</div>
       <div className={styles.body}>
