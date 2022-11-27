@@ -9,6 +9,7 @@ import Title from "../../components/Title";
 import { shimmer, toBase64 } from "../../helpers/shimmerEffect";
 import No_Image from "../../public/no_image.png";
 import styles from "./brands.module.scss";
+import randomNumber from "../../helpers/randomNumber";
 
 function SingleBrand({ brand, products = [] }) {
   const router = useRouter();
@@ -65,11 +66,17 @@ function SingleBrand({ brand, products = [] }) {
         </div>
         <hr />
         <div className={styles.filters}>
-          <select value={categoryValue} onChange={handleOnChange}>
-            <option value="">All Categories</option>
-            <option value="frozen food">Frozen Food</option>
-            <option value="biscuit">Biscuit</option>
-            <option value="cake">Cake</option>
+          <select value={categoryValue} onChange={handleOnChange} className="select" >
+            <option value="">
+              All categories
+            </option>
+            {brand.categories &&
+              brand.categories.length > 0 &&
+              brand.categories.map((item) => (
+                <option value={item} key={randomNumber(Date.now())} className="option">
+                  {item}
+                </option>
+              ))}
           </select>
         </div>
         <div className={styles.body} ref={parentRef}>
@@ -77,7 +84,7 @@ function SingleBrand({ brand, products = [] }) {
             ? filteredProducts &&
               filteredProducts.length > 0 &&
               filteredProducts.map((product) => (
-                <ProductCard product={product} key={product._id} singleProduct />
+                <ProductCard product={product} key={product._id} page="brand" />
               ))
             : products &&
               products.length > 0 &&

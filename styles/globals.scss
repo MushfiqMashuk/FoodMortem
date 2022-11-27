@@ -51,6 +51,23 @@ h6 {
   font-size: 1.5rem;
 }
 
+.select {
+  padding: 1rem;
+  cursor: pointer;
+  width: 20%;
+  &::after {
+    content: "";
+    width: 0.8em;
+    height: 0.5em;
+    background-color: var(--select-arrow);
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  }
+
+  .option {
+    cursor: pointer;
+  }
+}
+
 .nav_buttons {
   cursor: pointer;
   background-color: #414141;
