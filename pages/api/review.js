@@ -12,30 +12,29 @@ export default async function handler(req, res) {
 
   connectDB();
 
-  if (!jwt) {
+  if (req.method === "GET") {
+    try {
+      const result = await Products.findById(productId, { reviews: 1 });
+      res.status(200).json(result);
+    } catch (err) {
+      res.status(500).json({ error: { message: "Internal server error!" } });
+    }
+  } else if (!jwt) {
     res.status(401).json({
       error: {
         message: "You are not a valid user. Please sign in first!",
       },
     });
   } else {
-    switch (req.method) {
-      case "PATCH":
-        try {
-          const result = await Products.findOneAndUpdate(
-            { _id: productId },
-            { $push: { reviews: req.body } },
-            { new: true }
-          );
-          res.status(200).json(result);
-        } catch (err) {
-          res
-            .status(500)
-            .json({ error: { message: "Internal server error!" } });
-        }
-        break;
-      default:
-        break;
+    try {
+      const result = await Products.findOneAndUpdate(
+        { _id: productId },
+        { $push: { reviews: req.body } },
+        { new: true }
+      );
+      res.status(200).json(result);
+    } catch (err) {
+      res.status(500).json({ error: { message: "Internal server error!" } });
     }
   }
 }

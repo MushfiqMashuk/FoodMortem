@@ -9,6 +9,7 @@ import LoginPrompt from "../LoginPrompt";
 import Modal from "../Modal";
 import SuggestionForm from "../SuggestionForm";
 import styles from "./navbar.module.scss";
+import Logo from "../../public/nice.png";
 
 function Navbar() {
   const [user, setUser] = useState(null);
@@ -124,9 +125,11 @@ function Navbar() {
       )}
       <div className={styles.container}>
         <div className={styles.logo}>
-          <div className={`${styles.site_name} nav_buttons`}>
+          <div className={`${styles.site_name}`}>
             <Link href="/">
-              <a>{process.env.NEXT_PUBLIC_SITE_NAME}</a>
+              <a>
+                <Image src={Logo} width={50} height={50}/>
+              </a>
             </Link>
           </div>
         </div>

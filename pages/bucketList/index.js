@@ -50,7 +50,8 @@ function BucketList() {
       <div className={styles.container}>
         <div className={styles.top}>
           <div className={styles.info}>
-            <div className={styles.name}>Mushfiq mashuk</div>
+            <div className={styles.name}>{loggedInUser.userName}</div>
+            <p className={styles.arrow}>→</p>
             <div className={styles.bucket_list}>
               <p>Bucket List</p>
             </div>
@@ -67,8 +68,8 @@ function BucketList() {
               />
             ))
           ) : (
-            <NoData text="Your Bucket List is empty! Let's bucket some food...." >
-              <GoToPage text="Go to products page" href="/products"/>
+            <NoData text="Your Bucket List is empty! Let's bucket some food....">
+              <GoToPage text="Go to products page" href="/products" />
             </NoData>
           )}
         </div>
