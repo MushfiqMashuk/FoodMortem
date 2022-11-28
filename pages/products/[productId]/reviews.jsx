@@ -1,21 +1,46 @@
-import Layout from "../../../components/Layout";
-import styles from "./reviews.module.scss";
-import ReviewCard from "../../../components/ReviewCard";
 import Image from "next/image";
-import No_Image from "../../../public/no_image.png";
-import { shimmer, toBase64 } from "../../../helpers/shimmerEffect";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import Layout from "../../../components/Layout";
+import ReviewCard from "../../../components/ReviewCard";
+import { shimmer, toBase64 } from "../../../helpers/shimmerEffect";
+import NoImage from "../../../public/no_image.png";
+import styles from "./reviews.module.scss";
 
-function Reviews() {
+function Reviews({ products }) {
+  const [userReviews, setUserReviews] = useState(products);
 
-  const userReviewObject = {
-    name: "Kishor Pasha",
-    review:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
-    type: "positive",
-    date: Date.now(),
-    userId: "hadsa782634hdfg7634yg",
-  };
+  useEffect(() => {
+    setUserReviews(products);
+  }, [products]);
+
+  // useEffect(() => {
+  //   const getReviews = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         `${process.env.NEXT_PUBLIC_API_URL}/review?productId=${router?.query?.productId}`
+  //       );
+
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         //console.log(data);
+  //         setUserReviews(data.reviews);
+  //       }
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+
+  //   getReviews();
+  // }, [router.query]);
+
+  // const userReviewObject = {
+  //   name: singleReview.name,
+  //   type: singleReview.type,
+  //   date: singleReview.date,
+  //   review: singleReview.review,
+  //   userId: singleReview.userId,
+  // };
 
   return (
     <Layout>
@@ -24,8 +49,8 @@ function Reviews() {
           <div className={styles.image_container}>
             <Image
               className={styles.image_class}
-              src={"https://i.ibb.co/T1VsWB9/kacchi-sultan-s-dine.jpg"}
-              alt={"nicde"}
+              src={userReviews?.img}
+              alt={userReviews?.name}
               width={150}
               height={150}
               objectFit="cover"
@@ -37,27 +62,63 @@ function Reviews() {
           </div>
           <div className={styles.info}>
             <div className={styles.name}>
-              <Link href={"/"}>
-                <a>Mutton Kacchi</a>
+              <Link href={`/products/${userReviews?._id}`}>
+                <a>{userReviews?.name}</a>
               </Link>
             </div>
             <div className={styles.brand_name}>
-              <Link href={"/"}>
-                <a>Sultan's Dine</a>
+              <Link href={`/brands/${userReviews?.brand?.id}`}>
+                <a>{userReviews?.brand?.name}</a>
               </Link>
             </div>
           </div>
         </div>
         <div className={styles.filter}></div>
         <div className={styles.body}>
-          <ReviewCard page="reviews" userReview={userReviewObject} />
-          <ReviewCard page="reviews" userReview={userReviewObject} />
-          <ReviewCard page="reviews" userReview={userReviewObject} />
-          <ReviewCard page="reviews" userReview={userReviewObject} />
+          {userReviews &&
+            userReviews?.reviews?.map((review) => (
+              <ReviewCard page="reviews" userReview={review} />
+            ))}
         </div>
       </div>
     </Layout>
   );
 }
 
-export default Reviews
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const { productId } = params;
+  let data;
+  try {
+    const fetchedData = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/review?productId=${productId}`
+    );
+
+    if (fetchedData.ok) {
+      data = await fetchedData.json();
+    }
+  } catch (err) {
+    console.log(err);
+  }
+
+  if (!data) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      products: data,
+    },
+    revalidate: 60,
+  };
+}
+
+export default Reviews;
