@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import calculateAverageRating from "../../helpers/calculateRating";
 import { shimmer, toBase64 } from "../../helpers/shimmerEffect";
 import NoImage from "../../public/no_image.png";
 import StarIcon from "../../public/star_icon6.svg";
@@ -12,16 +11,16 @@ import styles from "./productCard.module.scss";
 const ProductCard = ({
   product,
   page = "",
-  rating,
-  topRated = false,
   bucketListPage = false,
 }) => {
-  let productRating;
 
-  // if (!rating) {
-  //   const { ratings } = product;
-  //   productRating = calculateAverageRating(ratings);
-  // }
+  
+  // let productRating;
+
+  // // if (!rating) {
+  // //   const { ratings } = product;
+  // //   productRating = calculateAverageRating(ratings);
+  // // }
 
   return (
     <div className={styles.product_card}>
@@ -39,7 +38,7 @@ const ProductCard = ({
 
         <Link
           href={`/products/${
-            topRated || bucketListPage ? product?.productId : product?._id
+            bucketListPage ? product?.productId : product?._id
           }`}
         >
           <a>
@@ -58,18 +57,18 @@ const ProductCard = ({
         <div className={styles.product_info}>
           <Link
             href={`/products/${
-              topRated || bucketListPage ? product?.productId : product?._id
+              bucketListPage ? product?.productId : product?._id
             }`}
           >
             <a>
               <SubTitle className={styles.product_name}>
-                {bucketListPage ? product.productName : product.name}
+                {bucketListPage ? product?.productName : product?.name}
               </SubTitle>
             </a>
           </Link>
 
           {page === "brand" ? null : (
-            <Link href={`/brands/${product.brand?.id}`}>
+            <Link href={`/brands/${product?.brand?.id}`}>
               <a>
                 <SubTitle className={styles.product_name}>
                   {product?.brand?.name}
@@ -91,7 +90,10 @@ const ProductCard = ({
           )}
         </div>
         <div>
-          <AddToBucketListButton product={product} bucketListPage={bucketListPage}>
+          <AddToBucketListButton
+            product={product}
+            bucketListPage={bucketListPage}
+          >
             BucketList
           </AddToBucketListButton>
         </div>

@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import checkUserLogin from "../../helpers/checkUserLogin";
 import getDate from "../../helpers/getDate";
 import StarIcon from "../../public/star_icon6.svg";
@@ -11,6 +10,23 @@ function ReviewCard({ userReview, page, rating, currentUserRating }) {
   const { name, review, type, date, userId } = userReview;
 
   const [cardRating, setCardRating] = useState(rating);
+
+  let typeColor;
+
+  switch(type) {
+    case "positive":
+      typeColor = "aquamarine";
+      break;
+    case "moderate":
+      typeColor = "grey";
+      break;
+      case "negative":
+        typeColor = "#FF0000";
+        break;
+        default:
+          typeColor = "aquamarine"
+          break;
+  }
 
   useEffect(() => {
     const loggedInUser = checkUserLogin();
@@ -47,7 +63,7 @@ function ReviewCard({ userReview, page, rating, currentUserRating }) {
       </div>
       <div className={styles.date}>{parsedDate && parsedDate}</div>
       <div className={styles.body}>
-        <div className={styles.type}>
+        <div className={styles.type} style={{backgroundColor: typeColor}}>
           <div>
             <p>{type}</p>
           </div>

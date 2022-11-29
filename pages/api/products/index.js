@@ -2,9 +2,10 @@
 
 import connectDB from "../../../backend/config/db";
 import Products from "../../../backend/models/Products";
+import parseToInteger from "../../../helpers/parseToInteger";
 
 export default async function handler(req, res) {
-  const { brandId, categoryId, categoryName } = req.query;
+  const { brandId, categoryId, categoryName, limit } = req.query;
 
   connectDB();
 
@@ -42,6 +43,14 @@ export default async function handler(req, res) {
           })
             .sort({ averageRating: "desc" })
             .limit(8);
+
+          res.status(200).json(data);
+        } catch (err) {
+          res.status(500).json("Internal server error");
+        }
+      } else if (limit) {
+        try {
+          const data = await Products.find().sort({ averageRating: "desc" }).limit(parseToInteger(limit));
 
           res.status(200).json(data);
         } catch (err) {

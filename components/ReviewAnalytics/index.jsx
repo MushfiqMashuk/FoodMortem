@@ -23,7 +23,7 @@ function ReviewAnalytics({ product }) {
         <div className={styles.review_analytics}>
           <h1 className={styles.review_header}>
             Reviews{" "}
-            <span className={styles.total_review}>({userReviews.length})</span>
+            <span className={styles.total_review}>({userReviews?.length})</span>
           </h1>
           <h3>
             Positive{" "}
@@ -35,7 +35,7 @@ function ReviewAnalytics({ product }) {
             <div className={styles.progress_bar}>
               <span
                 className={`${styles.percentage}`}
-                style={{ width: `${reviewObject.positive}%` }}
+                style={{ width: `${reviewObject?.positive}%` }}
               ></span>
             </div>
           </div>

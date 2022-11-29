@@ -5,10 +5,12 @@ import Layout from "../../../components/Layout";
 import ReviewCard from "../../../components/ReviewCard";
 import { shimmer, toBase64 } from "../../../helpers/shimmerEffect";
 import NoImage from "../../../public/no_image.png";
+import useRatingStore from "../../../store/useRatingStore";
 import styles from "./reviews.module.scss";
 
 function Reviews({ products }) {
   const [userReviews, setUserReviews] = useState(products);
+  const rating = useRatingStore(state => state.rating);
 
   useEffect(() => {
     setUserReviews(products);
@@ -76,9 +78,10 @@ function Reviews({ products }) {
         <div className={styles.filter}></div>
         <div className={styles.body}>
           {userReviews &&
-            userReviews?.reviews?.map((review) => (
-              <ReviewCard page="reviews" userReview={review} />
-            ))}
+            userReviews?.reviews?.map((review) => {
+              const user = userReviews?.ratings?.find(rating => rating.userId == review.userId);
+              return <ReviewCard page="reviews" userReview={review} rating={user ? user?.rating : null} currentUserRating={rating}/>;
+            })}
         </div>
       </div>
     </Layout>

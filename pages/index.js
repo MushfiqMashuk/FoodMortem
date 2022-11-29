@@ -6,6 +6,7 @@ import ProductCard from "../components/ProductCard";
 import styles from "./homePage.module.scss";
 
 export default function Home({ topRatedProducts, kacchi, burger, pizza }) {
+
   return (
     <Layout>
       <div className={styles.container}>
@@ -22,11 +23,11 @@ export default function Home({ topRatedProducts, kacchi, burger, pizza }) {
               noProductText="Sorry! No top rated products to show right now."
               rating={true}
               CardComponent={ProductCard}
-              topRated={true}
+              
             />
           </div>
         </div>
-        <div className={styles.top_rated_brands}>
+        {/* <div className={styles.top_rated_brands}>
           <div className={styles.heading}>
             <h2 className={styles.heading_title}>Top rated brands</h2>
           </div>
@@ -38,7 +39,7 @@ export default function Home({ topRatedProducts, kacchi, burger, pizza }) {
               brandCard
             />
           </div>
-        </div>
+        </div> */}
 
         <div className={styles.kacchi}>
           <div className={styles.top}>
@@ -102,7 +103,7 @@ export async function getStaticProps() {
   let pizza;
   try {
     const fetchedData = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/topRated`
+      `${process.env.NEXT_PUBLIC_API_URL}/products?limit=8`
     );
 
     const fetchedKacchi = await fetch(

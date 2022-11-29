@@ -29,7 +29,6 @@ function CarouselComponent({
   noProductText,
   rating = null,
   CardComponent,
-  topRated,
   brandCard,
 }) {
   return (
@@ -60,7 +59,7 @@ function CarouselComponent({
                 key={product?._id}
                 product={product}
                 rating={rating && rating}
-                topRated={topRated}
+                
               />
             ))}
           {/* {products &&
