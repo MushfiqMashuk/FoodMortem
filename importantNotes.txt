@@ -6,3 +6,4 @@
 * When I reload the single product page, product data is undefined. 
 * In rate api file - average rating functionality needs to be moved in a function.
 * Review delete need to be added.
+* After giving a rating returned rating value from the database should be stored in the local storage

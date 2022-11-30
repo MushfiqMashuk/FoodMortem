@@ -20,20 +20,21 @@ export default async function handler(req, res) {
     });
   } else {
     switch (req.method) {
+      // To update an existing user rating
+
       case "PUT":
         try {
-          const result = await Products.updateOne(
+          const result = await Products.findOneAndUpdate(
             { _id: req.body.productId, "ratings.userId": req.body.userId },
             {
               $set: { "ratings.$.rating": req.body.userRating },
-            }
-          );
-
-          const ratings = await Products.findById(req.body.productId).select({
+            },
+            { new: true }
+          ).select({
             ratings: 1,
           });
 
-          const averageRating = calculateAverageRating(ratings.ratings);
+          const averageRating = calculateAverageRating(result.ratings);
 
           await Products.findOneAndUpdate(
             { _id: req.body.productId },
@@ -49,18 +50,19 @@ export default async function handler(req, res) {
         }
         break;
 
+      // Add a user rating
+
       case "PATCH":
         try {
-          const result = await Products.updateOne(
+          const result = await Products.findOneAndUpdate(
             { _id: productId },
-            { $push: { ratings: req.body } }
-          );
-
-          const ratings = await Products.findById(productId).select({
+            { $push: { ratings: req.body } },
+            { new: true }
+          ).select({
             ratings: 1,
           });
 
-          const averageRating = calculateAverageRating(ratings.ratings);
+          const averageRating = calculateAverageRating(result.ratings);
 
           await Products.findOneAndUpdate(
             { _id: productId },
@@ -75,21 +77,20 @@ export default async function handler(req, res) {
             .json({ error: { message: "Internal server error!" } });
         }
         break;
+
+      // Remove a rating
 
       case "DELETE":
         try {
           const result = await Products.findOneAndUpdate(
             { _id: req.body.productId },
-            { $pull: { ratings: { userId: req.body.userId } } }
-          );
-
-          const ratings = await Products.findById(req.body.productId).select({
+            { $pull: { ratings: { userId: req.body.userId } } },
+            { new: true }
+          ).select({
             ratings: 1,
           });
 
-          //console.log(ratings);
-
-          const averageRating = calculateAverageRating(ratings.ratings);
+          const averageRating = calculateAverageRating(result.ratings);
 
           await Products.findOneAndUpdate(
             { _id: req.body.productId },

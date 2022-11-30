@@ -26,6 +26,18 @@ export default async function handler(req, res) {
     } catch (err) {
       res.status(500).json({ error: { message: "Internal server error!" } });
     }
+  } else if (req.method === "DELETE") {
+    try {
+      const result = await Products.findOneAndUpdate(
+        { _id: req.body.productId },
+        { $pull: { reviews: { userId: req.body.userId } } },
+        { new: true }
+      ).select({ reviews: 1 });
+
+      res.status(200).json(result?.reviews);
+    } catch (err) {
+      res.status(500).json({ error: { message: "Internal server error!" } });
+    }
   } else if (!jwt) {
     res.status(401).json({
       error: {
