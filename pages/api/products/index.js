@@ -11,9 +11,22 @@ export default async function handler(req, res) {
 
   switch (req.method) {
     case "POST":
-      const product = await Products.create(req.body);
-      const savedData = await product.save();
-      res.status(200).json(savedData);
+      const { name, brand, category } = req.body;
+
+      const alreadyExistedProduct = await Products.find({
+        name: name,
+        "brand.id": brand.id,
+        "category.id": category.id,
+      });
+
+      if (alreadyExistedProduct && alreadyExistedProduct.length > 0) {
+        res.status(400).json("Product already axists!");
+      } else {
+        const product = await Products.create(req.body);
+        const savedData = await product.save();
+        res.status(200).json(savedData);
+      }
+
       break;
     case "GET":
       if (brandId) {
@@ -50,7 +63,9 @@ export default async function handler(req, res) {
         }
       } else if (limit) {
         try {
-          const data = await Products.find().sort({ averageRating: "desc" }).limit(parseToInteger(limit));
+          const data = await Products.find()
+            .sort({ averageRating: "desc" })
+            .limit(parseToInteger(limit));
 
           res.status(200).json(data);
         } catch (err) {
