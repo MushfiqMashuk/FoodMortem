@@ -6,6 +6,7 @@ const CategoriesSchema = new Schema(
       type: String,
       required: "Please provide a category name",
       trim: true,
+      unique: true,
     },
 
     img: String,

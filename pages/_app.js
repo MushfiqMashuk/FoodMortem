@@ -9,6 +9,8 @@ import { useRouter } from "next/router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import LoadingSpinner from "../components/LoadingSpinner";
 import "../styles/globals.scss";
 NProgress.configure({
@@ -31,7 +33,18 @@ function MyApp({ Component, pageProps }) {
     });
   }, [setLoading, router.events]);
 
-  return <>{loading ? <LoadingSpinner /> : <Component {...pageProps} />}</>;
+  return (
+    <>
+      {loading ? (
+        <LoadingSpinner />
+      ) : (
+        <>
+          <Component {...pageProps} />
+          <ToastContainer />
+        </>
+      )}
+    </>
+  );
 }
 
 export default MyApp;

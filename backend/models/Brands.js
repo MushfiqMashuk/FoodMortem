@@ -6,6 +6,7 @@ const BrandsSchema = new Schema(
       type: String,
       required: "Please provide a brand name",
       trim: true,
+      unique: true,
     },
 
     categories: [String],

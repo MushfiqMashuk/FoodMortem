@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import styles from "./suggestionForm.module.scss";
 
 function SuggestionForm({ onClose }) {
@@ -59,6 +60,10 @@ function SuggestionForm({ onClose }) {
       const data = await response.json();
 
       if (response.ok) {
+        toast.success("Your valuable suggestion has been accepted!", {
+          position: toast.POSITION.BOTTOM_LEFT,
+          className: "toast_message",
+        });
         onClose();
       } else {
         setFormData((prev) => ({
