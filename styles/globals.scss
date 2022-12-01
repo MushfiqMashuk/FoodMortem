@@ -133,15 +133,14 @@ p {
 .toast_message {
   background: $secondary_color;
   color: #fff;
-  font-size: 1.2rem;
-  width: 32vw;
-  padding: 1.25rem 1.25rem;
+  font-size: 1.1rem;
+  width: 30vw;
+  padding: 0.8rem 1rem;
 
   .Toastify__close-button {
     color: white;
     opacity: 1;
   }
-
 }
 
 @media (prefers-color-scheme: dark) {

@@ -9,11 +9,21 @@ import useRatingStore from "../../../store/useRatingStore";
 import styles from "./reviews.module.scss";
 
 function Reviews({ products }) {
-  const [userReviews, setUserReviews] = useState(products);
-  const rating = useRatingStore(state => state.rating);
+  let userReviews;
+
+  const [product, setProduct] = useState(products);
+  
+  const [reviews, setReviews, rating] = useRatingStore((state) => [
+    state.reviews,
+    state.setReviews,
+    state.rating,
+  ]);
+
 
   useEffect(() => {
-    setUserReviews(products);
+    userReviews = products?.reviews;
+    setReviews(userReviews && userReviews.length > 0 && userReviews);
+    setProduct(products);
   }, [products]);
 
   // useEffect(() => {
@@ -51,8 +61,8 @@ function Reviews({ products }) {
           <div className={styles.image_container}>
             <Image
               className={styles.image_class}
-              src={userReviews?.img}
-              alt={userReviews?.name}
+              src={product?.img}
+              alt={product?.name}
               width={150}
               height={150}
               objectFit="cover"
@@ -64,23 +74,33 @@ function Reviews({ products }) {
           </div>
           <div className={styles.info}>
             <div className={styles.name}>
-              <Link href={`/products/${userReviews?._id}`}>
-                <a>{userReviews?.name}</a>
+              <Link href={`/products/${product?._id}`}>
+                <a>{product?.name}</a>
               </Link>
             </div>
             <div className={styles.brand_name}>
-              <Link href={`/brands/${userReviews?.brand?.id}`}>
-                <a>{userReviews?.brand?.name}</a>
+              <Link href={`/brands/${product?.brand?.id}`}>
+                <a>{product?.brand?.name}</a>
               </Link>
             </div>
           </div>
         </div>
         <div className={styles.filter}></div>
         <div className={styles.body}>
-          {userReviews &&
-            userReviews?.reviews?.map((review) => {
-              const user = userReviews?.ratings?.find(rating => rating.userId == review.userId);
-              return <ReviewCard page="reviews" userReview={review} rating={user ? user?.rating : null} currentUserRating={rating}/>;
+          {reviews &&
+            reviews?.map((review) => {
+              const user = product?.ratings?.find(
+                (rating) => rating.userId == review.userId
+              );
+              return (
+                <ReviewCard
+                  page="reviews"
+                  userReview={review}
+                  rating={user ? user?.rating : null}
+                  currentUserRating={rating}
+                  productId={product?._id}
+                />
+              );
             })}
         </div>
       </div>

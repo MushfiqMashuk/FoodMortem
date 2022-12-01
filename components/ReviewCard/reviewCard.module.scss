@@ -17,7 +17,7 @@
 
 .type {
   margin: 1rem;
-  width: 25%;
+  width: 6rem;
   height: 5%;
   //background-color: aquamarine;
   @include center_element;
@@ -25,6 +25,20 @@
   padding: 0.5rem;
   cursor: pointer;
   text-transform: capitalize;
+}
+
+.delete_button {
+  padding: 0.3rem 0.5rem;
+  border: none;
+  background-color: rgb(189, 193, 212);
+  border-radius: 0.3rem;
+  cursor: pointer;
+  color: #414141;
+  font-weight: 500;
+}
+
+.footer {
+  margin-top: 1.5rem;
 }
 
 .rating {

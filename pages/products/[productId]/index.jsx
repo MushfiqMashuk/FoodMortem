@@ -63,7 +63,9 @@ function SingleProduct({ product, similarProducts }) {
               <div className={styles.product_name}>
                 <Title>{product.name}</Title>
               </div>
-              <AddToBucketListButton product={product}>Add to BucketList</AddToBucketListButton>
+              <AddToBucketListButton product={product}>
+                Add to BucketList
+              </AddToBucketListButton>
             </div>
             <div className={styles.product_info}>
               <div className={styles.product_description}>
@@ -125,7 +127,7 @@ function SingleProduct({ product, similarProducts }) {
           )}
           <WriteAReview openModal={() => setShowModal(true)} />
           <UserReviews
-            reviews={reviews?.slice(-3)}
+            reviews={reviews?.length >= 3 ? reviews?.slice(-3) : reviews}
             productId={product?._id}
             ratings={product?.ratings}
             currentUserRating={rating}

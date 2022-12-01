@@ -30,6 +30,7 @@ function UserReviews({
                 userReview={review}
                 rating={user ? user.rating : null}
                 currentUserRating={currentUserRating}
+                productId={productId}
               />
             );
           })}
