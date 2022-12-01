@@ -30,7 +30,7 @@ export default async function handler(req, res) {
     try {
       const result = await Products.findOneAndUpdate(
         { _id: req.body.productId },
-        { $pull: { reviews: { userId: req.body.userId } } },
+        { $pull: { reviews: { _id: req.body.reviewId } } },
         { new: true }
       ).select({ reviews: 1 });
 
