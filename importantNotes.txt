@@ -8,4 +8,4 @@
 * Review delete need to be added.
 * After giving a rating returned rating value from the database should be stored in the local storage
 * When I reload the page in review page, rating goes away.
-* There are lots of bugs in review page.
+* There are lots of bugs in review page. Need to change.
