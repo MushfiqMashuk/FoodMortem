@@ -2,19 +2,29 @@ import "server-only";
 import type { Filter } from "mongodb";
 import { cache } from "react";
 import { db, toObjectId } from "@/lib/db/client";
+import { idString, refIdFilter } from "@/lib/db/ids";
 import type { BrandDoc, CategoryDoc, ProductDoc } from "@/lib/db/schema";
 import { safeImageUrl } from "@/lib/images";
-import type { Brand, Category, Product } from "./types";
+import type { Brand, Category, Product, Ref } from "./types";
 
 const BY_RATING = { averageRating: -1, ratingCount: -1, name: 1 } as const;
+
+/** Tolerates legacy refs stored as plain strings or missing entirely. */
+function toRef(value: unknown): Ref {
+  if (value && typeof value === "object") {
+    const ref = value as { id?: unknown; name?: unknown };
+    return { id: idString(ref.id), name: typeof ref.name === "string" ? ref.name : "" };
+  }
+  return { id: "", name: typeof value === "string" ? value : "" };
+}
 
 export function toProduct(doc: ProductDoc): Product {
   return {
     id: doc._id.toHexString(),
     name: doc.name,
     img: safeImageUrl(doc.img),
-    brand: { id: doc.brand.id.toHexString(), name: doc.brand.name },
-    category: { id: doc.category.id.toHexString(), name: doc.category.name },
+    brand: toRef(doc.brand),
+    category: toRef(doc.category),
     tags: doc.tags ?? [],
     averageRating: typeof doc.averageRating === "number" ? doc.averageRating : null,
     ratingCount: doc.ratingCount ?? 0,
@@ -48,12 +58,12 @@ export async function listProducts(query: ProductQuery = {}): Promise<Product[]>
   if (query.brandId) {
     const id = toObjectId(query.brandId);
     if (!id) return [];
-    filter["brand.id"] = id;
+    filter["brand.id"] = refIdFilter(id);
   }
   if (query.categoryId) {
     const id = toObjectId(query.categoryId);
     if (!id) return [];
-    filter["category.id"] = id;
+    filter["category.id"] = refIdFilter(id);
   }
   if (query.categoryName) filter["category.name"] = query.categoryName;
   if (query.brandNames?.length) filter["brand.name"] = { $in: query.brandNames };
@@ -77,15 +87,13 @@ export const getProduct = cache(async (id: string): Promise<Product | null> => {
 
 /** Products sharing a tag or category with the given one, best rated first. */
 export async function listSimilarProducts(product: Product, limit = 8): Promise<Product[]> {
+  const categoryId = toObjectId(product.category.id);
+  const or: Filter<ProductDoc>[] = [{ tags: { $in: product.tags } }];
+  if (categoryId) or.push({ "category.id": refIdFilter(categoryId) });
+
   const { products } = await db();
   const docs = await products
-    .find({
-      _id: { $ne: toObjectId(product.id)! },
-      $or: [
-        { tags: { $in: product.tags } },
-        { "category.id": toObjectId(product.category.id)! },
-      ],
-    })
+    .find({ _id: { $ne: toObjectId(product.id)! }, $or: or })
     .sort(BY_RATING)
     .limit(limit)
     .toArray();
@@ -120,7 +128,7 @@ export const getCategory = cache(async (id: string): Promise<Category | null> =>
 export async function listCategoryNamesForBrand(brandId: string): Promise<string[]> {
   const id = toObjectId(brandId);
   if (!id) return [];
-  const names = await (await db()).products.distinct("category.name", { "brand.id": id });
+  const names = await (await db()).products.distinct("category.name", { "brand.id": refIdFilter(id) });
   return names.sort();
 }
 
@@ -128,6 +136,6 @@ export async function listCategoryNamesForBrand(brandId: string): Promise<string
 export async function listBrandNamesForCategory(categoryId: string): Promise<string[]> {
   const id = toObjectId(categoryId);
   if (!id) return [];
-  const names = await (await db()).products.distinct("brand.name", { "category.id": id });
+  const names = await (await db()).products.distinct("brand.name", { "category.id": refIdFilter(id) });
   return names.sort();
 }

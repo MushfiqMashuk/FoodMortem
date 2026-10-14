@@ -2,6 +2,7 @@ import "server-only";
 import { MongoServerError, ObjectId } from "mongodb";
 import { cache } from "react";
 import { db, toObjectId } from "@/lib/db/client";
+import { idString } from "@/lib/db/ids";
 import { toProduct } from "./catalog";
 import type { Product } from "./types";
 
@@ -55,7 +56,7 @@ export const getBucketListIds = cache(async (userId: string): Promise<Set<string
     { _id: uid },
     { projection: { "bucketList.productId": 1 } },
   );
-  return new Set(user?.bucketList?.map((entry) => entry.productId.toHexString()) ?? []);
+  return new Set(user?.bucketList?.map((entry) => idString(entry.productId)).filter(Boolean) ?? []);
 });
 
 /** Bucket-list products with live ratings, most recently added first. */
@@ -64,15 +65,18 @@ export async function listBucketListProducts(userId: string): Promise<Product[]>
   if (!uid) return [];
   const { users, products } = await db();
   const user = await users.findOne({ _id: uid }, { projection: { bucketList: 1 } });
-  const entries = [...(user?.bucketList ?? [])].sort(
-    (a, b) => b.addedAt.getTime() - a.addedAt.getTime(),
-  );
+  // Legacy (v1) entries have `date` instead of `addedAt`.
+  const addedAt = (entry: object) => {
+    const { addedAt, date } = entry as { addedAt?: Date; date?: Date };
+    return new Date(addedAt ?? date ?? 0).getTime();
+  };
+  const entries = [...(user?.bucketList ?? [])].sort((a, b) => addedAt(b) - addedAt(a));
   if (entries.length === 0) return [];
 
   const docs = await products.find({ _id: { $in: entries.map((e) => e.productId) } }).toArray();
   const byId = new Map(docs.map((doc) => [doc._id.toHexString(), doc]));
   return entries.flatMap((entry) => {
-    const doc = byId.get(entry.productId.toHexString());
+    const doc = byId.get(idString(entry.productId));
     return doc ? [toProduct(doc)] : [];
   });
 }
